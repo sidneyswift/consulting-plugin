@@ -15,7 +15,7 @@ Status legend: ✅ built (all 26 now authored). Priority: **P0** = highest lever
 The CLAUDE.md ingest loop as a single skill. Drop in any transcript/note/email and it runs the
 whole loop end-to-end.
 - **Trigger:** new transcript/note/email added, or "process this call", "ingest this".
-- **Does:** place raw file (dated) → read → run content-extraction + (if discovery) discovery-analysis → scan the related client/deal folder → update client README, `pipeline/_board.md`, `operating/dashboard.html` → move folders if stage changed → mine for content/proof → report changes.
+- **Does:** place raw file (dated) → read → run content-extraction + (if discovery) discovery-analysis → scan the related client/deal folder → update client `AGENTS.md` dashboard, `pipeline/_board.md`, `operating/dashboard.html` → move folders if stage changed → mine for content/proof → report changes.
 - **Reads → writes:** `content/raw/`, `clients/*`, `pipeline/*` → updates dashboards, boards, KB.
 - **Source:** CLAUDE.md auto-manage loop (synthesizes Ch. 4, 11, 17).
 
@@ -31,7 +31,7 @@ Draft a situational-assessment proposal with 3 options. *Already built.* Ch. 13,
 ### 5. consulting-lead-intake ✅ (P0)
 Triage a brand-new lead the moment it arrives.
 - **Trigger:** "new lead", a fresh prospect transcript/email, or pasting an inbound inquiry.
-- **Does:** create `pipeline/01-leads/<deal>/` + README, run the qualification checklist (stakes / timeline / ROI-measurability / decision-maker), flag red flags, recommend qualify-or-pass, create/update the Attio CRM record.
+- **Does:** create `pipeline/01-leads/<deal>/` + `AGENTS.md` dashboard, run the qualification checklist (stakes / timeline / ROI-measurability / decision-maker), flag red flags, recommend qualify-or-pass, create/update the Attio CRM record.
 - **Reads → writes:** raw inquiry → `pipeline/01-leads/`, CRM record.
 - **Source:** Ch. 10 (Qualifying Buyers).
 
@@ -96,7 +96,7 @@ Produce test variants to find what resonates before investing.
 ### 14. consulting-client-onboarding ✅ (P1)
 Stand up a won client in one move.
 - **Trigger:** deal won, "onboard <client>".
-- **Does:** copy `clients/_TEMPLATE/` → `clients/<client>/`, fill the dashboard README, generate the kickoff checklist (SOW signed, first invoice, Slack Connect, repo, designated contacts, 48h-decision SLA), move the pipeline folder in.
+- **Does:** copy `clients/_TEMPLATE/` → `clients/<client>/`, fill the dashboard `AGENTS.md`, generate the kickoff checklist (SOW signed, first invoice, Slack Connect, repo, designated contacts, 48h-decision SLA), move the pipeline folder in.
 - **Source:** Ch. 16 + `clients/_TEMPLATE/`.
 
 ### 15. consulting-quarterly-value-review ✅ (P1)
@@ -164,7 +164,7 @@ The connective tissue between delivery, renewals, and proof.
 
 ### 26. consulting-system-auditor ✅ (P2)
 - **Trigger:** "audit the system", periodically.
-- **Does:** reconcile filesystem ↔ CRM, find stale client READMEs, deals in the wrong stage, un-extracted transcripts, missing proof; report a punch list.
+- **Does:** reconcile filesystem ↔ CRM, find stale client `AGENTS.md` dashboards, deals in the wrong stage, un-extracted transcripts, missing proof; report a punch list.
 - **Source:** CLAUDE.md auto-manage discipline.
 
 ---
