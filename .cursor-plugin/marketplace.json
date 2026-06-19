@@ -1,15 +1,15 @@
 {
-  "name": "consulting-skills",
+  "name": "consulting-plugin",
   "owner": {
     "name": "Sidney Swift"
   },
   "metadata": {
-    "description": "Skills for running an AI consulting practice operating system — lead intake, discovery, proposals, the content flywheel, client success, and ops.",
+    "description": "Consulting OS — skills for running an AI consulting practice: lead intake, discovery, proposals, the content flywheel, client success, and ops.",
     "version": "1.0.0"
   },
   "plugins": [
     {
-      "name": "consulting-skills",
+      "name": "consulting-os",
       "source": ".",
       "skills": "skills",
       "description": "27 skills for running an AI consulting practice: lead intake, discovery analysis, pricing, proposals, content flywheel, client onboarding, QBRs, invoicing, and more."

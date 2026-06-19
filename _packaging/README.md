@@ -7,7 +7,7 @@ directly from its GitHub URL — there's no build step and no `.plugin` artifact
 - `skills/<name>/SKILL.md` — one folder per skill (frontmatter `name` + `description`, then steps).
 - `.cursor-plugin/marketplace.json` + `.cursor-plugin/plugin.json` — make it installable in **Cursor**.
 - `.claude-plugin/marketplace.json` + `.claude-plugin/plugin.json` — make it installable in **Claude Code**.
-- Both manifests point the plugin's skills at the `skills/` directory.
+- Both manifests expose one plugin, **`consulting-os`** ("Consulting OS"), whose skills live in `skills/`.
 
 ## Add or change a skill
 1. Create/edit `skills/<name>/SKILL.md` (rule of the practice: anything done 2+ times becomes a skill).
@@ -16,10 +16,10 @@ directly from its GitHub URL — there's no build step and no `.plugin` artifact
 3. Commit and push. That's it — the skill is now part of the plugin.
 
 ## Install it
-- **Cursor:** add the repo URL (`https://github.com/sidneyswift/consulting-skills`) as a plugin
+- **Cursor:** add the repo URL (`https://github.com/sidneyswift/consulting-plugin`) as a plugin
   source (plugins panel, or Team/Enterprise → Settings → Plugins → Import from Repo), then install
-  `consulting-skills`.
-- **Claude Code:** add the same repo as a marketplace, then install the `consulting-skills` plugin.
+  **`consulting-os`**.
+- **Claude Code:** add the same repo as a marketplace, then install the **`consulting-os`** plugin.
 - Once installed, each skill auto-triggers by its `description` — no need to point at the file.
 
 ## Naming
