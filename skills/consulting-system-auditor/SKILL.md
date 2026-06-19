@@ -7,7 +7,7 @@ description: Reconcile and health-check the whole workspace. Use on "audit the s
 
 ## Steps
 1. Reconcile filesystem ↔ Attio CRM: deals in the right stage, no drift (`operating/crm-sync.md`).
-2. Find stale client `README.md` dashboards (status/next-action out of date).
+2. Find stale client `AGENTS.md` dashboards (status/next-action out of date).
 3. Find un-processed transcripts in `content/raw/` and `*/meetings/` (→ run `consulting-call-processor`).
 4. Find wins missing a case study or testimonial; recurring answers missing an FAQ.
 5. Check the dashboard and metrics are current.

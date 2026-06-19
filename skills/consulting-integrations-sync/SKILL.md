@@ -12,7 +12,7 @@ Run end-to-end, then report. API keys are in repo-root `.env.local`.
 1. **Attio (query live — system of record).** Per `operating/crm-sync.md`, query deals via REST
    (`POST /v2/objects/deals/records/query`). For each deal, compare its **stage** to its
    filesystem location. On mismatch: move the folder (`pipeline/**` ↔ `clients/**`), fix the deal
-   `README.md` status line, and regenerate `pipeline/_board.md`. Attio wins on stage; repo wins on artifacts.
+   `AGENTS.md` status line, and regenerate `pipeline/_board.md`. Attio wins on stage; repo wins on artifacts.
 2. **Granola (re-pull deltas — mirror).** If new meetings exist since `integrations/granola/_work` was
    last built, re-run the pull pipeline (or note it's due). File new consulting meetings under the right
    `clients/`/`pipeline/` folder and flag any **new prospect** for `consulting-lead-intake`.

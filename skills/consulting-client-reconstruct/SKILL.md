@@ -16,7 +16,7 @@ When the CRM/Granola know about a relationship the repo doesn't (e.g. a Won deal
    Granola bodies are AI summaries — treat them as leads to verify, not gospel.
 3. **Scaffold the folder.** Copy `clients/_TEMPLATE/` structure (00-context … 06-expansion + meetings)
    into `clients/<name>/` (or the right `pipeline/<stage>/` folder if not yet Won).
-4. **Write the `README.md` dashboard** — status (from Attio), value, account structure, champion +
+4. **Write the `AGENTS.md` dashboard** — status (from Attio), value, account structure, champion +
    stakeholders, workstreams, lead source, stakes, next action. **Reference** the Granola history
    (don't duplicate it). Put anything you couldn't verify under an explicit
    **"Open items to confirm"** section — never assert unverified client facts.

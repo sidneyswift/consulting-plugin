@@ -6,7 +6,7 @@ description: Triage a brand-new inbound lead. Use when a new prospect appears â€
 # Consulting Lead Intake
 
 ## Steps
-1. Create `pipeline/01-leads/{deal-name}/` with a `README.md` (source, contact, stage, next action).
+1. Create `pipeline/01-leads/{deal-name}/` with an `AGENTS.md` dashboard (source, contact, stage, next action).
 2. Save any raw inquiry/transcript into that folder, dated.
 3. Run the qualification checklist (Ch. 10):
    - Stakes â€” is there a clear, painful, quantifiable problem?

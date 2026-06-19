@@ -18,7 +18,7 @@ answered, no "they'll follow up" closes.
    each: subject, who's waiting, and a one-line "what they want." Note `waiting_on_them` separately
    (so you know who *you're* waiting on, e.g. Darren's availability).
 4. **Reconcile.** If a thread reveals a deal moved (signed, scheduled, went cold), update the deal
-   `README.md` + `pipeline/_board.md`, and check Attio (`consulting-integrations-sync`).
+   `AGENTS.md` dashboard + `pipeline/_board.md`, and check Attio (`consulting-integrations-sync`).
 5. **Offer to draft.** For each `needs_your_reply`, offer a draft via
    `integrations/gmail/_work/create_draft.py` (creates a Gmail draft; never sends without `--send`
    and confirmation). Ground replies in the deal context + the thread.
