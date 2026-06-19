@@ -15,7 +15,7 @@ Status legend: ✅ built (all 26 now authored). Priority: **P0** = highest lever
 The CLAUDE.md ingest loop as a single skill. Drop in any transcript/note/email and it runs the
 whole loop end-to-end.
 - **Trigger:** new transcript/note/email added, or "process this call", "ingest this".
-- **Does:** place raw file (dated) → read → run content-extraction + (if discovery) discovery-analysis → scan the related client/deal folder → update client README, `pipeline/_board.md`, `operating-system/dashboard.html` → move folders if stage changed → mine for content/proof → report changes.
+- **Does:** place raw file (dated) → read → run content-extraction + (if discovery) discovery-analysis → scan the related client/deal folder → update client README, `pipeline/_board.md`, `operating/dashboard.html` → move folders if stage changed → mine for content/proof → report changes.
 - **Reads → writes:** `content/raw/`, `clients/*`, `pipeline/*` → updates dashboards, boards, KB.
 - **Source:** CLAUDE.md auto-manage loop (synthesizes Ch. 4, 11, 17).
 
@@ -61,7 +61,7 @@ Turn a raw objection into a tailored response.
 Advance a deal cleanly when its state changes.
 - **Trigger:** "move X to proposal", "we won/lost X".
 - **Does:** move the folder between `pipeline/` stages (or → `clients/` on win, → `closed-lost/` with a post-mortem), update `_board.md` and the CRM stage, never letting them drift.
-- **Source:** `operating-system/crm-sync.md` + Ch. 10–15.
+- **Source:** `operating/crm-sync.md` + Ch. 10–15.
 
 ---
 
@@ -86,7 +86,7 @@ Produce test variants to find what resonates before investing.
 
 ### 13. consulting-faq-builder ✅ (P2)
 - **Trigger:** a question answered for the 2nd time, "add this to the FAQ".
-- **Does:** write a canonical answer to `knowledge-base/faqs/`, link related content, flag it for a content piece.
+- **Does:** write a canonical answer to `knowledge/faqs/`, link related content, flag it for a content piece.
 - **Source:** Ch. 4 ("never answer the same question twice").
 
 ---
@@ -129,16 +129,16 @@ The connective tissue between delivery, renewals, and proof.
 - **Source:** Ch. 19 + `library/contracts/`.
 
 ### 20. consulting-invoice-generator ✅ (P2)
-- **Does:** produce an invoice per the selected payment structure; log to `business-ops/finance/`; track W-9 / terms.
+- **Does:** produce an invoice per the selected payment structure; log to `business/finance/`; track W-9 / terms.
 - **Source:** Ch. 20.
 
 ### 21. consulting-metrics-updater ✅ (P2)
 - **Trigger:** monthly, or after a deal changes state.
-- **Does:** recompute win rate, avg deal size, cycle length, MRR, conversations/week; refresh `operating-system/dashboard.html`; append history to `business-ops/metrics/`.
+- **Does:** recompute win rate, avg deal size, cycle length, MRR, conversations/week; refresh `operating/dashboard.html`; append history to `business/metrics/`.
 - **Source:** Ch. 21. *Good candidate for a scheduled task.*
 
 ### 22. consulting-ip-register-updater ✅ (P3)
-- **Does:** log new frameworks/methodologies/OSS tools to the IP register in `business-ops/legal/` to strengthen the Pre-Existing IP clause on future deals.
+- **Does:** log new frameworks/methodologies/OSS tools to the IP register in `business/legal/` to strengthen the Pre-Existing IP clause on future deals.
 - **Source:** Ch. 19.
 
 ---

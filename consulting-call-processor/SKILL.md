@@ -12,9 +12,9 @@ The CLAUDE.md auto-manage loop as one skill. Don't stop after a single step — 
 2. **Read it.**
 3. **Extract.** Run `consulting-content-extraction`. If it's a discovery/sales call, also run `consulting-discovery-analysis`; if the deal is qualified, chain into `consulting-proposal-drafting`.
 4. **Scan the related folder.** Open the client/deal folder, read its `README.md`, reconcile against the new info.
-5. **Update affected files.** Refresh the client `README.md` (status, stakes, $, next action), `pipeline/_board.md`, and `operating-system/dashboard.html`. Capture new stakeholders, decisions, dates.
+5. **Update affected files.** Refresh the client `README.md` (status, stakes, $, next action), `pipeline/_board.md`, and `operating/dashboard.html`. Capture new stakeholders, decisions, dates.
 6. **Move files to match reality.** If the deal changed stage, run `consulting-deal-stage-mover`.
-7. **Mine for content + proof.** Recurring answers → `knowledge-base/faqs/`; wins → trigger `consulting-case-study-builder` / `consulting-testimonial-capture`.
+7. **Mine for content + proof.** Recurring answers → `knowledge/faqs/`; wins → trigger `consulting-case-study-builder` / `consulting-testimonial-capture`.
 8. **Report** a short summary of everything changed.
 
 Confirm before inventing client facts; otherwise do the routine filing without asking.

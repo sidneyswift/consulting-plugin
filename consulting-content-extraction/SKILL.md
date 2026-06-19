@@ -20,7 +20,7 @@ Automatically after any new transcript is saved (content/raw/ or clients/{client
    - Moments that reframed the client's thinking
 3. Format each as a candidate LinkedIn post or blog topic.
 4. Deposit results:
-   - Reusable explanations → `knowledge-base/insights/`
+   - Reusable explanations → `knowledge/insights/`
    - Post/blog candidates → `content/ideas/`
-   - Recurring question already answered before → `knowledge-base/faqs/`
+   - Recurring question already answered before → `knowledge/faqs/`
 5. If the same topic now appears 2+ times, flag it as a strong content piece.

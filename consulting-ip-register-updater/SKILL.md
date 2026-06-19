@@ -6,7 +6,7 @@ description: Log new frameworks, methodologies, or OSS tools to the IP register.
 # Consulting IP Register Updater
 
 ## Steps
-1. Record the asset in the IP register under `business-ops/legal/` (name, description, date created, where used).
+1. Record the asset in the IP register under `business/legal/` (name, description, date created, where used).
 2. Note that it strengthens the Pre-Existing IP clause on future deals.
 3. Cross-reference any `library/` or `skills/` artifact it corresponds to.
 
