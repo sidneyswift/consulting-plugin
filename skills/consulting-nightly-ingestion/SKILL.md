@@ -38,8 +38,8 @@ Autopilot means "no human in the loop," not "skip the rails." These come straigh
 1. **Pull (delegate to `consulting-integrations-sync`).** Run it for the live API sources only:
    **Attio** (query live, reconcile stage ↔ folder), **Granola** (re-pull deltas since `_work`),
    **Gmail** (pull deal/client threads, flag awaiting-my-reply), **LinkedIn** (refresh engagement),
-   and **Slack** (deal-tied channels per its Slack step — bounded `--days` off `LAST_SYNCED`, never an
-   unbounded backfill; routing table in `integrations/slack/AGENTS.md`). It advances each source's
+   and **Slack** (deal-tied channels per its Slack step — **full pull: every message AND every thread
+   reply**, `--days 0 --threads`; routing table in `integrations/slack/AGENTS.md`). It advances each source's
    `LAST_SYNCED` — that watermark is what keeps this idempotent, so a re-run never re-ingests yesterday.
    **Skip the research wiki** here: it's a *local* sibling repo
    (`../research`) the cloud routine can't see, and it's content-only — leave it to the local Friday

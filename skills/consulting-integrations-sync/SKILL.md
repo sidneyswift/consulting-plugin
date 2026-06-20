@@ -20,14 +20,15 @@ Run end-to-end, then report. API keys are in repo-root `.env.local`.
    chain into `consulting-linkedin-audience`. Update `integrations/linkedin/_work/LAST_SYNCED`.
 4. **Gmail (if auth configured).** Pull deal/client threads; flag any **awaiting my reply**. If auth
    isn't set up yet, skip and note it.
-5. **Slack (if auth configured — log + channel, like Gmail).** Pull the **delta** from deal-tied
-   conversations only (never the whole workspace). Run `integrations/slack/_work/list_access.py` to
-   confirm read access, then for each row of the **Deal channel routing** table in
-   `integrations/slack/AGENTS.md` run `integrations/slack/_work/pull_conversation.py --channel <id>
-   --token user --days N --out <dest>/<YYYY-MM-DD>-<channel>.md` with a **small bounded `--days`** off
-   `integrations/slack/_work/LAST_SYNCED` (user-token pulls are rate-limited/slow — **never an unbounded
-   backfill**). File each keeper next to its client, mine the internal product DM into `knowledge/product/`,
-   and flag threads **awaiting my reply**. Stamp `integrations/slack/_work/LAST_SYNCED`. No `SLACK_*`
+5. **Slack (if auth configured — log + channel, like Gmail).** Pull deal-tied conversations only
+   (never the whole workspace), and pull each one **complete — every top-level message AND every thread
+   reply** (`--days 0 --threads`); a bounded window silently drops new replies on older threads, so don't
+   use one. Run `integrations/slack/_work/list_access.py` to confirm read access, then for each row of the
+   **Deal channel routing** table in `integrations/slack/AGENTS.md` run
+   `integrations/slack/_work/pull_conversation.py --channel <id> --token user --days 0 --threads
+   --out <dest>/<YYYY-MM-DD>-<channel>.md`. File each keeper next to its client, mine the internal
+   product DM into `knowledge/product/`, and flag threads **awaiting my reply**. Mine only the lines new
+   since `integrations/slack/_work/LAST_SYNCED` (so insights don't duplicate), then stamp it. No `SLACK_*`
    keys set → skip and note it.
 6. **Research wiki (read-only content source).** Mined by `consulting-research-miner` (delta-guarded
    via `integrations/research/_work/LAST_MINED`) and pulled at draft time by `consulting-content-drafter`
