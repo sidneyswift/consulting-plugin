@@ -81,6 +81,9 @@ Autopilot means "no human in the loop," not "skip the rails." These come straigh
    - **Needs you** — the queue the rails parked: drafts awaiting send, `[UNVERIFIED]` figures to
      confirm, ambiguous stage moves, missing keys/sources. This is the section the user actually acts on.
    - **Commits** — the `git log --oneline` for the run, so the digest ties back to the memory.
+   - **Score** — run `python evals/ingestion/score_run.py` and put the **composite + any flags** at the
+     top of the digest. A dropped composite or a new flag (orphan, duplicate, missing transcript) is the
+     drift signal to act on — see `evals/ingestion/RUBRIC.md`.
 
 6. **Stop.** Do not send, do not delete, do not ask. The digest's "Needs you" is the handoff.
 
