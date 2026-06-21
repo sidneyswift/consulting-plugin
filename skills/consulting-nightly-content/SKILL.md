@@ -1,53 +1,60 @@
 ---
 name: consulting-nightly-content
-description: Phase 3 of the nightly pipeline — the content engine. After capture + janitor, mine the day's NEW insights into LinkedIn post drafts (voice-compliant, grounded in real captured calls/research), staged for morning review. NEVER auto-publishes. Use on "run the nightly content", "draft today's posts", or as the nightly content ritual. Feeds the flywheel: Content -> LinkedIn -> engagement -> leads.
+description: Phase 3 of the nightly pipeline — the content engine. After capture + janitor, pick a topic from the day's new insights and produce a pillar ARTICLE, a LinkedIn post derived from it, and an on-brand thumbnail — all staged for review, never published. Uses consulting-copywriting for prose and consulting-graphics for the image. Article-first: one pillar -> many platform posts. Use on "run the nightly content", "draft today's article", or as the nightly content ritual.
 ---
 
-# Consulting Nightly Content (the flywheel's draft engine)
+# Consulting Nightly Content (article-first flywheel engine)
 
-Capture turns calls into insights; this turns the day's **new** insights into **staged LinkedIn post
-drafts** Sid reviews and publishes in the morning. It feeds the loop: Content → LinkedIn → engagement →
-leads in Attio → calls → mined into insights → Content.
+Capture turns calls into insights; this turns the day's strongest insight into a **pillar article**, then
+derives a **LinkedIn post** from it and an **on-brand thumbnail**. Article-first, because one good article
+becomes many platform posts later (LinkedIn, X, newsletter) — write the pillar once, atomize forever.
 
-The engine drafts; **Sid publishes.** Quality over volume — a couple of strong, grounded posts beat a
-pile of generic ones.
+The engine drafts; **Sid publishes.** Quality over cadence.
+
+## Output — one folder per article
+```
+content/articles/drafts/<topic-slug>-<YYYY-MM-DD>/
+  <article-slug>.md    the pillar article
+  linkedinpost.md      the LinkedIn post derived from / promoting the article
+  thumbnail.png        the on-brand graphic
+```
 
 ## Rails
-1. **Never auto-publish.** Drafts only → `content/drafts/`. Sid reviews + publishes via
-   `consulting-linkedin-publisher` (`integrations/linkedin/_work/publish.py`). Do **not** call publish.
-2. **Grounded, not fabricated.** Every post traces to a real captured insight/transcript — carry the
-   citation. **Never invent a client name, number, or result.** Confirm before naming a client; otherwise
-   write the lesson generically.
-3. **Voice (writing-voice-rules).** No em-dashes. Short declaratives. Human, direct, specific. No AI-slop
-   ("delve", "unlock", "seamless", "game-changer", "in today's fast-paced…", "it's not just X, it's Y").
-   Lead with the problem + outcome, not your resume.
-4. **Quality over volume.** 2–4 strong posts a night, max. Thin insights → don't force a post. A quiet
-   night (nothing new worth posting) is a one-line report, no drafts.
+1. **Never auto-publish.** Drafts only; Sid reviews + publishes via `consulting-linkedin-publisher` (Postbridge).
+2. **Grounded, not fabricated.** Every claim traces to a real captured insight/transcript — carry the
+   citation. Never invent a client name, number, or result; confirm before naming a client, or write generically.
+3. **Voice = `consulting-copywriting`** (no exceptions): no em-dashes, anti-slop list, specific, human. Read it.
+4. **Quality over volume.** One strong article a night (occasionally a second). A thin day → one-line report, no article.
 
 ## Steps
-0. **Orient + find what's new.** Read the day's `business/ops/nightly-digests/<date>.md`. Gather fodder
-   newer than the watermark `content/_work/LAST_DRAFTED`: new `knowledge/insights/*.md` and
-   `content/ideas/*.md` (the capture sweep deposits these). `git log` for what landed today.
+0. **Orient + find what's new.** Read the day's `business/ops/nightly-digests/<date>.md`. Gather insights
+   newer than `content/_work/LAST_DRAFTED` (`knowledge/insights/`, `content/ideas/`). `git log` for today.
 
-1. **Select 2–4.** Pick the strongest, most *specific* fresh insights — the ones with a real story or a
-   non-obvious POV from an actual call/research. **Dedup:** skip anything already in `content/published/`
-   or `content/drafts/` (never redraft a published idea — "never post the same post twice").
+1. **Pick ONE topic** — the strongest, most specific fresh insight with a real story / POV from an actual
+   call. Dedup vs `content/published/` and `content/articles/` (never rewrite a published pillar). Slugify
+   the topic and make the folder `content/articles/drafts/<topic-slug>-<YYYY-MM-DD>/`.
 
-2. **Draft each via `consulting-content-drafter`.** Title formula + AIDA + specificity ladder → a
-   LinkedIn post. Apply the voice rules above (run/lean on `consulting-email-voice` for the sweep). Keep
-   every claim traceable to its source insight/transcript; if research-derived, pull the cited wiki page
-   per `integrations/research/AGENTS.md`.
+2. **Write the ARTICLE** (the pillar). Read **`consulting-copywriting`** first (voice-principles, anti-slop,
+   formats §blog/articles, and long-form-essay architecture for 1,000+ words). Lead with the counterintuitive,
+   concrete before abstract, grounded + cited. Aim 800–1,400 words. Save as `<article-slug>.md` with
+   frontmatter: `title`, `source` (insight/transcript path), `audience`, `status: draft`.
 
-3. **Stage.** Write each to `content/drafts/<YYYY-MM-DD>-<slug>.md` with frontmatter: `source:` (the
-   insight/transcript path), `hook:` (the first line), `audience:` (IC vs leadership), `status: draft`.
-   **Do not publish.**
+3. **Derive the LinkedIn POST from the article.** Read `consulting-copywriting` §social. A standalone hook
+   that teases/promotes the article (don't just paste the intro). Save as `linkedinpost.md` (frontmatter:
+   `source` = the article path, `hook`, `status: draft`).
 
-4. **Report + score + commit.** Write `business/ops/content-reports/<date>.md` (**Drafted · Skipped (why)
-   · Needs Sid**), run `python evals/content/score_run.py` and put the composite + flags at the top,
-   commit each draft why-first, stamp `content/_work/LAST_DRAFTED`, then stop.
+4. **Make the THUMBNAIL.** Read **`consulting-graphics`** — pick the thumbnail/landscape format + the brand
+   template (`elegant-founder`), compose the HTML from identity (`~/.config/sid/identity.md`), and render via
+   Playwright (`npx playwright screenshot --viewport-size="W,H" file.html thumbnail.png`). Save `thumbnail.png`
+   in the folder (keep the `.html` alongside). If the graphics config isn't set up, save the thumbnail HTML and
+   flag the PNG step in the report — don't block the article on it.
+
+5. **Report + score + commit.** Write `business/ops/content-reports/<date>.md` (**Article · Post · Thumbnail ·
+   Skipped (why) · Needs Sid**), run `python evals/content/score_run.py` (composite + flags at top), commit
+   each draft why-first, stamp `content/_work/LAST_DRAFTED`, then stop.
 
 ## Notes
-- **Mine, don't manufacture.** The fodder is real captured calls/research — if the day produced nothing
-  worth saying, say nothing. The flywheel rewards signal, not cadence.
-- Scored by `evals/content/score_run.py` (grounding, voice, non-duplication, throughput). Engagement →
-  leads is the lagging metric — read it from the LinkedIn engagement pull, not this scorer.
+- **Article-first is the leverage.** The pillar gets atomized later into X threads, a newsletter, more LinkedIn
+  angles. Spend the effort on the pillar.
+- **Mine, don't manufacture.** Nothing worth a pillar → say nothing. The flywheel rewards signal, not cadence.
+- Scored by `evals/content/score_run.py`: completeness (article + post + thumbnail), grounding, voice, non-dup.
