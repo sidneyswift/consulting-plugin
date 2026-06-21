@@ -18,9 +18,8 @@ Social selling: mine post engagement for warm leads and feed them into the pipel
 3. **Score & prioritize.** Rank by fit to the ICP (`positioning/`) — title/seniority, company in a
    target account (`integrations/attio/` Target Accounts list), and engagement depth (comment > like).
 4. **Act.**
-   - New high-fit people → create an Attio person (`relationship = lead`) and draft outreach in Sid's
-     voice (`consulting-email-voice` for email, `consulting-linkedin-engage` for a LinkedIn DM),
-     grounded in the post they engaged with.
+   - New high-fit people → create an Attio person (`relationship = lead`) and draft the first-touch
+     outreach with `consulting-people-outreach`, grounded in the post they engaged with.
    - Existing contacts who re-engaged → flag for `consulting-followup-sequencer`.
 5. **Record.** Save the ranked candidate list to `integrations/linkedin/engagement/` and note any
    new Attio records created.
