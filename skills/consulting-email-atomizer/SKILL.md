@@ -9,7 +9,7 @@ Turn one source (a `knowledge/insights/` entry, a fresh call, or an industry eve
 email touches. Second consumer of the insight reservoir (LinkedIn is the first).
 Full design: `docs/plans/2026-06-19-email-engine-design.md` · templates: `library/email-templates/` (06-11) ·
 staging + frontmatter + routing: `content/email/AGENTS.md`.
-**Voice (always):** run every draft through the `consulting-email-voice` skill (no em-dashes, short and direct, names verified against real context).
+**Voice + gate (always):** write in `consulting-copywriting` voice, then run every draft through the `consulting-outbound-email` skill (read context, route to the right person, reader-POV check, names verified) before staging.
 
 ## Steps
 1. **Take one source.** Prefer an existing `knowledge/insights/` file. If it is a raw call, run
@@ -23,9 +23,9 @@ staging + frontmatter + routing: `content/email/AGENTS.md`.
 4. **Resolve segments live.** Query Attio (`ATTIO_API_KEY`) for current membership of each target
    segment. Reconcile-on-touch, never a copied list. For a 1:1 nudge, pick the one named contact.
 5. **Draft each touch.** Fill the matching `library/email-templates/` skeleton in Sid's voice.
-   Always apply the `consulting-email-voice` skill (no em-dashes, short, names verified). Borrow
-   `consulting-content-drafter`'s AIDA and "you over I". Ground every claim in the source. No
-   invented numbers, streams, or chart positions.
+   Always apply `consulting-copywriting` (the voice) and the `consulting-outbound-email` gate (names
+   verified against real context). Borrow `consulting-content-drafter`'s AIDA and "you over I". Ground
+   every claim in the source. No invented numbers, streams, or chart positions.
 6. **Stage.** Write each to `content/email/outbox/<send_date>-<format>-<segment>.md` with the
    instance frontmatter (format · source · audience/recipient · send_date · `status: draft` · `channel: gmail`).
 7. **Report the fan-out** (1 source into N drafts) with proposed send_dates spread across the week.

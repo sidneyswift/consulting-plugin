@@ -14,6 +14,13 @@ Apply the relevant section based on what you're writing. Anti-slop rules always 
 
 ## Email
 
+### Posture (all outbound)
+
+- Confident, never needy. No "just checking in," no chasing, no apologizing for someone's silence.
+- Write for cognitive ease (System 1): short declaratives, lead with their concern, not your product.
+- Take the work off their plate: one low-effort default, not a menu. State the default action ("I'll take X to Mike and loop you") instead of asking permission to ask.
+- A 1:1 note should land under ~90 words. Shorter wins.
+
 ### Cold outreach
 
 - 3–5 sentences max.

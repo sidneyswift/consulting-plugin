@@ -16,7 +16,7 @@ Gather everything knowable about a lead before writing to them. The governing ru
 leads had commented on. The agent owned that context and skipped it. Never again.)
 
 ## When to run
-Before any personalized outreach. `consulting-email-voice` rule 3 calls this. It matters most for
+Before any personalized outreach. `consulting-outbound-email` runs this as its context step. It matters most for
 **content-sourced leads** (someone who reacted to / commented on a post), where the hook is whatever
 they responded to, not a generic intro.
 

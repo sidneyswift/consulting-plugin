@@ -8,7 +8,7 @@ description: Score a lead's relationship temperature (0-10) and posture from the
 Turn a lead's full comms history into a **temperature** (how hot the opportunity) and a **posture**
 (how to speak to them). Relationship state is Attio's domain, so Attio plus the deal dashboard hold the
 canonical score; this skill computes it. Feeds `consulting-email-atomizer`,
-`consulting-followup-sequencer`, and `consulting-email-voice` as the posture input.
+`consulting-followup-sequencer`, and `consulting-outbound-email` as the posture input.
 
 Heuristic, not truth: cite every input, label anything not evidenced [UNVERIFIED], never let the
 number overrule judgment. **Score from primary sources only — verbatim Granola transcripts and the
@@ -58,6 +58,6 @@ Recompute on-touch and in the Friday warm-leads sweep, so it doubles as a coolin
 ## How drafting uses it
 
 Skills do not call each other or pass variables at runtime; they share state through files. There is
-no handoff. The email skills (`consulting-email-voice` and the drafters) read the Temperature and
+no handoff. The email skills (`consulting-outbound-email` and the drafters) read the Temperature and
 posture straight from the deal dashboard during their own "read all context" step, and set tone and
 ask from it. This skill's job ends at writing a clear, cited record (step 6).

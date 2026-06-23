@@ -65,6 +65,10 @@ Numbers, names, dates, tools, prices, percentages, time periods. These are not d
 
 In a social post, one specific number can carry the entire hook. In a case study, layer them. In a cold email, one specific result replaces three paragraphs of description.
 
+### Evidence over vague authority
+
+To a senior reader, vague authority reads as positioning — a setup for a pitch they can feel coming. Phrases like "I keep seeing," "the teams pulling it off," and "everyone is realizing" signal a sales move, not a real observation. Earn the point with one concrete, real, named example, or drop the claim and ask the genuine question instead. Never invent the example to fill the gap: if you don't have a real one, go get it.
+
 ---
 
 ## First-person operational authority
@@ -187,6 +191,18 @@ For essays: shift register — a story, an image, or a passage from a completely
 For emails: end with the specific next step. Not "Let me know your thoughts."
 
 The instinct across all formats: the last sentence should make the reader think, not just nod.
+
+---
+
+## Say it out loud
+
+If a human wouldn't say it out loud, cut it. No corporate narration, no meta-commentary, no jargon or insider verbs. Use the plain word a non-expert would use.
+
+- Bad: "the point worth surfacing for your team" → just say the point.
+- Bad: "the thing your committee will gate on" → "what they'll ask about" or "care about."
+- Bad: "I wanted to put this on the table" → say the thing.
+
+Read the sentence aloud. If you wouldn't say it to the person's face, rewrite it.
 
 ---
 

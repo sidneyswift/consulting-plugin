@@ -5,7 +5,7 @@ description: Generate the timed follow-up cadence for a deal, personalized to th
 
 # Consulting Follow-Up Sequencer
 
-> Voice: always run drafts through the `consulting-email-voice` skill (no em-dashes, short and direct, names verified against real context).
+> Voice + gate: write in `consulting-copywriting` voice, then run every draft through `consulting-outbound-email` (read context, route, reader-POV check) before staging.
 
 ## Steps
 1. Pull the deal's specifics: the outcome discussed, the stakes in their words, the next-meeting date.

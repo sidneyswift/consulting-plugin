@@ -1,14 +1,15 @@
 ---
 name: consulting-stakeholder-update
-description: The writing style for a quick update or recap to an external stakeholder (client sponsor, champion, exec, partner) after a session, milestone, or to flag a blocker plus an ask. Use on "draft an update to {name}", "recap the session for the client", "send {sponsor} a quick note", "status update", "check in with {stakeholder}". Runs on top of consulting-email-voice and shapes it into a fast, scannable update built on simplicity, clarity, and play. Not for internal post-session notes (those are unfiltered, Sid's POV) and not the formal bi-weekly progress report (heavier) — this is the light note between them.
+description: The writing style for a quick update or recap to an external stakeholder (client sponsor, champion, exec, partner) after a session, milestone, or to flag a blocker plus an ask. Use on "draft an update to {name}", "recap the session for the client", "send {sponsor} a quick note", "status update", "check in with {stakeholder}". Runs on top of consulting-outbound-email (the process) and consulting-copywriting (the voice), shaping them into a fast, scannable update built on simplicity, clarity, and play. Not for internal post-session notes (those are unfiltered, Sid's POV) and not the formal bi-weekly progress report (heavier) — this is the light note between them.
 ---
 
 # Consulting Stakeholder Update
 
 The style for a short note to a stakeholder: a recap after a working session, a milestone update, or
-a "here's what surfaced and what I need" flag. It sits **on top of `consulting-email-voice`** (the
-house rules: no em-dashes, short and direct, read all context first, route the ask to the right
-person, cool/calm/confident). This skill adds the **shape** and the **feel** for updates specifically.
+a "here's what surfaced and what I need" flag. It sits **on top of `consulting-outbound-email`** (the
+process: read all context first, route the ask to the right person, gate before sending) and
+**`consulting-copywriting`** (the voice: no em-dashes, short and direct, cool/calm/confident). This
+skill adds the **shape** and the **feel** for updates specifically.
 
 **Not rigid.** This is a set of principles and a shape to riff on, not a template to fill. Adapt to
 the person and the moment. Drop any section that earns nothing. The goal is a note that reads like a
@@ -47,7 +48,7 @@ trusted partner wrote it in two minutes, not a status report.
 - Could a busy person get the point and the ask in one skim?
 - Is the win obvious and the blocker framed as solvable?
 - Is the ask aimed at the right person and low-effort for them?
-- Does it sound like you, not a status bot? (And zero em-dashes — see `consulting-email-voice`.)
+- Does it sound like you, not a status bot? (And zero em-dashes — see `consulting-copywriting`.)
 
 ## Worked example — session recap to a sponsor (Darren session 1 → Evan, 2026-06-23)
 Setup-heavy session, framed as a win plus one routed ask. ~150 words, scannable, warm sign-off.
