@@ -18,7 +18,7 @@ in `consulting-tasteful-design` (`DESIGN.md`).
 - **Supporting text:** `Plus Jakarta Sans` 500, `--mute`, noticeably quieter than the headline.
 - **One restraint-friendly accent:** a single short `--accent` (not `--signal`) rule or a small kicker
   label. Keep it whisper-quiet — energy is not this template's job.
-- **Footer:** the standard mark + `Sidney Swift` · `recoupable.com` (see design-tokens), light variant.
+- **Footer:** the standard mark + `Sidney Swift` · `recoupable.com` (see DESIGN.md), light variant.
 
 ## Layout rules
 - Content anchored upper-third to center, generous left margin (80px). Left-aligned.

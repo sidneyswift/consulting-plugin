@@ -12,7 +12,7 @@ Bold, scannable, confident. Uses the shared brand DNA in `consulting-tasteful-de
 - **Blocks:** white cards on the light field, each with a **colored number chip** that cycles through
   `--accent → --signal → --navy` for rhythm (color-coded, but all in the blue family — never rainbow).
 - **One signal pop:** the `Fix:`/payoff line uses `--signal` for the eye-hit.
-- **Footer:** the standard mark + `Sidney Swift` · `recoupable.com` (see design-tokens).
+- **Footer:** the standard mark + `Sidney Swift` · `recoupable.com` (see DESIGN.md).
 
 ## Layout rules
 - Header band ~30–38% of height. Body cards fill the rest with even gaps (22–28px).
