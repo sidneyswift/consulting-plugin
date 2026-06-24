@@ -6,7 +6,7 @@ description: >
   deck, a proposal, a landing page, the metrics dashboard, an email header — any rendered artifact.
   Use whenever the goal is "make it look good / on-brand / bold / not AI slop", or when choosing
   palette, type, layout, or motion. It does NOT redefine the brand tokens — those are canonical in
-  this skill's DESIGN.md; it carries
+  the project's root /DESIGN.md; this skill carries
   the cross-medium PRINCIPLES (the "bold, not boring" stance), the anti-AI-slop checklist, and the
   rules for translating the brand into MOTION/video that the still-graphics kit doesn't cover.
 metadata: { "tags": "design, taste, brand, visual, motion, look-and-feel, anti-slop, house-authority" }
@@ -24,12 +24,12 @@ say-it-out-loud, no hype**), translated from sentences to pixels. The stance is 
 
 ## Canon — read these, never invent brand facts
 
-1. **`DESIGN.md`** (in this skill) — the **brand source of truth**: the exact
+1. **The project's root `/DESIGN.md`** — the **brand source of truth**: the exact
    palette (`--ink` / `--navy` / `--accent` / `--signal` / `--tint` …), the type roles, and the
    standard footer signature (Recoup mark · Sidney Swift · recoupable.com), plus the "bold, not
    boring" principles. **Pull exact colors, fonts, the logo, and the footer from here — don't restate
    or guess them.** For stills it also owns the template set (`framework-blocks`, `statement`, `stat`,
-   `editorial`). For anything it doesn't cover (e.g. audience), ask — don't invent.
+   `editorial`). For anything it doesn't cover (e.g. audience) — or if the project has no `DESIGN.md` at all (e.g. this plugin installed in another repo) — ask the user for brand values, or scaffold one; never invent.
 2. **`consulting-copywriting/references/voice-principles.md`** — governs every word that appears
    (headlines, captions, labels, CTAs).
 

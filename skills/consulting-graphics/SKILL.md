@@ -1,18 +1,21 @@
 ---
 name: consulting-graphics
-description: Generate on-brand social media graphics for any platform and format — feed posts, carousels, stories/reels covers, banners and headers, profile pictures, YouTube thumbnails, Pinterest pins, Open Graph link cards, and ad creative. Renders HTML to PNG via Playwright at correct platform dimensions with safe zones. Use when asked to create a social post, carousel, slide deck for social, story/reel, cover/banner, profile picture, thumbnail, pin, OG image, or to resize/adapt one design across multiple platforms and aspect ratios (1:1, 4:5, 9:16, 16:9, 1.91:1, 2:3, banners, pfps). Visual styles live as templates in references/; dimensions and safe zones live in references/dimensions.md.
+description: Generate on-brand social media graphics for any platform and format — feed posts, carousels, stories/reels covers, banners and headers, profile pictures, YouTube thumbnails, Pinterest pins, Open Graph link cards, and ad creative. Renders HTML to PNG via Playwright at correct platform dimensions with safe zones. Use when asked to create a social post, carousel, slide deck for social, story/reel, cover/banner, profile picture, thumbnail, pin, OG image, or to resize/adapt one design across multiple platforms and aspect ratios (1:1, 4:5, 9:16, 16:9, 1.91:1, 2:3, banners, pfps). Visual styles live as templates in references/; output-craft playbooks (thumbnail, carousel, …) live in references/recipes/; dimensions and safe zones in references/dimensions.md. Static images only — for video, motion graphics, or anything animated, use consulting-hyperframes-video.
 ---
 
 # Consulting Graphics
 
-Generate on-brand social media graphics from content, at the right dimensions for any platform and placement. HTML → Playwright screenshot → PNG.
+Generate on-brand social media graphics from content, at the right dimensions for any platform and placement. HTML → Playwright screenshot → PNG. **Static images only — for video, motion graphics, or anything animated, use `consulting-hyperframes-video`.**
 
-Two independent choices drive every graphic:
+**Three choices** drive every graphic:
 - **Format** = the dimensions/aspect ratio (square, 4:5, story, banner, pfp, thumbnail, pin…). See `references/dimensions.md`.
-- **Template** = the *composition* (layout + which color field + the dominant element). See `references/<template>.md`.
+- **Template** = the *style* (layout + which color field + the dominant element). See `references/<template>.md`.
+- **Recipe** = the *output craft* — what makes a great thumbnail vs carousel vs OG card. See `references/recipes/<output>.md`.
+
+Any output is a **Format × Template × Recipe** composition — e.g. a thumbnail = `recipes/thumbnail` × the `statement` style × 1280×720.
 
 All templates share **one brand DNA** — palette, type, logo, footer — defined in
-**`consulting-tasteful-design/DESIGN.md`**. That's the trick: a bold infographic and a dark quote card look like
+**`DESIGN.md`**. That's the trick: a bold infographic and a dark quote card look like
 the *same brand* without looking *the same*. Pick the template by what the content needs, and **vary it
 across a series** — making everything look identical is the failure mode this kit exists to fix.
 
@@ -22,7 +25,7 @@ You can render the *same* template at *many* formats — that's how you create o
 
 **Step 0: Load the brand + the kit**
 
-1. Read **`consulting-tasteful-design/DESIGN.md`** — the brand source of truth: the CSS palette, fonts, the
+1. Read the project's top-level **`DESIGN.md`** — the brand source of truth: the CSS palette, fonts, the
    standard footer signature (Recoup mark · Sidney Swift · recoupable.com), and the "bold, not boring"
    principles every template builds on. **Always read this before composing.** Never hardcode a value
    that disagrees with it; for anything it doesn't cover (e.g. audience), ask — don't invent.
@@ -32,7 +35,7 @@ You can render the *same* template at *many* formats — that's how you create o
 ## Workflow
 
 1. **Identify the format(s).** What is being made and for where? Look up the exact dimensions, aspect ratio, file specs, and safe zone in `references/dimensions.md`. If the user names a platform but not a placement, default to the highest-engagement feed format: **1080×1350 (4:5)**.
-2. **Choose the template** (the composition) by what the *content* is, not a default look: `framework-blocks` for teaching/lists/how-tos, `statement` for hooks/POVs/quotes/announcements, `stat` for a number or proof, `editorial` for the occasional restrained piece. Read `consulting-tasteful-design/DESIGN.md`, then `references/<template>.md`. Across a batch, deliberately mix them.
+2. **Choose the template** (the composition) by what the *content* is, not a default look: `framework-blocks` for teaching/lists/how-tos, `statement` for hooks/POVs/quotes/announcements, `stat` for a number or proof, `editorial` for the occasional restrained piece. Read `DESIGN.md`, then `references/<template>.md`. Across a batch, deliberately mix them. **Then read the recipe** for the output (`references/recipes/<output>.md` — e.g. thumbnail, carousel) for its craft bar.
 3. **Apply brand from `DESIGN.md`.** Use the brand name, logo SVG, and handle for footers/close slides/profile marks.
 4. **Compose for the format.** Match the layout to the canvas — a 4:5 feed post, a 9:16 story, a 4:1 banner, and a circular pfp are different compositions, not the same art stretched. Respect the safe zone for the format (see dimensions.md). For multi-slide carousels, one idea per slide.
 5. **Generate HTML** sized to the target canvas. Set `body { width: Wpx; height: Hpx; }`. Replace `BRAND_NAME` with the brand from `DESIGN.md`; use its logo SVG.
@@ -72,12 +75,25 @@ To ship the same design across platforms and sizes:
 
 > **Taste authority:** `consulting-tasteful-design` is the house north star for look-and-feel across
 > every medium; this kit is its still-graphics implementation. Brand tokens (color/type/logo/footer)
-> live in **`consulting-tasteful-design/DESIGN.md`** — read it first. Default is bold (`framework-blocks`); a
+> live in **`DESIGN.md`** — read it first. Default is bold (`framework-blocks`); a
 > single minimal template is what made everything samey, so `editorial` is one choice, not the floor.
 
 To add a template: create `references/<name>.md` (visual identity, layout rules, a complete HTML shell
-using the tokens, quality checklist). Templates own *composition*; `DESIGN.md` owns *brand*;
-`dimensions.md` owns *size*.
+using the tokens, quality checklist).
+
+## Recipes — output craft (what makes each output *good*)
+
+Templates give you the *style*; **recipes give you the craft bar for a specific output**. Read the recipe
+for what you're making, then compose it with a template + format.
+
+| Output | Recipe | Typical format × template |
+|---|---|---|
+| **Thumbnail** (YouTube, blog hero, link/OG preview) | [references/recipes/thumbnail.md](references/recipes/thumbnail.md) | 1280×720 / 1200×630 × `statement`·`stat` |
+| **Carousel** (LinkedIn / IG swipe-through) | [references/recipes/carousel.md](references/recipes/carousel.md) | 1080×1350 ×N × `framework-blocks`·`statement` |
+
+To add a recipe: create `references/recipes/<output>.md` (when to use, the craft bar, layout pattern,
+render notes, quality checklist). **Separation of concerns:** recipes own *output craft* · templates own
+*style* · `dimensions.md` owns *size* · `DESIGN.md` owns *brand*.
 
 ## Dimensions & safe zones
 

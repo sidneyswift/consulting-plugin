@@ -4,7 +4,7 @@ The restrained, premium option — a quiet serif headline on a crisp light field
 kit, not the default.** Reach for it when the *content* wants calm authority (a reflective essay
 thumbnail, a single sober quote), not when you're defaulting. A whole feed of these is what made the
 old system forgettable, so use it sparingly and mix it with the bolder templates. Uses the shared DNA
-in `consulting-tasteful-design` (`DESIGN.md`).
+in the project's `DESIGN.md`.
 
 > This replaces the old `elegant-founder` template. Key change: **no pale washed-out gradient** (that's
 > on the anti-slop list). Editorial is now *crisp* light (clean `--paper`/`--tint`), not a faded blue

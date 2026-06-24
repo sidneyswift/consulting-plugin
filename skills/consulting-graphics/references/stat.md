@@ -2,7 +2,7 @@
 
 One giant number is the whole design. For data drops, proof, milestones, and before/after. The number
 dwarfs everything; a small label sets it up and a short line lands the "so what." Uses the shared DNA
-in `consulting-tasteful-design` (`DESIGN.md`).
+in the project's `DESIGN.md`.
 
 > **Evidence discipline:** the number must be real and cited (a transcript, contract, or live metric) —
 > never a placeholder dressed up as proof. A fake number on a proof card is the worst kind of slop.

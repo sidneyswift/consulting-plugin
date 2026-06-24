@@ -2,7 +2,7 @@
 
 One huge line on a dark field. For hooks, contrarian POVs, manifestos, announcements, and pull-quote
 cards. The opposite end of the kit from `framework-blocks` — minimal content, maximum conviction.
-Uses the shared brand DNA in `consulting-tasteful-design` (`DESIGN.md`).
+Uses the shared brand DNA in the project's `DESIGN.md`.
 
 ## Visual identity
 - **Field:** full-bleed dark — `--ink` (`#0b1020`) base with a subtle `--navy`→`--ink` gradient and one

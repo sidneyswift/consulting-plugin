@@ -2,7 +2,7 @@
 
 The "save this" teaching infographic — a named framework or numbered list, color-coded, with worked
 detail. This is the reach + lead-magnet engine (people screenshot and re-share reference assets).
-Bold, scannable, confident. Uses the shared brand DNA in `consulting-tasteful-design` (`DESIGN.md`).
+Bold, scannable, confident. Uses the shared brand DNA in the project's `DESIGN.md`.
 
 ## Visual identity
 - **Field:** light (`--paper`) body with a full-bleed **dark navy header band** (`--navy`/`--ink`) up top.
