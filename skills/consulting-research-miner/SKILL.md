@@ -1,6 +1,6 @@
 ---
 name: consulting-research-miner
-description: Mine the external AI & Agents research wiki for content. Use on "harvest research", "content ideas from research", "mine the research wiki", on the Friday cadence, or whenever the research wiki (../research) has new material. Turns its cited analysis into content/ideas/ cards that show the practice's agent/skill expertise — read-only; never copies wiki pages in.
+description: Mine the external AI & Agents research wiki for content. Use on "harvest research", "content ideas from research", "mine the research wiki", on the Friday cadence, or whenever the research wiki (../research) has new material. Turns its cited analysis into content/02-ideas/ cards that show the practice's agent/skill expertise — read-only; never copies wiki pages in.
 ---
 
 # Consulting Research Miner
@@ -24,8 +24,8 @@ wiki's `log.md` has advanced since `integrations/research/_work/LAST_MINED`.
 4. **Translate analysis → angles.** Turn each portable idea into a first-person content angle that
    shows *your* expertise (teach it / argue it / show the receipts), not a third-person book report.
    Keep the strongest ~5–10 across the delta — quality over a dump (the weekly target is 15–20 ideas).
-5. **Write the card file** at `content/ideas/YYYY-MM-DD-research-<topic>-ideas.md`, in the house format
-   (match any existing `content/ideas/*-call-ideas.md`):
+5. **Write the card file** at `content/02-ideas/YYYY-MM-DD-research-<topic>-ideas.md`, in the house format
+   (match any existing `content/02-ideas/*-call-ideas.md`):
    - `# Content candidates — Research wiki: <topic> (YYYY-MM-DD)`
    - a `Source:` line naming the wiki pages mined;
    - `## LinkedIn post candidates` — numbered; each a **bold hook**, a `Hook:` body, an

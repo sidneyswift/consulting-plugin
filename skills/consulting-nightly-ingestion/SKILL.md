@@ -51,10 +51,10 @@ Autopilot means "no human in the loop," not "skip the rails." These come straigh
    meeting / thread / engagement the pull surfaced, **deal-scoped** (never cross Recoup ⇄ SwiftResponse
    in one item — Granola's don't-cross-jobs rule):
    - **Place** the raw file in its home (`clients/<client>/meetings/` or `…/slack/`,
-     `pipeline/<stage>/<deal>/`, `knowledge/product/` for internal product DMs, or `content/raw/`),
+     `pipeline/<stage>/<deal>/`, `knowledge/product/` for internal product DMs, or `content/01-raw/`),
      dated `YYYY-MM-DD`.
    - **Extract** → `consulting-content-extraction` (insights → `knowledge/insights/`, candidates →
-     `content/ideas/`). Discovery call → also `consulting-discovery-analysis`; qualified → chain
+     `content/02-ideas/`). Discovery call → also `consulting-discovery-analysis`; qualified → chain
      `consulting-proposal-drafting`.
    - **Reconcile** the related folder: read its `AGENTS.md`, fix drift against the new info + live Attio.
    - **Update** all affected files: the deal/client `AGENTS.md` dashboard (status, stakes, $, next

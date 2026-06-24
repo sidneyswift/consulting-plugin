@@ -52,7 +52,7 @@ the command cheat-sheet → `integrations/higgsfield/AGENTS.md`.
    `consulting-graphics` as a background and overlay branded type. A clip for a post →
    `consulting-hyperframes-video` can package it with captions/overlays.
 8. **Promote keepers → `content/`.** Move only what you'll use into the draft's folder (or `content/_work/`
-   while staging; `content/published/` once shipped). The repo isn't the archive — Higgsfield's cloud keeps
+   while staging; `content/04-published/` once shipped). The repo isn't the archive — Higgsfield's cloud keeps
    job history (`higgsfield generate list`).
 9. **Publish.** Hand the final asset + caption to `consulting-linkedin-publisher` (Postbridge). Never
    auto-send — confirm the final creative + copy first.

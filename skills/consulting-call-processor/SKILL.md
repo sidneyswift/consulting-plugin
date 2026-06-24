@@ -8,7 +8,7 @@ description: The auto-manage orchestrator. Use whenever new client/deal material
 The CLAUDE.md auto-manage loop as one skill. Don't stop after a single step — run the whole loop, then report what changed.
 
 ## Steps
-1. **Place the raw file.** Save to the right home (`content/raw/`, `clients/{client}/meetings/`, or `pipeline/{stage}/{deal}/`), dated `YYYY-MM-DD`.
+1. **Place the raw file.** Save to the right home (`content/01-raw/`, `clients/{client}/meetings/`, or `pipeline/{stage}/{deal}/`), dated `YYYY-MM-DD`.
 2. **Read it.**
 3. **Extract.** Run `consulting-content-extraction`. If it's a discovery/sales call, also run `consulting-discovery-analysis`; if the deal is qualified, chain into `consulting-proposal-drafting`.
 4. **Scan the related folder.** Open the client/deal folder, read its `AGENTS.md` dashboard, reconcile against the new info.

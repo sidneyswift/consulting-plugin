@@ -13,12 +13,12 @@ The engine drafts; **Sid publishes.** Quality over cadence.
 
 ## Output — one pillar bundle (slug folder) in drafts/
 ```
-content/drafts/<topic-slug>-<YYYY-MM-DD>/
+content/03-drafts/<YYYY-MM-DD>-<topic-slug>/
   <article-slug>.md    the pillar article
   linkedinpost.md      the LinkedIn post derived from / promoting the article
   thumbnail.png        the on-brand graphic
 ```
-(A pillar is the *folder* shape of a draft; a one-off post/graphic is a single file in `content/drafts/`.
+(A pillar is the *folder* shape of a draft; a one-off post/graphic is a single file in `content/03-drafts/`.
 See `content/AGENTS.md`.)
 
 ## Rails
@@ -30,11 +30,11 @@ See `content/AGENTS.md`.)
 
 ## Steps
 0. **Orient + find what's new.** Read the day's `business/ops/nightly-digests/<date>.md`. Gather insights
-   newer than `content/_work/LAST_DRAFTED` (`knowledge/insights/`, `content/ideas/`). `git log` for today.
+   newer than `content/_work/LAST_DRAFTED` (`knowledge/insights/`, `content/02-ideas/`). `git log` for today.
 
 1. **Pick ONE topic** — the strongest, most specific fresh insight with a real story / POV from an actual
-   call. Dedup vs `content/published/` and existing `content/drafts/` (never rewrite a published pillar).
-   Slugify the topic and make the bundle folder `content/drafts/<topic-slug>-<YYYY-MM-DD>/`.
+   call. Dedup vs `content/04-published/` and existing `content/03-drafts/` (never rewrite a published pillar).
+   Slugify the topic and make the bundle folder `content/03-drafts/<YYYY-MM-DD>-<topic-slug>/` (date-first, so `drafts/` sorts chronologically).
 
 2. **Write the ARTICLE** (the pillar). Read **`consulting-copywriting`** first (voice-principles, anti-slop,
    formats §blog/articles, and long-form-essay architecture for 1,000+ words). Lead with the counterintuitive,

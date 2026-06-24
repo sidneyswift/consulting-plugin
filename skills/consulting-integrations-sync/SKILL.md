@@ -51,7 +51,7 @@ Run end-to-end, then report. API keys are in repo-root `.env.local`.
    — see `integrations/research/AGENTS.md`. The Friday harvest lives in `consulting-friday-review`;
    trigger the miner here too if the wiki's `log.md` advanced since `LAST_MINED`.
 7. **Mine fresh material.** New won deals → `consulting-case-study-builder`; recurring answers →
-   `knowledge/faqs/`; reusable insights → `knowledge/insights/` + `content/ideas/`.
+   `knowledge/faqs/`; reusable insights → `knowledge/insights/` + `content/02-ideas/`.
 8. **Stamp + report.** Update each integration's `LAST_SYNCED`, the crm-sync "Last full reconcile"
    note, and write a short report: **what changed · what drifted · what's stale · what needs me**.
 
