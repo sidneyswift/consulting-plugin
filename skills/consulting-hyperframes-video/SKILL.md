@@ -73,6 +73,11 @@ This is where "customize to our system and taste" lives. **Before designing any 
    brand source of truth (`consulting-tasteful-design/DESIGN.md`): palette, type, logo, and
    the footer signature (Recoup · Sidney Swift · recoupable.com). For anything it doesn't cover (e.g.
    audience), ask — don't invent.
+   - *Two `DESIGN.md` scopes — don't confuse them:* the **practice** brand is always
+     `consulting-tasteful-design/DESIGN.md`. Some modes (e.g. `website-to-video`, `general-video`)
+     generate a **per-project** design spec at the video's own root (precedence `frame.md` →
+     `design.md` → `DESIGN.md`) for that one deliverable — **seed it from the practice brand**, don't
+     mistake it for the source.
 3. **Voice/copy** (titles, narration, captions) follows `consulting-copywriting` —
    `references/voice-principles.md`. No em-dashes-as-crutch, no hype, real specifics.
 
