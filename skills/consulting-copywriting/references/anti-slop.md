@@ -226,6 +226,14 @@ Before publishing anything that touches a client engagement (money, IP, ownershi
 - Bad: "One client's contract says they own all work product, which means every skill I build in their repository is theirs, not mine. That's a clean answer. Most companies don't have one."
 - Good: "In one of my engagements, the contract is explicit: the client owns all work product, so every skill I build in their repo is theirs. I think that's the right setup (clear ownership keeps the capability with the company, not with me or any one person). Most companies leave it ambiguous, and the ambiguity is where it gets messy."
 
+### Stacked list-sentences
+Two enumerations in consecutive sentences read mechanically; the cadence is a tell that the model is padding. Keep the one list that earns its place, and turn the other into a concrete claim.
+
+- Bad: "...into skills an agent can run, and you've built an operating system the company owns. It lowers labor cost, makes delivery faster and more consistent, shortens onboarding, and holds onto institutional knowledge when people leave."
+- Good: "...into skills an agent can run, and you've built an operating system the company owns. Every time it runs, labor cost drops and onboarding gets shorter."
+
+The fix usually kills a repetition the second list was hiding (here, "knowledge leaves when people leave" had already been said twice earlier in the piece).
+
 ## Anti-overfitting
 
 Do not imitate the voice too hard. Do not force jokes or slang. Do not make every sentence punchy or every paragraph 1 sentence.
