@@ -1,0 +1,53 @@
+---
+name: consulting-content-distribution
+description: Distribute one finished pillar article across every channel the same way — republish the same copy to the owned blog + LinkedIn newsletter + X (as an article, never a thread), ship the always-on companions (a LinkedIn promo post + an email to the list), point every link at the owned canonical URL, then find the live post and monitor its engagement into leads. Use after an article is written or published, on "distribute this", "post it everywhere", "atomize this article", "where else should this go", or when promoting a piece in content/04-published/.
+---
+
+# Consulting Content Distribution
+
+One pillar, one copy, every channel — run the same way each time so the effort stays in the writing and the spread is mechanical. This skill **orchestrates** existing skills; it does not redefine them: `consulting-copywriting` (voice), `consulting-linkedin-publisher` (LinkedIn out), `consulting-email-atomizer` + `consulting-outbound-email` (email), `consulting-linkedin-audience` (engagement → leads), and the `integrations/linkedin/_work/` scripts (find post + engagement).
+
+## The model (Sid's distribution map)
+
+One finished article = the **canonical copy**. It travels as:
+
+**Homes (the same copy, verbatim — only title/meta differ):**
+- **Recoupable blog** — the **owned** home and the **canonical link target**. Owned beats rented (`reference/guide/06-owning-distribution.md`).
+- **LinkedIn newsletter article** — the rented home where the subscribers already are (~350).
+- **X, as an Article** (X long-form). **Never a thread.** Standing rule: same article copy on X, never a thread.
+
+**Companions (ship with every article):**
+- **A LinkedIn promo post** linking to the canonical URL (`consulting-linkedin-publisher`).
+- **An email to the list** ("I wrote this, here's why it matters") linking to the canonical URL (`consulting-email-atomizer` → staged in `content/email/outbox/`, never sent).
+
+**Parked (not solved yet — don't force it):**
+- Instagram / short-form reels. Revisit once the visual short-form workflow is nailed. Skipping it is correct, not a gap.
+
+## Link policy (what everything points to)
+- **Canonical = the owned Recoupable blog URL** once the blog post is up. The blog page can link out to the LinkedIn newsletter version.
+- **Until the blog is up:** point to the live LinkedIn article/post (it's already there). Record both on the bundle; repoint to the blog when it's live.
+- **One canonical URL per article**, set in the published bundle frontmatter (`canonical:`). The promo post, email, X, and blog all point at it.
+
+## Steps
+1. **Confirm the canonical copy + link target.** The pillar in `content/04-published/<slug>/`. Pick the canonical URL: owned blog if up, else the live LinkedIn URL.
+2. **Homes:** republish the *same* article body to the blog and to X (as an Article). LinkedIn newsletter is usually already done by Sid. Don't rewrite per platform; only title/meta change.
+3. **Companions:**
+   - Promo post via `consulting-linkedin-publisher` (drafts/schedules through `integrations/linkedin/_work/publish.py`; prompts before sending).
+   - Email via `consulting-email-atomizer` + `consulting-outbound-email`: a short broadcast to the list, `source:` = the article's insight, staged in `content/email/outbox/`.
+   - Both link to the canonical URL.
+4. **Find the post + record the URL (no manual URL needed).** Run `python integrations/linkedin/_work/pull_posts.py --max 25 --yes`, locate the promo post by its hook, and write its URL into the bundle frontmatter (`url:`). This is how the agent stops asking Sid for the URL.
+5. **Monitor → leads (close the flywheel).** Capture a baseline (likes/comments/shares) and, on a cadence, `pull_engagement.py --post-url <url>` → `enrich.py` → `crossref_attio.py` to turn engagers into net-new Attio lead candidates (`consulting-linkedin-audience`). Re-check on the Friday cadence; promote to an unattended routine if Sid wants it hands-off.
+6. **Track state.** Write/update `distribution.md` in the bundle: each channel (status + URL), the canonical link, the companions, and the engagement baseline. One glance = where this piece lives and how it's doing.
+
+## Rails
+- **Same copy across homes.** Blog, LinkedIn newsletter, and X article use the article verbatim. Don't fork the message. DRY: don't duplicate the full article into the repo per platform — point to the article file; keep only platform deltas (title, meta) in `distribution.md`.
+- **Never a thread on X.** Always the Article feature.
+- **Never auto-send / auto-post.** Email + LinkedIn default to drafts; publishing is a human action (`publish.py` prompts).
+- **Voice = `consulting-copywriting`** for the promo post + email (anti-slop floor + human-texture seasoning). The article body is already governed.
+- **Owned > rented.** Canonical is the owned blog whenever it exists.
+
+## Filing
+- Promo post → the bundle's `linkedinpost.md`.
+- Email → `content/email/outbox/<date>-<slug>-article-announce.md` (status: draft).
+- Distribution state + engagement baseline → the bundle's `distribution.md`.
+- Recurring engagement monitoring → a cadence (Friday review) or a dedicated `routines/` worker; the capability is the `integrations/linkedin/_work/` pull scripts + `consulting-linkedin-audience`.
