@@ -13,6 +13,11 @@ hero, a LinkedIn/Open-Graph link-preview card. It is read at ~160px wide in a no
 - **In-feed thumbnail:** 1080×1350 (4:5) or 1080×1080.
 - Exact specs + safe zones: `references/dimensions.md`.
 
+> **Animated hero?** This PNG stays the **poster + OG image** (link-preview cards never animate). To add
+> motion *on the owned blog*, mount a muted `<video>` loop behind it — drop-in template
+> `library/web/blog-hero.html`, render the loop with `consulting-hyperframes-video`. Playbook:
+> `knowledge/sops/animated-media-for-posts-and-article-headers.md`.
+
 ## The craft bar (what makes it good)
 1. **One 3–6 word hook, enormous.** The words *are* the design — they should fill roughly a third to a
    half of the frame. If it needs a sentence, it's a `statement` post, not a thumbnail.

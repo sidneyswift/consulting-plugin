@@ -45,6 +45,7 @@ One finished article = the **canonical copy**. It travels as:
 - **Never auto-send / auto-post.** Email + LinkedIn default to drafts; publishing is a human action (`publish.py` prompts).
 - **Voice = `consulting-copywriting`** for the promo post + email (anti-slop floor + human-texture seasoning). The article body is already governed.
 - **Owned > rented.** Canonical is the owned blog whenever it exists.
+- **Animated = MP4, not GIF.** For motion on a post or header, ship a muted MP4 loop (`integrations/linkedin/_work/make_loop.py` → `publish.py --media`) — Postbridge rejects GIF. **Link previews / OG cards stay static PNG** (they never animate). For the future owned-blog hero, use a `<video autoplay loop muted>` (graphics recipe `animated-hero`). Per-surface specs: `knowledge/sops/animated-media-for-posts-and-article-headers.md`.
 
 ## Filing
 - Promo post → the bundle's `linkedinpost.md`.
