@@ -57,6 +57,21 @@ Then add **one** archetype block:
 
 ---
 
+## Higgsfield CLI route (alternative to the GenerateImage tool)
+For tighter style-matching, generate via Higgsfield `gpt-image-2` with an uploaded **style-reference
+image** (one of the `samples/`):
+```bash
+higgsfield auth login
+higgsfield upload samples/flow.png        # → save the UUID as REF
+higgsfield generate cost gpt-image-2 --prompt "..."   # check cost first
+higgsfield generate create gpt-image-2 \
+  --prompt "$STYLE  <archetype block, filled with real labels>" \
+  --image $REF --wait
+# output → integrations/higgsfield/_work/  → copy keepers into the article's images/ folder
+```
+`$STYLE` = the STYLE BLOCK above. The reference image anchors the hand-drawn look; the prompt drives
+layout + labels. (Cap at ~6 elements per diagram — more than that garbles.)
+
 ## Tips
 - **Short labels only.** 1–3 words per box. Put nuance in a tiny caption, not inside the box.
 - **One pivotal element** gets the blue highlight — don't blue-wash everything.

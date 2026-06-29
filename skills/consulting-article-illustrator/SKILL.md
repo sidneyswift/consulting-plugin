@@ -1,13 +1,19 @@
 ---
-name: consulting-article-images
+name: consulting-article-illustrator
 description: Generate hand-drawn "whiteboard / excalidraw"-style explainer images for articles and posts — the doodle-marker diagrams that sit inside a pillar to explain a concept (a flow, a comparison, a loop, a stack, a hub-and-spoke, a numbered framework). Made with gen AI (gpt-image) in the brand palette: light-grey background, black marker line work + hand-lettering, a single blue accent (no yellow). Use when asked to "make an article image / diagram / explainer / infographic", a "hand-drawn / sketch / whiteboard / excalidraw" visual, or a concept diagram to drop into a blog post / LinkedIn article / pillar. NOT for clean HTML social graphics (use consulting-graphics) or anything animated (use consulting-hyperframes-video).
 ---
 
-# Consulting Article Images
+# Consulting Article Illustrator
 
 Hand-drawn **whiteboard explainer diagrams** for articles — the friendly doodle-marker visuals that
 make a concept legible inside a pillar post. Produced with **gen AI** (the reference look is itself
 AI-generated, not literal Excalidraw), so this skill is a **prompt + style system**, not an HTML kit.
+
+> **Lineage.** A first version of this skill (built on another machine) used `gpt-image-2` via the
+> Higgsfield CLI but a **white background + yellow badges**. Sid rejected the yellow → this version
+> locks the palette to **light grey / black marker / one blue** (below). It also absorbed the duplicate
+> `consulting-article-images`. The parent pipeline (nightly-content density rules) refers to this skill
+> by name — keep it `consulting-article-illustrator`.
 
 - **This skill** = hand-drawn, doodle, marker — concept *explainers* inside articles.
 - **`consulting-graphics`** = clean **HTML→PNG** social graphics (statement / stat / framework-blocks).
@@ -37,8 +43,10 @@ tokens to the project **`DESIGN.md`**; this skill only fixes the *article-image*
 2. **Pick an archetype** that fits the idea (see table). One archetype = one layout.
 3. **Write the prompt** = the **style block** + the **archetype block**, filled with the concept's real
    labels. Full templates in [references/prompt-kit.md](references/prompt-kit.md).
-4. **Generate** with the `GenerateImage` tool (gpt-image). Landscape (~3:2) for in-article; 1:1 or 4:5
-   if it's also a post.
+4. **Generate** — two routes, both `gpt-image`-class: **(a)** the **`GenerateImage` tool** (fastest,
+   in-session); or **(b)** the **Higgsfield CLI** with an uploaded **style-reference image** for tighter
+   control: `higgsfield generate create gpt-image-2 --prompt "$STYLE …" --image $REF --wait` (output →
+   `integrations/higgsfield/_work/`). Landscape (~3:2) for in-article; 1:1 or 4:5 if it's also a post.
 5. **Run the bar** (below). Regenerate if it fails — especially **any yellow**, garbled text, or a white
    (not grey) background. Text fidelity is gen-AI's weak spot → keep every label **short (≤3–4 words)**.
 6. **Save into the piece's bundle:** `content/03-drafts/<YYYY-MM-DD-slug>/images/<concept>.png` (the
