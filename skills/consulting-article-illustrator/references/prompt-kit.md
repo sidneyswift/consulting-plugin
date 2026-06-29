@@ -1,8 +1,8 @@
 # Prompt kit — hand-drawn whiteboard explainers
 
 Every prompt = **STYLE BLOCK** (always identical, the locked look) + **ARCHETYPE BLOCK** (the layout,
-filled with the concept's real labels). Generate with the `GenerateImage` tool. Keep labels short
-(≤3–4 words) — gen-AI garbles long text.
+filled with the concept's real labels). Generate with **gpt-image-2** (the `GenerateImage` tool
+in-session, or Higgsfield `gpt-image-2`). Keep labels short (≤3–4 words) — gpt-image-2 garbles long text.
 
 ---
 
@@ -10,10 +10,9 @@ filled with the concept's real labels). Generate with the `GenerateImage` tool. 
 > Hand-drawn whiteboard explainer infographic in a friendly doodle/marker style. Soft **LIGHT GREY
 > background (#e9ebee)** — never white, never a gradient. All boxes, arrows, and hand-lettered labels in
 > **BLACK marker**; the **only** accent color is a single **BLUE (#2a5bd0)**, used for highlighter
-> swashes, underlines, numbered circles, checkmarks, and small accent ticks. **Absolutely NO yellow
-> anywhere.** Slightly wobbly hand-drawn rounded-rectangle boxes, hand-drawn arrows, simple line-doodle
-> icons, clean legible hand-lettering, lots of whitespace, high craft, flat — no photorealism, no
-> gradient, no drop shadows.
+> swashes, underlines, numbered circles, checkmarks, and small accent ticks. Slightly wobbly hand-drawn
+> rounded-rectangle boxes, hand-drawn arrows, simple line-doodle icons, clean legible hand-lettering,
+> lots of whitespace, high craft, flat — no photorealism, no gradient, no drop shadows.
 
 Then add **one** archetype block:
 
@@ -76,8 +75,7 @@ layout + labels. (Cap at ~6 elements per diagram — more than that garbles.)
 - **Short labels only.** 1–3 words per box. Put nuance in a tiny caption, not inside the box.
 - **One pivotal element** gets the blue highlight — don't blue-wash everything.
 - **Aspect:** in-article ~3:2 landscape; if it doubles as a post, also render 1:1 / 4:5.
-- **If text must be long or exact** (real product names, numbers): gen-AI will likely garble it — either
-  shorten, or fall back to an HTML build (rough.js + a handwriting font like Virgil/Excalifont) rendered
-  via Playwright for crisp text in the same palette.
-- **Regenerate on:** any yellow, white (not grey) background, garbled/misspelled text, vector-clean (not
+- **If a label must be long or exact** (product names, numbers): shorten it, or split it into a short
+  label + a tiny caption — gpt-image-2 garbles long strings.
+- **Regenerate on:** white (not grey) background, garbled/misspelled text, a vector-clean (not
   hand-drawn) look, or more than one accent color.
