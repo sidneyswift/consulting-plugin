@@ -86,6 +86,7 @@ When writing anything meant to sound human (social posts, newsletters, essays, w
 When writing for a specific format, read the relevant section of [references/formats.md](references/formats.md):
 
 - Social posts (LinkedIn, X, Instagram)
+- Social articles and newsletter explainers
 - Email (cold, warm, newsletters)
 - Blog posts and articles
 - Landing pages and product copy
@@ -100,7 +101,9 @@ When writing anything meant to sell, convert, or build an audience (landing page
 
 ## Long-form essay architecture
 
-When writing essays, articles, or thought pieces of 1,000+ words, also read [references/long-form-essay.md](references/long-form-essay.md). It contains the full essay blueprint: 7-section structure with word count targets (plus a "scaling by length" guide for shorter pieces), extended example technique, counterargument depth, the evocative register, footnote usage, and section connection patterns. Voice principles (loaded above) provide the sentence-level and paragraph-level craft; this reference provides the essay-level structure.
+When writing a consulting pillar article, social article, newsletter explainer, or LinkedIn article, default to [references/social-article-style.md](references/social-article-style.md). It contains Sid's article format: thesis first, purpose sentence, thought experiment, comparison by capability and dependency, fair critique, temporal honesty, and a pragmatic verdict. Use this for the nightly content engine unless the prompt explicitly asks for a deep long-form essay.
+
+When the prompt explicitly asks for a deep long-form essay, or the piece genuinely needs essay-depth treatment, also read [references/long-form-essay.md](references/long-form-essay.md). It contains the full essay blueprint: 7-section structure with word count targets (plus a "scaling by length" guide for shorter pieces), extended example technique, counterargument depth, the evocative register, footnote usage, and section connection patterns. Voice principles (loaded above) provide the sentence-level and paragraph-level craft; this reference provides the essay-level structure.
 
 ## Landing page and conversion architecture
 

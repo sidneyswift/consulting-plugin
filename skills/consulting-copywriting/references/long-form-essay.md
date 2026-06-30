@@ -1,6 +1,6 @@
 # Long-form essay architecture
 
-This reference covers essay-specific structure. The universal voice principles (tone, sentence patterns, specificity, evidence, openings, endings) are in [voice-principles.md](voice-principles.md) and apply to all writing. Load this reference when writing essays, articles, or thought pieces of 1,000+ words. See "Scaling by length" below to fit the blueprint to your word count.
+This reference covers essay-specific structure. The universal voice principles (tone, sentence patterns, specificity, evidence, openings, endings) are in [voice-principles.md](voice-principles.md) and apply to all writing. Load this reference when the prompt explicitly asks for a deep long-form essay, or when the piece genuinely needs essay-depth treatment. See "Scaling by length" below to fit the blueprint to your word count.
 
 ---
 

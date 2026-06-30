@@ -12,6 +12,17 @@ Apply the relevant section based on what you're writing. Anti-slop rules always 
 - End with something concrete: a number, a result, a question worth answering. No "thoughts?" as a crutch.
 - No "I'm humbled to announce" energy. State the thing.
 
+## Social articles and newsletter explainers
+
+For middle-length explanatory pieces, read [social-article-style.md](social-article-style.md). Quick version:
+
+- Use when the piece is too developed for a quick post but too direct for a long essay.
+- One controlling distinction, several supporting angles.
+- Open with the mental model, then prove it with a thought experiment or concrete conversion test.
+- Compare options by capability, dependency, best use case, and failure mode.
+- Give each option its strongest case before naming the tradeoff.
+- End with a pragmatic verdict: what the reader should do or believe differently now.
+
 ## Email
 
 ### Posture (all outbound)
@@ -44,6 +55,7 @@ Match the tone. "Thanks" or a name beats "Best regards" or "Warm wishes."
 
 ## Blog posts and articles
 
+- For consulting pillar articles and article-first content, use [social-article-style.md](social-article-style.md) as the default structure.
 - Title: specific and direct. No "The Ultimate Guide to..." or "Everything You Need to Know About..."
 - Skip the preamble. Start with the useful content.
 - Headers let readers skip to what they need.

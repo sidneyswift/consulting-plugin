@@ -10,6 +10,10 @@ A second set of eyes on a finished draft. The review runs in a **fresh-context s
 ## When to run
 On request ("copy-edit / edit / hard edit / editor pass / review this draft"), and as the last gate before publishing any long-form piece.
 
+When a parent workflow already has a later score/report/commit gate (for example `consulting-nightly-content`),
+run the editorial pass through implementation (steps 1-5), then let the parent workflow handle verification,
+reporting, and committing after the full bundle is assembled.
+
 ## Steps
 
 1. **Pick the target.** The one file to edit (default: the draft in question; if unclear, ask). Note its kind (pillar article, post, email) and rough length.
@@ -34,9 +38,9 @@ On request ("copy-edit / edit / hard edit / editor pass / review this draft"), a
 
 5. **Implement** the accepted edits in the draft.
 
-6. **Verify.** Re-scan for em-dashes and banned vocab, then run `python evals/content/score_run.py`; the edited piece should read clean on its own (per-draft 100). Fix anything the edits introduced.
+6. **Verify.** Re-scan for em-dashes and banned vocab. If running standalone, run `python evals/content/score_run.py`; the edited piece should read clean on its own (per-draft 100). Fix anything the edits introduced.
 
-7. **Report & commit.** A short summary: what changed, and what you deliberately left and why. Commit with a why-first message.
+7. **Report & commit.** If running standalone, write a short summary: what changed, and what you deliberately left and why. Commit with a why-first message.
 
 ## Reviewer brief (paste verbatim into the subagent; fill the {PLACEHOLDERS})
 
