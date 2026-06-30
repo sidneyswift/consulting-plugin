@@ -19,9 +19,11 @@ Then add **one** archetype block:
 ---
 
 ## HERO / title card (the top image)
-> Layout: a wide hero banner. A big hand-lettered TITLE with a BLUE underline: "[TITLE]". One central
-> doodle that captures the article's core metaphor: [the metaphor in one phrase]. Poster-like — minimal,
-> bold, fewer elements than an inline figure, lots of whitespace. Wide 16:9.
+> Layout: a poster-like COVER banner with only THREE things and nothing else — (1) a big hand-lettered
+> TITLE with one BLUE underline: "[TITLE]"; (2) ONE central doodle icon for the article's core metaphor:
+> [the metaphor as a single object]; (3) lots of empty light-grey space around it. It is a COVER, not a
+> diagram: NO step boxes, NO numbered steps, NO bullet lists, NO multiple panels, NO flow arrows between
+> boxes, NO sub-labels or captions. Wide 16:9.
 
 ## FLOW / pipeline
 > Layout: a left-to-right flow of [N] slightly-wobbly hand-drawn rounded boxes joined by hand-drawn
@@ -62,6 +64,10 @@ Then add **one** archetype block:
 ---
 
 ## Higgsfield CLI route (alternative to the GenerateImage tool)
+> **Cloud pipeline note:** the unattended nightly worker can't run the CLI's browser login — it uses the
+> **Higgsfield MCP** connector instead, with the **same model (`gpt-image-2`)** and the same prompt below.
+> Don't fall back to another image model; if `gpt-image-2` is unavailable, skip figures and flag.
+
 For tighter style-matching, generate via Higgsfield `gpt-image-2` with an uploaded **style-reference
 image** (one of the `samples/`):
 ```bash
