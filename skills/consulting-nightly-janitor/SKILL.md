@@ -52,7 +52,10 @@ archives files), so it runs under stricter rails.
    (`python integrations/granola/_work/build_transcript_indexes.py`); resolve any duplicate artifacts
    (same note-id / thread in two files) by keeping one and noting it.
 
-6. **Archive dead files.** Stale scratch / superseded local files → `_archive/<area>/` dated. Never delete.
+6. **Archive dead files + sweep used signals.** Stale scratch / superseded local files → `_archive/<area>/`
+   dated (never delete). **Sweep the reservoir:** move `signals/*.md` whose `status` is `used` or `archived`
+   (**content-type only — never evergreen insights**) into `signals/_archive/`, then regenerate
+   `signals/_index.md`. This keeps `signals/` the live queue (new + evergreen).
 
 7. **Report + score + commit.** Write `business/ops/janitor-reports/<date>.md` with sections **Done ·
    Drift fixed · Staged for confirmation · Deferred**, run `python evals/janitor/score_run.py` and put the
