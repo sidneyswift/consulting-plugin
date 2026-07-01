@@ -64,7 +64,11 @@ title/path heuristics vs only release tags.`
   sign-off. Strip em-dashes/hype per `consulting-copywriting` (the 2025 copy predates the voice rules).
 - **`video/`** — `consulting-hyperframes-video` explainer/demo (or package a provided screen capture).
 - **`linkedin.md` + `x.md`** — build-in-public / demo posts. `images/` as needed.
-- Edit gates: `consulting-copy-editor` on each format; `consulting-copy-reviewer` (customer POV) on the email.
+- Edit gates — **every audience-facing format, not just the email.** Run `consulting-copy-reviewer`
+  **then** `consulting-copy-editor` on **each** of `email.md` / `linkedin.md` / `x.md`, reviewer before
+  editor. Use the right ICP per format: the **Recoup customer** for `email.md`; **Sid's operator/builder
+  ICP** for `linkedin.md` / `x.md` (they go on Sid's public feed). Record which gates ran in the bundle's
+  `gates:` field. (Scored ≠ gated — the automated scorer is the floor; the reader/editor passes are the bar.)
 
 ## Audience & dispatch (reuses the email engine)
 - The feature-email is **broadcast/nurture** → routes via the existing matrix (`email/AGENTS.md`):
