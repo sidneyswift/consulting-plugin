@@ -168,6 +168,15 @@ Do not wrap the preceding paragraph into a tidy abstract noun and hand it back t
 
 Principle: no human would say that sentence out loud. It's the AI bottling an idea into a label to sound conclusive. Run the say-it-aloud test on every short summary sentence; either restate the concrete claim ("Plan on managing agents, not doing the work yourself") or cut the sentence — the paragraph already made the point.
 
+## "Keep coming back to" (performed-reflection setups)
+
+Do not frame a point or a list by announcing that you keep returning to it: "things I keep coming back to," "the thing I keep coming back to," "the part I keep coming back to," "what I keep coming back to," "one thing I keep coming back to," "something I keep coming back to," and the enumerated form ("Two things I keep coming back to:", "N things I keep coming back to:").
+
+- Bad: "Two things I keep coming back to: 1. ... 2. ..."
+- Good: number the points with no setup, or "Two things matter here: 1. ... 2. ..."
+
+Principle: the reader can't watch you "come back" to anything — the phrase performs hard-won reflection to inflate what follows, so it's throat-clearing, not content. State the claim or start the list directly. (This bans the "coming back to" framing only — plain "I keep thinking about X" is still fine.)
+
 ## AI patterns to avoid
 
 - **Puffery**: "a key turning point", "a pivotal moment", "marking a significant evolution" — state the fact

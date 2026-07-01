@@ -84,7 +84,7 @@ Useful phrases:
 - "My current read..."
 - "Long term, I expect..."
 - "This is probably controversial..."
-- "The part I keep coming back to..."
+- "I'll change my mind if..."
 
 This lets the writer take a stance while leaving room for changing evidence.
 
