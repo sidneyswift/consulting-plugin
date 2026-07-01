@@ -30,7 +30,9 @@ media. Map the shapes onto Sid's substance.
    emphasis word, generous whitespace. Keep it tight — short posts perform as well as long.
 5. **Choose ONE in-post CTA:** a *reflective question* (to drive comments) **or** a *soft PS → funnel*
    ("PS: … join the waitlist. Or don't."). Never both. The PS is how a post feeds the funnel
-   (`consulting-linkedin-funnel-architect`).
+   (`consulting-linkedin-funnel-architect`). **The post must stand alone** — never rely on "read the
+   article" to carry it, and don't tack an outbound link onto every post; link out only when you're
+   actually attaching a piece, as a bonus after a complete post.
 6. **Decide on an image.** ~85% of top posts carry one. If it teaches a framework, pair a "save this"
    infographic → hand off to `consulting-graphics` (template: `framework-blocks`). If it's
    commentary, a meme/screenshot may outperform. Otherwise a branded text-on-image card.

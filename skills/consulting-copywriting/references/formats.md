@@ -4,12 +4,15 @@ Apply the relevant section based on what you're writing. Anti-slop rules always 
 
 ## Social posts (LinkedIn, X, Instagram)
 
-- Lead with the point. First line earns the second line.
-- One idea per post. Two ideas = two posts.
-- Short paragraphs. Line breaks between thoughts.
-- 0–3 hashtags max, only if the platform rewards them.
-- X: 280 chars (longer for premium). LinkedIn: truncates after ~210 chars on feed. Write the hook above the fold.
-- End with something concrete: a number, a result, a question worth answering. No "thoughts?" as a crutch.
+- **Lead with the payoff, not the setup.** Line 1 is the whole game: the sharpest, most useful, or most surprising thing goes first. No throat-clearing ("I've been thinking about…"). If someone read only line 1, they'd still get something.
+- **Get to value fast, above the fold.** LinkedIn cuts to "…see more" after ~210 chars (about 2-3 short lines). Both the hook and the core point belong *before* that cut — never make someone click "see more" to reach the point. (X: 280 chars, more for premium.)
+- **One idea per post.** Two ideas = two posts.
+- **Format for a phone, not a page.** Short lines. One thought per line or per 1-2 line block, with a blank line between blocks. No paragraph over ~3 lines — walls of text get scrolled past. White space *is* the format.
+- **Make it skimmable.** A reader should get the whole arc scanning the left edge. When you have 3+ concrete items, stack them as a short list, one line each.
+- **At most one emphasis move** — one ALL-CAPS word or one bold line, not both. More reads as shouting.
+- **0–3 hashtags**, only if the platform rewards them.
+- **The post stands alone.** It must deliver complete value by itself — write as if no one clicks anything. Do **not** end every post with "read the article" / "link in comments." An outbound link (article, site) is **optional**: add it only when a piece is actually attached, keep it a bonus after an already-complete post, and never make it the reason the post exists.
+- **End on something concrete** — a specific line, a number, a result, or a real question (not "thoughts?" as a crutch). A link CTA, if you add one, goes after that closing line, not in place of it.
 - No "I'm humbled to announce" energy. State the thing.
 
 ## Social articles and newsletter explainers

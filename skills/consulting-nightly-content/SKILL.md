@@ -62,9 +62,11 @@ See `content/AGENTS.md`.)
    `article.md`. Implement accepted edits in place. Defer score/report/commit to step 8 because this
    parent workflow scores the full bundle once. Use the edited article as the source for every downstream step.
 
-5. **Derive the LinkedIn POST from the edited article.** Read `consulting-copywriting` §social. A standalone
-   hook that teases/promotes the article (don't just paste the intro). Save as `linkedin.md` (frontmatter:
-   `source` = the article path, `hook`, `status: draft`).
+5. **Derive the LinkedIn POST.** Read `consulting-copywriting` §social + **`consulting-linkedin-post-architect`**.
+   Write a **stand-alone** post that delivers complete value on its own (don't just paste the article intro) —
+   phone-first formatting, value above the fold. The article link is **optional**: add it only as a bonus after
+   an already-complete post, never a forced "read the article" / "link in comments." Save as `linkedin.md`
+   (frontmatter: `source` = the article path, `hook`, `status: draft`).
 
 6. **Edit the LinkedIn POST.** Run **`consulting-copy-editor`** on `linkedin.md`. Implement accepted edits
    in place before illustration and scoring. Defer score/report/commit to step 8.
