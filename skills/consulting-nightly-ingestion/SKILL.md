@@ -45,7 +45,9 @@ Autopilot means "no human in the loop," not "skip the rails." These come straigh
    `LAST_SYNCED` — that watermark is what keeps this idempotent, so a re-run never re-ingests yesterday.
    **Skip the research wiki** here: it's a *local* sibling repo
    (`../research`) the cloud routine can't see, and it's content-only — leave it to the local Friday
-   review (`consulting-friday-review`).
+   review (`consulting-friday-review`). **Also pull GitHub product PRs directly** — `python3
+   integrations/github/_work/pull_prs.py` (tokenless, public `recoupable` org) — the raw for Engine B's
+   `product-update` signals (step 2b). No key/connector needed; public repos read unauthenticated.
 
 2. **Process each NEW item through the auto-manage loop** (CLAUDE.md §"Auto-manage"). For every new
    meeting / thread / engagement the pull surfaced, **deal-scoped** (never cross Recoup ⇄ SwiftResponse
@@ -66,6 +68,15 @@ Autopilot means "no human in the loop," not "skip the rails." These come straigh
    - **Mine:** new won deal → `consulting-case-study-builder`; recurring answer → `knowledge/faqs/`;
      reusable win → `proof/` ask.
 
+2b. **Product PRs → `product-update` signals (Engine B's capture half — NOT deal-scoped, a separate pass).**
+   From the merged PRs the GitHub pull surfaced (step 1), **filter** to user-facing changes
+   (conventional-commit prefix: keep `feat(...)`; drop `chore`/`test`/`ci`/`build`/`refactor`/`docs` + bare
+   "Test"), **cluster** related PRs into one feature, and write one `product-update` signal per feature to
+   `signals/` — each **cited to its PRs** (PR #/commit sha, never invented; **build activity ≠ adoption** —
+   announce shipped capability, not usage you can't prove). Logic: `consulting-product-engine` (its extract
+   half). Then stamp `integrations/github/_work/LAST_SYNCED`. The content phase (phase 3) drafts these like
+   any other signal; a **fresh** product-update jumps the queue because feature news is perishable.
+
 3. **Apply the rails** (above) to everything step 2 produced: outbound → drafts; unverifiable figures →
    `[UNVERIFIED]` + digest; no deletes.
 
@@ -78,7 +89,7 @@ Autopilot means "no human in the loop," not "skip the rails." These come straigh
    - **Ingested** — what came in (N meetings, N threads, N engagements), each one line **with a link to
      its raw artifact** (transcript / email-archive / slack file). The digest is an *index into the raw*,
      never a substitute — every claim below must trace to one of these captured primary sources.
-   - **Changed** — dashboards/board/CRM updates made, stage moves, new signals written to `signals/`.
+   - **Changed** — dashboards/board/CRM updates made, stage moves, new signals written to `signals/` (incl. `product-update` signals from PRs).
    - **Needs you** — the queue the rails parked: drafts awaiting send, `[UNVERIFIED]` figures to
      confirm, ambiguous stage moves, missing keys/sources. This is the section the user actually acts on.
    - **Commits** — the `git log --oneline` for the run, so the digest ties back to the memory.

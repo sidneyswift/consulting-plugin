@@ -49,6 +49,14 @@ See `content/AGENTS.md`.)
    existing `content/03-drafts/` (never rewrite a published pillar). Carry its `source` so the draft stays
    grounded. Slugify the topic and make the bundle folder `content/03-drafts/<YYYY-MM-DD>-<topic-slug>/`
    (date-first, so `drafts/` sorts chronologically).
+   - **Fresh `product-update` signals jump the queue.** Ingestion writes `type: product-update` signals
+     (cited to PRs) from the GitHub capture. Feature news is **perishable** — announce it while it's new —
+     so a fresh product-update outranks evergreen insights for tonight's slot; insights fill otherwise.
+   - **Branch on the signal's `type`.** If it's a `product-update`, draft with **Engine B's
+     feature-announcement variant** (`consulting-product-engine` — its draft half): ground every claim in the
+     cited PRs, use the feature-announcement email format, Recoup-customer ICP for the email. Otherwise use
+     the insight/thought-leadership variant below. **Either way the output is the same unified bundle**
+     (article + linkedin + email + images + meta.yml), each text format gated.
 
 2. **Write the ARTICLE** (the pillar). Read **`consulting-copywriting`** first: voice-principles,
    anti-slop, formats §blog/articles, and **`references/social-article-style.md`**. Use the social-article

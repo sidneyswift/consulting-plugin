@@ -1,6 +1,6 @@
 ---
 name: consulting-product-engine
-description: Engine B of the demand engine — turn shipped, user-facing product work (merged PRs / releases) into a staged idea bundle (article + LinkedIn post + email + image(s) + meta.yml, same shape as Engine A), grounded and cited to the PRs, never auto-sent. This is the build->content half of the flywheel (Engine A is calls->content). Use on "turn our shipped PRs into content", "announce what we shipped", "run the product engine", or as the (planned) 4th nightly lane. Source is the public recoupable org, pulled tokenless (B1 resolved); run it on demand until it's deployed as the 4th nightly lane.
+description: Engine B of the demand engine — turn shipped, user-facing product work (merged PRs / releases) into a staged idea bundle (article + LinkedIn post + email + image(s) + meta.yml, same shape as Engine A), grounded and cited to the PRs, never auto-sent. This is the build->content half of the flywheel (Engine A is calls->content). NOT a separate routine: it rides the nightly pipeline — the extract half (PRs -> product-update signals) runs in ingestion, the draft half (signal -> gated bundle) runs in the content phase. Source = the public recoupable org, tokenless (B1 resolved). Use on "turn our shipped PRs into content", "announce what we shipped", "run the product engine".
 ---
 
 # Consulting Product Engine (Engine B — product → feature content)
@@ -14,32 +14,35 @@ turns those signals into the feature-announcement formats Sid sent by hand to Re
 Same **idea-bundle shape** and same **approval queue** as Engine A — a product update is just a bundle
 whose `source` is a PR/release instead of a call.
 
-> **Status:** 🟡 logic scaffolded; **source connector ✅ built** (`integrations/github/_work/pull_prs.py`
-> pulls merged PRs tokenless). **Decision B1 is resolved** — watch the **public** `recoupable` org, no token
-> needed. Still on demand until filter→fan is proven end-to-end and a cadence is chosen; then it earns a
-> `routines/` run file + `SPEC.md` block (a 4th nightly lane). Design: `docs/plans/2026-06-30-demand-engine-restructure-spec.md` §"Engine B".
+> **Status:** 🟡 logic scaffolded; **source connector ✅ built** (`integrations/github/_work/pull_prs.py`,
+> tokenless; **B1 resolved** — public `recoupable` org). **Not a separate routine.** Engine B rides the
+> existing 3-phase pipeline: its **extract half** (pull → filter → cluster → cite → write `product-update`
+> signals) runs in **ingestion (phase 1)**; its **draft half** (signal → gated bundle) runs in the
+> **content phase (phase 3)**, where a fresh product-update jumps the queue. One sample bundle built + gated
+> (`content/03-drafts/2026-07-01-agent-sends-email`). Design: `docs/plans/2026-06-30-demand-engine-restructure-spec.md` §"Engine B".
 
-## Prerequisite — the source connector (built)
-Reads merged PRs from the **public `recoupable` org** via `integrations/github/_work/pull_prs.py`
-(GitHub Search API, **unauthenticated — no token**; optional read-only `GITHUB_TOKEN` only for rate-limit
-headroom). GitHub owns truth; the repo keeps only the distilled "what shipped" + a `LAST_SYNCED`.
-**Watches the product org, not this consulting-os repo.** See `integrations/github/AGENTS.md` (B1 resolved).
+## Prerequisite — the source connector (built; runs in ingestion)
+The **extract half** runs inside `consulting-nightly-ingestion` (phase 1): reads merged PRs from the
+**public `recoupable` org** via `integrations/github/_work/pull_prs.py` (GitHub Search API,
+**unauthenticated — no token**; optional read-only `GITHUB_TOKEN` only for rate-limit headroom). GitHub owns
+truth; the repo keeps only the distilled `product-update` signals + a `LAST_SYNCED`. **Watches the product
+org, not this consulting-os repo.** See `integrations/github/AGENTS.md` (B1 resolved).
 
-## The flow
+## The flow (two halves, two phases — no separate routine)
+**Extract half — runs in INGESTION (phase 1); writes signals:**
 ```text
-pull merged PRs since integrations/github/_work/LAST_SYNCED   (python3 integrations/github/_work/pull_prs.py — tokenless)
-  → FILTER to user-facing changes    (drop refactors / chores / deps / tests / infra / internal-only)
+pull merged PRs since integrations/github/_work/LAST_SYNCED   (pull_prs.py — tokenless)
+  → FILTER to user-facing changes   (drop refactors/chores/deps/tests/infra; keep feat(...))
   → CLUSTER related PRs into ONE feature   (5 PRs building one capability = one announcement, not five)
-  → JUDGE "shippable to users"       (is it live / flag-on? does it change what a user can DO? tie to release notes/tags)
-  → write a cited "what shipped, for users" line per feature   (traces to the PR/commit — never invented)
-  → write product-update SIGNALS into signals/   (type: product-update, source.type: pr, locator: commit sha / PR #)
-  → per feature, create an idea bundle and fan the FULL set (same shape as Engine A):
-       meta.yml     (engine: B — the approval state machine + gates)
-       article.md   (the pillar: the feature story + the portable lesson, blog-length)
-       linkedin.md  (build-in-public / demo post; x.md optional)
-       email.md     (the proven feature-announcement format, deep-link CTA)
-       images/      (consulting-article-illustrator — a hero image1.png to lead the email + article)
-       video/       (optional — consulting-hyperframes-video explainer / demo clip)
+  → JUDGE "shippable to users" + write a cited "what shipped, for users" line   (traces to PR/commit)
+  → write a `product-update` SIGNAL to signals/   (type: product-update, source.type: pr, locator: PR#/sha)
+```
+**Draft half — runs in the CONTENT phase (phase 3); consumes a product-update signal:**
+```text
+pick a product-update signal   (fresh ones JUMP THE QUEUE — feature news is perishable)
+  → fan the FULL bundle (same shape as Engine A):
+       meta.yml · article.md (feature story + lesson) · linkedin.md · email.md (feature-announcement, deep-link CTA)
+       · images/ (hero image1.png leads the email) · video/ (optional)
   → gate every text format (reviewer then editor), then stage in content/03-drafts/<date>-<feature-slug>/
   → STOP for Sid approval (never auto-send)
 ```
@@ -114,8 +117,9 @@ content/03-drafts/<YYYY-MM-DD>-<feature-slug>/
 1. `integrations/github/` — the merged-PR pull (`pull_prs.py`) + `LAST_SYNCED`. **✅ built + verified.**
 2. This skill. **✅ scaffolded.**
 3. Promote the feature-announcement swipe file → a reusable format. **✅ done.**
-4. **Next:** prove filter→cluster→cite→fan on real PRs (one bundle), decide B2/B3, then add a
-   `routines/consulting-product-engine.md` run file + a `SPEC.md` block (its own nightly lane).
+4. **Wired into the pipeline (no separate routine):** extract half in `consulting-nightly-ingestion`,
+   draft half in `consulting-nightly-content`. First sample bundle done (`2026-07-01-agent-sends-email`).
+   **Next:** lock B2 (filter heuristic) + B3 (atomizer format).
 
 ## Connection to `products/` (distinct, adjacent)
 `products/` decides *what to build* (demand → score → ship); Engine B announces *what shipped*. They
