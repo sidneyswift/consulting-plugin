@@ -29,6 +29,15 @@ notes and let the parent rewrite; don't score or commit here.
    - `{DRAFT_PATH}` — the target file from step 1.
    - `{ICP}` — paste the **ICP persona block** below. If the piece targets a narrower reader (e.g. a CFO vs.
      a creative founder), tighten the block to that person so the reactions are specific.
+   - **Never make the persona MORE technical than the audience's least technical member.** Jargon
+     tolerance is the first check that dies: a "technical operator" persona reads "JSON serialization"
+     without blinking, and the gate silently stops testing jargon for everyone else in the audience.
+     (This is exactly how an already-gated post shipped engineer-speak on 2026-07-01 — Sid caught it,
+     the gate hadn't.) When the audience is mixed ("operators and builders"), the persona includes its
+     non-engineer members, and the brief should say so explicitly.
+   - **Record the persona in the gate.** When you write the `gates:` line in the file/`meta.yml`, name
+     who the reviewer role-played (e.g. `copy-reviewer (non-technical operator ICP)`), so a later audit
+     can tell "gate ran" from "gate ran with the right reader in the chair."
 
 3. **Dispatch ONE fresh-context subagent, read-only.** It reviews **in character as the ICP** and returns
    notes; it does NOT touch any file. Paste the **Reviewer brief** below verbatim, `{PLACEHOLDERS}` filled.
