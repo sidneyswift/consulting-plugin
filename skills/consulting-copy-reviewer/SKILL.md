@@ -27,17 +27,21 @@ notes and let the parent rewrite; don't score or commit here.
 2. **Resolve the inputs before dispatch.** The subagent starts fresh and only knows what you hand it as
    text / **absolute paths**. Fill the brief's `{PLACEHOLDERS}`:
    - `{DRAFT_PATH}` — the target file from step 1.
-   - `{ICP}` — paste the **ICP persona block** below. If the piece targets a narrower reader (e.g. a CFO vs.
-     a creative founder), tighten the block to that person so the reactions are specific.
-   - **Never make the persona MORE technical than the audience's least technical member.** Jargon
-     tolerance is the first check that dies: a "technical operator" persona reads "JSON serialization"
-     without blinking, and the gate silently stops testing jargon for everyone else in the audience.
-     (This is exactly how an already-gated post shipped engineer-speak on 2026-07-01 — Sid caught it,
-     the gate hadn't.) When the audience is mixed ("operators and builders"), the persona includes its
-     non-engineer members, and the brief should say so explicitly.
+   - `{ICP}` — paste the **ICP persona block** below. You may tighten it to a narrower reader (a CFO vs.
+     a creative founder) so the reactions are specific, but only across **non-technical** variants.
+   - **The reviewer is NEVER a technical operator. No exceptions.** Not for builder-audience pieces, not
+     for build-in-public posts, not when the `audience:` line says "engineers." The persona is always the
+     non-technical house ICP: an engineer persona reads "JSON serialization" without blinking, and the
+     jargon check — the first thing this gate exists to run — silently dies for everyone else. A piece
+     that survives the non-technical reader still works for the technical one; the reverse is not true.
+     (Standing rule from Sid, 2026-07-02, after an already-"gated" post shipped engineer-speak: the
+     2026-07-01 run had cast a "technical-operator POV" and the gate stopped testing jargon.) If a
+     technical piece needs a credibility read (proof, denominators, receipts), that is *additional*
+     feedback to gather separately — it never replaces or substitutes for this gate.
    - **Record the persona in the gate.** When you write the `gates:` line in the file/`meta.yml`, name
-     who the reviewer role-played (e.g. `copy-reviewer (non-technical operator ICP)`), so a later audit
-     can tell "gate ran" from "gate ran with the right reader in the chair."
+     who the reviewer role-played (e.g. `copy-reviewer (non-technical ICP)`), so a later audit can tell
+     "gate ran" from "gate ran with the right reader in the chair." A gates line naming a technical
+     persona is a failed gate — re-run it.
 
 3. **Dispatch ONE fresh-context subagent, read-only.** It reviews **in character as the ICP** and returns
    notes; it does NOT touch any file. Paste the **Reviewer brief** below verbatim, `{PLACEHOLDERS}` filled.
@@ -48,8 +52,9 @@ notes and let the parent rewrite; don't score or commit here.
 4. **Triage the notes with judgment** (this is reader reaction, not orders):
    - Accept clear wins: unclear jargon, a section the reader tunes out on, a line that erodes trust, a flat
      open or weak ending, an honest "I don't care because…".
-   - Weigh "too technical" against the real audience — a builder reader takes more than a CFO. Keep the
-     substance that earns trust; cut the density that doesn't.
+   - Triage "too technical" notes with judgment: keep the substance that earns trust, cut the density
+     that doesn't, and translate rather than delete when the technical detail carries the proof. (The
+     *reviewer* is always non-technical; what to do about each flag is the main agent's editorial call.)
    - **Evidence discipline (non-negotiable):** never let a clarity rewrite change a fact, number, date,
      dollar figure, name, or client claim.
 
@@ -57,13 +62,14 @@ notes and let the parent rewrite; don't score or commit here.
    intact. (In a parent workflow, hand the notes back and let the parent rewrite.) Then pass the revised
    draft to **`consulting-copy-editor`** for the craft pass.
 
-## ICP persona (paste into `{ICP}`)
+## ICP persona (paste into `{ICP}` — always non-technical; see step 2)
 ```
 You are the reader this is written for: the founder, CEO, or C-suite executive of a $5M-$500M-revenue
 company in creative, music, entertainment, CPG, or marketing (sometimes a larger construction company).
-You are smart and busy, not technical. You care about outcomes, money, time, risk, and your team — not
-about the mechanics of AI. You skim first and read only if the first lines earn it. You can smell a sales
-setup. You forward things that make you look smart to your team or peers, and ignore the rest.
+You are smart and busy, not technical — you have never written code, and any phrase that requires having
+written code to parse should be quoted and flagged. You care about outcomes, money, time, risk, and your
+team — not about the mechanics of AI. You skim first and read only if the first lines earn it. You can
+smell a sales setup. You forward things that make you look smart to your team or peers, and ignore the rest.
 ```
 
 ## Reviewer brief (paste verbatim into the subagent; fill the `{PLACEHOLDERS}`)
