@@ -1,6 +1,6 @@
 ---
 name: consulting-product-engine
-description: Engine B of the demand engine — turn shipped, user-facing product work (merged PRs / releases) into a staged idea bundle (article + LinkedIn post + email + image(s) + meta.yml, same shape as Engine A), grounded and cited to the PRs, never auto-sent. This is the build->content half of the flywheel (Engine A is calls->content). NOT a separate routine: it rides the nightly pipeline — the extract half (PRs -> product-update signals) runs in ingestion, the draft half (signal -> gated bundle) runs in the content phase. Source = the public recoupable org, tokenless (B1 resolved). Use on "turn our shipped PRs into content", "announce what we shipped", "run the product engine".
+description: Engine B of the demand engine — turn shipped, user-facing product work (merged PRs / releases) into a staged idea bundle (article + LinkedIn post + email + image(s) + meta.yml, same shape as Engine A), grounded and cited to the PRs, never auto-sent. This is the build->content half of the flywheel (Engine A is calls->content). It rides the nightly pipeline: the extract half (PRs -> product-update signals) runs in ingestion, the draft half (signal -> gated bundle) runs in the content phase. Source = the public recoupable org, tokenless (B1 resolved). Use on "turn our shipped PRs into content", "announce what we shipped", "run the product engine".
 ---
 
 # Consulting Product Engine (Engine B — product → feature content)
@@ -15,7 +15,7 @@ Same **idea-bundle shape** and same **approval queue** as Engine A — a product
 whose `source` is a PR/release instead of a call.
 
 > **Status:** 🟡 logic scaffolded; **source connector ✅ built** (`integrations/github/_work/pull_prs.py`,
-> tokenless; **B1 resolved** — public `recoupable` org). **Not a separate routine.** Engine B rides the
+> tokenless; **B1 resolved** — public `recoupable` org). Engine B rides the
 > existing 3-phase pipeline: its **extract half** (pull → filter → cluster → cite → write `product-update`
 > signals) runs in **ingestion (phase 1)**; its **draft half** (signal → gated bundle) runs in the
 > **content phase (phase 3)**, where a fresh product-update jumps the queue. One sample bundle built + gated
@@ -28,7 +28,7 @@ The **extract half** runs inside `consulting-nightly-ingestion` (phase 1): reads
 truth; the repo keeps only the distilled `product-update` signals + a `LAST_SYNCED`. **Watches the product
 org, not this consulting-os repo.** See `integrations/github/AGENTS.md` (B1 resolved).
 
-## The flow (two halves, two phases — no separate routine)
+## The flow (two halves, two phases)
 **Extract half — runs in INGESTION (phase 1); writes signals:**
 ```text
 pull merged PRs since integrations/github/_work/LAST_SYNCED   (pull_prs.py — tokenless)
@@ -117,7 +117,7 @@ content/03-drafts/<YYYY-MM-DD>-<feature-slug>/
 1. `integrations/github/` — the merged-PR pull (`pull_prs.py`) + `LAST_SYNCED`. **✅ built + verified.**
 2. This skill. **✅ scaffolded.**
 3. Promote the feature-announcement swipe file → a reusable format. **✅ done.**
-4. **Wired into the pipeline (no separate routine):** extract half in `consulting-nightly-ingestion`,
+4. **Wired into the pipeline:** extract half in `consulting-nightly-ingestion`,
    draft half in `consulting-nightly-content`. First sample bundle done (`2026-07-01-agent-sends-email`).
    **Next:** lock B2 (filter heuristic) + B3 (atomizer format).
 
