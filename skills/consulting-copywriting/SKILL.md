@@ -81,6 +81,12 @@ The order is fixed: write it → strip the slop ([references/anti-slop.md](refer
 
 When writing anything meant to sound human (social posts, newsletters, essays, warm emails), read [references/human-texture.md](references/human-texture.md). It contains the humanizing moves with worked verbatim examples (talk to the reader, undercut your authority, break rhythm, render the inner monologue, break the fourth wall, quote real dialogue, earned comparison), a full teardown of Shaan Puri's short-essay system (the named-format play, the Story → Principle → Coined-term → Reader-challenge skeleton, a hook menu, signature devices), and how to set all of it to Sid's register.
 
+## Ogilvy craft rules (the clarity floor)
+
+For business and persuasion writing (emails, memos, proposals, landing pages, ads, sales copy, stakeholder updates), apply David Ogilvy's writing rules and the Roman & Raphaelson principles from *Writing That Works*. Read [references/ogilvy-rules.md](references/ogilvy-rules.md). It covers natural voice (write the way you talk), short words/sentences/paragraphs (with Ogilvy's short-word swaps), no jargon, verified quotations, the read-aloud test, and a crystal-clear CTA, plus R&R's four checks: comprehension (people don't act on what they can't understand), completeness (make sure you actually said it), honesty (no euphemism or hedging, straight talk on bad news), and facts strung into an argument (never "unstrung gems").
+
+Anti-slop is the slop floor, these are the clarity floor, voice-principles is the ceiling. They stack.
+
 ## Format rules
 
 When writing for a specific format, read the relevant section of [references/formats.md](references/formats.md):
@@ -123,5 +129,18 @@ When writing a landing page, homepage, pricing page, feature page, or any conver
 10. Remove metaphor verbs used for abstract work
 11. Cut endings that only repeat the point
 12. Ask: does this sound useful, or overworked?
+
+For business or persuasion copy (emails, memos, proposals, landing pages, ads, updates), also run the Ogilvy self-audit (full rules in [references/ogilvy-rules.md](references/ogilvy-rules.md)) and fix anything a sharp, time-pressed reader would catch:
+
+- Natural voice: would a real person say it aloud?
+- Short units: shorter word, shorter sentence, shorter paragraph?
+- No jargon: is a plain word available?
+- Quotations and stats verified?
+- Reads smoothly aloud (no stumbles, no breathless sentences)?
+- Crystal-clear CTA, or an explicit "no action needed"?
+- Comprehension: will the actual reader get it on first read?
+- Completeness: did I actually say the one thing that matters?
+- Honesty: no euphemism or hedging, especially on bad news?
+- Facts with context: does every number answer "so what?"
 
 Send the cleaner version.
