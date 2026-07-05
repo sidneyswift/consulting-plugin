@@ -78,7 +78,7 @@ This is where "customize to our system and taste" lives. **Before designing any 
      generate a **per-project** design spec at the video's own root (precedence `frame.md` →
      `design.md` → `DESIGN.md`) for that one deliverable — **seed it from the practice brand**, don't
      mistake it for the source.
-3. **Voice/copy** (titles, narration, captions) follows `consulting-copywriting` —
+3. **Voice/copy** (titles, narration, captions) follows `consulting-copy-writer` —
    `references/voice-principles.md`. No em-dashes-as-crutch, no hype, real specifics.
 
 **Spec defaults — state, don't ask:**
@@ -150,7 +150,7 @@ ones are on-brand** (don't just grab the flashiest):
 1. **Confirm the input/subject** (one question max if unclear).
 2. **Route** to a mode (table above) and read `modes/<name>/SKILL.md`.
 3. **Apply house taste** — read `consulting-tasteful-design` (it carries the brand tokens from
-   `DESIGN.md`), voice from `consulting-copywriting`. Pick an on-brand style preset.
+   `DESIGN.md`), voice from `consulting-copy-writer`. Pick an on-brand style preset.
 4. **Build** the composition (HTML) per `engine/hyperframes-core`; **animate** per
    `engine/hyperframes-animation`; add **media** per `engine/hyperframes-media` as needed.
 5. **Validate** — `npx hyperframes lint && npx hyperframes validate` (both must pass).

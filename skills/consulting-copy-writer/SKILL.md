@@ -1,5 +1,5 @@
 ---
-name: consulting-copywriting
+name: consulting-copy-writer
 description: "Apply when writing any text for or as the user: social posts, emails, newsletters, landing pages, ads, blog posts, video scripts, sales copy, messages, or any published content. Enforces clean human-sounding prose, bans AI-slop patterns, and applies format-specific rules. NOT for internal notes, code comments, or agent-to-agent communication."
 ---
 
@@ -103,7 +103,7 @@ When writing for a specific format, read the relevant section of [references/for
 
 ## Persuasion, positioning, and story
 
-When writing anything meant to sell, convert, or build an audience (landing pages, launch copy, email sequences, content strategy, brand voice), read [references/persuasion-playbook.md](references/persuasion-playbook.md). It contains persuasion architecture (Chain of Beliefs, Before-state symptom diagnosis, parable-based selling, sacred vs. secular framing, the stoplight readiness model), positioning formulas (anchor and twist, workflow stories for novel products, visible incentive alignment, ceiling-raising frames), story structure (minimum viable story, Five Whys for stakes, named arcs), virality and attention mechanics (psychological packaging, persona pre-testing, stream vs. garden), trust mechanics (trust thermocline, public accuracy audits), generative process (Madman/Judge, the unstuck loop), and the AI smoothing problem (keep the harder reading).
+When writing anything meant to sell, convert, or build an audience (landing pages, launch copy, email sequences, content strategy, brand voice), read [references/persuasion-playbook.md](references/persuasion-playbook.md). It contains the Three Tensions, Five Levers attention framework (Survival/Identity/Progress Tension; name the threat, mirror the identity, exclude people, paint the transformation, give the first step — for diagnosing drafts and generating varied hooks), persuasion architecture (Chain of Beliefs, Before-state symptom diagnosis, parable-based selling, sacred vs. secular framing, the stoplight readiness model), positioning formulas (anchor and twist, workflow stories for novel products, visible incentive alignment, ceiling-raising frames), story structure (minimum viable story, Five Whys for stakes, named arcs), virality and attention mechanics (psychological packaging, persona pre-testing, stream vs. garden), trust mechanics (trust thermocline, public accuracy audits), generative process (Madman/Judge, the unstuck loop), and the AI smoothing problem (keep the harder reading).
 
 ## Long-form essay architecture
 

@@ -32,7 +32,7 @@ See `content/AGENTS.md`.)
 1. **Never auto-publish.** Drafts only; Sid reviews + publishes via `consulting-linkedin-publisher` (Postbridge).
 2. **Grounded, not fabricated.** Every claim traces to a real captured insight/transcript — carry the
    citation. Never invent a client name, number, or result; confirm before naming a client, or write generically.
-3. **Voice = `consulting-copywriting`** (no exceptions): no em-dashes, anti-slop list, specific, human. Read it.
+3. **Voice = `consulting-copy-writer`** (no exceptions): no em-dashes, anti-slop list, specific, human. Read it.
 4. **Two gates on EVERY audience-facing format (article, linkedin, email): reader, then editor.** Run `consulting-copy-reviewer` (the right ICP per format) and rewrite from its notes, *then* `consulting-copy-editor`. Reviewer before editor, always. **Scored ≠ gated:** `score_run.py` is the floor; the reader/editor passes are the bar.
 5. **One idea, the full bundle.** Every run produces `article.md` + `linkedin.md` + `email.md` + `images/` + `meta.yml`. The article is the pillar; the post and email derive from the edited article.
 6. **Quality over volume.** One strong pillar a night (occasionally a second). A thin day → one-line report, no bundle.
@@ -58,7 +58,7 @@ See `content/AGENTS.md`.)
      the insight/thought-leadership variant below. **Either way the output is the same unified bundle**
      (article + linkedin + email + images + meta.yml), each text format gated.
 
-2. **Write the ARTICLE** (the pillar). Read **`consulting-copywriting`** first: voice-principles,
+2. **Write the ARTICLE** (the pillar). Read **`consulting-copy-writer`** first: voice-principles,
    anti-slop, formats §blog/articles, and **`references/social-article-style.md`**. Use the social-article
    structure by default: thesis first, purpose sentence, thought experiment, fair comparison, pragmatic
    verdict. Aim 800–1,400 words. Save as `article.md` with frontmatter: `title`, `source`
@@ -74,7 +74,7 @@ See `content/AGENTS.md`.)
    `article.md`. Implement accepted edits in place. Defer score/report/commit to step 8 because this
    parent workflow scores the full bundle once. Use the edited article as the source for every downstream step.
 
-5. **Derive + gate the LinkedIn POST.** Read `consulting-copywriting` §social + **`consulting-linkedin-post-architect`**.
+5. **Derive + gate the LinkedIn POST.** Read `consulting-copy-writer` §social + **`consulting-linkedin-post-architect`**.
    Write a **stand-alone** post that delivers complete value on its own (don't just paste the article intro) —
    phone-first formatting, value above the fold. The article link is **optional**: add it only as a bonus after
    an already-complete post, never a forced "read the article" / "link in comments." Save as `linkedin.md`
@@ -82,7 +82,7 @@ See `content/AGENTS.md`.)
    (Sid's operator/builder ICP) → rewrite from accepted notes → **`consulting-copy-editor`**, edits in place.
 
 6. **Derive + gate the EMAIL.** From the edited article, write a **single-idea broadcast email** to the list
-   (`consulting-copywriting` + the routing in `email/AGENTS.md`) — a one-idea nurture send, **not** the weekly
+   (`consulting-copy-writer` + the routing in `email/AGENTS.md`) — a one-idea nurture send, **not** the weekly
    newsletter. Lead with the reader's takeaway; one clear CTA; it may lead with the bundle hero (`images/image1.png`).
    Save as `email.md` (frontmatter: `source` = the article path, `subject`, `status: draft`). Then gate it:
    **`consulting-copy-reviewer`** (Sid's subscriber/prospect ICP) → rewrite → **`consulting-copy-editor`**, edits in place.

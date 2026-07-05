@@ -1,6 +1,6 @@
 ---
 name: consulting-linkedin-hooks
-description: Write or critique the first line of a LinkedIn post (the hook) using patterns reverse-engineered from real top-performing posts. Use on "write hooks for this", "give me 10 hooks", "fix this hook", "why won't this hook land", "what's a scroll-stopping opener", or whenever drafting/critiquing a post's line 1. This is the dedicated hook engine; consulting-linkedin-post-architect handles whole-post structure and defers here for the hook; consulting-copywriting governs voice/anti-slop.
+description: Write or critique the first line of a LinkedIn post (the hook) using patterns reverse-engineered from real top-performing posts. Use on "write hooks for this", "give me 10 hooks", "fix this hook", "why won't this hook land", "what's a scroll-stopping opener", or whenever drafting/critiquing a post's line 1. This is the dedicated hook engine; consulting-linkedin-post-architect handles whole-post structure and defers here for the hook; consulting-copy-writer governs voice/anti-slop.
 ---
 
 # Consulting LinkedIn Hooks
@@ -12,7 +12,7 @@ Patterns + cited examples + the empirical rules live in **[references/hook-patte
 ## The one rule
 Steal **structure**, not persona or slop. The patterns come from creators (Justin Welsh, Jasmin Alić,
 Ruben Hassid, …) whose voice Sid doesn't share. Map the shape onto Sid's substance (AI/agents for
-music & media; B2B AI adoption) and run the result through `consulting-copywriting` (no banned words,
+music & media; B2B AI adoption) and run the result through `consulting-copy-writer` (no banned words,
 no em-dash). Ruben Hassid's AI hooks are the closest direct transfer — start there for AI content.
 
 ## To WRITE hooks
@@ -24,7 +24,7 @@ no em-dash). Ruben Hassid's AI hooks are the closest direct transfer — start t
    question, no listicle count** (a vivid specific number is fine; a count is not).
 3. **Write the one-two punch:** for the top 3, draft line 2 as well (a ≤8-word amplifier/twist) — the
    hook is really the first two lines before the fold.
-4. **Run voice + anti-slop:** pass the finalists through `consulting-copywriting`. Cut any banned word,
+4. **Run voice + anti-slop:** pass the finalists through `consulting-copy-writer`. Cut any banned word,
    em-dash, or borrowed-persona edge.
 5. **Hand off:** for a full post around the hook, continue in `consulting-linkedin-post-architect`.
 

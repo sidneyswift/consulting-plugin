@@ -62,14 +62,14 @@ Most PRs are not announceable. The judgment, in order:
 title/path heuristics vs only release tags.`
 
 ## Per-feature formats (reuse what exists)
-- **`article.md`** — the pillar: the feature story + the portable lesson (blog-length, `consulting-copywriting`
+- **`article.md`** — the pillar: the feature story + the portable lesson (blog-length, `consulting-copy-writer`
   social-article style). The post + email derive from it, same as Engine A. (The "agent sends email" sample
   is a good template: the 38%-empty war story → the fix → the general lesson.)
 - **`linkedin.md`** (+ optional `x.md`) — build-in-public / demo post.
 - **`email.md`** — the **feature-announcement format** (`library/email-templates/email-feature-announcement.md`):
   subject = the outcome ("It booked a guest in 5 minutes"), open with the new power, **prove it** (a live
   test / demo / 2-3 copy-paste prompts), **one deep-link CTA into the product**, founder sign-off. Strip
-  em-dashes/hype per `consulting-copywriting`.
+  em-dashes/hype per `consulting-copy-writer`.
 - **`images/`** — `consulting-article-illustrator` (gpt-image-2 via the Higgsfield MCP when unattended):
   a **hero `image1.png`** the email leads with and the article uses, plus inline figures as the article warrants.
 - **`video/`** — optional: `consulting-hyperframes-video` explainer/demo (or a provided screen capture).
@@ -102,7 +102,7 @@ content/03-drafts/<YYYY-MM-DD>-<feature-slug>/
 2. **Grounded, cited to the PR.** Every "what shipped" claim carries a PR #/commit sha; unproven → don't
    ship it. Announce shipped capability, never claimed adoption.
 3. **One feature = one bundle.** Cluster; don't spam a bundle per PR.
-4. **Voice = `consulting-copywriting`**; edit gates before staging.
+4. **Voice = `consulting-copy-writer`**; edit gates before staging.
 5. **Watches the product repo, not consulting-os.**
 
 ## Open decisions

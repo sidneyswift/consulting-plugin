@@ -9,7 +9,7 @@ The report's job, in order: (1) a busy non-technical sponsor reads ALL of it and
 feel the hire is paying off (trust up, "I'd repeat this to a peer"), (3) they start wanting the next,
 bigger scope — seeded by the deferred list, never pitched. Every choice below serves those three.
 
-Voice: `consulting-copywriting` (no em-dashes, plain words, digits). Process guardrails here are the
+Voice: `consulting-copy-writer` (no em-dashes, plain words, digits). Process guardrails here are the
 lessons from the 2026-07-03 Seeker report #1 build (exemplar: as-sent verbatim + Sid's final-edit notes
 in `clients/seeker-music/04-delivery/progress-reports/2026-07-03-report-1.md`).
 

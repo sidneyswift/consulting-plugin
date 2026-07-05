@@ -106,5 +106,5 @@ Part 2 — Stepping back (a few sentences, still in character):
 - **Two gates, two lenses.** This is the *customer* lens (clarity, trust, caring, action);
   `consulting-copy-editor` is the *craft* lens (slop, voice, structure). Reviewer first, editor second.
 - **Compound it:** if the reader keeps tripping on the same kind of thing (a recurring jargon word, an
-  opening that never earns the read), fix the pattern in `consulting-copywriting` so it stops happening —
+  opening that never earns the read), fix the pattern in `consulting-copy-writer` so it stops happening —
   don't just patch this one piece.

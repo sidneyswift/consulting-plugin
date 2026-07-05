@@ -9,7 +9,7 @@ Turn one source (a `signals/` entry, a fresh call, or an industry event) into se
 email touches. Second consumer of the signal reservoir (LinkedIn is the first).
 Full design: `docs/plans/2026-06-19-email-engine-design.md` · templates: `library/email-templates/` (06-11) ·
 staging + frontmatter + routing: `email/AGENTS.md`.
-**Voice + gate (always):** write in `consulting-copywriting` voice, then run every draft through the `consulting-outbound-email` skill (read context, route to the right person, reader-POV check, names verified) before staging.
+**Voice + gate (always):** write in `consulting-copy-writer` voice, then run every draft through the `consulting-outbound-email` skill (read context, route to the right person, reader-POV check, names verified) before staging.
 
 ## Steps
 1. **Take one source.** Prefer an existing `signals/` entry. If it is a raw call, run
@@ -23,7 +23,7 @@ staging + frontmatter + routing: `email/AGENTS.md`.
 4. **Resolve segments live.** Query Attio (`ATTIO_API_KEY`) for current membership of each target
    segment. Reconcile-on-touch, never a copied list. For a 1:1 nudge, pick the one named contact.
 5. **Draft each touch.** Fill the matching `library/email-templates/` skeleton in Sid's voice.
-   Always apply `consulting-copywriting` (the voice) and the `consulting-outbound-email` gate (names
+   Always apply `consulting-copy-writer` (the voice) and the `consulting-outbound-email` gate (names
    verified against real context). Borrow `consulting-content-drafter`'s AIDA and "you over I". Ground
    every claim in the source. No invented numbers, streams, or chart positions.
 6. **Stage.** Write each to `email/outbox/<send_date>-<format>-<segment>.md` with the

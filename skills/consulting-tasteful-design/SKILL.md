@@ -30,7 +30,7 @@ say-it-out-loud, no hype**), translated from sentences to pixels. The stance is 
    boring" principles. **Pull exact colors, fonts, the logo, and the footer from here — don't restate
    or guess them.** For stills it also owns the template set (`framework-blocks`, `statement`, `stat`,
    `editorial`). For anything it doesn't cover (e.g. audience) — or if the project has no `DESIGN.md` at all (e.g. this plugin installed in another repo) — ask the user for brand values, or scaffold one; never invent.
-2. **`consulting-copywriting/references/voice-principles.md`** — governs every word that appears
+2. **`consulting-copy-writer/references/voice-principles.md`** — governs every word that appears
    (headlines, captions, labels, CTAs).
 
 **Brand character at a glance** (exact values live in `DESIGN.md`): deep **ink/navy color

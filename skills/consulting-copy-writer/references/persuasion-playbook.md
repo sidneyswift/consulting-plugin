@@ -24,6 +24,30 @@ Tactics beyond voice-principles, anti-slop, and formats: persuasion, positioning
 
 **One reader.** Steinbeck: the generalized audience doesn't exist and will scare you to death. Write to one named person, real or invented. Before drafting, write a paragraph about that reader: who they are, what they know, what they distrust, where they learn.
 
+## Three Tensions, Five Levers (the attention framework)
+
+Distilled from Dan Koe's writing on human nature. Three tensions are pressure points in the mind: press one and attention is nearly involuntary; press all three and you have a grip logic alone can't break. Five levers are how you pull them in copy.
+
+**Survival Tension**: safety, problem-awareness, threat detection. The mind is wired to scan for threats, so naming a problem (financial, social, a missed opportunity) captures attention before any solution does. "You wake up at 30 and realize you've been living on autopilot." "There are people dumber than you making 10x more."
+
+**Identity Tension**: belonging, status, tribe. Who someone is matters more than what they logically want; people reproduce the information in their consciousness, not just their genes. "If you're a writer…" "If you're broke…" "If you're unhappy…"
+
+**Progress Tension**: meaning, purpose, transformation. Once safety and belonging are handled, people crave clarity, direction, and a better self; this is where transformation and growth live.
+
+**Lever 1, name the threat** (pulls Survival). State the problem before the solution. Match Schwartz's five awareness levels: unaware (name the problem itself), problem-aware (name that a solution exists), solution-aware (differentiate yours from competitors), product-aware (proof and objection handling), most-aware (just a nudge). Always start with the problem, not the pitch.
+
+**Lever 2, mirror the identity** (pulls Identity). Open with "If you're…" to call out who the reader is. "If you're lazy." "If you've ever felt like you're capable of more." Naming the identity makes the reader feel seen and stops the scroll.
+
+**Lever 3, exclude people** (deepens Identity). Name who it's not for, right after mirroring who it is for. Exclusion creates belonging and forces the reader to pick a side. "This isn't for people who want to 'try' to get in shape. This is for people tired of their own excuses."
+
+**Lever 4, paint the transformation** (pulls Progress). Simulate the future; imagining an experience fires the same neural circuitry as having it. Sequence matters: capture attention (Levers 1-2), filter (Lever 3), then build desire (Lever 4) by showing what life looks like after the change.
+
+**Lever 5, give the first step** (activates Progress). Make the next action so small and obvious the reader can't not take it. The Zeigarnik effect: the brain hates incomplete tasks, so once someone starts, tension pushes them toward finishing. "Don't overhaul your life overnight, just go to bed an hour earlier."
+
+**Diagnostic use.** Reviewing a draft: name which tensions are present, which are missing, which levers are doing the work. "This hook doesn't name a threat" beats a vague note like "add more tension." Generating hooks: write one per lever so the options vary in mechanism, not just wording. "If you're…" is the default Identity Tension opener.
+
+**Frame as value, not manipulation.** The tensions are real features of attention; the ethical version uses them to put a true, useful message in front of the person it actually helps, not to trick anyone into something that doesn't serve them.
+
 ## Positioning and product copy
 
 **Anchor and twist.** Position as [category the market already knows] + one differentiator. "Substack is a newsletter platform, with payments." "Superhuman is an email client that's absurdly fast." The anchor lets readers infer everything else without being told. Category creation gets blank stares; anchoring gets instant comprehension.

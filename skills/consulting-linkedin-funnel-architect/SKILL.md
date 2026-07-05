@@ -11,7 +11,7 @@ one of two offers: a free top-of-funnel (newsletter / community waitlist) and a 
 funnel, screenshots + teardown): `swipe/funnels/magali-dereu/README.md`.
 
 ## The one rule: steal structure, not persona
-Adopt the funnel *architecture*; keep Sid's voice (`consulting-copywriting`) and substance
+Adopt the funnel *architecture*; keep Sid's voice (`consulting-copy-writer`) and substance
 (`positioning/` — AI/agents enablement for music & media). Benchmark against Sid's own funnel docs:
 `integrations/linkedin/linkedin-funnel-strategy.md` and `docs/plans/2026-06-19-product-funnel-design.md`.
 
@@ -54,7 +54,7 @@ only for warm/high-intent. Keep the ask casual and optional.
 - **Audit:** a short ranked gap report (`present/weak/missing` per checklist item + the fix), saved
   where the user wants it (e.g. alongside `integrations/linkedin/linkedin-funnel-strategy.md`).
 - **Build:** the drafted banner line, headline, two Featured cards, About rewrite, and application
-  form — each in Sid's voice, ready to paste. Run copy through `consulting-copywriting` first.
+  form — each in Sid's voice, ready to paste. Run copy through `consulting-copy-writer` first.
 
 ## Guardrails
 Confirm any client/proof claims before they go on the profile (evidence discipline — no invented logo

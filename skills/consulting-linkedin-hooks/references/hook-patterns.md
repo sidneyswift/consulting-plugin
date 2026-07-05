@@ -102,7 +102,7 @@ The *only* reliably good use of a number in a hook: a vivid, near-unbelievable s
 4. **Write the one-two punch:** line 1 = claim, line 2 = a short amplifier or twist (≤8 words) that deepens the loop.
 5. **Concrete beats clever.** A plain, specific line outperforms a wordplay line. Say it out loud.
 6. **Steal structure, not persona or slop.** These creators use em-dashes, profanity, and shock that Sid
-   doesn't. Voice + anti-slop come from `consulting-copywriting`; substance from `positioning/`. Ruben
+   doesn't. Voice + anti-slop come from `consulting-copy-writer`; substance from `positioning/`. Ruben
    Hassid is the closest direct transfer (AI niche) — study his shapes first for Sid's AI content.
 
 ## Provenance

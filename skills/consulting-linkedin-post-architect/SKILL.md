@@ -1,19 +1,19 @@
 ---
 name: consulting-linkedin-post-architect
-description: Structure a high-performing LinkedIn post — pick the archetype, write a scroll-stopping hook, shape the body, format for mobile, choose the in-post CTA, and decide whether to pair an infographic. Use on "write a LinkedIn post", "make this post perform/go viral", "what hook should I use", "structure this for LinkedIn", "turn this insight into a LinkedIn post", or right after consulting-content-drafter. This is the post-STRUCTURE layer; consulting-copywriting still governs voice/anti-slop, consulting-linkedin-publisher ships it.
+description: Structure a high-performing LinkedIn post — pick the archetype, write a scroll-stopping hook, shape the body, format for mobile, choose the in-post CTA, and decide whether to pair an infographic. Use on "write a LinkedIn post", "make this post perform/go viral", "what hook should I use", "structure this for LinkedIn", "turn this insight into a LinkedIn post", or right after consulting-content-drafter. This is the post-STRUCTURE layer; consulting-copy-writer still governs voice/anti-slop, consulting-linkedin-publisher ships it.
 ---
 
 # Consulting LinkedIn Post Architect
 
 The structure layer for LinkedIn posts. The drafter gives you the idea; this gives the post its
-**shape** (hook → body → CTA → image); `consulting-copywriting` enforces voice; then
+**shape** (hook → body → CTA → image); `consulting-copy-writer` enforces voice; then
 `consulting-linkedin-publisher` ships it. Patterns are reverse-engineered from a real top-performing
 operator — origin evidence: `swipe/posts/magali-dereu/ANALYSIS.md` (118 posts).
 
 ## The one rule: steal structure, not persona
 Use the **shapes** below (hook formulas, post structures, formatting). Do **not** import the source
 operator's persona (profanity, shock-taboo, "weaponize your weird"). Voice + topic come from
-`consulting-copywriting` and `positioning/` — Sid's substance is AI/agents enablement for music &
+`consulting-copy-writer` and `positioning/` — Sid's substance is AI/agents enablement for music &
 media. Map the shapes onto Sid's substance.
 
 ## Workflow
@@ -36,7 +36,7 @@ media. Map the shapes onto Sid's substance.
 6. **Decide on an image.** ~85% of top posts carry one. If it teaches a framework, pair a "save this"
    infographic → hand off to `consulting-graphics` (template: `framework-blocks`). If it's
    commentary, a meme/screenshot may outperform. Otherwise a branded text-on-image card.
-7. **Run voice + ship.** Pass the draft through `consulting-copywriting` (voice/anti-slop floor), then
+7. **Run voice + ship.** Pass the draft through `consulting-copy-writer` (voice/anti-slop floor), then
    `consulting-linkedin-publisher`. Never auto-send.
 
 ## Detailed patterns
@@ -46,5 +46,5 @@ the infographic-pairing spec. Read it whenever writing or critiquing a post.
 
 ## Chains with
 `consulting-content-idea-generator` → `consulting-content-drafter` → **this** (+ `consulting-linkedin-hooks`
-for line 1) → `consulting-copywriting` → `consulting-graphics` (if an image) → `consulting-linkedin-publisher`. Cadence note: the source
+for line 1) → `consulting-copy-writer` → `consulting-graphics` (if an image) → `consulting-linkedin-publisher`. Cadence note: the source
 operator posts ~6×/week from one morning slot — volume + consistency is the multiplier.

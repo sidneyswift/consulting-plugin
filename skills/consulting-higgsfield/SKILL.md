@@ -35,7 +35,7 @@ the command cheat-sheet → `integrations/higgsfield/AGENTS.md`.
 
 1. **Confirm the brief + load the brand.** What's the asset, where does it go, what should it feel like?
    Pull look-and-feel from `consulting-tasteful-design` (it carries `DESIGN.md` — palette, mood, the
-   anti-AI-slop bar) and voice from `consulting-copywriting`. Encode brand *mood/palette* into the prompt;
+   anti-AI-slop bar) and voice from `consulting-copy-writer`. Encode brand *mood/palette* into the prompt;
    for anything the brand canon doesn't cover, ask — don't invent.
 2. **Pick the model from the live catalog — never invent a name.** `higgsfield model list` (`--video` to
    filter) is the source of truth. Match the model to the job (image vs video vs voice vs product/marketing).

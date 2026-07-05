@@ -1,6 +1,6 @@
 ---
 name: consulting-outbound-email
-description: The process every personalized outbound email runs through before it is staged — gather full context on the person, decide who it is really for and what the objective is (set by temperature), simulate the reader, and pass the pre-send gate. Use when drafting or reviewing any 1:1 nudge, follow-up, broadcast, or stakeholder note. Voice and craft live in consulting-copywriting; the context gather lives in consulting-lead-context.
+description: The process every personalized outbound email runs through before it is staged — gather full context on the person, decide who it is really for and what the objective is (set by temperature), simulate the reader, and pass the pre-send gate. Use when drafting or reviewing any 1:1 nudge, follow-up, broadcast, or stakeholder note. Voice and craft live in consulting-copy-writer; the context gather lives in consulting-lead-context.
 ---
 
 # Consulting Outbound Email
@@ -12,7 +12,7 @@ drafts through this before staging.
 This skill owns the **process**: who the email is for, what its objective is, the reader-POV check, and
 the pre-send gate. It does not own the writing rules.
 
-- **Voice and craft → `consulting-copywriting`.** Zero em-dashes, short and direct, plain words a human
+- **Voice and craft → `consulting-copy-writer`.** Zero em-dashes, short and direct, plain words a human
   would say out loud, evidence over vague authority, confident-not-needy outreach posture. Every rule
   there applies to every email; this skill does not restate them.
 - **Context gather → `consulting-lead-context`.** The full dossier on the person before you write.
@@ -51,7 +51,7 @@ the CRM or a deal folder.
 
 ## Pre-send checklist
 
-- [ ] Voice pass done against `consulting-copywriting` (zero em-dashes; plain words; nothing a human
+- [ ] Voice pass done against `consulting-copy-writer` (zero em-dashes; plain words; nothing a human
       wouldn't say out loud; no vague authority — every claim backed by a real, named example or dropped).
 - [ ] First line states the point; reads cool, calm, and confident, not needy.
 - [ ] Every name, title, and fact verified against real context, not assumed.

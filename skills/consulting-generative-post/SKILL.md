@@ -17,7 +17,7 @@ AI makes the photoreal/cinematic field; HTML makes legible, on-brand text. Neith
 ## Prerequisites
 - `consulting-higgsfield` usable (CLI authed — `higgsfield account status` shows credits).
 - `consulting-graphics` rendering path available (`npx playwright screenshot`).
-- Brand canon: `DESIGN.md` (via `consulting-tasteful-design`); voice via `consulting-copywriting`.
+- Brand canon: `DESIGN.md` (via `consulting-tasteful-design`); voice via `consulting-copy-writer`.
 
 ## Workflow (stable)
 
