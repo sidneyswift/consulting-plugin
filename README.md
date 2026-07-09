@@ -26,6 +26,7 @@ See `_packaging/README.md` for the lifecycle and `SKILL-ROADMAP.md` for the full
 - `consulting-content-extraction` — mine transcripts into insights + content
 - `consulting-content-idea-generator` — multi-tweet test variants
 - `consulting-content-drafter` — idea → publish-ready draft (AIDA + title formula)
+- `consulting-content-recycler` — reuse winners: repost, re-share with context, fan an outlier into new formats
 - `consulting-friday-review` — weekly content + system ritual
 - `consulting-faq-builder` — recurring answer → canonical FAQ
 

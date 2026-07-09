@@ -4,8 +4,8 @@
     "name": "Sidney Swift"
   },
   "metadata": {
-    "description": "Consulting OS — skills for running an AI consulting practice: lead intake, discovery, proposals, the content flywheel, client success, and ops.",
-    "version": "1.3.0"
+    "description": "Consulting OS \u2014 skills for running an AI consulting practice: lead intake, discovery, proposals, the content flywheel, client success, and ops.",
+    "version": "1.4.0"
   },
   "plugins": [
     {

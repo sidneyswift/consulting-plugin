@@ -1,6 +1,6 @@
 ---
 name: consulting-linkedin-post-architect
-description: Structure a high-performing LinkedIn post — pick the archetype, write a scroll-stopping hook, shape the body, format for mobile, choose the in-post CTA, and decide whether to pair an infographic. Use on "write a LinkedIn post", "make this post perform/go viral", "what hook should I use", "structure this for LinkedIn", "turn this insight into a LinkedIn post", or right after consulting-content-drafter. This is the post-STRUCTURE layer; consulting-copy-writer still governs voice/anti-slop, consulting-linkedin-publisher ships it.
+description: Structure a high-performing LinkedIn post — pick the archetype and founder format (build log, documented failure, value post, receipt, contrast hook, milestone chapter), write a scroll-stopping hook, shape the body, format for mobile, choose the in-post CTA, and decide whether to pair an infographic. Use on "write a LinkedIn post", "make this post perform/go viral", "what hook should I use", "structure this for LinkedIn", "turn this insight into a LinkedIn post", "write a build log / failure / receipt / milestone post", or right after consulting-content-drafter. This is the post-STRUCTURE layer; consulting-copy-writer still governs voice/anti-slop, consulting-linkedin-publisher ships it.
 ---
 
 # Consulting LinkedIn Post Architect
@@ -19,6 +19,10 @@ media. Map the shapes onto Sid's substance.
 ## Workflow
 1. **Pick the archetype** (what job this post does): personal-story · expertise/teaching · sales/offer ·
    meme/commentary · manifesto/contrarian. Selection guidance + examples → `references/post-patterns.md`.
+   Then pick the **founder format** that fills it (build log · documented failure · value post · receipt ·
+   contrast hook · milestone chapter) **by entry price — what raw material is verifiably in hand** —
+   → `references/founder-formats.md`. If a proven format keeps flopping, diagnose empty inventory
+   before blaming the format.
 2. **Write the hook** (line 1 = the whole game). For the deep, data-backed hook engine — 8 patterns
    reverse-engineered from a fresh monthly top-performer scrape, plus generate/critique — use
    **`consulting-linkedin-hooks`** (it supersedes the quick PLACE notes here). Quick version: the
@@ -43,6 +47,9 @@ media. Map the shapes onto Sid's substance.
 Read **[references/post-patterns.md](references/post-patterns.md)** for the archetype specs, the full
 PLACE + STORM frameworks, the formatting fingerprint (with the data behind it), the CTA system, and
 the infographic-pairing spec. Read it whenever writing or critiquing a post.
+Read **[references/founder-formats.md](references/founder-formats.md)** for the 6 founder formats
+(build log, documented failure, value post, receipt, contrast hook, milestone chapter), the
+entry-price selection table, and the raw-material inventory checklist (numbers · scars · build log).
 
 ## Chains with
 `consulting-content-idea-generator` → `consulting-content-drafter` → **this** (+ `consulting-linkedin-hooks`

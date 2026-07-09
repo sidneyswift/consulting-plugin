@@ -93,6 +93,14 @@ The *only* reliably good use of a number in a hook: a vivid, near-unbelievable s
 - "100,000+ people have gone through my coaching." (line 2 proof) — Jasmin Alić
 - Signature: credibility + curiosity.
 - **Sid/AI:** "Our AI artist hit #1 with twice the streams of #2." · "One skill saved a 12-person team a day a week." (only with a real, verified number — never invent one.)
+- **The mechanic is the gap, not the number.** What makes these travel is a **contrast** — the number
+  plus an identity/context that makes it improbable ("$550,000 job **at 38 with no plan**"; a founder
+  crossing $1M is a Tuesday, a high-schooler doing it between classes is a story people retell). Big
+  numbers alone don't stop the scroll; feeds are full of them. Build the hook as **two facts side by
+  side, unexplained** — let the reader resolve the gap. If a number-hook is falling flat, hunt for the
+  gap in the story, not a bigger number. (Full "contrast hook" post format:
+  `consulting-linkedin-post-architect` → `references/founder-formats.md`; origin:
+  `swipe/posts/2026-07-09-anson-lin-founder-content-system.md`.)
 
 ## Cross-cutting rules (apply to every hook)
 
