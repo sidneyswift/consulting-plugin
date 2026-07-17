@@ -1,6 +1,6 @@
 ---
 name: consulting-progress-report
-description: Write and ship the recurring client-facing progress report — the contractual bi-weekly/monthly "what did I get for my money" update to the engagement sponsor (often the payment condition). Use on "write the progress report / bi-weekly update for {client}", when a report due-date hits, or after a delivery period closes. Assembles from the client's activity log, verifies every claim against primary sources, drafts in the locked house format (TLDR of before→after arrows, quick notes, next two weeks, saving-for-{platform}, needs, per-stakeholder goals), gates through consulting-copy-reviewer role-playing the actual sponsor plus a fresh-eyes condense pass, then Sid's critique loop. NOT the light session recap (consulting-stakeholder-update) and NOT the quarterly value review (consulting-quarterly-value-review) — this is the contractual cadence deliverable between them.
+description: Write and ship the recurring client-facing progress report — the contractual bi-weekly/monthly "what did I get for my money" update to the engagement sponsor (often the payment condition). Use on "write the progress report / bi-weekly update for {client}", when a report due-date hits, or after a delivery period closes. Assembles from the client's activity log, verifies every claim against primary sources, drafts in the locked house format (TLDR of before→after arrows, quick notes, next two weeks, where-this-is-heading, needs, per-stakeholder goals), gates through consulting-copy-reviewer role-playing the actual sponsor plus a fresh-eyes condense pass, then Sid's critique loop. NOT the light session recap (consulting-stakeholder-update) and NOT the quarterly value review (consulting-quarterly-value-review) — this is the contractual cadence deliverable between them.
 ---
 
 # Consulting Progress Report
@@ -44,7 +44,8 @@ Internal front matter (To/From/Period/Date + a DRAFT line deleted on send), then
 
 1. **Greeting** — "Hey {sponsor}," + logistics note only if needed (e.g. work-email-down). One-line
    framing: "Below is the progress report of the last two weeks: where things were, where things are now,
-   what's next, etc." + "Quick video: {Loom URL}" (1-minute walkthrough).
+   what's next, etc." A Loom is **optional** ("Quick video: {Loom URL}", 1-minute walkthrough) — report #1
+   included one, report #2 shipped text-only; don't hard-require it.
 2. **TLDR (two weeks ago → today)** — 5–7 bullets, each a readable `before → after` phrase around a
    literal `→`. **No category labels** ("Darren:", "Owned AI:" — banned; the compartments read as
    ambiguous). Backticks on system names (`Finance OS`). Lead with the person/adoption story ("{champion}
@@ -54,9 +55,14 @@ Internal front matter (To/From/Period/Date + a DRAFT line deleted on send), then
 4. **The next two weeks** — only real commitments, named people, one line each ("Continue weekly sessions
    with X to improve `{OS}`", "Start weekly sessions with Y...", "Plan sessions next month with Z...").
    Attribute claims ("per Nicole, he's one of the heaviest users").
-5. **Saving for {platform}** — the expansion seed. "Work outside the current scope, worth doing when we
-   take over {platform}. Not building these yet; keeping a running-list:" then plain-named connection
-   bullets (no "MCP"/"write-back" jargon). This is restraint-framed value, never a pitch.
+5. **Where this is heading** (the expansion seed) — restraint-framed value, never a pitch. It **graduates**
+   as the engagement matures: early on it's a bare deferred list ("Saving for {platform}: work outside
+   current scope, not building yet, keeping a running-list"); once the positioning thesis is ripe, Sid names
+   the architecture directly (Seeker report #2: the Seeker-owned parts ARE "basically what makes up
+   {platform}") and pairs it with a short **"Not building these yet"** list of the genuinely-deferred
+   connections. A connection moves off that list into **Needs** the moment a key/access is in motion. Keep
+   deferred bullets plain-named; naming owned system-parts (`{Client} MCP`/`Skills`/`Apps`/`Database`, one
+   plain-English line each) is fine once the sponsor is ready for it.
 6. **Needs from {client}** — only asks they must act on NOW, each routed to a named owner, "when you're
    ready" on the non-urgent, gloss unknown tools ("Granola (meeting notes)"). After the asks, the
    no-pressure line: "Nothing above needs a decision yet, but if I can get my hands on {docs/APIs} now, I
@@ -65,7 +71,7 @@ Internal front matter (To/From/Period/Date + a DRAFT line deleted on send), then
    sponsor's goal LAST ("Evan's Goal: '...increases speed and revenue without adding headcount.'"). This
    ends the read on where everyone is headed, in the sponsor's own success language.
 
-Length bar: the sponsor finishes it. One page. If a bullet needs a paragraph, it's the Loom's job.
+Length bar: the sponsor finishes it. One page. If a bullet needs a paragraph, cut it (or, if you recorded one, it's the Loom's job).
 
 ## Process
 
