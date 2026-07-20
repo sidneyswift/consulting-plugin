@@ -128,7 +128,14 @@ When writing a landing page, homepage, pricing page, feature page, or any conver
 9. Delete analogies unless they pass the permission test
 10. Remove metaphor verbs used for abstract work
 11. Cut endings that only repeat the point
-12. Ask: does this sound useful, or overworked?
+12. Delete fake-profound kickers (don't rewrite into a better metaphor — delete)
+13. Check for colon reveals (noun phrase : dramatic payoff) — rewrite as plain sentences
+14. Cut dramatic fragmentation ("That's it. That's the whole thing.")
+15. Cut rhetorical setups ("What if I told you...", "Plot twist:", self-answered Q&A)
+16. Cut summary-recap endings ("In conclusion," "Ultimately," "Overall")
+17. Check for synonym cycling — if the same thing is called three different names, pick one and repeat it
+18. Check formatting slop: emoji headings, decorative bold, bullets-where-prose-works, headers over tiny sections
+19. Ask: does this sound useful, or overworked?
 
 For business or persuasion copy (emails, memos, proposals, landing pages, ads, updates), also run the Ogilvy self-audit (full rules in [references/ogilvy-rules.md](references/ogilvy-rules.md)) and fix anything a sharp, time-pressed reader would catch:
 

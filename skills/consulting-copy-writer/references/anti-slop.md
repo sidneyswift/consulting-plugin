@@ -182,9 +182,9 @@ Principle: the reader can't watch you "come back" to anything — the phrase per
 - **Puffery**: "a key turning point", "a pivotal moment", "marking a significant evolution" — state the fact
 - **Forced rule of three**: "speed, efficiency, and innovation" — use 1 if 1 matters
 - **False ranges**: "from ancient traditions to modern innovation" — delete if no meaningful middle
-- **Elegant variation**: "Sarah joined. The seasoned operator led..." → "Sarah joined. She led..."
+- **Synonym cycling / elegant variation**: Don't rotate terms for style. If the clear word is right, repeat it. "The agent reviews the draft. The assistant scores the piece. The tool suggests fixes" → "The agent reviews the draft, scores it, and suggests fixes." Same applies to pronoun substitution: "Sarah joined. The seasoned operator led..." → "Sarah joined. She led..."
 - **Meta commentary**: "In this section", "Let me walk you through", "Here is a comprehensive overview" — say the thing
-- **Fake depth participles**: "highlighting its importance", "paving the way for" — give a specific claim
+- **Superficial -ing analysis / fake depth participles**: Cut trailing `-ing` clauses that pretend to explain meaning: "highlighting," "underscoring," "reflecting," "showcasing," "paving the way for." Replace with the actual mechanism. "The launch adds file search, highlighting the team's commitment to better workflows" → "The launch adds file search, so users can find old drafts without leaving the editor."
 - **Copulative avoidance**: "serves as a guide" → "is a guide"; "boasts a dashboard" → "has a dashboard"
 - **Metronome rhythm**: vary sentence and paragraph length
 - **Knowledge disclaimers**: no "As of my last update", "Based on available information"
@@ -256,6 +256,51 @@ Once the em-dash is banned, the colon quietly takes its job: a setup-payoff colo
 
 - Bad (a colon every turn): "The reason is what AI is doing: analysis, drafting, research. My default: run the best model. His answer: they don't. The better question: what did it produce?"
 - Good: keep the one that earns it ("His answer: they don't.") and rewrite the rest as sentences ("The reason is the kind of work AI now does. What matters is what it produced.").
+
+## Colon reveals
+
+Distinct from colon overuse (frequency). This is the specific pattern: noun phrase, colon, lowercase dramatic payoff.
+
+- Bad: "The detail that makes it work: a separate agent grades it."
+- Bad: "The best part: it learns."
+- Good: "A separate agent does the grading, which is what makes it work."
+
+Use colons for lists, labels, and quotes — not fake drama. Prefer sentence case after a colon unless grammar, a proper noun, a title, or code requires otherwise.
+
+## Dramatic fragmentation
+
+"X. And Y. And Z." or "That's it. That's the whole thing." Stacking punchy one-sentence fragments to simulate emphasis. Use complete sentences.
+
+- Bad: "No meetings. No dashboards. Just output."
+- Good: "It runs without meetings or dashboards."
+
+## Fake-profound kickers
+
+Cut the final "deep" line when it turns the point into a cute metaphor, aphorism, or mic-drop sentence. Do not rewrite it into a better metaphor. Do not preserve the rhythm. Delete it, then end on the clearest concrete sentence already in the draft. If the ending needs more closure, add a plain takeaway or next action.
+
+- Bad: "And maybe that's the real automation — not the code, but the clarity."
+- Fix: delete it. The paragraph already made the point.
+
+## Rhetorical setups
+
+"What if I told you...", "Think about it:", "Plot twist:", and self-answered "Question? Answer." pairs. Drop them and make the point.
+
+- Bad: "What if I told you the bottleneck isn't the model?"
+- Good: "The bottleneck isn't the model."
+- Bad: "Is this a tooling problem? No. It's a taste problem."
+- Good: "It's a taste problem."
+
+## Summary-recap endings
+
+"In conclusion," "Ultimately," "Overall," "To sum up," "At the end of the day," or a final paragraph that restates the piece. The reader was just there. End on the last concrete point, takeaway, or next action.
+
+## Formatting slop
+
+Emoji in headings, bold sprinkled mid-sentence for emphasis, bullet lists where two sentences of prose would read better, and headers over two-sentence sections. Format should follow the content, not decorate it.
+
+- Bad: "🚀 Key Takeaways" → "Key takeaways"
+- Bad: a bulleted list of 3 items that are each full sentences → write them as a paragraph
+- Bad: a header followed by two sentences, then another header → merge or cut the header
 
 ## Anti-overfitting
 
