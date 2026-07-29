@@ -302,6 +302,26 @@ Emoji in headings, bold sprinkled mid-sentence for emphasis, bullet lists where 
 - Bad: a bulleted list of 3 items that are each full sentences → write them as a paragraph
 - Bad: a header followed by two sentences, then another header → merge or cut the header
 
+## Performed candor
+
+Announcing that you're about to be honest, or grading how honest someone else was. Real candor is just the sentence; the label is throat-clearing, and to a wary reader it signals a move being made.
+
+- Bad: "So here it is straight: we're a consulting practice." → "We're a consulting practice."
+- Bad: "Appreciated the straight talk Monday." → "Thanks for being upfront with me Monday."
+- Bad: "If anyone read that as competition, that was a fair read of what I wrote." (grades the reader's interpretation) → take the blame plainly: "Some of the confusion comes from my own posts."
+
+Same family: "let me be honest," "real talk," "to be completely transparent," "I'll be blunt," "no BS," "candidly." Cut the label, keep the sentence. When apologizing, own the failure instead of validating their reaction ("I should have explained that sooner" beats "your concern is understandable").
+
+## Writerly phrases nobody says out loud
+
+Small figurative constructions that pass the banned-word lists but still read as written-for-effect. Each one names an abstraction where a plain verb works. Say-it-aloud test: would you use this phrase on the phone?
+
+- Bad: "Here's the plan, so nothing drifts." → "Here's the plan as I've got it."
+- Bad: "First move is ours." (game/chess register) → "Let's start with X."
+- Bad: "then we look at what shape makes the most sense" → "then we decide what's next."
+
+Same family: "where things net out," "what good looks like," "the through-line here," "let's get our arms around it," "put a pin in it," "the shape of the work." These aren't on any banned-vocabulary list, which is exactly why they survive an automated pass. Catch them by reading the draft aloud (Ogilvy Rule 5) and replacing each with the plain verb underneath.
+
 ## Anti-overfitting
 
 Do not imitate the voice too hard. Do not force jokes or slang. Do not make every sentence punchy or every paragraph 1 sentence.
