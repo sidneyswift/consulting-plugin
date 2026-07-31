@@ -70,8 +70,38 @@ Internal front matter (To/From/Period/Date + a DRAFT line deleted on send), then
 7. **What we're working towards** — the closer: one goal per named stakeholder, quoted-style, the
    sponsor's goal LAST ("Evan's Goal: '...increases speed and revenue without adding headcount.'"). This
    ends the read on where everyone is headed, in the sponsor's own success language.
+   **⚠️ This closer has a shelf life — retire it around report 3.** Quoting the sponsor's own goal back
+   at him is powerful once, tolerable twice, and condescending the third time. Seeker report #3's
+   Evan-persona gate: *"I've now seen my own goal quoted back at me three reports in a row, word for
+   word. I know what my goal is. Cut it or change it."* Same rule for any **recap of the prior report's
+   framing** — the sponsor skims the instant he recognizes his own last email. **Ship the delta, not the
+   recap:** if a section is unchanged, one line saying so ("No change since last time: X and Y") beats
+   re-listing it.
 
 Length bar: the sponsor finishes it. One page. If a bullet needs a paragraph, cut it (or, if you recorded one, it's the Loom's job).
+
+**Mobile rendering: no backticks in the email body.** The house style backticks system names in the repo
+draft — but the sponsor reads on a phone, where rich-text paste renders them as literal ` characters and
+the email looks broken. Strip every backtick when converting draft → send text (they stay in the filed
+draft and internal notes). Seeker report #3, Evan-persona gate: *"On my phone that renders as literal
+backticks. Looks broken. I read everything on my phone."*
+
+**Never let a vendor-meeting readout read as scope growth.** When a report covers a meeting with another
+vendor the sponsor introduced, the sequence "I said they build X → I met them → now they build less and I
+build more," especially closed with a quote from the vendor endorsing your work, reads as
+self-dealing no matter how true it is. Report what was *learned*, not what was *won*; drop the
+before/after of your own scope; and never pair a scope expansion with a supporting vendor quote in the
+same paragraph. Seeker report #3: *"that is you coming back from a meeting with a vendor having grown
+your own scope and produced a quote from the vendor endorsing it. I introduced you to those guys."*
+Related: **a vague risk warning from the party who benefits from the warning** ("...which is the part I'm
+watching") gets cut — name the risk or say nothing.
+
+**Capability numbers don't substitute for output numbers.** A report full of infrastructure (permissions,
+orgs, connectors, warehouses) is real work that reads as invisible. The sponsor needs one sentence he can
+repeat to a peer. If no *audited* time-saved figure exists this cycle, **do not invent one** (that's the
+`ARod +300%` line Sid cut from report #2) — instead surface the gap to Sid in the internal notes with 2–3
+named candidates and who would know the answer, and promote the strongest real number you do have into
+the headline slot.
 
 ## Process
 
