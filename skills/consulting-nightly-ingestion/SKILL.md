@@ -37,7 +37,15 @@ Autopilot means "no human in the loop," not "skip the rails." These come straigh
 
 1. **Pull (delegate to `consulting-integrations-sync`).** Run it for the live API sources only:
    **Attio** (query live, reconcile stage ↔ folder), **Granola** (capture **verbatim transcripts** for new
-   in-scope notes via `list_new_notes.py` → `pull_transcript.py` — the transcript, never the AI summary),
+   in-scope notes via `list_new_notes.py` → `pull_transcript.py` — the transcript, never the AI summary;
+   **⚠️ never classify a Granola note by its attendee list alone — read the title and the summary.**
+   Granola frequently records a client call as solo `sidney@recoupable.com` when only Sid holds the
+   invite, so "no external attendee" is *not* evidence of an internal call. On 2026-07-31 this heuristic
+   nearly dropped the highest-value note in the batch: *"Finance team AI tools setup and workflow
+   optimization with **Rebecca SEEKER**"* was attendee-solo but was a client session that stood up a
+   fourth department OS and surfaced a domain-ownership risk. The client's name was **in the title**.
+   Same failure mode had already been flagged twice as "ambiguous, not captured." **Rule: attendees can
+   promote a note to in-scope, but only title + content may demote one to skip.**),
    **Gmail** (Attio-gated **full-thread archives** via `export_thread_bodies.py`, plus awaiting-reply
    triage), **LinkedIn** (refresh engagement), and **Slack** (deal-tied channels per its Slack step —
    **full pull: every message AND every thread reply**, `--days 0 --threads`; routing table in
