@@ -51,6 +51,16 @@ Autopilot means "no human in the loop," not "skip the rails." These come straigh
    **full pull: every message AND every thread reply**, `--days 0 --threads`; routing table in
    `integrations/slack/AGENTS.md`). It advances each source's
    `LAST_SYNCED` — that watermark is what keeps this idempotent, so a re-run never re-ingests yesterday.
+   **⚠️ ALWAYS pull Granola with an OVERLAPPING window — `--since` the watermark MINUS 3 days — and
+   dedupe by note id against transcripts already on disk.** Granola's `created_at` is the **meeting
+   start time**, but a note only becomes API-visible once the device syncs, which can be many hours
+   later. A strict `--since watermark` therefore misses any note that arrives late and **backdates
+   behind the watermark — permanently, because the watermark only moves forward.** Proven 2026-07-31:
+   `list_new_notes.py --since 2026-07-28` returned 7 notes and omitted a real client session
+   (`not_7QlzB5LYwtED4O`, Darren/Seeker, `created_at` 2026-07-30T15:08Z); the identical command ~20h
+   later returned 10 and included it. It was found only because **Sid said the meeting existed**. The
+   watermark buys idempotence; the overlap buys completeness — you need both, and re-reading three days
+   is nearly free because dedupe drops the repeats.
    **Skip the research wiki** here: it's a *local* sibling repo
    (`../research`) the cloud routine can't see, and it's content-only — leave it to the local Friday
    review (`consulting-friday-review`). **Also pull GitHub product PRs directly** — `python3
