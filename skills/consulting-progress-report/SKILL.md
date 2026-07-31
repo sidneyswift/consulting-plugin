@@ -9,9 +9,16 @@ The report's job, in order: (1) a busy non-technical sponsor reads ALL of it and
 feel the hire is paying off (trust up, "I'd repeat this to a peer"), (3) they start wanting the next,
 bigger scope — seeded by the deferred list, never pitched. Every choice below serves those three.
 
-Voice: `consulting-copy-writer` (no em-dashes, plain words, digits). Process guardrails here are the
-lessons from the 2026-07-03 Seeker report #1 build (exemplar: as-sent verbatim + Sid's final-edit notes
-in `clients/seeker-music/04-delivery/progress-reports/2026-07-03-report-1.md`).
+Voice: **read `consulting-copy-writer` in full, plus its `references/anti-slop.md`, before Gate 1** — this
+is a client-facing email written as Sid, squarely in that skill's scope. Do not treat any one-line summary
+of it (here or anywhere) as a substitute for reading it; the parenthetical shorthand that used to live on
+this line ("no em-dashes, plain words, digits") is exactly what let report #3 ship a draft carrying a
+hard-banned negative-parallelism construction, two significance pointers, a colon reveal, and a
+"center of gravity" metaphor. Three remembered rules are not the rule set.
+
+Process guardrails here are the lessons from the 2026-07-03 Seeker report #1 build (exemplar: as-sent
+verbatim + Sid's final-edit notes in
+`clients/seeker-music/04-delivery/progress-reports/2026-07-03-report-1.md`).
 
 ## Inputs (gather before drafting)
 
@@ -109,27 +116,35 @@ the headline slot.
    claims against transcripts (quote timestamps in your working notes).
 2. **Draft** to `clients/{client}/04-delivery/progress-reports/{date}-report-{N}.md` with the DRAFT
    status line. Commit (drafts are episodic memory too).
-3. **Gate 1 — the sponsor's eyes.** Run `consulting-copy-reviewer` with the persona tightened to the
+3. **Gate 0 — anti-slop pass (silent, mechanical).** Before any persona gate, run the drafted body against
+   `consulting-copy-writer` → `references/anti-slop.md` and its 19-point final pass. Grep the body, don't
+   eyeball it: banned vocabulary, `\bland(s|ed|ing)?\b`, the analogy audit terms, dead transitions, filler
+   intensifiers (`actually|really|simply|literally`), colon density. Then read for the patterns grep can't
+   catch: negative parallelism across sentence boundaries ("The part I'll hold the line on isn't X. It's
+   Y."), significance pointers ("that's the one that matters"), and metaphors for abstract work. Contractions
+   must be consistent throughout, including inside TLDR arrow bullets, which are the easiest place to leave
+   a stray "it is" / "could not".
+4. **Gate 1 — the sponsor's eyes.** Run `consulting-copy-reviewer` with the persona tightened to the
    actual sponsor (never technical), loaded with engagement context (fee, why they hired, their board's
    priorities, team names, how busy they are). Add the report-specific questions: too long / where would
    you stop? was the month's fee well spent, which line? 0–10 would you recommend, what raises it? what
    makes you want to expand scope? Triage: accept jargon flags, buried wins, trust dips; reject any note
    that needs an invented number.
-4. **Gate 2 — fresh-eyes condense.** A zero-context subagent sweeps for combinable bullets,
+5. **Gate 2 — fresh-eyes condense.** A zero-context subagent sweeps for combinable bullets,
    redundancies, and state contradictions (the "installed org-wide" vs "team installs next" class). Merge;
    keep every fact.
-5. **Sid critique loop.** His corrections are ground truth (they often carry NEW facts — log those to the
+6. **Sid critique loop.** His corrections are ground truth (they often carry NEW facts — log those to the
    dashboard/lists). Iterate in place; commit each round with a why-first message.
-6. **Ship kit.** On request: a white-background HTML paste source next to the report (dark-theme rich-text
+7. **Ship kit.** On request: a white-background HTML paste source next to the report (dark-theme rich-text
    copies carry background colors into Gmail; the HTML file pastes clean — delete it after send), a
    ~90-second Loom script (repo → skills → dashboard → design system → deferred list + asks), and the
    Slack variant (a one-line "dropping the report I emailed @here too" wrapper; the email-logistics
    opener stays email-only).
-7. **After send — file it.** Replace the file body with the **as-sent verbatim** (+ an internal-notes
+8. **After send — file it.** Replace the file body with the **as-sent verbatim** (+ an internal-notes
    section recording Sid's final edits as skill feedback), mark ✅ SENT in the title and the schedule
    table, add a sent entry to the activity log, refresh the dashboard (report due-date, new commitments,
    new asks/balls, any new facts Sid introduced), sync the running lists, and commit.
-8. **Compound.** Diff Sid's sent version against the last draft; fold recurring edits back into this
+9. **Compound.** Diff Sid's sent version against the last draft; fold recurring edits back into this
    skill and the client's `_TEMPLATE.md`.
 
 ## Instance vs. skill (keep the boundary)
