@@ -1,9 +1,18 @@
 ---
 name: consulting-lead-temperature
-description: Score a lead's relationship temperature (0-10) and posture from their full communications graph, so follow-ups match where the relationship actually stands. Use before drafting any re-engagement or outreach to a known lead, on "what's their temperature", "score this lead", or in the Friday warm-leads sweep.
+description: "Score a lead's relationship temperature (0-10) and posture from their full communications graph, so follow-ups match where the relationship actually stands. Use before drafting any re-engagement or outreach to a known lead, on \"what's their temperature\", \"score this lead\", or in the Friday warm-leads sweep."
 ---
 
 # Consulting Lead Temperature
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
 
 Turn a lead's full comms history into a **temperature** (how hot the opportunity) and a **posture**
 (how to speak to them). Relationship state is Attio's domain, so Attio plus the deal dashboard hold the
@@ -25,11 +34,14 @@ leads to verify, not evidence. Tone, who-led, enthusiasm, and stalls must be rea
      of which meetings exist and to grab each note's `note_id` from frontmatter.
    - Pull the verbatim transcript for each `note_id` via the Granola API
      (`GET https://public-api.granola.ai/v1/notes/{note_id}?include=transcript`, `Authorization: Bearer $GRANOLA_API_KEY`).
-     Utterances are tagged `microphone` = Sid and `speaker` = the other side. Helper:
-     `integrations/granola/_work/pull_prospect_transcripts.py` (writes summary + verbatim transcript per deal).
+     Resolve `microphone` against that recording's owner; `speaker` is not necessarily one identified
+     person. Verify attribution before assigning a name. Review title and content for this account
+     before capture. Use the available connector for one reviewed note, or a compatible local helper:
+     `python3 integrations/granola/_work/pull_transcript.py --note <id> --reviewed-scope --out <dest>`.
+     Never use a bulk transcript importer or fetch unrelated notes based only on an attendee match.
    - **Do not skip any meeting or any colleague.** Read every transcript involving anyone at the account
      (champion *and* every teammate looped in), reading tone at the start vs. the end of each call.
-     A meeting with no transcript returned by the API is the only acceptable miss — note it as such.
+     Missing access, withheld mixed-scope material, or an unavailable transcript must remain a labeled gap.
 2. **Build the touch timeline.** Every meeting and email in order: date, who initiated, what happened,
    tone. Cite each (thread or file). This is the evidence the score rests on.
 3. **Score four components, 0-10 each, with evidence:**

@@ -1,9 +1,14 @@
 ---
 name: consulting-lead-context
-description: Assemble a grounded context dossier on a lead BEFORE any outreach or personalization, so drafts are accurate and the agent never punts "I need your input" on something it could look up itself. Run before consulting-email-atomizer, consulting-followup-sequencer, or any 1:1 outreach, especially for content-sourced leads (LinkedIn engagers).
+description: "Assemble a grounded context dossier on a lead BEFORE any outreach or personalization, so drafts are accurate and the agent never punts \"I need your input\" on something it could look up itself. Run before consulting-email-atomizer, consulting-followup-sequencer, or any 1:1 outreach, especially for content-sourced leads (LinkedIn engagers)."
 ---
 
 # Consulting Lead Context
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 Gather everything knowable about a lead before writing to them. The governing rule:
 
@@ -11,9 +16,7 @@ Gather everything knowable about a lead before writing to them. The governing ru
 > only after the sources below are exhausted. If the answer sits in a post, a profile, a thread, or a
 > company's homepage, go get it.**
 
-(Lesson 2026-06-21: a batch of first-touch drafts flagged "confirm what the walled garden is" and
-"confirm what OpenClaw is" for the human, when both answers were verbatim in the LinkedIn posts those
-leads had commented on. The agent owned that context and skipped it. Never again.)
+Use the source post, thread, or company material to resolve context before escalating a question. Missing evidence remains a labeled gap.
 
 ## When to run
 Before any personalized outreach. `consulting-outbound-email` runs this as its context step. It matters most for

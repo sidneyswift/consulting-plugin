@@ -5,6 +5,23 @@ description: "turn arbitrary text — an article, notes, a topic, a brief — in
 
 # Faceless Explainer to HyperFrames
 
+## Selected brand
+
+For Recoup/Consulting/Business, read `../../brand/GUIDE.md` and stage
+`node <video-skill>/brand/materialize.mjs <project-directory>`. Use the packaged CSS/fonts/exact SVGs.
+Identity is selected before frame.md; a frame can change layout/timing but cannot replace the brand.
+Generic style catalogues below are alternatives for an explicit other brand, not Recoup defaults.
+An explicitly selected client/artist identity or fidelity-only migration preserves that identity.
+Record brand/version, expression and reference IDs with editable sources in the existing output folder.
+
+
+**Portable setup:** read `../../engine/runtime/SETUP.md` for the pinned runtime. Resolve bundled resources from this
+installed skill and write outputs into the selected project. Brand fonts and identity come from that
+workspace's `DESIGN.md` or supplied brief; preset fonts and logos are examples, not required defaults.
+Keep original asset notices. Use approved workspace fonts for deliverables; optional legacy demo
+assets do not grant commercial usage rights. Client stories and figures in templates are illustrative,
+never evidence of a real result. Missing provider access remains a reported gap.
+
 Use this skill to turn a body of text into an explainer video: pick a design system, plan a teaching story, and build it frame by frame in HyperFrames. **Faceless** means every visual is invented downstream — there is no capture step and no real asset inventory.
 
 > **Confirm the route before Step 0.** You are the orchestrator. Run each step, verify its gate, and only then continue. This skill is for **explaining a topic from text, with no product and no website to capture**. Route other intents elsewhere: a product launch/promo → `/product-launch-video`; a tour of a real site → `/website-to-video`; a GitHub PR → `/pr-to-video`; captions on existing footage → `/embedded-captions`; a short unnarrated motion graphic → `/motion-graphics`. If the user says only "make a video" or the route is uncertain, read `/hyperframes` first.
@@ -34,7 +51,7 @@ Goal: Fold the user's text into the project as the source of information. There 
 Save the user's full input verbatim, then create the synthetic capture package by hand:
 
 - `capture/extracted/visible-text.txt` — the full article / notes / topic / brief, verbatim. This is the source of **information**, not a story template (Step 3 reshapes it).
-- `capture/extracted/tokens.json` — `{ "title": "", "description": "", "colors": [], "fonts": [] }`. Fill `title`/`description` from the brief. Leave `colors`/`fonts` empty unless the user explicitly gave brand colors or fonts — then add them (the design preset supplies a complete palette regardless).
+- `capture/extracted/tokens.json` — `{ "title": "", "description": "", "colors": [], "fonts": [] }`. Fill `title`/`description` from the brief. These capture fields may be empty: Step 2 resolves Recoup from the bundled package, not from a guessed preset.
 
 Do **not** run `npx hyperframes capture` (there is no URL). Do not create `asset-descriptions.md` or populate `capture/assets/` — faceless visuals are invented in Steps 4-5, not captured. The one exception: if the user supplied a real image, place it under `public/<basename>` and note it for Step 3.
 
@@ -44,19 +61,22 @@ Do **not** run `npx hyperframes capture` (there is no URL). Do not create `asset
 
 ## Step 2: Design System
 
-Goal: Choose one shipped frame preset; a script turns it into this video's `frame.md` + caption skin.
+Goal: resolve the selected identity before authoring frames.
 
-You make the one judgment call — **which preset**. Read `../hyperframes-creative/references/design-spec.md` and browse `../hyperframes-creative/frame-presets/`; pick the preset whose look best fits the topic, tone, and audience. Then run:
+For Recoup/Consulting/Business run:
 
 ```bash
-node <SKILL_DIR>/scripts/build-frame.mjs --preset <name> --hyperframes .
+node <SKILL_DIR>/scripts/build-frame.mjs --brand recoup-sky --hyperframes .
 ```
 
-The script does the rest deterministically: copies the preset's `FRAME.md` → `frame.md` and **remixes** it onto any brand tokens in `capture/extracted/tokens.json` (brand colors mapped onto the preset's color keys by role; the preset's display + body fonts swapped for the brand's), copies the preset's `caption-skin.html` verbatim, and self-validates (exits 1 on a broken mapping). Proceed as soon as it exits 0 — no hand-editing of the spec.
+This stages a versioned frame, exact font/logo files, caption skin and brand.lock.json from the
+bundled package. Colors map exactly by role; display/body are DM Sans, labels IBM Plex Mono.
+Empty capture tokens cannot substitute a vendor identity. Load recoup-brand/brand.css in each page.
+For an explicitly different client/artist brand use `--brand source --preset <name>` and supply
+its source tokens/fonts/caption styling. Its `typography.display.family` and `typography.body.family`
+roles take precedence over the legacy font array. Review the source preset's caption skin as well.
 
-A faceless explainer usually has **no brand colors/fonts** (`tokens.json` colors/fonts empty) → the script keeps the preset's own palette, a complete shippable design. Only when the user named brand colors/fonts add them to `tokens.json` before running, and only adjust `frame.md` by hand afterward if a mapping truly needs it.
-
-**Gate:** `build-frame.mjs` exited 0 — `frame.md` exists from a named preset, and (when the preset ships one) `caption-skin.html` is at the project root.
+**Gate:** builder exits 0; inspect frame.md, caption-skin.html, font loading and brand.lock.json.
 
 ---
 
@@ -64,7 +84,7 @@ A faceless explainer usually has **no brand colors/fonts** (`tokens.json` colors
 
 Goal: Turn the text into an approved frame-by-frame teaching plan.
 
-Read `references/story-design.md`, `../hyperframes-core/references/storyboard-format.md`, and `../hyperframes-core/references/script-format.md`. Use them to write `STORYBOARD.md` and, when narration is needed, `SCRIPT.md`.
+Read `references/story-design.md`, `../../engine/hyperframes-core/references/storyboard-format.md`, and `../../engine/hyperframes-core/references/script-format.md`. Use them to write `STORYBOARD.md` and, when narration is needed, `SCRIPT.md`.
 
 Use `story-design.md` for the explainer structure (concept / how-to / listicle / story), hook strategy, clarity techniques, emotional beats, the type-enum mapping, and `VO_MODE`. The video's sequence comes from **narrative design, not the input text's paragraph order** — reorder, merge, omit, compress. Faceless visuals are invented downstream, so frames do **not** carry an asset inventory: leave `asset_candidates` empty unless the user supplied a real `public/<basename>` image. Use the exact required fields from the storyboard and script references.
 
@@ -82,7 +102,7 @@ Start audio after Step 3 approval. Run it in the background, then continue to St
 
 `node <SKILL_DIR>/scripts/audio.mjs --script ./SCRIPT.md --storyboard ./STORYBOARD.md --hyperframes . --out ./audio_meta.json &`
 
-The audio script handles narration, word timings, BGM lookup from HeyGen's music library, and timing metadata. BGM mood comes from the storyboard's `music:` field. This uses the HeyGen Audio API for retrieval, not generation, and the same `~/.heygen` credential as TTS. For provider details, read `../hyperframes-media/references/tts.md`.
+The audio script handles narration, word timings, BGM lookup from HeyGen's music library, and timing metadata. BGM mood comes from the storyboard's `music:` field. This uses the HeyGen Audio API for retrieval, not generation, and the same explicitly selected account as TTS (see the runtime setup). For provider details, read `../../engine/hyperframes-media/references/tts.md`.
 
 If there is no narration and no `SCRIPT.md`, skip voice generation. BGM may still run if the storyboard has a music mood.
 
@@ -96,7 +116,7 @@ Goal: Add the visual direction, layout intent, and motion choices to each storyb
 
 Edit `STORYBOARD.md` in place. Do not create another storyboard. Use `frame.md` as the source of truth for color, type, layout feel, and style.
 
-Read `references/visual-design.md`, `references/composition.md`, `references/motion-language.md`, and `../hyperframes-animation/`. Use `visual-design.md` for required frame fields and the required `## Video direction` block. Use `composition.md` for layout, hierarchy, focal points, and the invented-visual treatment. Use `motion-language.md` and `../hyperframes-animation/` for valid effects and blueprint IDs. Do not invent effect names or blueprint IDs.
+Read `references/visual-design.md`, `references/composition.md`, `references/motion-language.md`, and `../../engine/hyperframes-animation/`. Use `visual-design.md` for required frame fields and the required `## Video direction` block. Use `composition.md` for layout, hierarchy, focal points, and the invented-visual treatment. Use `motion-language.md` and `../../engine/hyperframes-animation/` for valid effects and blueprint IDs. Do not invent effect names or blueprint IDs.
 
 For every frame, add required visual and motion fields, including `effects` and `focal` and/or `roles`. Because the explainer is faceless, `focal`/`roles` describe **invented visual elements** (a hero word, a diagram node, a data-viz series), not captured assets. Add one video-wide `## Video direction` block for overall visual direction, motion style, pacing, and design rules.
 
@@ -118,9 +138,9 @@ Wait for Step 3.1 audio to finish if audio was started. Then sync durations and 
 
 Duration sync is mechanical: real voice duration wins; silent frames keep estimates; never hand-edit synced durations.
 
-Before dispatch, read `sub-agents/frame-worker.md` and `../hyperframes-core/references/subagent-dispatch.md`. Dispatch one sub-agent per frame, in parallel if possible; otherwise run workers in waves. Each worker gets exactly one frame.
+Before dispatch, read `sub-agents/frame-worker.md` and `../../engine/hyperframes-core/references/subagent-dispatch.md`. Dispatch one sub-agent per frame, in parallel if possible; otherwise run workers in waves. Each worker gets exactly one frame.
 
-Each worker context must include `PROJECT_DIR`, `frame_id`, canvas size, caption status and keep-out band if captions are enabled, and `ANIM_DIR` as the absolute path to `../hyperframes-animation/`. Each worker reads `frame.md`, its own `## Frame N` block from `STORYBOARD.md`, and the recipe body for each cited effect or blueprint ID. Each worker writes only `compositions/frames/NN-*.html`. Workers must never edit `STORYBOARD.md`.
+Each worker context must include `PROJECT_DIR`, `frame_id`, canvas size, caption status and keep-out band if captions are enabled, and `ANIM_DIR` as the absolute path to `../../engine/hyperframes-animation/`. Each worker reads `frame.md`, its own `## Frame N` block from `STORYBOARD.md`, and the recipe body for each cited effect or blueprint ID. Each worker writes only `compositions/frames/NN-*.html`. Workers must never edit `STORYBOARD.md`.
 
 As each worker returns, the orchestrator marks that frame as `animated` in `STORYBOARD.md`.
 
@@ -180,15 +200,15 @@ Do not rerun `lint`, `validate`, `inspect`, or `snapshot` after rendering unless
 
 | Read                                                                                                         | When                                          |
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------- |
-| `[../hyperframes-creative/frame-presets/](../hyperframes-creative/frame-presets/)`                           | Step 2: choose and adopt a frame preset.      |
-| `[../hyperframes-creative/references/design-spec.md](../hyperframes-creative/references/design-spec.md)`     | Step 2: apply brand tokens correctly.         |
+| `[../../engine/hyperframes-creative/frame-presets](../../engine/hyperframes-creative/frame-presets)`                           | Step 2: choose and adopt a frame preset.      |
+| `[../../engine/hyperframes-creative/references/design-spec.md](../../engine/hyperframes-creative/references/design-spec.md)`     | Step 2: apply brand tokens correctly.         |
 | `[references/story-design.md](references/story-design.md)`                                                   | Step 3: plan the explainer story.             |
-| `[../hyperframes-core/references/storyboard-format.md](../hyperframes-core/references/storyboard-format.md)` | Step 3: write `STORYBOARD.md`.                |
-| `[../hyperframes-core/references/script-format.md](../hyperframes-core/references/script-format.md)`         | Step 3: write `SCRIPT.md`.                    |
-| `[../hyperframes-media/references/tts.md](../hyperframes-media/references/tts.md)`                           | Step 3.1: choose or understand TTS providers. |
+| `[../../engine/hyperframes-core/references/storyboard-format.md](../../engine/hyperframes-core/references/storyboard-format.md)` | Step 3: write `STORYBOARD.md`.                |
+| `[../../engine/hyperframes-core/references/script-format.md](../../engine/hyperframes-core/references/script-format.md)`         | Step 3: write `SCRIPT.md`.                    |
+| `[../../engine/hyperframes-media/references/tts.md](../../engine/hyperframes-media/references/tts.md)`                           | Step 3.1: choose or understand TTS providers. |
 | `[references/visual-design.md](references/visual-design.md)`                                                 | Step 4: enrich the storyboard visually.       |
 | `[references/composition.md](references/composition.md)`                                                     | Step 4: judge composition.                    |
 | `[references/motion-language.md](references/motion-language.md)`                                             | Step 4: judge motion language.                |
-| `[../hyperframes-animation/](../hyperframes-animation/)`                                                     | Step 4: cite effect and blueprint IDs.        |
+| `[../hyperframes-animation/](../../engine/hyperframes-animation/)`                                                     | Step 4: cite effect and blueprint IDs.        |
 | `[sub-agents/frame-worker.md](sub-agents/frame-worker.md)`                                                   | Step 5: dispatch per-frame workers.           |
-| `[../hyperframes-core/references/subagent-dispatch.md](../hyperframes-core/references/subagent-dispatch.md)` | Step 5: dispatch sub-agents safely.           |
+| `[../../engine/hyperframes-core/references/subagent-dispatch.md](../../engine/hyperframes-core/references/subagent-dispatch.md)` | Step 5: dispatch sub-agents safely.           |

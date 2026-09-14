@@ -1,15 +1,20 @@
 ---
 name: consulting-prospect-resurrection
-description: Revive cold/dormant prospects from historical meeting data. Use on "who's gone cold", "resurrect dead deals", "mine my old prospects", quarterly pipeline reviews, or when pipeline is thin. Turns past conversations into ranked, grounded re-engagement.
+description: "Revive cold/dormant prospects from historical meeting data. Use on \"who's gone cold\", \"resurrect dead deals\", \"mine my old prospects\", quarterly pipeline reviews, or when pipeline is thin. Turns past conversations into ranked, grounded re-engagement."
 ---
 
 # Consulting Prospect Resurrection
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 The cheapest pipeline is warm relationships that already know you. Mine the Granola archive for
 dormant prospects and turn them into ranked, personalized re-engagement.
 
 ## Steps
-1. **Find the cold set.** Scan `integrations/granola/Recoup/prospects/` (and `_intro-calls/`) for
+1. **Find the cold set.** Scan `integrations/granola/<workspace>/prospects/` (and `_intro-calls/`) for
    each prospect's **last meeting date**. Flag anything dormant (e.g. >90 days). Sort by recency.
 2. **Cross-reference Attio (live).** Skip anyone already an active deal/client. Note who's a
    `product-user` vs a real lapsed lead.
@@ -25,3 +30,5 @@ dormant prospects and turn them into ranked, personalized re-engagement.
    `pipeline/01-leads/<prospect>/` folder with a grounded dashboard + `followups.md`.
 
 Output: a prioritized resurrection report + live leads in Attio and the pipeline.
+
+Resolve `<workspace>` from `integrations/granola/AGENTS.md`; preserve the existing mirror directory name.

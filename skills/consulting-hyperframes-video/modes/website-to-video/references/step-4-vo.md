@@ -60,10 +60,10 @@ Ask the user which voice provider they'd like:
 
 If the user picks ElevenLabs or HeyGen and doesn't have a key set up yet, help them:
 
-- **ElevenLabs:** "Add `ELEVENLABS_API_KEY=your-key` to a `.env` file in the project root, or just paste it here and I'll set it up."
-- **HeyGen:** "Add `HEYGEN_API_KEY=your-key` to a `.env` file, or paste it here."
+- **ElevenLabs:** configure the provider key in the selected project environment or connected account. Do not paste it into chat.
+- **HeyGen:** configure the provider key in the selected project environment or connected account. Do not paste it into chat.
 
-Don't judge or critique if the user pastes a key directly in chat — just use it and move on.
+Use an authenticated connector or an explicitly configured project environment; never request API keys in chat.
 
 ## Audition voices
 
@@ -223,7 +223,7 @@ After the narration is generated and transcribed, ask the user:
 > - **Yes** — per-word captions synced to the narration. Great for social media (most viewers watch on mute) and accessibility.
 > - **No** — narration audio only, no text overlay.
 
-If yes, captions are built as a separate composition (`compositions/captions.html`) in Step 5. The `transcript.json` drives the timing — each word appears/highlights as it's spoken. Read [the captions reference](../../hyperframes/references/captions.md) for styling options (scale-pop, typewriter, fade+slide, etc.) and positioning rules.
+If yes, captions are built as a separate composition (`compositions/captions.html`) in Step 5. The `transcript.json` drives the timing — each word appears/highlights as it's spoken. Read [the captions reference](../../../engine/hyperframes-media/references/tts-to-captions.md) for styling options (scale-pop, typewriter, fade+slide, etc.) and positioning rules.
 
 ## Save timing data for Step 5
 

@@ -1,9 +1,29 @@
 ---
 name: consulting-nightly-ingestion
-description: The autonomous nightly sweep. Runs unattended (cloud routine or local cron) to ingest the day's new meetings, emails, and LinkedIn engagement, run the full auto-manage loop on each new item, update dashboards/board/CRM, commit, and leave a morning digest. Use on "run the nightly sweep", "ingest today", "catch the OS up", or as the scheduled nightly ritual. Full autopilot, inside the three standing safety rails.
+description: "The autonomous nightly sweep. Runs unattended (cloud routine or local cron) to ingest the day's new meetings, emails, and LinkedIn engagement, run the full auto-manage loop on each new item, update dashboards/board/CRM, commit, and leave a morning digest. Use on \"run the nightly sweep\", \"ingest today\", \"catch the OS up\", or as the scheduled nightly ritual. Full autopilot, inside the three standing safety rails."
 ---
 
 # Consulting Nightly Ingestion (autopilot)
+
+## Visual handoff
+
+When this workflow creates or requests a rendered artifact, use `consulting-tasteful-design` and
+the selected workspace DESIGN.md. House identity is Recoup Sky; explicit client/artist branding wins.
+Pass brand/version, expression, format, reference IDs and output folder to the media skill. Its bundled
+package supplies exact fonts/logos. Keep new derivatives in the current identity while preserving
+historical evidence. Save editable source and brand.lock.json with the deliverable. Ordinary text
+outputs stay text; a script is not a rendered video. Existing data dashboards retain their canonical
+Recoup CSS during data updates. Do not publish private client work to the public Brand Studio.
+
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
 
 The hands-off version of the CLAUDE.md auto-manage loop. It assumes **no human is watching**, so it
 does the safe work fully autonomously and is *stricter*, not looser, on anything it can't verify.
@@ -37,20 +57,31 @@ Autopilot means "no human in the loop," not "skip the rails." These come straigh
 
 1. **Pull (delegate to `consulting-integrations-sync`).** Run it for the live API sources only:
    **Attio** (query live, reconcile stage ↔ folder), **Granola** (capture **verbatim transcripts** for new
-   in-scope notes via `list_new_notes.py` → `pull_transcript.py` — the transcript, never the AI summary),
+   in-scope notes via `list_new_notes.py` → `pull_transcript.py` — the transcript, never the AI summary;
+   **Classify by title and content before capture.** An attendee list can suggest which account to
+   inspect, but cannot establish scope. A solo-attendee note may still be a client call. Ambiguous,
+   mixed personal/work, or excluded-job notes stay uncaptured and unsummarized; record only a count
+   in the digest, not private titles, names, or excerpts. Apply the selected workspace intake policy.
+   With the local adapter, use `pull_transcript.py --note <id> --reviewed-scope --out <dest>` only
+   after this review. An available connector must enforce the same boundary.),
    **Gmail** (Attio-gated **full-thread archives** via `export_thread_bodies.py`, plus awaiting-reply
    triage), **LinkedIn** (refresh engagement), and **Slack** (deal-tied channels per its Slack step —
    **full pull: every message AND every thread reply**, `--days 0 --threads`; routing table in
-   `integrations/slack/AGENTS.md`). It advances each source's
-   `LAST_SYNCED` — that watermark is what keeps this idempotent, so a re-run never re-ingests yesterday.
-   **Skip the research wiki** here: it's a *local* sibling repo
-   (`../research`) the cloud routine can't see, and it's content-only — leave it to the local Friday
-   review (`consulting-friday-review`). **Also pull GitHub product PRs directly** — `python3
-   integrations/github/_work/pull_prs.py` (tokenless, public `recoupable` org) — the raw for Engine B's
-   `product-update` signals (step 2b). No key/connector needed; public repos read unauthenticated.
+   `integrations/slack/AGENTS.md`). Record source IDs and successful checkpoints so reruns can skip already processed items.
+   **Use an overlapping Granola window** (default: watermark minus three days) and deduplicate by
+   stable note ID. Late-visible notes may have creation times behind the watermark. The overlap is
+   a recovery window, not a guarantee for arbitrarily late arrivals: use a specifically scoped
+   recovery lookup if a known meeting is still missing. Advance only after successful capture and
+   processing; preserve failed IDs for retry without saving excluded note content.
+   **Fictional example:** a Cedar Lantern Studio call becomes visible the day after it occurred.
+   Re-reading the overlap catches it; deduplication prevents the earlier calls being filed twice.
+   Research is optional and uses only the source explicitly configured in
+   `integrations/research/AGENTS.md`; skip it if unavailable in this worker.
+   Product PRs use the repositories configured in `integrations/github/AGENTS.md` and an available
+   GitHub connector or compatible local adapter. Do not assume a public organization or tokenless access.
 
 2. **Process each NEW item through the auto-manage loop** (CLAUDE.md §"Auto-manage"). For every new
-   meeting / thread / engagement the pull surfaced, **deal-scoped** (never cross Recoup ⇄ SwiftResponse
+   meeting / thread / engagement the pull surfaced, **deal-scoped** (never cross unrelated clients, employers, or personal contexts
    in one item — Granola's don't-cross-jobs rule):
    - **Place** the raw file in its home (`clients/<client>/meetings/` or `…/slack/`,
      `pipeline/<stage>/<deal>/`, `knowledge/product/` for internal product DMs, or `content/01-raw/`),

@@ -18,80 +18,9 @@ const path = require("path");
 const fs = require("fs");
 const os = require("os");
 
-// Locate hyperframes' bundled puppeteer. render-and-composite.sh exports
-// HYPERFRAMES_ROOT; standalone we also try the in-repo path + ~/Downloads, and
-// accept ANY puppeteer@* the bun store holds (not a pinned version).
-const HF_ROOTS = [
-  process.env.HYPERFRAMES_ROOT,
-  path.resolve(__dirname, "../../.."), // skills/embedded-captions/scripts → repo root if in-repo
-  path.join(os.homedir(), "Downloads", "hyperframes"),
-].filter(Boolean);
-let puppeteer = null;
-for (const root of HF_ROOTS) {
-  const cands = [path.join(root, "node_modules", "puppeteer")];
-  const bunDir = path.join(root, "node_modules", ".bun");
-  try {
-    if (fs.existsSync(bunDir)) {
-      for (const d of fs.readdirSync(bunDir)) {
-        if (d.startsWith("puppeteer@"))
-          cands.push(path.join(bunDir, d, "node_modules", "puppeteer"));
-      }
-    }
-  } catch {
-    /* ignore */
-  }
-  for (const p of cands) {
-    try {
-      if (fs.existsSync(p)) {
-        puppeteer = require(p);
-        break;
-      }
-    } catch {
-      /* try next */
-    }
-  }
-  if (puppeteer) break;
-}
-if (!puppeteer) {
-  console.error(
-    "[measure] could not locate puppeteer — set HYPERFRAMES_ROOT to a built hyperframes checkout",
-  );
-  process.exit(3);
-}
-
-// Resolve hyperframes' bundled GSAP. The templates load GSAP from a CDN
-// (cdn.jsdelivr.net), but in headless Chromium that request can be slow or
-// blocked — the page's inline `gsap.timeline()` then throws "gsap is not
-// defined" and the occlusion gate hard-fails. We inject this local copy on
-// every new document (before any page script runs) so window.gsap always
-// exists, and abort the CDN request so the parser never stalls on it. The
-// render path is unaffected — this is measurement-only.
-let gsapSource = null;
-for (const root of HF_ROOTS) {
-  const cands = [path.join(root, "node_modules", "gsap", "dist", "gsap.min.js")];
-  const bunDir = path.join(root, "node_modules", ".bun");
-  try {
-    if (fs.existsSync(bunDir)) {
-      for (const d of fs.readdirSync(bunDir)) {
-        if (d.startsWith("gsap@"))
-          cands.push(path.join(bunDir, d, "node_modules", "gsap", "dist", "gsap.min.js"));
-      }
-    }
-  } catch {
-    /* ignore */
-  }
-  for (const p of cands) {
-    try {
-      if (fs.existsSync(p)) {
-        gsapSource = fs.readFileSync(p, "utf8");
-        break;
-      }
-    } catch {
-      /* try next */
-    }
-  }
-  if (gsapSource) break;
-}
+const { loadPackage, resolvePackage } = require("../../../engine/runtime/dependencies.cjs");
+const puppeteer = loadPackage("puppeteer");
+const gsapSource = fs.readFileSync(resolvePackage("gsap/dist/gsap.min.js"), "utf8");
 
 async function main() {
   const projectDir = process.argv[2];
@@ -136,7 +65,7 @@ async function main() {
 
   const browser = await puppeteer.launch({
     headless: "new",
-    executablePath: fs.existsSync(exe) ? exe : undefined,
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || process.env.CHROMIUM_PATH || (fs.existsSync(exe) ? exe : undefined),
     args: [
       "--disable-web-security",
       "--allow-file-access-from-files",

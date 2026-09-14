@@ -5,6 +5,23 @@ description: 'Port an existing Remotion (React) composition to HyperFrames HTML.
 
 # Remotion to HyperFrames
 
+## Selected brand
+
+For Recoup/Consulting/Business, read `../../brand/GUIDE.md` and stage
+`node <video-skill>/brand/materialize.mjs <project-directory>`. Use the packaged CSS/fonts/exact SVGs.
+Identity is selected before frame.md; a frame can change layout/timing but cannot replace the brand.
+Generic style catalogues below are alternatives for an explicit other brand, not Recoup defaults.
+An explicitly selected client/artist identity or fidelity-only migration preserves that identity.
+Record brand/version, expression and reference IDs with editable sources in the existing output folder.
+
+
+**Portable setup:** read `../../engine/runtime/SETUP.md` for the pinned runtime. Resolve bundled resources from this
+installed skill and write outputs into the selected project. Brand fonts and identity come from that
+workspace's `DESIGN.md` or supplied brief; preset fonts and logos are examples, not required defaults.
+Keep original asset notices. Use approved workspace fonts for deliverables; optional legacy demo
+assets do not grant commercial usage rights. Client stories and figures in templates are illustrative,
+never evidence of a real result. Missing provider access remains a reported gap.
+
 > **Confirm the route before you build.** Use this **only** to port an existing **Remotion** (React) composition's source into HyperFrames. Authoring a **new** composition (even one inspired by a Remotion video) → the creation workflows / `/general-video`. **Out of scope** (one-way, Remotion-only): no reverse export (HyperFrames → Remotion or any framework), and a **non-Remotion** source (After Effects, Framer Motion, plain React / CSS) has no Remotion source to translate → re-create via `/general-video`. Unsure, or only a passing Remotion mention? **Read `/hyperframes` first.**
 
 ## Overview

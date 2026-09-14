@@ -1,9 +1,25 @@
 ---
 name: consulting-linkedin-post-architect
-description: Structure a high-performing LinkedIn post — pick the archetype and founder format (build log, documented failure, value post, receipt, contrast hook, milestone chapter), write a scroll-stopping hook, shape the body, format for mobile, choose the in-post CTA, and decide whether to pair an infographic. Use on "write a LinkedIn post", "make this post perform/go viral", "what hook should I use", "structure this for LinkedIn", "turn this insight into a LinkedIn post", "write a build log / failure / receipt / milestone post", or right after consulting-content-drafter. This is the post-STRUCTURE layer; consulting-copy-writer still governs voice/anti-slop, consulting-linkedin-publisher ships it.
+description: "Structure a high-performing LinkedIn post — pick the archetype and founder format (build log, documented failure, value post, receipt, contrast hook, milestone chapter), write a scroll-stopping hook, shape the body, format for mobile, choose the in-post CTA, and decide whether to pair an infographic. Use on \"write a LinkedIn post\", \"make this post perform/go viral\", \"what hook should I use\", \"structure this for LinkedIn\", \"turn this insight into a LinkedIn post\", \"write a build log / failure / receipt / milestone post\", or right after consulting-content-drafter. This is the post-STRUCTURE layer; consulting-copy-writer still governs voice/anti-slop, consulting-linkedin-publisher ships it."
 ---
 
 # Consulting LinkedIn Post Architect
+
+## Visual handoff
+
+When this workflow creates or requests a rendered artifact, use `consulting-tasteful-design` and
+the selected workspace DESIGN.md. House identity is Recoup Sky; explicit client/artist branding wins.
+Pass brand/version, expression, format, reference IDs and output folder to the media skill. Its bundled
+package supplies exact fonts/logos. Keep new derivatives in the current identity while preserving
+historical evidence. Save editable source and brand.lock.json with the deliverable. Ordinary text
+outputs stay text; a script is not a rendered video. Existing data dashboards retain their canonical
+Recoup CSS during data updates. Do not publish private client work to the public Brand Studio.
+
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 The structure layer for LinkedIn posts. The drafter gives you the idea; this gives the post its
 **shape** (hook → body → CTA → image); `consulting-copy-writer` enforces voice; then
@@ -13,8 +29,8 @@ operator — origin evidence: `swipe/posts/magali-dereu/ANALYSIS.md` (118 posts)
 ## The one rule: steal structure, not persona
 Use the **shapes** below (hook formulas, post structures, formatting). Do **not** import the source
 operator's persona (profanity, shock-taboo, "weaponize your weird"). Voice + topic come from
-`consulting-copy-writer` and `positioning/` — Sid's substance is AI/agents enablement for music &
-media. Map the shapes onto Sid's substance.
+`consulting-copy-writer` and `positioning/` — the owner's substance is AI/agents enablement for music &
+media. Map the shapes onto the owner's substance.
 
 ## Workflow
 1. **Pick the archetype** (what job this post does): personal-story · expertise/teaching · sales/offer ·

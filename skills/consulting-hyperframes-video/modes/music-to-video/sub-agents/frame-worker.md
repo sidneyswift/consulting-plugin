@@ -1,5 +1,12 @@
 # Frame worker — per-frame composition author (music-to-video)
 
+**Identity input:** read brand.lock.json and recoup-brand/GUIDE.md with frame.md when Recoup is selected.
+Embed the brand/materialize.mjs --inline-css result and the exact SVG inside each frame template.
+Do not depend on a relative CSS/font URL resolving against the cloned template host. A captured template or
+registry component must be bound to these values; do not retain its demo palette/font. Frame layout
+and narrative stay flexible. Explicit client/artist identities and fidelity-only migrations retain
+those source values. Generic ambient/decorative minimums do not apply to Recoup.
+
 You build one frame's composition file: `compositions/frames/<frame_id>.html`. Siblings build
 the other frames in parallel. The generic HyperFrames law — sub-composition shape, timeline
 registration, determinism, layout — lives in `hyperframes-core` (`references/sub-compositions.md`

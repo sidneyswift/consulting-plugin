@@ -1,9 +1,14 @@
 ---
 name: consulting-discovery-analysis
-description: Analyze a sales/discovery call transcript to surface stakes, pain points, success metrics, objections, gaps, and buyer qualification. Use after a discovery call, when triaging a new lead transcript, or when the user says "analyze this call", "qualify this buyer", "what's at stake here". Feeds the situational-assessment proposal.
+description: "Analyze a sales/discovery call transcript to surface stakes, pain points, success metrics, objections, gaps, and buyer qualification. Use after a discovery call, when triaging a new lead transcript, or when the user says \"analyze this call\", \"qualify this buyer\", \"what's at stake here\". Feeds the situational-assessment proposal."
 ---
 
 # Consulting Discovery Analysis
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 ## When to run
 After a discovery call or when a new lead transcript needs triage.

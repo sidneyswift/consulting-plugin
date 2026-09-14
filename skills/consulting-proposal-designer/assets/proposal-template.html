@@ -1,96 +1,99 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>{{CLIENT_NAME}} Proposal</title><style>
   @page { size:A4; margin:17mm 17mm; }
   * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:-apple-system,"Helvetica Neue",Arial,sans-serif; color:#252b36; line-height:1.5; font-size:10pt; background:#fff; }
+  body { font-family:var(--brand-body-font, Arial),sans-serif; color:var(--recoup-ink); line-height:1.5; font-size:10pt; background:#fff; }
   .wrap { max-width:720px; margin:0 auto; padding:8px 0; }
 
   .head { position:relative; }
-  .dotwave { position:absolute; top:-10px; right:-8px; opacity:.9; }
   .brandrow { margin-bottom:26px; }
-  .kicker { font-size:8pt; letter-spacing:.2em; text-transform:uppercase; color:#3f5fb0; font-weight:800; }
-  .doctitle { font-size:18pt; line-height:1.15; color:#14254a; letter-spacing:-0.01em; margin:6px 0 10px; font-weight:800; }
-  .meta { font-size:9pt; color:#6b7280; }
-  .meta b { color:#252b36; font-weight:600; }
-  .rule { height:3px; background:#3f5fb0; width:52px; margin:14px 0 22px; border-radius:2px; }
+  .kicker { font-size:8pt; letter-spacing:.2em; text-transform:uppercase; color:var(--recoup-link); font-weight:500; }
+  .doctitle { font-size:18pt; line-height:1.15; color:var(--recoup-forest); letter-spacing:-0.01em; margin:6px 0 10px; font-weight:500; }
+  .meta { font-size:9pt; color:var(--recoup-muted); }
+  .meta b { color:var(--recoup-ink); font-weight:600; }
+  .rule { height:3px; background:var(--recoup-link); width:52px; margin:14px 0 22px; border-radius:2px; }
 
-  .lead { font-size:11pt; line-height:1.6; color:#2a2f3a; margin-bottom:11px; }
+  .lead { font-size:11pt; line-height:1.6; color:var(--recoup-ink); margin-bottom:11px; }
   .lead.last { margin-bottom:34px; }
-  .lead b { color:#14254a; }
+  .lead b { color:var(--recoup-forest); }
 
-  .lbl { font-size:8.2pt; letter-spacing:.15em; text-transform:uppercase; color:#3f5fb0; font-weight:800; margin-bottom:13px; }
+  .lbl { font-size:8.2pt; letter-spacing:.15em; text-transform:uppercase; color:var(--recoup-link); font-weight:500; margin-bottom:13px; }
 
   .cols { width:100%; border-collapse:separate; border-spacing:0; margin-bottom:34px; }
   .cols td { width:50%; vertical-align:top; }
   .cols td.gap { width:18px; }
-  .panel { border:1px solid #d9e1f2; border-radius:12px; padding:18px 20px; height:100%; background:#f3f6fc; }
-  .panel.up { background:#0b1020; border-color:#0b1020; }
-  .panel h3 { font-size:8.2pt; letter-spacing:.12em; text-transform:uppercase; font-weight:800; margin-bottom:13px; }
-  .panel.now h3 { color:#5a6b8c; }
-  .panel.up h3 { color:#9bb2ec; }
+  .panel { border:1px solid var(--recoup-border); border-radius:12px; padding:18px 20px; height:100%; background:var(--recoup-pale); }
+  .panel.up { background:var(--recoup-forest); border-color:var(--recoup-forest); }
+  .panel h3 { font-size:8.2pt; letter-spacing:.12em; text-transform:uppercase; font-weight:500; margin-bottom:13px; }
+  .panel.now h3 { color:var(--recoup-muted); }
+  .panel.up h3 { color:var(--recoup-lime); }
   .panel ul { list-style:none; }
   .panel li { font-size:9.8pt; line-height:1.45; padding-left:18px; position:relative; margin-bottom:12px; }
   .panel li:last-child { margin-bottom:0; }
-  .panel.now li::before { content:"\2022"; position:absolute; left:1px; color:#b6c0d6; }
-  .panel.up { color:#dfe5f3; }
-  .panel.up li::before { content:"\2713"; position:absolute; left:0; color:#9bb2ec; font-weight:700; }
+  .panel.now li::before { content:"\2022"; position:absolute; left:1px; color:var(--recoup-muted); }
+  .panel.up { color:var(--recoup-white); }
+  .panel.up li::before { content:"\2713"; position:absolute; left:0; color:var(--recoup-lime); font-weight:500; }
   .panel.up li b { color:#fff; }
 
   .steps { width:100%; border-collapse:separate; border-spacing:0; }
   .steps td { width:25%; vertical-align:top; padding-right:16px; }
   .steps td:last-child { padding-right:0; }
-  .stepnum { font-size:8.4pt; font-weight:800; color:#3f5fb0; letter-spacing:.06em; margin-bottom:5px; }
-  .steph { font-size:11pt; font-weight:700; color:#14254a; margin-bottom:4px; }
-  .stepd { font-size:9.4pt; color:#555b66; line-height:1.45; }
-  .howfoot { font-size:9.2pt; color:#6b7280; font-style:italic; margin-top:18px; }
+  .stepnum { font-size:8.4pt; font-weight:500; color:var(--recoup-link); letter-spacing:.06em; margin-bottom:5px; }
+  .steph { font-size:11pt; font-weight:500; color:var(--recoup-forest); margin-bottom:4px; }
+  .stepd { font-size:9.4pt; color:var(--recoup-muted); line-height:1.45; }
+  .howfoot { font-size:9.2pt; color:var(--recoup-muted); font-style:italic; margin-top:18px; }
 
   .p2 { page-break-before:always; margin-top:30px; }
-  .runhead { display:flex; align-items:center; gap:9px; padding-bottom:11px; border-bottom:1px solid #e3e9f5; margin-bottom:26px; }
-  .runhead .rl { font-size:8pt; letter-spacing:.14em; text-transform:uppercase; color:#8a93a6; font-weight:700; }
-  .runhead .rr { margin-left:auto; font-size:8pt; color:#aeb3bb; }
+  .runhead { display:flex; align-items:center; gap:9px; padding-bottom:11px; border-bottom:1px solid var(--recoup-border); margin-bottom:26px; }
+  .runhead .rl { font-size:8pt; letter-spacing:.14em; text-transform:uppercase; color:var(--recoup-muted); font-weight:500; }
+  .runhead .rr { margin-left:auto; font-size:8pt; color:var(--recoup-muted); }
 
-  .invest { border:1.5px solid #14254a; border-radius:13px; overflow:hidden; }
-  .invest .note { font-size:9.2pt; color:#555b66; line-height:1.45; padding:12px 18px 2px; }
+  .invest { border:1.5px solid var(--recoup-forest); border-radius:13px; overflow:hidden; }
+  .invest .note { font-size:9.2pt; color:var(--recoup-muted); line-height:1.45; padding:12px 18px 2px; }
   table.tiers { width:100%; border-collapse:collapse; }
-  table.tiers td { padding:11px 18px; border-top:1px solid #e3e9f5; vertical-align:top; }
+  table.tiers td { padding:11px 18px; border-top:1px solid var(--recoup-border); vertical-align:top; }
   table.tiers tr:first-child td { border-top:none; padding-top:20px; }
-  .trec { background:#eef2fc; }
+  .trec { background:var(--recoup-pale); }
   .opt { width:27%; }
-  .opt .nm { font-size:11pt; font-weight:700; color:#14254a; }
-  .opt .recpill { display:inline-block; font-size:7pt; font-weight:800; letter-spacing:.06em; background:#3f5fb0; color:#fff; padding:2px 6px; border-radius:3px; margin-top:6px; }
-  .prc { font-size:17pt; font-weight:800; color:#14254a; width:19%; white-space:nowrap; letter-spacing:-0.01em; padding-top:14px; }
-  .prc span { font-size:9pt; font-weight:600; color:#8a93a6; }
-  .chg { font-size:9.6pt; color:#3a404a; line-height:1.45; }
-  .chg b { color:#14254a; }
-  .chg .plus { font-size:8.8pt; font-weight:700; color:#14254a; margin-bottom:6px; }
+  .opt .nm { font-size:11pt; font-weight:500; color:var(--recoup-forest); }
+  .opt .recpill { display:inline-block; font-size:7pt; font-weight:500; letter-spacing:.06em; background:var(--recoup-link); color:#fff; padding:2px 6px; border-radius:3px; margin-top:6px; }
+  .prc { font-size:17pt; font-weight:500; color:var(--recoup-forest); width:19%; white-space:nowrap; letter-spacing:-0.01em; padding-top:14px; }
+  .prc span { font-size:9pt; font-weight:600; color:var(--recoup-muted); }
+  .chg { font-size:9.6pt; color:var(--recoup-ink); line-height:1.45; }
+  .chg b { color:var(--recoup-forest); }
+  .chg .plus { font-size:8.8pt; font-weight:500; color:var(--recoup-forest); margin-bottom:6px; }
   .chg ul.feat { list-style:none; margin:0; }
   .chg ul.feat li { position:relative; padding-left:16px; margin-bottom:4px; font-size:9.3pt; line-height:1.32; }
   .chg ul.feat li:last-child { margin-bottom:0; }
-  .chg ul.feat li::before { content:"\2713"; position:absolute; left:0; color:#3f5fb0; font-weight:700; }
-  .chg ul.feat li b { color:#14254a; }
-  .chg .bf { display:block; margin-top:8px; font-size:8.8pt; font-style:italic; color:#7a828f; }
-  .assure { background:#f3f6fc; font-size:9pt; color:#3a404a; padding:9px 18px; border-top:1px solid #e3e9f5; }
-  .assure b { color:#14254a; }
-  .mtm { background:#f3f6fc; border:1px solid #e3e9f5; border-radius:9px; font-size:9pt; color:#3a404a; padding:10px 16px; }
-  .mtm b { color:#14254a; }
-  .proj { font-size:9.4pt; font-style:italic; color:#555b66; margin:14px 0 10px; line-height:1.5; }
-  .proj b { color:#14254a; }
+  .chg ul.feat li::before { content:"\2713"; position:absolute; left:0; color:var(--recoup-link); font-weight:500; }
+  .chg ul.feat li b { color:var(--recoup-forest); }
+  .chg .bf { display:block; margin-top:8px; font-size:8.8pt; font-style:italic; color:var(--recoup-muted); }
+  .assure { background:var(--recoup-pale); font-size:9pt; color:var(--recoup-ink); padding:9px 18px; border-top:1px solid var(--recoup-border); }
+  .assure b { color:var(--recoup-forest); }
+  .mtm { background:var(--recoup-pale); border:1px solid var(--recoup-border); border-radius:9px; font-size:9pt; color:var(--recoup-ink); padding:10px 16px; }
+  .mtm b { color:var(--recoup-forest); }
+  .proj { font-size:9.4pt; font-style:italic; color:var(--recoup-muted); margin:14px 0 10px; line-height:1.5; }
+  .proj b { color:var(--recoup-forest); }
 
-  .close { background:#0b1020; border-radius:13px; padding:15px 20px; color:#dfe5f3; break-inside:avoid; }
-  .close .anchor { font-size:9.6pt; line-height:1.5; padding-bottom:11px; margin-bottom:11px; border-bottom:1px solid #232a39; }
+  .close { background:var(--recoup-forest); border-radius:13px; padding:15px 20px; color:var(--recoup-white); break-inside:avoid; }
+  .close .anchor { font-size:9.6pt; line-height:1.5; padding-bottom:11px; margin-bottom:11px; border-bottom:1px solid #586F78; }
   .close .anchor b { color:#fff; }
-  .close h4 { font-size:8.2pt; letter-spacing:.14em; text-transform:uppercase; color:#9bb2ec; font-weight:800; margin-bottom:8px; }
+  .close h4 { font-size:8.2pt; letter-spacing:.14em; text-transform:uppercase; color:var(--recoup-lime); font-weight:500; margin-bottom:8px; }
   .close ol { list-style:none; counter-reset:s; }
-  .close li { counter-increment:s; position:relative; padding-left:26px; margin-bottom:7px; font-size:9.6pt; line-height:1.4; color:#eef0f6; }
+  .close li { counter-increment:s; position:relative; padding-left:26px; margin-bottom:7px; font-size:9.6pt; line-height:1.4; color:var(--recoup-white); }
   .close li:last-child { margin-bottom:0; }
-  .close li::before { content:counter(s); position:absolute; left:0; top:-1px; width:17px; height:17px; background:#3f5fb0; color:#fff; border-radius:50%; font-size:8pt; font-weight:800; text-align:center; line-height:17px; }
+  .close li::before { content:counter(s); position:absolute; left:0; top:-1px; width:17px; height:17px; background:var(--recoup-link); color:#fff; border-radius:50%; font-size:8pt; font-weight:500; text-align:center; line-height:17px; }
   .close li b { color:#fff; }
 
-  .foot { font-size:8pt; color:#aeb3bb; text-align:center; margin-top:14px; }
+  .foot { font-size:8pt; color:var(--recoup-muted); text-align:center; margin-top:14px; }
+
+.doctitle,.steph,.prc{font-family:var(--brand-display-font),sans-serif;font-weight:500}
+  .kicker,.lbl,.stepnum,.runhead,.panel h3,.close h4{font-family:var(--brand-label-font),monospace;font-weight:400}
+  .brandrow img,.brandrow svg{width:145px;height:auto}.foot{font-size:8pt;color:var(--recoup-muted)}
+{{BRAND_CSS}}
 </style></head><body><div class="wrap">
 
   <div class="head">
-    <div class="dotwave"><svg viewBox="0 0 440 200" width="440" height="200" xmlns="http://www.w3.org/2000/svg"><circle cx="440.0" cy="12.0" r="2.30" fill="#16284c" opacity="0.55"/><circle cx="433.0" cy="9.1" r="2.28" fill="#16284c" opacity="0.543"/><circle cx="425.9" cy="6.2" r="2.26" fill="#16284c" opacity="0.537"/><circle cx="418.6" cy="3.3" r="2.24" fill="#16284c" opacity="0.53"/><circle cx="411.1" cy="0.4" r="2.21" fill="#16284c" opacity="0.523"/><circle cx="225.9" cy="1.1" r="1.67" fill="#16284c" opacity="0.349"/><circle cx="214.5" cy="4.8" r="1.63" fill="#16284c" opacity="0.339"/><circle cx="202.9" cy="8.6" r="1.60" fill="#16284c" opacity="0.328"/><circle cx="191.0" cy="12.3" r="1.56" fill="#16284c" opacity="0.317"/><circle cx="178.9" cy="15.7" r="1.53" fill="#16284c" opacity="0.305"/><circle cx="166.6" cy="18.8" r="1.49" fill="#16284c" opacity="0.294"/><circle cx="154.0" cy="21.3" r="1.45" fill="#16284c" opacity="0.282"/><circle cx="141.1" cy="23.2" r="1.42" fill="#16284c" opacity="0.27"/><circle cx="128.0" cy="24.4" r="1.38" fill="#16284c" opacity="0.258"/><circle cx="114.6" cy="24.6" r="1.34" fill="#16284c" opacity="0.245"/><circle cx="101.0" cy="23.9" r="1.30" fill="#16284c" opacity="0.232"/><circle cx="87.1" cy="22.2" r="1.26" fill="#16284c" opacity="0.219"/><circle cx="72.8" cy="19.4" r="1.22" fill="#16284c" opacity="0.206"/><circle cx="58.3" cy="15.6" r="1.17" fill="#16284c" opacity="0.192"/><circle cx="43.5" cy="10.9" r="1.13" fill="#16284c" opacity="0.178"/><circle cx="28.4" cy="5.4" r="1.08" fill="#16284c" opacity="0.164"/><circle cx="440.0" cy="40.9" r="2.30" fill="#16284c" opacity="0.55"/><circle cx="433.0" cy="38.0" r="2.28" fill="#16284c" opacity="0.543"/><circle cx="425.9" cy="34.9" r="2.26" fill="#16284c" opacity="0.537"/><circle cx="418.6" cy="31.7" r="2.24" fill="#16284c" opacity="0.53"/><circle cx="411.1" cy="28.4" r="2.21" fill="#16284c" opacity="0.523"/><circle cx="403.5" cy="24.9" r="2.19" fill="#16284c" opacity="0.516"/><circle cx="395.8" cy="21.4" r="2.17" fill="#16284c" opacity="0.509"/><circle cx="387.9" cy="17.9" r="2.15" fill="#16284c" opacity="0.501"/><circle cx="379.8" cy="14.3" r="2.12" fill="#16284c" opacity="0.494"/><circle cx="371.6" cy="10.9" r="2.10" fill="#16284c" opacity="0.486"/><circle cx="363.2" cy="7.6" r="2.07" fill="#16284c" opacity="0.478"/><circle cx="354.6" cy="4.4" r="2.05" fill="#16284c" opacity="0.47"/><circle cx="345.9" cy="1.5" r="2.02" fill="#16284c" opacity="0.462"/><circle cx="225.9" cy="2.3" r="1.67" fill="#16284c" opacity="0.349"/><circle cx="214.5" cy="5.9" r="1.63" fill="#16284c" opacity="0.339"/><circle cx="202.9" cy="10.0" r="1.60" fill="#16284c" opacity="0.328"/><circle cx="191.0" cy="14.3" r="1.56" fill="#16284c" opacity="0.317"/><circle cx="178.9" cy="18.8" r="1.53" fill="#16284c" opacity="0.305"/><circle cx="166.6" cy="23.3" r="1.49" fill="#16284c" opacity="0.294"/><circle cx="154.0" cy="27.7" r="1.45" fill="#16284c" opacity="0.282"/><circle cx="141.1" cy="31.8" r="1.42" fill="#16284c" opacity="0.27"/><circle cx="128.0" cy="35.3" r="1.38" fill="#16284c" opacity="0.258"/><circle cx="114.6" cy="38.2" r="1.34" fill="#16284c" opacity="0.245"/><circle cx="101.0" cy="40.2" r="1.30" fill="#16284c" opacity="0.232"/><circle cx="87.1" cy="41.1" r="1.26" fill="#16284c" opacity="0.219"/><circle cx="72.8" cy="41.0" r="1.22" fill="#16284c" opacity="0.206"/><circle cx="58.3" cy="39.6" r="1.17" fill="#16284c" opacity="0.192"/><circle cx="43.5" cy="36.9" r="1.13" fill="#16284c" opacity="0.178"/><circle cx="28.4" cy="33.0" r="1.08" fill="#16284c" opacity="0.164"/><circle cx="13.0" cy="27.9" r="1.04" fill="#16284c" opacity="0.15"/><circle cx="-2.7" cy="21.8" r="0.99" fill="#16284c" opacity="0.135"/><circle cx="440.0" cy="68.9" r="2.30" fill="#16284c" opacity="0.55"/><circle cx="433.0" cy="66.8" r="2.28" fill="#16284c" opacity="0.543"/><circle cx="425.9" cy="64.3" r="2.26" fill="#16284c" opacity="0.537"/><circle cx="418.6" cy="61.6" r="2.24" fill="#16284c" opacity="0.53"/><circle cx="411.1" cy="58.6" r="2.21" fill="#16284c" opacity="0.523"/><circle cx="403.5" cy="55.3" r="2.19" fill="#16284c" opacity="0.516"/><circle cx="395.8" cy="51.7" r="2.17" fill="#16284c" opacity="0.509"/><circle cx="387.9" cy="48.0" r="2.15" fill="#16284c" opacity="0.501"/><circle cx="379.8" cy="44.0" r="2.12" fill="#16284c" opacity="0.494"/><circle cx="371.6" cy="39.9" r="2.10" fill="#16284c" opacity="0.486"/><circle cx="363.2" cy="35.8" r="2.07" fill="#16284c" opacity="0.478"/><circle cx="354.6" cy="31.5" r="2.05" fill="#16284c" opacity="0.47"/><circle cx="345.9" cy="27.4" r="2.02" fill="#16284c" opacity="0.462"/><circle cx="336.9" cy="23.2" r="2.00" fill="#16284c" opacity="0.453"/><circle cx="327.8" cy="19.3" r="1.97" fill="#16284c" opacity="0.445"/><circle cx="318.5" cy="15.6" r="1.94" fill="#16284c" opacity="0.436"/><circle cx="309.1" cy="12.2" r="1.91" fill="#16284c" opacity="0.427"/><circle cx="299.4" cy="9.2" r="1.88" fill="#16284c" opacity="0.418"/><circle cx="289.5" cy="6.6" r="1.86" fill="#16284c" opacity="0.409"/><circle cx="279.4" cy="4.7" r="1.83" fill="#16284c" opacity="0.399"/><circle cx="269.1" cy="3.3" r="1.80" fill="#16284c" opacity="0.39"/><circle cx="258.7" cy="2.6" r="1.76" fill="#16284c" opacity="0.38"/><circle cx="247.9" cy="2.6" r="1.73" fill="#16284c" opacity="0.37"/><circle cx="237.0" cy="3.4" r="1.70" fill="#16284c" opacity="0.36"/><circle cx="225.9" cy="5.0" r="1.67" fill="#16284c" opacity="0.349"/><circle cx="214.5" cy="7.3" r="1.63" fill="#16284c" opacity="0.339"/><circle cx="202.9" cy="10.4" r="1.60" fill="#16284c" opacity="0.328"/><circle cx="191.0" cy="14.1" r="1.56" fill="#16284c" opacity="0.317"/><circle cx="178.9" cy="18.5" r="1.53" fill="#16284c" opacity="0.305"/><circle cx="166.6" cy="23.3" r="1.49" fill="#16284c" opacity="0.294"/><circle cx="154.0" cy="28.5" r="1.45" fill="#16284c" opacity="0.282"/><circle cx="141.1" cy="33.8" r="1.42" fill="#16284c" opacity="0.27"/><circle cx="128.0" cy="39.1" r="1.38" fill="#16284c" opacity="0.258"/><circle cx="114.6" cy="44.2" r="1.34" fill="#16284c" opacity="0.245"/><circle cx="101.0" cy="48.7" r="1.30" fill="#16284c" opacity="0.232"/><circle cx="87.1" cy="52.6" r="1.26" fill="#16284c" opacity="0.219"/><circle cx="72.8" cy="55.5" r="1.22" fill="#16284c" opacity="0.206"/><circle cx="58.3" cy="57.3" r="1.17" fill="#16284c" opacity="0.192"/><circle cx="43.5" cy="57.7" r="1.13" fill="#16284c" opacity="0.178"/><circle cx="28.4" cy="56.7" r="1.08" fill="#16284c" opacity="0.164"/><circle cx="13.0" cy="54.2" r="1.04" fill="#16284c" opacity="0.15"/><circle cx="-2.7" cy="50.1" r="0.99" fill="#16284c" opacity="0.135"/><circle cx="440.0" cy="91.9" r="2.30" fill="#16284c" opacity="0.55"/><circle cx="433.0" cy="91.2" r="2.28" fill="#16284c" opacity="0.543"/><circle cx="425.9" cy="90.1" r="2.26" fill="#16284c" opacity="0.537"/><circle cx="418.6" cy="88.7" r="2.24" fill="#16284c" opacity="0.53"/><circle cx="411.1" cy="86.8" r="2.21" fill="#16284c" opacity="0.523"/><circle cx="403.5" cy="84.6" r="2.19" fill="#16284c" opacity="0.516"/><circle cx="395.8" cy="81.9" r="2.17" fill="#16284c" opacity="0.509"/><circle cx="387.9" cy="78.9" r="2.15" fill="#16284c" opacity="0.501"/><circle cx="379.8" cy="75.5" r="2.12" fill="#16284c" opacity="0.494"/><circle cx="371.6" cy="71.7" r="2.10" fill="#16284c" opacity="0.486"/><circle cx="363.2" cy="67.6" r="2.07" fill="#16284c" opacity="0.478"/><circle cx="354.6" cy="63.2" r="2.05" fill="#16284c" opacity="0.47"/><circle cx="345.9" cy="58.6" r="2.02" fill="#16284c" opacity="0.462"/><circle cx="336.9" cy="53.8" r="2.00" fill="#16284c" opacity="0.453"/><circle cx="327.8" cy="48.9" r="1.97" fill="#16284c" opacity="0.445"/><circle cx="318.5" cy="43.9" r="1.94" fill="#16284c" opacity="0.436"/><circle cx="309.1" cy="39.0" r="1.91" fill="#16284c" opacity="0.427"/><circle cx="299.4" cy="34.2" r="1.88" fill="#16284c" opacity="0.418"/><circle cx="289.5" cy="29.7" r="1.86" fill="#16284c" opacity="0.409"/><circle cx="279.4" cy="25.5" r="1.83" fill="#16284c" opacity="0.399"/><circle cx="269.1" cy="21.8" r="1.80" fill="#16284c" opacity="0.39"/><circle cx="258.7" cy="18.6" r="1.76" fill="#16284c" opacity="0.38"/><circle cx="247.9" cy="16.0" r="1.73" fill="#16284c" opacity="0.37"/><circle cx="237.0" cy="14.2" r="1.70" fill="#16284c" opacity="0.36"/><circle cx="225.9" cy="13.2" r="1.67" fill="#16284c" opacity="0.349"/><circle cx="214.5" cy="13.2" r="1.63" fill="#16284c" opacity="0.339"/><circle cx="202.9" cy="14.0" r="1.60" fill="#16284c" opacity="0.328"/><circle cx="191.0" cy="15.8" r="1.56" fill="#16284c" opacity="0.317"/><circle cx="178.9" cy="18.6" r="1.53" fill="#16284c" opacity="0.305"/><circle cx="166.6" cy="22.3" r="1.49" fill="#16284c" opacity="0.294"/><circle cx="154.0" cy="26.8" r="1.45" fill="#16284c" opacity="0.282"/><circle cx="141.1" cy="32.0" r="1.42" fill="#16284c" opacity="0.27"/><circle cx="128.0" cy="37.7" r="1.38" fill="#16284c" opacity="0.258"/><circle cx="114.6" cy="43.8" r="1.34" fill="#16284c" opacity="0.245"/><circle cx="101.0" cy="50.1" r="1.30" fill="#16284c" opacity="0.232"/><circle cx="87.1" cy="56.1" r="1.26" fill="#16284c" opacity="0.219"/><circle cx="72.8" cy="61.8" r="1.22" fill="#16284c" opacity="0.206"/><circle cx="58.3" cy="66.7" r="1.17" fill="#16284c" opacity="0.192"/><circle cx="43.5" cy="70.6" r="1.13" fill="#16284c" opacity="0.178"/><circle cx="28.4" cy="73.2" r="1.08" fill="#16284c" opacity="0.164"/><circle cx="13.0" cy="74.3" r="1.04" fill="#16284c" opacity="0.15"/><circle cx="-2.7" cy="73.7" r="0.99" fill="#16284c" opacity="0.135"/><circle cx="440.0" cy="106.6" r="2.30" fill="#16284c" opacity="0.55"/><circle cx="433.0" cy="107.7" r="2.28" fill="#16284c" opacity="0.543"/><circle cx="425.9" cy="108.4" r="2.26" fill="#16284c" opacity="0.537"/><circle cx="418.6" cy="108.8" r="2.24" fill="#16284c" opacity="0.53"/><circle cx="411.1" cy="108.8" r="2.21" fill="#16284c" opacity="0.523"/><circle cx="403.5" cy="108.3" r="2.19" fill="#16284c" opacity="0.516"/><circle cx="395.8" cy="107.4" r="2.17" fill="#16284c" opacity="0.509"/><circle cx="387.9" cy="106.0" r="2.15" fill="#16284c" opacity="0.501"/><circle cx="379.8" cy="104.1" r="2.12" fill="#16284c" opacity="0.494"/><circle cx="371.6" cy="101.6" r="2.10" fill="#16284c" opacity="0.486"/><circle cx="363.2" cy="98.7" r="2.07" fill="#16284c" opacity="0.478"/><circle cx="354.6" cy="95.3" r="2.05" fill="#16284c" opacity="0.47"/><circle cx="345.9" cy="91.3" r="2.02" fill="#16284c" opacity="0.462"/><circle cx="336.9" cy="86.9" r="2.00" fill="#16284c" opacity="0.453"/><circle cx="327.8" cy="82.2" r="1.97" fill="#16284c" opacity="0.445"/><circle cx="318.5" cy="77.0" r="1.94" fill="#16284c" opacity="0.436"/><circle cx="309.1" cy="71.6" r="1.91" fill="#16284c" opacity="0.427"/><circle cx="299.4" cy="65.9" r="1.88" fill="#16284c" opacity="0.418"/><circle cx="289.5" cy="60.2" r="1.86" fill="#16284c" opacity="0.409"/><circle cx="279.4" cy="54.5" r="1.83" fill="#16284c" opacity="0.399"/><circle cx="269.1" cy="48.8" r="1.80" fill="#16284c" opacity="0.39"/><circle cx="258.7" cy="43.5" r="1.76" fill="#16284c" opacity="0.38"/><circle cx="247.9" cy="38.4" r="1.73" fill="#16284c" opacity="0.37"/><circle cx="237.0" cy="34.0" r="1.70" fill="#16284c" opacity="0.36"/><circle cx="225.9" cy="30.1" r="1.67" fill="#16284c" opacity="0.349"/><circle cx="214.5" cy="27.1" r="1.63" fill="#16284c" opacity="0.339"/><circle cx="202.9" cy="24.9" r="1.60" fill="#16284c" opacity="0.328"/><circle cx="191.0" cy="23.8" r="1.56" fill="#16284c" opacity="0.317"/><circle cx="178.9" cy="23.8" r="1.53" fill="#16284c" opacity="0.305"/><circle cx="166.6" cy="24.9" r="1.49" fill="#16284c" opacity="0.294"/><circle cx="154.0" cy="27.2" r="1.45" fill="#16284c" opacity="0.282"/><circle cx="141.1" cy="30.6" r="1.42" fill="#16284c" opacity="0.27"/><circle cx="128.0" cy="35.1" r="1.38" fill="#16284c" opacity="0.258"/><circle cx="114.6" cy="40.6" r="1.34" fill="#16284c" opacity="0.245"/><circle cx="101.0" cy="46.9" r="1.30" fill="#16284c" opacity="0.232"/><circle cx="87.1" cy="53.7" r="1.26" fill="#16284c" opacity="0.219"/><circle cx="72.8" cy="60.8" r="1.22" fill="#16284c" opacity="0.206"/><circle cx="58.3" cy="67.9" r="1.17" fill="#16284c" opacity="0.192"/><circle cx="43.5" cy="74.7" r="1.13" fill="#16284c" opacity="0.178"/><circle cx="28.4" cy="80.7" r="1.08" fill="#16284c" opacity="0.164"/><circle cx="13.0" cy="85.6" r="1.04" fill="#16284c" opacity="0.15"/><circle cx="-2.7" cy="89.0" r="0.99" fill="#16284c" opacity="0.135"/><circle cx="440.0" cy="111.5" r="2.30" fill="#16284c" opacity="0.55"/><circle cx="433.0" cy="114.4" r="2.28" fill="#16284c" opacity="0.543"/><circle cx="425.9" cy="117.0" r="2.26" fill="#16284c" opacity="0.537"/><circle cx="418.6" cy="119.4" r="2.24" fill="#16284c" opacity="0.53"/><circle cx="411.1" cy="121.5" r="2.21" fill="#16284c" opacity="0.523"/><circle cx="403.5" cy="123.1" r="2.19" fill="#16284c" opacity="0.516"/><circle cx="395.8" cy="124.4" r="2.17" fill="#16284c" opacity="0.509"/><circle cx="387.9" cy="125.2" r="2.15" fill="#16284c" opacity="0.501"/><circle cx="379.8" cy="125.4" r="2.12" fill="#16284c" opacity="0.494"/><circle cx="371.6" cy="125.2" r="2.10" fill="#16284c" opacity="0.486"/><circle cx="363.2" cy="124.3" r="2.07" fill="#16284c" opacity="0.478"/><circle cx="354.6" cy="122.8" r="2.05" fill="#16284c" opacity="0.47"/><circle cx="345.9" cy="120.7" r="2.02" fill="#16284c" opacity="0.462"/><circle cx="336.9" cy="117.9" r="2.00" fill="#16284c" opacity="0.453"/><circle cx="327.8" cy="114.5" r="1.97" fill="#16284c" opacity="0.445"/><circle cx="318.5" cy="110.4" r="1.94" fill="#16284c" opacity="0.436"/><circle cx="309.1" cy="105.8" r="1.91" fill="#16284c" opacity="0.427"/><circle cx="299.4" cy="100.6" r="1.88" fill="#16284c" opacity="0.418"/><circle cx="289.5" cy="94.9" r="1.86" fill="#16284c" opacity="0.409"/><circle cx="279.4" cy="88.9" r="1.83" fill="#16284c" opacity="0.399"/><circle cx="269.1" cy="82.5" r="1.80" fill="#16284c" opacity="0.39"/><circle cx="258.7" cy="75.9" r="1.76" fill="#16284c" opacity="0.38"/><circle cx="247.9" cy="69.3" r="1.73" fill="#16284c" opacity="0.37"/><circle cx="237.0" cy="62.8" r="1.70" fill="#16284c" opacity="0.36"/><circle cx="225.9" cy="56.5" r="1.67" fill="#16284c" opacity="0.349"/><circle cx="214.5" cy="50.7" r="1.63" fill="#16284c" opacity="0.339"/><circle cx="202.9" cy="45.5" r="1.60" fill="#16284c" opacity="0.328"/><circle cx="191.0" cy="41.1" r="1.56" fill="#16284c" opacity="0.317"/><circle cx="178.9" cy="37.7" r="1.53" fill="#16284c" opacity="0.305"/><circle cx="166.6" cy="35.4" r="1.49" fill="#16284c" opacity="0.294"/><circle cx="154.0" cy="34.3" r="1.45" fill="#16284c" opacity="0.282"/><circle cx="141.1" cy="34.6" r="1.42" fill="#16284c" opacity="0.27"/><circle cx="128.0" cy="36.2" r="1.38" fill="#16284c" opacity="0.258"/><circle cx="114.6" cy="39.3" r="1.34" fill="#16284c" opacity="0.245"/><circle cx="101.0" cy="43.7" r="1.30" fill="#16284c" opacity="0.232"/><circle cx="87.1" cy="49.4" r="1.26" fill="#16284c" opacity="0.219"/><circle cx="72.8" cy="56.1" r="1.22" fill="#16284c" opacity="0.206"/><circle cx="58.3" cy="63.6" r="1.17" fill="#16284c" opacity="0.192"/><circle cx="43.5" cy="71.6" r="1.13" fill="#16284c" opacity="0.178"/><circle cx="28.4" cy="79.7" r="1.08" fill="#16284c" opacity="0.164"/><circle cx="13.0" cy="87.6" r="1.04" fill="#16284c" opacity="0.15"/><circle cx="-2.7" cy="94.7" r="0.99" fill="#16284c" opacity="0.135"/><circle cx="440.0" cy="108.2" r="2.30" fill="#16284c" opacity="0.55"/><circle cx="433.0" cy="112.2" r="2.28" fill="#16284c" opacity="0.543"/><circle cx="425.9" cy="116.2" r="2.26" fill="#16284c" opacity="0.537"/><circle cx="418.6" cy="120.2" r="2.24" fill="#16284c" opacity="0.53"/><circle cx="411.1" cy="124.0" r="2.21" fill="#16284c" opacity="0.523"/><circle cx="403.5" cy="127.6" r="2.19" fill="#16284c" opacity="0.516"/><circle cx="395.8" cy="130.9" r="2.17" fill="#16284c" opacity="0.509"/><circle cx="387.9" cy="133.9" r="2.15" fill="#16284c" opacity="0.501"/><circle cx="379.8" cy="136.6" r="2.12" fill="#16284c" opacity="0.494"/><circle cx="371.6" cy="138.8" r="2.10" fill="#16284c" opacity="0.486"/><circle cx="363.2" cy="140.4" r="2.07" fill="#16284c" opacity="0.478"/><circle cx="354.6" cy="141.5" r="2.05" fill="#16284c" opacity="0.47"/><circle cx="345.9" cy="142.0" r="2.02" fill="#16284c" opacity="0.462"/><circle cx="336.9" cy="141.7" r="2.00" fill="#16284c" opacity="0.453"/><circle cx="327.8" cy="140.8" r="1.97" fill="#16284c" opacity="0.445"/><circle cx="318.5" cy="139.0" r="1.94" fill="#16284c" opacity="0.436"/><circle cx="309.1" cy="136.4" r="1.91" fill="#16284c" opacity="0.427"/><circle cx="299.4" cy="133.1" r="1.88" fill="#16284c" opacity="0.418"/><circle cx="289.5" cy="128.9" r="1.86" fill="#16284c" opacity="0.409"/><circle cx="279.4" cy="124.0" r="1.83" fill="#16284c" opacity="0.399"/><circle cx="269.1" cy="118.4" r="1.80" fill="#16284c" opacity="0.39"/><circle cx="258.7" cy="112.1" r="1.76" fill="#16284c" opacity="0.38"/><circle cx="247.9" cy="105.3" r="1.73" fill="#16284c" opacity="0.37"/><circle cx="237.0" cy="98.1" r="1.70" fill="#16284c" opacity="0.36"/><circle cx="225.9" cy="90.7" r="1.67" fill="#16284c" opacity="0.349"/><circle cx="214.5" cy="83.2" r="1.63" fill="#16284c" opacity="0.339"/><circle cx="202.9" cy="75.7" r="1.60" fill="#16284c" opacity="0.328"/><circle cx="191.0" cy="68.6" r="1.56" fill="#16284c" opacity="0.317"/><circle cx="178.9" cy="62.0" r="1.53" fill="#16284c" opacity="0.305"/><circle cx="166.6" cy="56.2" r="1.49" fill="#16284c" opacity="0.294"/><circle cx="154.0" cy="51.4" r="1.45" fill="#16284c" opacity="0.282"/><circle cx="141.1" cy="47.8" r="1.42" fill="#16284c" opacity="0.27"/><circle cx="128.0" cy="45.5" r="1.38" fill="#16284c" opacity="0.258"/><circle cx="114.6" cy="44.8" r="1.34" fill="#16284c" opacity="0.245"/><circle cx="101.0" cy="45.7" r="1.30" fill="#16284c" opacity="0.232"/><circle cx="87.1" cy="48.3" r="1.26" fill="#16284c" opacity="0.219"/><circle cx="72.8" cy="52.6" r="1.22" fill="#16284c" opacity="0.206"/><circle cx="58.3" cy="58.3" r="1.17" fill="#16284c" opacity="0.192"/><circle cx="43.5" cy="65.5" r="1.13" fill="#16284c" opacity="0.178"/><circle cx="28.4" cy="73.7" r="1.08" fill="#16284c" opacity="0.164"/><circle cx="13.0" cy="82.6" r="1.04" fill="#16284c" opacity="0.15"/><circle cx="-2.7" cy="91.8" r="0.99" fill="#16284c" opacity="0.135"/></svg></div>
-    <div class="brandrow"><svg viewBox="0 0 632 188" height="27" width="91" xmlns="http://www.w3.org/2000/svg"><path d="M167.92 125V43.05H198.39C203.963 43.05 208.877 44.0767 213.13 46.13C217.457 48.11 220.83 51.0433 223.25 54.93C225.67 58.7433 226.88 63.4 226.88 68.9C226.88 74.5467 225.523 79.35 222.81 83.31C220.17 87.27 216.577 90.2033 212.03 92.11L230.84 125H213.9L193.77 89.03L203.45 94.75H182.88V125H167.92ZM182.88 81.55H198.61C201.323 81.55 203.67 81.0367 205.65 80.01C207.63 78.91 209.17 77.4067 210.27 75.5C211.37 73.5933 211.92 71.3933 211.92 68.9C211.92 66.3333 211.37 64.1333 210.27 62.3C209.17 60.3933 207.63 58.9267 205.65 57.9C203.67 56.8 201.323 56.25 198.61 56.25H182.88V81.55ZM262.285 126.32C256.125 126.32 250.735 124.927 246.115 122.14C241.495 119.353 237.901 115.577 235.335 110.81C232.768 106.043 231.485 100.763 231.485 94.97C231.485 88.9567 232.768 83.64 235.335 79.02C237.975 74.3267 241.531 70.6233 246.005 67.91C250.551 65.1967 255.611 63.84 261.185 63.84C265.878 63.84 269.985 64.61 273.505 66.15C277.098 67.69 280.141 69.8167 282.635 72.53C285.128 75.2433 287.035 78.36 288.355 81.88C289.675 85.3267 290.335 89.0667 290.335 93.1C290.335 94.1267 290.261 95.19 290.115 96.29C290.041 97.39 289.858 98.3433 289.565 99.15H243.365V88.15H281.425L274.605 93.32C275.265 89.9467 275.081 86.94 274.055 84.3C273.101 81.66 271.488 79.57 269.215 78.03C267.015 76.49 264.338 75.72 261.185 75.72C258.178 75.72 255.501 76.49 253.155 78.03C250.808 79.4967 249.011 81.6967 247.765 84.63C246.591 87.49 246.151 90.9733 246.445 95.08C246.151 98.7467 246.628 102.01 247.875 104.87C249.195 107.657 251.101 109.82 253.595 111.36C256.161 112.9 259.095 113.67 262.395 113.67C265.695 113.67 268.481 112.973 270.755 111.58C273.101 110.187 274.935 108.317 276.255 105.97L287.915 111.69C286.741 114.55 284.908 117.08 282.415 119.28C279.921 121.48 276.951 123.203 273.505 124.45C270.131 125.697 266.391 126.32 262.285 126.32ZM327.878 126.32C321.938 126.32 316.585 124.963 311.818 122.25C307.125 119.463 303.421 115.723 300.708 111.03C297.995 106.263 296.638 100.91 296.638 94.97C296.638 89.03 297.995 83.7133 300.708 79.02C303.421 74.3267 307.125 70.6233 311.818 67.91C316.585 65.1967 321.938 63.84 327.878 63.84C332.131 63.84 336.091 64.61 339.758 66.15C343.425 67.6167 346.578 69.67 349.218 72.31C351.931 74.8767 353.875 77.9567 355.048 81.55L342.398 87.05C341.298 84.0433 339.428 81.6233 336.788 79.79C334.221 77.9567 331.251 77.04 327.878 77.04C324.725 77.04 321.901 77.81 319.408 79.35C316.988 80.89 315.081 83.0167 313.688 85.73C312.295 88.4433 311.598 91.56 311.598 95.08C311.598 98.6 312.295 101.717 313.688 104.43C315.081 107.143 316.988 109.27 319.408 110.81C321.901 112.35 324.725 113.12 327.878 113.12C331.325 113.12 334.331 112.203 336.898 110.37C339.465 108.537 341.298 106.08 342.398 103L355.048 108.72C353.875 112.093 351.968 115.137 349.328 117.85C346.688 120.49 343.535 122.58 339.868 124.12C336.201 125.587 332.205 126.32 327.878 126.32ZM393.042 126.32C387.175 126.32 381.822 124.963 376.982 122.25C372.215 119.537 368.402 115.833 365.542 111.14C362.755 106.447 361.362 101.093 361.362 95.08C361.362 89.0667 362.755 83.7133 365.542 79.02C368.402 74.3267 372.215 70.6233 376.982 67.91C381.749 65.1967 387.102 63.84 393.042 63.84C398.909 63.84 404.225 65.1967 408.992 67.91C413.759 70.6233 417.535 74.3267 420.322 79.02C423.182 83.64 424.612 88.9933 424.612 95.08C424.612 101.093 423.182 106.447 420.322 111.14C417.462 115.833 413.649 119.537 408.882 122.25C404.115 124.963 398.835 126.32 393.042 126.32ZM393.042 113.12C396.269 113.12 399.092 112.35 401.512 110.81C404.005 109.27 405.949 107.143 407.342 104.43C408.809 101.643 409.542 98.5267 409.542 95.08C409.542 91.56 408.809 88.48 407.342 85.84C405.949 83.1267 404.005 81 401.512 79.46C399.092 77.8467 396.269 77.04 393.042 77.04C389.742 77.04 386.845 77.8467 384.352 79.46C381.859 81 379.879 83.1267 378.412 85.84C377.019 88.48 376.322 91.56 376.322 95.08C376.322 98.5267 377.019 101.643 378.412 104.43C379.879 107.143 381.859 109.27 384.352 110.81C386.845 112.35 389.742 113.12 393.042 113.12ZM454.68 126.32C450.06 126.32 446.026 125.293 442.58 123.24C439.206 121.187 436.603 118.327 434.77 114.66C433.01 110.993 432.13 106.703 432.13 101.79V65.16H446.54V100.58C446.54 103.073 447.016 105.273 447.97 107.18C448.996 109.013 450.426 110.48 452.26 111.58C454.166 112.607 456.293 113.12 458.64 113.12C460.986 113.12 463.076 112.607 464.91 111.58C466.743 110.48 468.173 108.977 469.2 107.07C470.226 105.163 470.74 102.89 470.74 100.25V65.16H485.15V125H471.51V113.23L472.72 115.32C471.326 118.987 469.016 121.737 465.79 123.57C462.636 125.403 458.933 126.32 454.68 126.32ZM496.345 147V65.16H509.875V77.04L508.555 74.07C510.608 70.8433 513.395 68.35 516.915 66.59C520.435 64.7567 524.505 63.84 529.125 63.84C534.771 63.84 539.868 65.2333 544.415 68.02C548.961 70.8067 552.555 74.5467 555.195 79.24C557.908 83.9333 559.265 89.2133 559.265 95.08C559.265 100.873 557.945 106.153 555.305 110.92C552.665 115.687 549.071 119.463 544.525 122.25C539.978 124.963 534.808 126.32 529.015 126.32C524.688 126.32 520.691 125.477 517.025 123.79C513.431 122.03 510.571 119.537 508.445 116.31L510.755 113.45V147H496.345ZM527.365 113.12C530.665 113.12 533.598 112.35 536.165 110.81C538.731 109.27 540.711 107.143 542.105 104.43C543.571 101.717 544.305 98.6 544.305 95.08C544.305 91.56 543.571 88.48 542.105 85.84C540.711 83.1267 538.731 81 536.165 79.46C533.598 77.8467 530.665 77.04 527.365 77.04C524.211 77.04 521.351 77.81 518.785 79.35C516.291 80.89 514.311 83.0533 512.845 85.84C511.451 88.5533 510.755 91.6333 510.755 95.08C510.755 98.6 511.451 101.717 512.845 104.43C514.311 107.143 516.291 109.27 518.785 110.81C521.351 112.35 524.211 113.12 527.365 113.12Z" fill="#14254a"/><path fill-rule="evenodd" clip-rule="evenodd" d="M89.6095 39C86.3373 39 83.6846 41.6294 83.6846 44.873V68.2361C83.6846 71.6971 82.605 75.0731 80.5936 77.9019C77.4228 82.3605 72.2629 85.0132 66.7595 85.0132H51.9249C48.6527 85.0132 46 87.6423 46 90.8862V120.127C46 123.371 48.6527 126 51.9249 126H81.3904C84.6626 126 87.3153 123.371 87.3153 120.127V100.147C87.3153 96.1083 88.5752 92.1694 90.9223 88.8688L91.3367 88.2854C95.0367 83.0819 101.057 79.9868 107.48 79.9868H119.075C122.348 79.9868 125 77.3577 125 74.1138V44.873C125 41.6294 122.348 39 119.075 39H89.6095Z" fill="#14254a"/></svg></div>
+    <div class="brandrow">{{BRAND_LOCKUP_HTML}}</div>
     <div class="kicker">Proposal</div>
     <div class="doctitle">{{DOC_TITLE}}</div>
     <div class="meta">Prepared for {{CLIENT_CONTACT}}, {{CLIENT_NAME}}</div>
@@ -117,48 +120,48 @@
 
   <div class="lbl">How we get there</div>
   <table class="steps"><tr>
-    <td><div class="stepnum">01</div><div class="steph">Audit</div><div class="stepd">Map how the team uses AI, find your early adopters and who needs upskilling.</div></td>
-    <td><div class="stepnum">02</div><div class="steph">Own it</div><div class="stepd">Setup a shared skills + knowledge-base repo with data privacy.</div></td>
-    <td><div class="stepnum">03</div><div class="steph">Build it</div><div class="stepd">Turn personal workflows into custom agents and connected systems.</div></td>
-    <td><div class="stepnum">04</div><div class="steph">Maintain It</div><div class="stepd">Keep the company, its systems, and its culture cutting-edge and always on.</div></td>
+    <td><div class="stepnum">01</div><div class="steph">{{STEP_1_NAME}}</div><div class="stepd">{{STEP_1_DETAIL}}</div></td>
+    <td><div class="stepnum">02</div><div class="steph">{{STEP_2_NAME}}</div><div class="stepd">{{STEP_2_DETAIL}}</div></td>
+    <td><div class="stepnum">03</div><div class="steph">{{STEP_3_NAME}}</div><div class="stepd">{{STEP_3_DETAIL}}</div></td>
+    <td><div class="stepnum">04</div><div class="steph">{{STEP_4_NAME}}</div><div class="stepd">{{STEP_4_DETAIL}}</div></td>
   </tr></table>
 
   <div class="p2">
-    <div class="runhead"><svg viewBox="46 39 79 87" height="18" width="16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M89.6095 39C86.3373 39 83.6846 41.6294 83.6846 44.873V68.2361C83.6846 71.6971 82.605 75.0731 80.5936 77.9019C77.4228 82.3605 72.2629 85.0132 66.7595 85.0132H51.9249C48.6527 85.0132 46 87.6423 46 90.8862V120.127C46 123.371 48.6527 126 51.9249 126H81.3904C84.6626 126 87.3153 123.371 87.3153 120.127V100.147C87.3153 96.1083 88.5752 92.1694 90.9223 88.8688L91.3367 88.2854C95.0367 83.0819 101.057 79.9868 107.48 79.9868H119.075C122.348 79.9868 125 77.3577 125 74.1138V44.873C125 41.6294 122.348 39 119.075 39H89.6095Z" fill="#14254a"/></svg><span class="rl">Proposal for {{CLIENT_NAME}}</span><span class="rr">Recoup &middot; {{DOC_DATE}}</span></div>
+    <div class="runhead"><span class="rl">Proposal for {{CLIENT_NAME}}</span><span class="rr">{{BRAND_NAME}} &middot; {{DOC_DATE}}</span></div>
 
     <div class="lbl">The investment</div>
     <div class="invest">
       <table class="tiers">
         <tr>
-          <td class="opt"><span class="nm">Advisory</span></td>
-          <td class="prc">$5,000<span>&nbsp;/mo</span></td>
-          <td class="chg"><ul class="feat"><li><b>AI adoption audit and roadmap</b> with monthly tracking</li><li><b>Company skills repo</b> + knowledge-base you own</li><li><b>Custom agents</b> for your highest-priority workflows</li><li><b>Weekly strategy calls</b> and unlimited Slack comms</li></ul><span class="bf">Best for: standing up your system and accelerating adoption.</span></td>
+          <td class="opt"><span class="nm">{{TIER_1_NAME}}</span></td>
+          <td class="prc">{{TIER_1_PRICE}}<span>&nbsp;{{TIER_1_PERIOD}}</span></td>
+          <td class="chg">{{TIER_1_DETAIL}}<span class="bf">{{TIER_1_FIT}}</span></td>
         </tr>
         <tr class="trec">
-          <td class="opt"><span class="nm">Comprehensive</span></td>
-          <td class="prc">$15,000<span>&nbsp;/mo</span></td>
-          <td class="chg"><div class="plus">Everything in Advisory, plus:</div><ul class="feat"><li><b>Dedicated forward-deployed engineer</b> on your team</li><li><b>API + MCP connections</b> to your tools and data</li><li><b>Two or three builds</b> running in parallel</li></ul><span class="bf">Best for: shipping several agents at once this quarter.</span></td>
+          <td class="opt"><span class="nm">{{TIER_2_NAME}}</span></td>
+          <td class="prc">{{TIER_2_PRICE}}<span>&nbsp;{{TIER_2_PERIOD}}</span></td>
+          <td class="chg">{{TIER_2_DETAIL}}<span class="bf">{{TIER_2_FIT}}</span></td>
         </tr>
         <tr>
-          <td class="opt"><span class="nm">Partnership</span></td>
-          <td class="prc">$30,000<span>&nbsp;/mo</span></td>
-          <td class="chg"><div class="plus">Everything in Comprehensive, plus:</div><ul class="feat"><li><b>Complete AI development team</b> at full speed</li><li><b>Priority access</b> to Sid, with same-day support</li><li><b>Custom software and platforms</b>, built end-to-end</li></ul><span class="bf">Best for: making owned AI a fundable, company-wide asset, fast.</span></td>
+          <td class="opt"><span class="nm">{{TIER_3_NAME}}</span></td>
+          <td class="prc">{{TIER_3_PRICE}}<span>&nbsp;{{TIER_3_PERIOD}}</span></td>
+          <td class="chg">{{TIER_3_DETAIL}}<span class="bf">{{TIER_3_FIT}}</span></td>
         </tr>
       </table>
     </div>
-    <p class="proj" style="margin:26px 0"><b>All tiers are month-to-month, with no lock-in</b>, and most engagements run entirely inside the retainer. For a custom software or platform build on a fixed deadline, per-project pricing is also available, <b>typically $50k to $150k</b> over a 3&ndash;6 month timeline.</p>
+    <p class="proj" style="margin:26px 0">{{COMMERCIAL_TERMS}}</p>
 
     <div class="close">
       <div class="anchor">{{CLOSE_ANCHOR}}</div>
       <h4>Next steps</h4>
       <ol>
-        <li>A <b>25-minute call</b> to walk through this together (grab any afternoon this week).</li>
-        <li>Align the partners — Recoup is glad to join that conversation.</li>
-        <li><b>Send a 5-min AI survey to your team</b> to find your early adopters, so we build from day one.</li>
+        <li>{{NEXT_STEP_1}}</li>
+        <li>{{NEXT_STEP_2}}</li>
+        <li>{{NEXT_STEP_3}}</li>
       </ol>
     </div>
 
-    <div class="foot">Recoup &nbsp;&middot;&nbsp; AI infrastructure for the music business &nbsp;&middot;&nbsp; Sidney Swift &nbsp;&middot;&nbsp; {{DOC_DATE}}</div>
+    <div class="foot">{{BRAND_NAME}} &nbsp;&middot;&nbsp; {{BRAND_TAGLINE}} &nbsp;&middot;&nbsp; {{DOC_DATE}}</div>
   </div>
 
 </div></body></html>

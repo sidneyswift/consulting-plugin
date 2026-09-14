@@ -1,19 +1,39 @@
 ---
 name: consulting-content-distribution
-description: Distribute one finished pillar article across every channel the same way — republish the same copy to the owned blog + LinkedIn newsletter + X (as an article, never a thread), ship the always-on companions (a LinkedIn promo post + an email to the list), point every link at the owned canonical URL, then find the live post and monitor its engagement into leads. Use after an article is written or published, on "distribute this", "post it everywhere", "atomize this article", "where else should this go", or when promoting a piece in content/04-published/.
+description: "Distribute one finished pillar article across every channel the same way — republish the same copy to the owned blog + LinkedIn newsletter + X (as an article, never a thread), ship the always-on companions (a LinkedIn promo post + an email to the list), point every link at the owned canonical URL, then find the live post and monitor its engagement into leads. Use after an article is written or published, on \"distribute this\", \"post it everywhere\", \"atomize this article\", \"where else should this go\", or when promoting a piece in content/04-published/."
 ---
 
 # Consulting Content Distribution
 
+## Visual handoff
+
+When this workflow creates or requests a rendered artifact, use `consulting-tasteful-design` and
+the selected workspace DESIGN.md. House identity is Recoup Sky; explicit client/artist branding wins.
+Pass brand/version, expression, format, reference IDs and output folder to the media skill. Its bundled
+package supplies exact fonts/logos. Keep new derivatives in the current identity while preserving
+historical evidence. Save editable source and brand.lock.json with the deliverable. Ordinary text
+outputs stay text; a script is not a rendered video. Existing data dashboards retain their canonical
+Recoup CSS during data updates. Do not publish private client work to the public Brand Studio.
+
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
+
 One pillar, one copy, every channel — run the same way each time so the effort stays in the writing and the spread is mechanical. This skill **orchestrates** existing skills; it does not redefine them: `consulting-copy-writer` (voice), `consulting-linkedin-publisher` (LinkedIn out), `consulting-email-atomizer` + `consulting-outbound-email` (email), `consulting-linkedin-audience` (engagement → leads), and the `integrations/linkedin/_work/` scripts (find post + engagement).
 
-## The model (Sid's distribution map)
+## Distribution model (adapt channels to workspace)
 
 One finished article = the **canonical copy**. It travels as:
 
 **Homes (the same copy, verbatim — only title/meta differ):**
-- **Recoupable blog** — the **owned** home and the **canonical link target**. Owned beats rented (`reference/guide/06-owning-distribution.md`).
-- **LinkedIn newsletter article** — the rented home where the subscribers already are (~350).
+- **owned company blog** — the **owned** home and the **canonical link target**. Owned beats rented (`reference/guide/06-owning-distribution.md`).
+- **LinkedIn newsletter article** — the rented home where the subscribers already are (use the live account count if needed).
 - **X, as an Article** (X long-form). **Never a thread.** Standing rule: same article copy on X, never a thread.
 
 **Companions (ship with every article):**
@@ -24,19 +44,19 @@ One finished article = the **canonical copy**. It travels as:
 - Instagram / short-form reels. Revisit once the visual short-form workflow is nailed. Skipping it is correct, not a gap.
 
 ## Link policy (what everything points to)
-- **Canonical = the owned Recoupable blog URL** once the blog post is up. The blog page can link out to the LinkedIn newsletter version.
+- **Canonical = the owned owned company blog URL** once the blog post is up. The blog page can link out to the LinkedIn newsletter version.
 - **Until the blog is up:** point to the live LinkedIn article/post (it's already there). Record both on the bundle; repoint to the blog when it's live.
 - **One canonical URL per article**, set in the published bundle frontmatter (`canonical:`). The promo post, email, X, and blog all point at it.
 
 ## Steps
 1. **Confirm the canonical copy + link target.** The pillar in `content/04-published/<slug>/`. Pick the canonical URL: owned blog if up, else the live LinkedIn URL.
-2. **Homes:** republish the *same* article body to the blog and to X (as an Article). LinkedIn newsletter is usually already done by Sid. Don't rewrite per platform; only title/meta change.
+2. **Homes:** republish the *same* article body to the blog and to X (as an Article). Check whether the LinkedIn newsletter version already exists. Don't rewrite per platform; only title/meta change.
 3. **Companions:**
    - Promo post via `consulting-linkedin-publisher` (drafts/schedules through `integrations/linkedin/_work/publish.py`; prompts before sending).
    - Email via `consulting-email-atomizer` + `consulting-outbound-email`: a short broadcast to the list, `source:` = the article's insight, staged in `email/outbox/`.
    - Both link to the canonical URL.
-4. **Find the post + record the URLs (no manual URL needed).** Run `python integrations/linkedin/_work/pull_posts.py --max 25 --yes`, locate the promo post by its hook, and record both URLs in the bundle frontmatter: `url:` = the linked article/pulse URL (pull_posts captures it from the post's `article.link`), `linkedin_post:` = the promo post (the engagement-monitoring target). This is how the agent stops asking Sid for any URL.
-5. **Monitor → leads (close the flywheel).** Capture a baseline (likes/comments/shares) and, on a cadence, `pull_engagement.py --post-url <url>` → `enrich.py` → `crossref_attio.py` to turn engagers into net-new Attio lead candidates (`consulting-linkedin-audience`). Re-check on the Friday cadence; promote to an unattended routine if Sid wants it hands-off.
+4. **Find the post + record the URLs (no manual URL needed).** Run `python integrations/linkedin/_work/pull_posts.py --max 25 --yes`, locate the promo post by its hook, and record both URLs in the bundle frontmatter: `url:` = the linked article/pulse URL (pull_posts captures it from the post's `article.link`), `linkedin_post:` = the promo post (the engagement-monitoring target). This is how the agent stops asking the owner for any URL.
+5. **Monitor → leads (close the flywheel).** Capture a baseline (likes/comments/shares) and, on a cadence, `pull_engagement.py --post-url <url>` → `enrich.py` → `crossref_attio.py` to turn engagers into net-new Attio lead candidates (`consulting-linkedin-audience`). Re-check on the Friday cadence; promote to an unattended routine if the owner wants it hands-off.
 6. **Track state.** Write/update `distribution.md` in the bundle: each channel (status + URL), the canonical link, the companions, and the engagement baseline. One glance = where this piece lives and how it's doing.
 
 ## Rails

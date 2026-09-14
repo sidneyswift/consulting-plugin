@@ -44,10 +44,15 @@ const F = 1 / 24;
 
 // ---------- load inputs ----------
 const theme = JSON.parse(fs.readFileSync(path.join(PROJECT, "theme.json"), "utf8"));
+theme.dna ??= "recoup-sky";
 const dna = JSON.parse(fs.readFileSync(path.join(SKILL, "themes", theme.dna + ".json"), "utf8"));
 const transcript = JSON.parse(fs.readFileSync(path.join(PROJECT, "transcript.json"), "utf8"));
 const W = theme.width || 1280,
   H = theme.height || 720;
+if (dna.name === "recoup-sky") {
+  dna.body.fontPx = Math.round(W * (W < H ? 0.045 : 0.036));
+  dna.body.bottomPx = Math.round(H * 0.14);
+}
 
 // FPS: matte.fps is AUTHORITATIVE (written by matte.cjs at the source's native
 // rate; the matte overlay + postfx zoompan must run at this rate or the output
@@ -556,6 +561,16 @@ const FONT_FACES = (() => {
   } catch {
     return null;
   }
+  if (dna.name === "recoup-sky") {
+    const brandRoot = path.resolve(SKILL, "../../brand");
+    const brand = JSON.parse(fs.readFileSync(path.join(brandRoot, "brand.json"), "utf8"));
+    css = fs.readFileSync(path.join(brandRoot, "brand.css"), "utf8").replace(/url\('([^']+)'\)/g, (_, file) => {
+      const bytes = fs.readFileSync(path.join(brandRoot, file));
+      const actual = require("crypto").createHash("sha256").update(bytes).digest("hex");
+      if (actual !== brand.assets[file]?.sha256) throw new Error(`Recoup font checksum mismatch: ${file}`);
+      return `url('data:font/woff2;base64,${bytes.toString("base64")}')`;
+    });
+  }
   return css
     .split("@font-face")
     .slice(1)
@@ -679,13 +694,14 @@ function paradigmRail() {
   }));
   const css = `
   .rail { position:absolute; left:${W / 2}px; top:${H - b.bottomPx}px; opacity:0; white-space:nowrap;
-          font-family:'${dna.fonts.body}', sans-serif; font-size:${b.fontPx}px; line-height:1;
+          font-family:'${dna.fonts.body}', sans-serif; font-weight:${b.fontWeight || 400}; font-size:${b.fontPx}px; line-height:1;
+          ${b.background ? `background:${b.background};padding:14px 22px;border-radius:14px;` : ""}
           letter-spacing:${b.letterSpacing || "0.02em"}; color:${dna.palette.body};
           ${b.textTransform ? "text-transform:" + b.textTransform + ";" : ""}
           text-shadow: ${b.glow || "0 3px 14px rgba(0,0,0,0.65), 0 1px 3px rgba(0,0,0,0.5)"}; }
   .rail .w { display:inline-block; opacity:0; margin:0 0.14em; }
   .rail .w.minor { font-size:${Math.round(b.fontPx * (b.minorScale || 1.4))}px; }
-  .rail .w.em { color:${dna.palette.em || dna.palette.accent}; font-weight:700; }
+  .rail .w.em { color:${dna.palette.em || dna.palette.accent}; font-weight:${b.emWeight || 700}; }
   ${
     b.rule
       ? `#rrule { position:absolute; left:${W / 2}px; top:${H - b.bottomPx + 38}px; width:0; height:2px;
@@ -5134,12 +5150,15 @@ function setpieceCoverword() {
       return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
     };
   })();
-  const CPM = JSON.parse(
-    fs.readFileSync(path.join(SKILL, "assets/brand/cyberpunk-widths.json"), "utf8"),
-  );
-  const fontB64 = fs
-    .readFileSync(path.join(SKILL, "assets/brand/CyberpunkReplica.ttf"))
-    .toString("base64");
+  const useDemoFont = process.env.HYPERFRAMES_ENABLE_DEMO_FONTS === "1";
+  const fontPath = process.env.HYPERFRAMES_BRAND_FONT ||
+    (useDemoFont && path.join(SKILL, "assets/brand/CyberpunkReplica.ttf"));
+  const metricsPath = process.env.HYPERFRAMES_BRAND_METRICS ||
+    (useDemoFont && !process.env.HYPERFRAMES_BRAND_FONT && path.join(SKILL, "assets/brand/cyberpunk-widths.json"));
+  if (!fontPath || !metricsPath) throw new Error(
+    "The coverword theme needs an approved TTF in HYPERFRAMES_BRAND_FONT and matching width metrics in HYPERFRAMES_BRAND_METRICS. Choose another theme or explicitly opt into the demo asset under its included terms.");
+  const CPM = JSON.parse(fs.readFileSync(metricsPath, "utf8"));
+  const fontB64 = fs.readFileSync(fontPath).toString("base64");
   const DISP = HG.coverDisp || heroText[0].toUpperCase() + heroText.slice(1).toLowerCase();
   const hpx = HG.fontPx;
   const em =
@@ -5289,7 +5308,7 @@ function setpieceSettle() {
   const css = `
   ${dna.plate.dim ? `#dimP { position:absolute; inset:0; opacity:0; background:#06080c; }` : ""}
   #stl { position:absolute; left:${HG.x}px; top:${HG.y}px; transform:translate(-50%,-50%); }
-  #stl-w { font-family:'${dna.fonts.hero}', sans-serif; font-weight:700; font-size:${HG.fontPx}px;
+  #stl-w { font-family:'${dna.fonts.hero}', sans-serif; font-weight:${dna.hero.fontWeight || 700}; font-size:${HG.fontPx}px;
            line-height:1; letter-spacing:0.01em; white-space:nowrap; color:${dna.palette.body};
            text-shadow: 0 2px 18px rgba(0,0,0,0.5), 0 1px 4px rgba(0,0,0,0.35); opacity:0; }
   #stl-rule { position:absolute; left:50%; bottom:-20px; transform:translateX(-50%);

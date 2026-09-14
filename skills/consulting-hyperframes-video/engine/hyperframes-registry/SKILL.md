@@ -1,9 +1,26 @@
 ---
 name: hyperframes-registry
-description: Install and wire registry blocks and components into HyperFrames compositions. Use when running hyperframes add, installing a block or component, wiring an installed item into index.html, or working with hyperframes.json. Covers the add command, install locations, block sub-composition wiring, component snippet merging, registry discovery, and authoring a new block or component to contribute upstream (idea → scaffold → validate → PR).
+description: "Install and wire registry blocks and components into HyperFrames compositions. Use when running hyperframes add, installing a block or component, wiring an installed item into index.html, or working with hyperframes.json. Covers the add command, install locations, block sub-composition wiring, component snippet merging, registry discovery, and authoring a new block or component to contribute upstream (idea → scaffold → validate → PR)."
 ---
 
 # HyperFrames Registry
+
+## Selected brand
+
+For Recoup/Consulting/Business, read `../../brand/GUIDE.md` and stage
+`node <video-skill>/brand/materialize.mjs <project-directory>`. Use the packaged CSS/fonts/exact SVGs.
+Identity is selected before frame.md; a frame can change layout/timing but cannot replace the brand.
+Generic style catalogues below are alternatives for an explicit other brand, not Recoup defaults.
+An explicitly selected client/artist identity or fidelity-only migration preserves that identity.
+Record brand/version, expression and reference IDs with editable sources in the existing output folder.
+
+
+**Portable setup:** read `../runtime/SETUP.md` for the pinned runtime. Resolve bundled resources from this
+installed skill and write outputs into the selected project. Brand fonts and identity come from that
+workspace's `DESIGN.md` or supplied brief; preset fonts and logos are examples, not required defaults.
+Keep original asset notices. Use approved workspace fonts for deliverables; optional legacy demo
+assets do not grant commercial usage rights. Client stories and figures in templates are illustrative,
+never evidence of a real result. Missing provider access remains a reported gap.
 
 The registry provides reusable blocks and components installable via `hyperframes add <name>`.
 

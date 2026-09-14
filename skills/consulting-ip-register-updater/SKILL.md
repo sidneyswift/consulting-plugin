@@ -1,9 +1,14 @@
 ---
 name: consulting-ip-register-updater
-description: Log new frameworks, methodologies, or OSS tools to the IP register. Use when you build something reusable, "update the IP register", or before signing a new deal.
+description: "Log new frameworks, methodologies, or OSS tools to the IP register. Use when you build something reusable, \"update the IP register\", or before signing a new deal."
 ---
 
 # Consulting IP Register Updater
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 ## Steps
 1. Record the asset in the IP register under `business/legal/` (name, description, date created, where used).

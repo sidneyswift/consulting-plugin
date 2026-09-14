@@ -1,111 +1,61 @@
 ---
 name: consulting-tasteful-design
-description: >
-  The house authority on visual TASTE — the look-and-feel north star every skill defers to when
-  making something seen: a video or motion graphic, a social graphic or carousel, a slide/pitch
-  deck, a proposal, a landing page, the metrics dashboard, an email header — any rendered artifact.
-  Use whenever the goal is "make it look good / on-brand / bold / not AI slop", or when choosing
-  palette, type, layout, or motion. It does NOT redefine the brand tokens — those are canonical in
-  the project's root /DESIGN.md; this skill carries
-  the cross-medium PRINCIPLES (the "bold, not boring" stance), the anti-AI-slop checklist, and the
-  rules for translating the brand into MOTION/video that the still-graphics kit doesn't cover.
+description: "Apply the current Recoup identity across graphics, video, slides, proposals and interfaces. Resolves brand selection, packaged fonts and exact logos, cross-media composition, and visual checks; explicit client brands can override house identity."
+
 metadata: { "tags": "design, taste, brand, visual, motion, look-and-feel, anti-slop, house-authority" }
 ---
 
-# Consulting Tasteful Design — the look-and-feel north star
+# Consulting Tasteful Design
 
-The **shared visual-taste authority** for the practice. Other skills make the artifact; this skill
-decides whether it looks like us and whether it looks *good*. `consulting-graphics` (stills),
-`consulting-hyperframes-video` (motion), `consulting-proposal-designer`, and the dashboard all
-**defer here** for principles, and to the brand canon below for exact tokens.
+The shared visual authority for Recoup, Consulting and Business. Keep current workspace folders;
+resolve skills by installed name. Brand inputs never require access to another private checkout.
 
-It's the visual counterpart to our writing voice — same DNA (**specificity, conviction,
-say-it-out-loud, no hype**), translated from sentences to pixels. The stance is **bold, not boring.**
+## Resolve the identity first
 
-## Canon — read these, never invent brand facts
+Read the workspace DESIGN.md and explicit brief. House work defaults to **Recoup Sky** from
+[brand/GUIDE.md](brand/GUIDE.md) and [brand/brand.json](brand/brand.json). Marketing owns the authored
+identity; this versioned package distributes its reviewed fonts, exact logo SVGs and approved
+reference manifest. Use the bundled package when marketing is unavailable. Do not ask the user to
+reselect Recoup on each run. An explicit client/artist identity or fidelity-only migration wins.
 
-1. **The project's root `/DESIGN.md`** — the **brand source of truth**: the exact
-   palette (`--ink` / `--navy` / `--accent` / `--signal` / `--tint` …), the type roles, and the
-   standard footer signature (Recoup mark · Sidney Swift · recoupable.com), plus the "bold, not
-   boring" principles. **Pull exact colors, fonts, the logo, and the footer from here — don't restate
-   or guess them.** For stills it also owns the template set (`framework-blocks`, `statement`, `stat`,
-   `editorial`). For anything it doesn't cover (e.g. audience) — or if the project has no `DESIGN.md` at all (e.g. this plugin installed in another repo) — ask the user for brand values, or scaffold one; never invent.
-2. **`consulting-copy-writer/references/voice-principles.md`** — governs every word that appears
-   (headlines, captions, labels, CTAs).
+Stage with `node <installed-skill>/brand/materialize.mjs <output-directory>`. Each primary media skill
+carries a checked copy of this package, so its installation is self-contained. Exact CSS/font data
+for standalone HTML is available with `--inline-css`. Do not use a local computer path or Google
+Fonts network import. Wait for document.fonts.ready before capture.
 
-**Brand character at a glance** (exact values live in `DESIGN.md`): deep **ink/navy color
-fields** with **one electric "signal" blue** as the energy accent; **Space Grotesk** for display,
-**Plus Jakarta Sans** for body, **Instrument Serif italic** for the occasional editorial moment;
-every piece closes with the **Recoup mark + "Sidney Swift" · recoupable.com** footer.
+## Apply the identity
 
-## Principles — bold, not boring
+- **Functional:** clear white reports, proposals, decks and dashboards; ink text, fine borders,
+  forest anchors, sky links, restrained lime emphasis.
+- **Editorial:** papers, notes, concepts and diagrams; DM Sans with exact editable labels. Choose
+  from the eleven approved carousel directions in brand/finals.json. Warm paper and Night shift
+  forest are valid approved expressions.
+- **Expressive:** daylight, sky atmosphere, Blue sweep, considered physical materials; let the
+  content supply the focal point. Soft depth is useful; decoration is optional.
 
-These match `DESIGN.md` and extend across every medium. (They deliberately retire the old
-"no color / 40% empty / decoration is a sin" rules — those made work forgettable.)
+DM Sans headlines 450–500, body 400. IBM Plex Mono 400 for short labels/code/metadata only.
+Use supplied outlined logo geometry; no regenerated marks. Company media need no personal-name
+footer. Author attribution is an explicit content choice. Direct, concrete copy follows
+consulting-copy-writer; figures and customer claims still need primary evidence.
 
-1. **Commit to a color field.** Each artifact has a dominant field — full-bleed dark (`--ink`/`--navy`,
-   high-conviction) or crisp light (`--paper`/`--tint`, scannable). **Pale, washed-out gradients are
-   banned** — they read as generic. Go all the way dark, or keep it crisp-light.
-2. **One thing is huge.** A hook, a number, or a framework — legible as a thumbnail. Display type
-   runs big; the focal element dwarfs everything else.
-3. **Color carries meaning.** `--accent` for structure (rules, labels, numbers); `--signal` for *one*
-   energy pop per piece — the word/number you want the eye to hit. Never rainbow it.
-4. **Make it saveable.** Real numbers, named frameworks, worked examples with receipts. Build things
-   people screenshot and re-share — the specificity *is* the design (mirrors "specificity as proof").
-5. **Vary expression across a series.** Same DNA, different composition. If two pieces look
-   interchangeable, the brief failed — vary the field, layout, and dominant element.
-6. **Texture is allowed; clutter isn't.** A dotwave motif or a single signal glow adds depth.
-   Decoration that carries no meaning still gets cut — but "interesting" is a goal, not a sin.
-7. **Mobile-first.** If the hook doesn't land at phone-thumbnail scale, it fails. Test small.
+For generated imagery, create environments first and composite exact editable type and logos.
+For video, resolve brand before frame.md: frames own composition, pacing and placement, while
+brand.json owns identity. Generic vendor presets never override selected Recoup colors or fonts.
+Use one focal action per beat, calm fades/small reveals and static grain. No automatic glow loops,
+heavy serif headings, robot/mascot, or unapproved sonic identity. Existing Studio motion remains
+experimental; approved stills are references, not approval of a new animation.
 
-## Translating it to motion & video
+## Check the artifact
 
-What `DESIGN.md` doesn't cover — how the brand moves. `consulting-hyperframes-video` reads
-this section.
+Verify loaded font faces, exact logo, visible contrast, safe areas, mobile-scale reading, overflow,
+and actual PDF pagination. For motion check multiple timeline seeks and footage occlusion. Preserve
+client source appearance when explicitly selected. Save editable source and brand.lock.json with
+expression, selected reference IDs and output paths alongside the deliverable. Keep existing private
+output ownership; /brand is public and new intended Studio assets start in Experiments.
 
-- **The color field is the scene.** Commit each scene to a dark or light field; carry it through.
-  One saturated `--signal` glow for depth is on-brand — a *washed-out* gradient with nothing to say
-  is the slop tell. Don't confuse the two.
-- **One thing huge per beat.** A scene shows one idea — a hook line, a count-up number, a framework
-  reveal. Don't crowd a frame; let beats sequence the story.
-- **Signal accent is the motion focal.** A line wipe, a highlighted word, a number ticking up — *one*
-  energy moment per scene, not everything moving. Motion directs the eye to the signal.
-- **Type in motion.** Space Grotesk display animates in with intent — **ease, stagger, one timeline;
-  never bounce-everything or spin for its own sake.** (Mechanics: `consulting-hyperframes-video/
-  engine/hyperframes-animation`.)
-- **Close on the signature.** End on the footer lockup (Recoup mark + Sidney Swift · recoupable.com)
-  as the endcard, adapted to the field's light/dark.
-- **Deterministic + validated.** Respect the render rules (`npx hyperframes lint && validate`).
+## Maintaining the package
 
-## The anti-AI-slop checklist (the tells to avoid)
-
-- [ ] A **pale, washed-out** purple→blue gradient hero with a generic glowing orb and no focal point.
-      (Our look commits to a saturated field + **one** signal glow behind a huge focal element — not this.)
-- [ ] Glassmorphism / frosted cards stacked everywhere.
-- [ ] Emoji as bullets; emoji in headlines.
-- [ ] 4+ font families, or default system-font soup (we use Space Grotesk + Plus Jakarta + Instrument Serif).
-- [ ] Rainbow / 6-color palettes with no `--accent` vs `--signal` discipline.
-- [ ] Fake/placeholder numbers, lorem ipsum, generic "synergy" stock imagery.
-- [ ] Every element the same visual weight — no clear hook, no "one thing huge".
-- [ ] Motion: everything sliding/spinning/zooming at once.
-- [ ] A series where every piece looks interchangeable (sameness).
-
-Hit any? Fix before shipping.
-
-## Pre-ship checklist (run on every visual)
-
-1. **Tokens pulled from `DESIGN.md`** — palette, type, logo, footer not invented.
-2. **Committed color field** (fully dark or crisp light); no pale gradient.
-3. **One huge focal element**; hierarchy obvious in a 1-second glance.
-4. **`--accent` for structure, one `--signal` pop**; AA contrast on text.
-5. **Real content / real numbers**; copy passes `voice-principles.md` (no hype, say-it-out-loud).
-6. **Footer signature present**; reads at phone scale.
-7. Within a series, **this piece looks distinct** from its siblings.
-8. **Motion** (if any) serves meaning, one timeline, closes on the signature.
-
-## How a skill should use this
-
-Read this skill → pull exact tokens from `DESIGN.md` → pick a
-composition that fits the *content* (a graphics template, or a HyperFrames frame-preset curated to
-brand) → design to the bold-not-boring principles → run the pre-ship checklist before calling it
-done. Keep the DNA consistent across a set, vary the expression within it.
+Update from marketing's root DESIGN.md / brand-studio/DESIGN-SYSTEM.md and committed Finals only.
+Keep source revision and hashes in brand.json, bump version, then run scripts/sync_brand.py from the
+plugin root. scripts/sync_brand.py --check rejects differing consumer copies. Do not edit those copies
+independently. Preserve original vendor-font notices and alternatives for explicit other brands.

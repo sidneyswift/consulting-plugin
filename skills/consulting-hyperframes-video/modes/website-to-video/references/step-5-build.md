@@ -301,7 +301,7 @@ Build the composition for Beat N. Save to compositions/beat-N-name.html.
 FIRST: Locate and read the beat-builder guide. Your CWD is the project directory, so
 the skill lives outside it — run this to find it:
 
-  find "$HOME" -path '*/website-to-video/references/beat-builder-guide.md' -maxdepth 10 2>/dev/null | head -1
+  # Use the installed mode directory already selected above.
 
 Read that file end to end. It has your full workflow, all rules, easing vocabulary,
 and file references. Follow its workflow exactly:

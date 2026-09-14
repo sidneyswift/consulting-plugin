@@ -21,7 +21,7 @@ for a manifesto/POV) held **consistent across every slide** × a format. Tokens 
    on a card. Carry a persistent element (slide number or progress dots, a consistent accent rule) so the
    set reads as one piece.
 3. **Payoff (slide N).** The takeaway in one line + **one clear next step** (follow, comment a keyword,
-   DM) + the footer signature (Recoup mark · Sidney Swift · recoupable.com).
+   DM) + the footer signature (Recoup mark · {{AUTHOR_NAME}} · {{BRAND_WEBSITE}}).
 
 ## The craft bar
 - **Momentum:** every slide should make the reader want the next. End body cards on a mini-cliffhanger or

@@ -23,26 +23,14 @@
  * Reads:  <project>/source.mp4 (any video in the project dir is adopted)
  * Writes: <project>/frames_fg/f_%04d.png (RGBA, subject opaque),
  *         <project>/frames_bg/f_%04d.png, <project>/matte.fps
- * Env:    HYPERFRAMES_ROOT — hyperframes checkout (default ~/Downloads/hyperframes)
+ * Env:    HYPERFRAMES_SKILL_RUNTIME_DIR — prepared runtime; HYPERFRAMES_CLI — explicit CLI override
  */
 const path = require("path");
 const fs = require("fs");
 const os = require("os");
 const cp = require("child_process");
 
-function hfCli() {
-  const roots = [
-    process.env.HYPERFRAMES_ROOT,
-    path.resolve(__dirname, "..", "..", ".."), // skills/embedded-captions/scripts → repo root if in-repo
-    path.join(os.homedir(), "Downloads", "hyperframes"),
-  ].filter(Boolean);
-  for (const root of roots) {
-    const cli = path.join(root, "packages", "cli", "dist", "cli.js");
-    if (fs.existsSync(cli)) return cli;
-  }
-  console.error("[matte] cannot find hyperframes cli — set HYPERFRAMES_ROOT to a built checkout");
-  process.exit(3);
-}
+const { cliPath: hfCli } = require("../../../engine/runtime/dependencies.cjs");
 
 function ensureSource(project) {
   const src = path.join(project, "source.mp4");

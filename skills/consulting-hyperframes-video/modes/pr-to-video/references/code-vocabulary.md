@@ -5,7 +5,7 @@ PR videos run on two kinds of moving picture: **code** (the lines that changed) 
 For code beats the registry ships purpose-built **code animation blocks** that render a diff, a typed-on snippet, a morph, a highlight, a scroll, or a 3D/particle/dissolve reveal — far better than hand-built motion. **Reach for one of these first** for any code beat; fall back to hand-authored composition only when none fits.
 
 - **Step 4 (visual design):** for each `diff` / `before_after` / code beat, name the block in the frame's `scene` (e.g. "the `request()` retry block, ~6 lines, `code-diff`"). One judgment call: which block.
-- **Step 5 (frame worker):** install the named block and fill it with the real diff/snippet (below). The block is the frame's centerpiece, composited onto claude's navy **Code Surface**.
+- **Step 5 (frame worker):** install the named block and fill it with the real diff/snippet (below). The block is the frame's centerpiece, composited onto the source block's code surface; bind it to the selected frame's code colors/font before render.
 
 ## Install + use
 
@@ -72,7 +72,7 @@ A `code-*` block shows **the code**. It does not show **what the code does**. Th
 
 A mechanism beat is **not** a registry `code-*` block. It is one of:
 
-- an **invented animated diagram** — SVG / HTML / GSAP the frame worker builds from claude's atoms (hairline-ink nodes / edges / lanes on cream, one coral marker on the active element), the build playing out the behavior across the shot; **or**
+- an **invented animated diagram** — SVG / HTML / GSAP the frame worker builds from the selected brand's components (ink nodes on white/pale paper, sky connections and one lime decision marker), the build playing out the behavior across the shot; **or**
 - a **`flowchart` / `flowchart-vertical`** registry block — a process / pipeline / state flow; **or**
 - a **`data-chart`** registry block — a perf / metric comparison (two bars or timelines racing).
 

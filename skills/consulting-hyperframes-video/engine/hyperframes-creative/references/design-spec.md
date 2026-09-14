@@ -13,20 +13,15 @@ A spec is **YAML frontmatter + a markdown body**, and the two layers are not equ
 
 ## Resolving which spec to read
 
-Precedence — read the **first that exists**, ignore the rest:
+Resolve identity first: explicit brief/client selection → workspace DESIGN.md → bundled Recoup Sky
+for house work. Read ../../../brand/GUIDE.md via the installed video skill (no external checkout).
+Then read frame.md for canvas layout/timing and design.md for source-site context. They must agree
+with the selected identity. A stale or unrelated frame never wins by merely existing.
 
-```
-frame.md  →  design.md  →  DESIGN.md
-```
-
-```bash
-SPEC=$(ls frame.md design.md DESIGN.md 2>/dev/null | head -1)
-```
-
-- `frame.md` is the preferred spec for video / hyperframes projects and wins when more than one exists.
-- `frame.md` is **always lowercase** — there is no `FRAME.md` variant. (`design.md` and `DESIGN.md` are genuinely different files on Linux; a frame-preset ships an uppercase `FRAME.md` _template_, adopted as lowercase `frame.md` — see "Starting from a preset" below.)
-
-Load the spec **once, in Step 1**; every later step (expansion, authoring, adherence) consumes the already-loaded spec rather than re-resolving it.
+For Recoup generate the frame/caption skin with the mode's build-frame.mjs --brand recoup-sky;
+load recoup-brand/brand.css in compositions and use named typography roles. For an explicit other
+brand, a preset can seed the frame; the source selection and actual assets must be recorded.
+Load the resolved identity once and pass it to every worker. No repeated brand-selection question.
 
 ## Starting from a preset (optional)
 

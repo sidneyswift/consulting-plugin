@@ -1,9 +1,14 @@
 ---
 name: consulting-faq-builder
-description: Capture a recurring answer as a canonical FAQ. Use when a question gets answered a second time, or "add this to the knowledge base/FAQ".
+description: "Capture a recurring answer as a canonical FAQ. Use when a question gets answered a second time, or \"add this to the knowledge base/FAQ\"."
 ---
 
 # Consulting FAQ Builder
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 ## Steps
 1. Write a clear, canonical answer to `knowledge/faqs/` (one file per question).

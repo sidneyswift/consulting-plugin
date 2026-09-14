@@ -1,56 +1,15 @@
-<!--
-  OVERLAY SHELL — the DESIGN layer for consulting-generative-post (iterate this; the workflow in SKILL.md stays stable).
-  HOW TO USE:
-    1. Replace {{BG_IMAGE_ABS_PATH}} with the absolute path to the Higgsfield-generated background.
-    2. Replace {{KICKER}}, {{HEADLINE_HTML}} (may include <br> and <em>…</em>), {{CONTEXT}}.
-    3. Render:  npx playwright screenshot --viewport-size="1080,1350" --wait-for-timeout=2200 "file:///abs/overlay.html" "/abs/out.png"
-    4. ADJUST TO THE IMAGE: move the headline + flip the scrim direction so text sits over the image's
-       darkest/emptiest region and never fights the focal element. Sizes/footer come from DESIGN.md.
-  Brand tokens (color/type/footer) = DESIGN.md. Aesthetic judgment = consulting-tasteful-design.
-  Default canvas 1080×1350 (4:5). For 1:1 / 9:16 / 1.91:1, change body W/H and re-scale type to width.
--->
-<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
-  :root{--ink:#0b1020;--navy:#14254a;--accent:#3f5fb0;--signal:#3d6bff;--on-dark:#dfe5f3;}
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap');
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{width:1080px;height:1350px;position:relative;overflow:hidden;font-family:'Plus Jakarta Sans',sans-serif;background:#0b1020;}
-
-  /* FIELD = the Higgsfield-generated image (swap-in for a CSS color field) */
-  .bg{position:absolute;inset:0;background-image:url('{{BG_IMAGE_ABS_PATH}}');background-size:cover;background-position:center;}
-
-  /* SCRIM = darken ONLY the text side (here: left) + the footer strip; keep the focal element bright.
-     Flip the 108deg angle / stops to match where your image is darkest. */
-  .scrim{position:absolute;inset:0;background:
-    linear-gradient(108deg, rgba(7,11,26,0.92) 0%, rgba(7,11,26,0.66) 32%, rgba(7,11,26,0.18) 58%, rgba(7,11,26,0) 78%),
-    linear-gradient(to top, rgba(7,11,26,0.86) 0%, rgba(7,11,26,0) 24%);}
-
-  .wrap{position:absolute;inset:0;padding:96px 80px;display:flex;flex-direction:column;}
-  .kicker{font-size:19px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#7f9bff;}
-  /* Headline anchored top-left here; move it (e.g. add a top .spacer) to sit over your image's dark zone. */
-  .headline{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:82px;line-height:1.05;letter-spacing:-2px;color:#fff;max-width:680px;margin-top:30px;}
-  .headline em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#7f9bff;letter-spacing:-1px;}
-  .rule{width:96px;height:6px;background:var(--signal);border-radius:3px;margin:36px 0 0;}
-  .context{font-size:23px;font-weight:500;color:#aebdd6;margin-top:28px;max-width:560px;line-height:1.5;}
-  .spacer{flex:1;}
-  .footer{position:absolute;bottom:52px;left:80px;right:80px;display:flex;justify-content:space-between;align-items:center;font-weight:700;}
-  .footer .who{display:flex;align-items:center;gap:11px;}
-  .footer .nm{font-size:19px;color:#fff;letter-spacing:-0.01em;}
-  .footer .url{font-size:16px;color:#9bb2ec;}
-</style></head><body>
-  <div class="bg"></div>
-  <div class="scrim"></div>
-  <div class="wrap">
-    <div class="kicker">{{KICKER}}</div>
-    <div class="headline">{{HEADLINE_HTML}}</div>
-    <div class="rule"></div>
-    <div class="context">{{CONTEXT}}</div>
-    <div class="spacer"></div>
-    <div class="footer">
-      <div class="who">
-        <svg viewBox="0 0 223 223" width="26" height="26" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M118.106 41C112.845 41 108.581 45.2558 108.581 50.5056V88.3242C108.581 93.9241 106.846 99.3868 103.613 103.964C98.5169 111.179 90.2239 115.471 81.3785 115.471H57.525C52.2645 115.471 48 119.727 48 124.977V172.304C48 177.554 52.2645 181.81 57.525 181.81H104.894C110.155 181.81 114.419 177.554 114.419 172.304V139.968C114.419 133.432 116.445 127.056 120.218 121.714L120.885 120.77C126.833 112.348 136.512 107.339 146.836 107.339H165.475C170.736 107.339 175 103.083 175 97.833V50.5056C175 45.2558 170.736 41 165.475 41H118.106Z" fill="#ffffff"/></svg>
-        <span class="nm">Sidney Swift</span>
-      </div>
-      <span class="url">recoupable.com</span>
-    </div>
-  </div>
-</body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<!-- Stage brand/materialize.mjs beside this HTML. Inspect the image before choosing light/dark. -->
+<link rel="stylesheet" href="recoup-brand/brand.css"><style>
+*{box-sizing:border-box;margin:0}body{width:1080px;height:1350px;padding:80px;position:relative;overflow:hidden;font-family:var(--brand-body-font),sans-serif;color:var(--ink);background:var(--paper)}
+.kicker{font:400 20px var(--brand-label-font),monospace;letter-spacing:.12em;text-transform:uppercase}
+h1{font-family:var(--brand-display-font),sans-serif;font-size:88px;font-weight:500;line-height:1.06;letter-spacing:-.045em;margin:64px 0 32px;max-width:900px}p{font-size:30px;line-height:1.45;font-weight:400}em{font-style:normal;background:var(--signal);color:var(--ink);padding:0 .08em}
+footer{position:absolute;bottom:64px;left:80px;right:80px;display:flex;justify-content:space-between;align-items:center;font-size:22px}footer img{width:190px;height:auto}.notes{display:grid;gap:22px;margin-top:48px}.note{background:var(--tint);border:1px solid var(--recoup-border);border-radius:18px;padding:28px 32px;font-size:32px}.note b{font-weight:500}.note span{font:400 20px var(--brand-label-font);margin-right:24px;color:var(--recoup-link)}
+body{padding:0;background:var(--recoup-pale)}.bg{position:absolute;inset:0;background:url('{{BG_IMAGE_ABS_PATH}}') center/cover}
+.scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(255,255,255,.97),rgba(255,255,255,.8) 36%,rgba(255,255,255,0) 80%)}
+.wrap{position:absolute;inset:0;padding:80px}h1{max-width:750px;margin-top:150px}p{max-width:620px}
+body.dark{color:white}.dark .scrim{background:linear-gradient(100deg,rgba(19,43,38,.96),rgba(19,43,38,.76) 36%,rgba(19,43,38,0) 80%)}
+.white-logo{display:none}.dark .white-logo{display:block}.dark .ink-logo{display:none}
+</style></head><body class="light"><div class="bg"></div><div class="scrim"></div><main class="wrap">
+<div class="kicker">{{KICKER}}</div><h1>{{HEADLINE_HTML}}</h1><p>{{CONTEXT}}</p></main>
+<footer><img class="ink-logo" src="recoup-brand/logos/lockup-ink.svg" alt="Recoup"><img class="white-logo" src="recoup-brand/logos/lockup-white.svg" alt="Recoup"><span>{{ATTRIBUTION_OR_CONTEXT}}</span></footer></body></html>

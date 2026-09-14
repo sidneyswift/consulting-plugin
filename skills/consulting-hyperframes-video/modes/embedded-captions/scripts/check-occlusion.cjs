@@ -9,30 +9,8 @@ const fs = require("fs");
 const os = require("os");
 const cp = require("child_process");
 
-function hfResolve(pkg) {
-  const roots = [
-    process.env.HYPERFRAMES_ROOT,
-    path.resolve(__dirname, "..", "..", ".."),
-    path.join(os.homedir(), "Downloads", "hyperframes"),
-  ].filter(Boolean);
-  for (const root of roots) {
-    const cands = [path.join(root, "node_modules", pkg)];
-    const bun = path.join(root, "node_modules", ".bun");
-    try {
-      if (fs.existsSync(bun))
-        for (const d of fs.readdirSync(bun))
-          if (d.startsWith(pkg + "@")) cands.push(path.join(bun, d, "node_modules", pkg));
-    } catch {}
-    for (const c of cands) {
-      try {
-        if (fs.existsSync(c)) return require(c);
-      } catch {}
-    }
-  }
-  console.error(`[v2] cannot find ${pkg} — set HYPERFRAMES_ROOT`);
-  process.exit(3);
-}
-const sharp = hfResolve("sharp");
+const { loadPackage } = require("../../../engine/runtime/dependencies.cjs");
+const sharp = loadPackage("sharp");
 
 function ensureLayoutMeasured(project, force) {
   const lp = path.join(project, "_layout.json"),

@@ -21,30 +21,8 @@ const os = require("os");
 const THRESH = 30 / 255; // a cell is "subject" if ≥12% covered at any sampled frame in the window
 const SAMPLES = 48; // frames cached across the clip (windows aggregate the cached grids)
 
-const HF_ROOTS = [
-  process.env.HYPERFRAMES_ROOT,
-  path.resolve(__dirname, "../../.."),
-  path.join(os.homedir(), "Downloads", "hyperframes"),
-].filter(Boolean);
-let sharp = null;
-for (const root of HF_ROOTS) {
-  const cands = [path.join(root, "node_modules", "sharp")];
-  const bunDir = path.join(root, "node_modules", ".bun");
-  try {
-    if (fs.existsSync(bunDir))
-      for (const d of fs.readdirSync(bunDir))
-        if (d.startsWith("sharp@")) cands.push(path.join(bunDir, d, "node_modules", "sharp"));
-  } catch {}
-  for (const c of cands) {
-    try {
-      if (fs.existsSync(c)) {
-        sharp = require(c);
-        break;
-      }
-    } catch {}
-  }
-  if (sharp) break;
-}
+const { loadPackage } = require("../../../engine/runtime/dependencies.cjs");
+const sharp = loadPackage("sharp");
 
 // largest all-clear (1) rectangle within [c0,c1)×[r0,r1), in CELL units
 function largestRect(safe, GW, c0, c1, r0, r1) {

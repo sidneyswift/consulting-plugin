@@ -23,7 +23,7 @@ import { hyperframesPackageSpec, importPackagesOrBootstrap } from "./package-loa
 // Use the producer's file server — it auto-injects the HyperFrames runtime
 // and render-seek bridge, so raw authoring HTML works without a build step.
 const packages = await importPackagesOrBootstrap(["@hyperframes/producer", "sharp"], {
-  npmPackages: [hyperframesPackageSpec("@hyperframes/producer"), "sharp@0.34.5"],
+  npmPackages: [hyperframesPackageSpec("@hyperframes/producer"), hyperframesPackageSpec("sharp")],
 });
 const sharp = packages.sharp.default;
 const {
@@ -55,12 +55,11 @@ const server = await createFileServer({ projectDir: COMP_DIR, port: 0 });
 const session = await createCaptureSession(
   server.url,
   OUT_DIR,
-  { width: WIDTH, height: HEIGHT, fps: FPS, format: "png" },
+  { width: WIDTH, height: HEIGHT, fps: { num: FPS, den: 1 }, format: "png" },
   null,
 );
-await initializeSession(session);
-
 try {
+  await initializeSession(session);
   const duration = await getCompositionDuration(session);
   const times = Array.from(
     { length: SAMPLES },

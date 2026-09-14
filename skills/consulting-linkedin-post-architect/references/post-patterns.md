@@ -1,7 +1,7 @@
 # LinkedIn post patterns (the detailed playbook)
 
 Origin evidence: `swipe/posts/magali-dereu/ANALYSIS.md` (118-post pull). Steal the
-structure, not the persona. All example fragments are the source operator's; rewrite in Sid's voice.
+structure, not the persona. All example fragments are the source operator's; rewrite in the author's voice.
 
 ## Contents
 - The 5 archetypes (pick one per post)
@@ -19,7 +19,7 @@ Pick the job the post does. Rotate them; don't post the same type daily.
 1. **Personal / vulnerability story** — identity + transformation. Builds trust + reach. Highest
    relatability. (e.g. "got fired 3 times for my mouth → that's now my edge".)
 2. **Expertise / teaching** — a *named* framework + an infographic. The "save this" engine; best for
-   followers + authority. This is where Sid's AI/agents substance shines.
+   followers + authority. This is where the author's AI/agents substance shines.
 3. **Sales / offer** — soft pitch for an offer/cohort/waitlist, usually folded into a PS. Run sparingly.
 4. **Meme / commentary / satire** — culture-jacking, minimal text, the *image* is the payload. Highest
    variance, highest ceiling (the source operator's #1 post was a one-line meme). Use occasionally.
@@ -61,7 +61,7 @@ From the 118-post analysis:
 - **Short lines, one idea per line.** Frequent single-line paragraphs (whitespace = mobile readability).
 - **Bulleted "receipts" middle** in ~76% of posts (the proof/list section).
 - **≤1 ALL-CAPS emphasis word** (~52% use exactly one; more than one looks unhinged).
-- **A consistent sign-off** (the source uses "✌️"). Pick Sid's own signature, use it consistently.
+- **A consistent sign-off** (the source uses "✌️"). Pick the author's own signature, use it consistently.
 - **Length:** long-form is fine, but **short posts (<600 chars) perform as well or better** — never
   pad. The hook and the proof carry the post, not the word count.
 

@@ -1,5 +1,12 @@
 # THE CATALOG — one front-end, three engines behind
 
+**Recoup/Consulting/Business default: `recoup-sky` → theme.json → make-theme.cjs.**
+DM Sans verbatim rail on a solid forest plate, white text, restrained lime emphasis; no grain/push-in.
+The bundled theme uses the existing calm rail/settle engine and actual packaged font faces.
+Run timing, overflow and occlusion gates for each real clip; this default does not pre-certify footage.
+Generic identities below remain available for an explicit other brief.
+
+
 This is the skill's single selection surface. **The user picks an IDENTITY from
 this table; everything else (engine, compiler, authoring file) is derived by
 lookup — never ask the user (or yourself) "Standard or Cinematic or Theme?"**

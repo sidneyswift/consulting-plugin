@@ -1,9 +1,25 @@
 ---
 name: consulting-call-processor
-description: The auto-manage orchestrator. Use whenever new client/deal material lands — a transcript, meeting note, email, or result — or when the user says "process this call", "ingest this", "handle this transcript". Runs the full keep-the-system-current loop end to end.
+description: "The auto-manage orchestrator. Use whenever new client/deal material lands — a transcript, meeting note, email, or result — or when the user says \"process this call\", \"ingest this\", \"handle this transcript\". Runs the full keep-the-system-current loop end to end."
 ---
 
 # Consulting Call Processor
+
+## Visual handoff
+
+When this workflow creates or requests a rendered artifact, use `consulting-tasteful-design` and
+the selected workspace DESIGN.md. House identity is Recoup Sky; explicit client/artist branding wins.
+Pass brand/version, expression, format, reference IDs and output folder to the media skill. Its bundled
+package supplies exact fonts/logos. Keep new derivatives in the current identity while preserving
+historical evidence. Save editable source and brand.lock.json with the deliverable. Ordinary text
+outputs stay text; a script is not a rendered video. Existing data dashboards retain their canonical
+Recoup CSS during data updates. Do not publish private client work to the public Brand Studio.
+
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 The CLAUDE.md auto-manage loop as one skill. Don't stop after a single step — run the whole loop, then report what changed.
 

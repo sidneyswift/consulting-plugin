@@ -1,5 +1,11 @@
 # Composition — PR-to-video visual-design judgment
 
+**Recoup override:** selected brand/GUIDE.md and its manifest take priority over generic style
+suggestions below. Use DM Sans 450–500 headlines/400 body, Plex Mono labels/code, actual outlined
+logos, white/paper/sky/forest expressions. Static space and stationary texture are valid; no minimum
+decorative count, compulsory breathing/glow, serif pairing, or arbitrary color remix applies to Recoup.
+Generic catalogues remain for explicitly different brands. Check composition, not decorative density.
+
 > The composition-judgment layer for **Step 4 (Visual design)**. You read it while enriching `STORYBOARD.md` frames: which layout, how much frame the hero fills, how many depth layers — **director decisions**. Concrete px (safe margins 96-150), scale (1.05 / 0.92), three-layer `box-shadow`, `perspective` values are the **frame worker's** job; you name the intent in the frame's composition note. Video composition is closer to film / poster design than webpage layout — no scrolling, no reflow; every frame is a fixed canvas, every pixel matters. Default canvas **1920×1080**; portrait `1080×1920` / square `1080×1080` per the storyboard `format`.
 
 ## Squint test

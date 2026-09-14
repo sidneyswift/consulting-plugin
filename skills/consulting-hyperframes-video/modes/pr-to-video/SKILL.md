@@ -5,6 +5,23 @@ description: "turn a GitHub pull request (a PR URL like github.com/<owner>/<repo
 
 # PR to HyperFrames
 
+## Selected brand
+
+For Recoup/Consulting/Business, read `../../brand/GUIDE.md` and stage
+`node <video-skill>/brand/materialize.mjs <project-directory>`. Use the packaged CSS/fonts/exact SVGs.
+Identity is selected before frame.md; a frame can change layout/timing but cannot replace the brand.
+Generic style catalogues below are alternatives for an explicit other brand, not Recoup defaults.
+An explicitly selected client/artist identity or fidelity-only migration preserves that identity.
+Record brand/version, expression and reference IDs with editable sources in the existing output folder.
+
+
+**Portable setup:** read `../../engine/runtime/SETUP.md` for the pinned runtime. Resolve bundled resources from this
+installed skill and write outputs into the selected project. Brand fonts and identity come from that
+workspace's `DESIGN.md` or supplied brief; preset fonts and logos are examples, not required defaults.
+Keep original asset notices. Use approved workspace fonts for deliverables; optional legacy demo
+assets do not grant commercial usage rights. Client stories and figures in templates are illustrative,
+never evidence of a real result. Missing provider access remains a reported gap.
+
 Use this skill to ingest a GitHub pull request, understand the change, plan a code-change explainer, and build it frame by frame in HyperFrames. The input is a **code change** (read via `gh`), not a website — there is **no capture step and no real assets** beyond the contributors' avatars.
 
 > **Confirm the route before Step 0.** You are the orchestrator. Run each step, verify its gate, and only then continue. This skill is for a **GitHub pull request** (a code change). Route other intents elsewhere: a product launch/promo → `/product-launch-video`; a general website tour → `/website-to-video`; a topic explainer with no PR → `/faceless-explainer`; captions on existing footage → `/embedded-captions`; a short unnarrated motion graphic → `/motion-graphics`; a whole-repo or multi-PR release walkthrough → `/general-video`. **Out of scope:** live / at-render-time data — PR facts are read once at author time and baked in. If the user says only "make a video" or the route is uncertain, read `/hyperframes` first.
@@ -19,7 +36,7 @@ Workflow: Step 0 setup → `hyperframes.json`; Step 1 ingest → `capture/extrac
 
 Goal: Lock the PR reference and the core video brief, and create the HyperFrames project if needed.
 
-Get the **PR reference** (a full URL, an `<owner>/<repo>#<N>` ref, or "this PR" in a checked-out repo) and, in one message, confirm the brief — lead with a recommended default for each and pre-fill anything `/hyperframes` already set: **angle** (changelog / feature-reveal / fix-explainer / refactor-walkthrough — default: infer from the PR), **audience** (default: developers), **length** (default ~60-90s), **aspect** (default 16:9), **language**. The style is always **claude**. Proceed only after the user replies; a "go" accepts the defaults.
+Get the **PR reference** (a full URL, an `<owner>/<repo>#<N>` ref, or "this PR" in a checked-out repo) and, in one message, confirm the brief — lead with a recommended default for each and pre-fill anything `/hyperframes` already set: **angle** (changelog / feature-reveal / fix-explainer / refactor-walkthrough — default: infer from the PR), **audience** (default: developers), **length** (default ~60-90s), **aspect** (default 16:9), **language**. The house style is **Recoup Sky**. Reuse already supplied preferences and proceed when the user has delegated the choices.
 
 Initialize only if `hyperframes.json` is missing. Name `<project>` from the PR in kebab-case, such as `acme-sdk-pr-1842`; never use the workspace name or a timestamp.
 
@@ -41,7 +58,7 @@ PR="<url | owner/repo#N | N>"
 # capture/diff.patch — no scratch dir. gh auth / not-found / private errors exit 1 here.
 (cd "videos/<project>" && node <SKILL_DIR>/scripts/fetch-pr.mjs --pr "$PR" --out-dir ./capture)
 
-# Offline transform → capture/extracted/{tokens.json (colors:[] → claude palette),
+# Offline transform → capture/extracted/{tokens.json (colors:[]; identity resolved in Step 2),
 # visible-text.txt (the brief), people.json (contributors, bot-filtered, avatarFile=assets/<login>.png)}.
 (cd "videos/<project>" && node <SKILL_DIR>/scripts/ingest.mjs \
   --pr-json ./capture/pr.json --diff ./capture/diff.patch --out-dir ./capture/extracted)
@@ -60,17 +77,22 @@ If `fetch-pr.mjs` exits 1 (gh auth / not found / private), report its stderr and
 
 ## Step 2: Design System
 
-Goal: Adopt the claude frame preset; a script turns it into this video's `frame.md` + caption skin.
+Goal: resolve the selected identity before authoring frames.
 
-The style is fixed — **claude** (warm editorial; a navy code surface built for diffs). Run:
+For Recoup/Consulting/Business run:
 
 ```bash
-node <SKILL_DIR>/scripts/build-frame.mjs --preset claude --hyperframes .
+node <SKILL_DIR>/scripts/build-frame.mjs --brand recoup-sky --hyperframes .
 ```
 
-The script copies the claude preset's `FRAME.md` → `frame.md`, remixes it onto any brand tokens in `capture/extracted/tokens.json` (a PR has none → `colors:[]`/`fonts:[]` keeps claude's own palette, a complete design), copies the preset's `caption-skin.html`, and self-validates (exits 1 on a broken mapping). Proceed as soon as it exits 0 — no hand-editing.
+This stages a versioned frame, exact font/logo files, caption skin and brand.lock.json from the
+bundled package. Colors map exactly by role; display/body are DM Sans, labels IBM Plex Mono.
+Empty capture tokens cannot substitute a vendor identity. Load recoup-brand/brand.css in each page.
+For an explicitly different client/artist brand use `--brand source --preset <name>` and supply
+its source tokens/fonts/caption styling. Its `typography.display.family` and `typography.body.family`
+roles take precedence over the legacy font array. Review the source preset's caption skin as well.
 
-**Gate:** `build-frame.mjs` exited 0 — `frame.md` exists from the claude preset, and `caption-skin.html` is at the project root.
+**Gate:** builder exits 0; inspect frame.md, caption-skin.html, font loading and brand.lock.json.
 
 ---
 
@@ -78,7 +100,7 @@ The script copies the claude preset's `FRAME.md` → `frame.md`, remixes it onto
 
 Goal: Turn the PR into an approved frame-by-frame explanation plan.
 
-Read `references/story-design.md`, `../hyperframes-core/references/storyboard-format.md`, and `../hyperframes-core/references/script-format.md`. Use them to write `STORYBOARD.md` and, when narration is needed, `SCRIPT.md`.
+Read `references/story-design.md`, `../../engine/hyperframes-core/references/storyboard-format.md`, and `../../engine/hyperframes-core/references/script-format.md`. Use them to write `STORYBOARD.md` and, when narration is needed, `SCRIPT.md`.
 
 Use `story-design.md` for the PR archetype (changelog / feature-reveal / fix-explainer / refactor-walkthrough), the PR-native frame types, hook, persuasion, beats, the per-frame word budget, and the optional credits close. The sequence comes from **narrative design, not the diff's file order** — explain the change, don't read the diff aloud. Feature 2–4 real diff hunks (from `capture/diff.patch`), each a small legible snippet; name the `code-*` block each wants in the frame's `scene`. Frames carry no `asset_candidates` except an optional `credits` close (2–6 `assets/<login>.png` avatars). Use the exact required fields from the storyboard and script references.
 
@@ -96,7 +118,7 @@ Start audio after Step 3 approval. Run it in the background, then continue to St
 
 `node <SKILL_DIR>/scripts/audio.mjs --script ./SCRIPT.md --storyboard ./STORYBOARD.md --hyperframes . --out ./audio_meta.json &`
 
-The audio script handles narration, word timings, BGM lookup from HeyGen's music library, and timing metadata. BGM mood comes from the storyboard's `music:` field. This uses the HeyGen Audio API for retrieval, not generation, and the same `~/.heygen` credential as TTS. For provider details, read `../hyperframes-media/references/tts.md`.
+The audio script handles narration, word timings, BGM lookup from HeyGen's music library, and timing metadata. BGM mood comes from the storyboard's `music:` field. This uses the HeyGen Audio API for retrieval, not generation, and the same explicitly selected account as TTS (see the runtime setup). For provider details, read `../../engine/hyperframes-media/references/tts.md`.
 
 If there is no narration and no `SCRIPT.md`, skip voice generation. BGM may still run if the storyboard has a music mood.
 
@@ -110,7 +132,7 @@ Goal: Add the visual direction, layout intent, and motion choices to each storyb
 
 Edit `STORYBOARD.md` in place. Do not create another storyboard. Use `frame.md` as the source of truth for color, type, layout feel, and style.
 
-Read `references/visual-design.md`, `references/composition.md`, `references/motion-language.md`, `references/code-vocabulary.md`, and `../hyperframes-animation/`. Use `visual-design.md` for required frame fields and the required `## Video direction` block, and for how a code beat names a `code-*` block as its `focal`. Use `code-vocabulary.md` to pick the right block per beat (diff = `code-diff`, refactor = `code-morph`, new code = `code-typing`, …). Use `composition.md` for layout/hierarchy/focal points and `motion-language.md` + `../hyperframes-animation/` for valid effect and blueprint IDs. Do not invent effect names or block/blueprint IDs.
+Read `references/visual-design.md`, `references/composition.md`, `references/motion-language.md`, `references/code-vocabulary.md`, and `../../engine/hyperframes-animation/`. Use `visual-design.md` for required frame fields and the required `## Video direction` block, and for how a code beat names a `code-*` block as its `focal`. Use `code-vocabulary.md` to pick the right block per beat (diff = `code-diff`, refactor = `code-morph`, new code = `code-typing`, …). Use `composition.md` for layout/hierarchy/focal points and `motion-language.md` + `../../engine/hyperframes-animation/` for valid effect and blueprint IDs. Do not invent effect names or block/blueprint IDs.
 
 For every frame, add required visual and motion fields, including `effects` and `focal` and/or `roles`. For a code beat, name the `code-*` block as the `focal` and let `effects` choreograph the surrounding claude Code Surface (not the code animation, which the block owns). Add one video-wide `## Video direction` block.
 
@@ -136,7 +158,7 @@ Duration sync is mechanical: real voice duration wins; silent frames keep estima
 
 `for b in <each registry block named in the storyboard>; do npx hyperframes add "$b"; done`
 
-Before dispatch, read `sub-agents/frame-worker.md` and `../hyperframes-core/references/subagent-dispatch.md`. Dispatch one sub-agent per frame, in parallel if possible; otherwise run workers in waves. Each worker gets exactly one frame. Each worker's context must include `PROJECT_DIR`, `frame_id`, canvas size, caption status and keep-out band if captions are enabled, `ANIM_DIR` (absolute path to `../hyperframes-animation/`), and the absolute path to `references/code-vocabulary.md`. Each worker reads `frame.md`, its own `## Frame N` block, the recipe body for each cited effect/blueprint ID, and — for a code beat — `code-vocabulary.md` for the named block's inputs. Each worker writes only `compositions/frames/NN-*.html`; workers never edit `STORYBOARD.md`.
+Before dispatch, read `sub-agents/frame-worker.md` and `../../engine/hyperframes-core/references/subagent-dispatch.md`. Dispatch one sub-agent per frame, in parallel if possible; otherwise run workers in waves. Each worker gets exactly one frame. Each worker's context must include `PROJECT_DIR`, `frame_id`, canvas size, caption status and keep-out band if captions are enabled, `ANIM_DIR` (absolute path to `../../engine/hyperframes-animation/`), and the absolute path to `references/code-vocabulary.md`. Each worker reads `frame.md`, its own `## Frame N` block, the recipe body for each cited effect/blueprint ID, and — for a code beat — `code-vocabulary.md` for the named block's inputs. Each worker writes only `compositions/frames/NN-*.html`; workers never edit `STORYBOARD.md`.
 
 As each worker returns, mark that frame `animated` in `STORYBOARD.md`.
 
@@ -192,21 +214,21 @@ Do not rerun `lint`, `validate`, `inspect`, or `snapshot` after rendering unless
 
 **Formats:** landscape `1920x1080` by default; portrait `1080x1920`; square `1080x1080`. Set the format once in the storyboard frontmatter.
 
-**PR deltas vs a captured-asset workflow:** no Step 1 capture (the `gh` CLI ingests the PR into a synthetic `capture/extracted/` package — `tokens.json` + `visible-text.txt` + `people.json`); the only real assets are the contributors' `assets/<login>.png` avatars (an optional credits close); no `asset-descriptions.md`, no asset-staging step. Code beats are rendered by the `code-*` registry blocks on claude's navy Code Surface; the style is always **claude**.
+**PR deltas vs a captured-asset workflow:** no Step 1 capture (the `gh` CLI ingests the PR into a synthetic `capture/extracted/` package — `tokens.json` + `visible-text.txt` + `people.json`); the only real assets are the contributors' `assets/<login>.png` avatars (an optional credits close); no `asset-descriptions.md`, no asset-staging step. Code beats are rendered by the `code-*` registry blocks on the selected brand's code surface; Recoup defaults to forest with IBM Plex Mono code.
 
 **Background scripts:** the workflow ships these under `scripts/`: `fetch-pr` (PR → `capture/pr.json` + `diff.patch` via `gh`; large-PR-safe, no scratch), `ingest` (→ synthetic capture package; offline), and `fetch-people-avatars` (contributor avatars → `assets/`); plus the shared engine — `build-frame` (adopt + brand-remix a preset into `frame.md` + caption skin), `audio` (TTS, BGM, SFX, duration sync), `captions`, `transitions` (inject + verify), and `assemble-index`. Everything else is the `hyperframes` CLI. Code blocks install via `npx hyperframes add <name>`.
 
 | Read                                                                                                             | When                                                        |
 | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | `[references/story-design.md](references/story-design.md)`                                                       | Step 3: plan the PR explanation.                            |
-| `[../hyperframes-core/references/storyboard-format.md](../hyperframes-core/references/storyboard-format.md)`     | Step 3: write `STORYBOARD.md`.                              |
-| `[../hyperframes-core/references/script-format.md](../hyperframes-core/references/script-format.md)`             | Step 3: write `SCRIPT.md`.                                  |
-| `[../hyperframes-media/references/tts.md](../hyperframes-media/references/tts.md)`                               | Step 3.1: choose or understand TTS providers.               |
+| `[../../engine/hyperframes-core/references/storyboard-format.md](../../engine/hyperframes-core/references/storyboard-format.md)`     | Step 3: write `STORYBOARD.md`.                              |
+| `[../../engine/hyperframes-core/references/script-format.md](../../engine/hyperframes-core/references/script-format.md)`             | Step 3: write `SCRIPT.md`.                                  |
+| `[../../engine/hyperframes-media/references/tts.md](../../engine/hyperframes-media/references/tts.md)`                               | Step 3.1: choose or understand TTS providers.               |
 | `[references/visual-design.md](references/visual-design.md)`                                                     | Step 4: enrich the storyboard visually.                     |
 | `[references/code-vocabulary.md](references/code-vocabulary.md)`                                                 | Step 4 + 5: pick + fill the `code-*` block for a code beat. |
 | `[references/composition.md](references/composition.md)`                                                         | Step 4: judge composition.                                  |
 | `[references/motion-language.md](references/motion-language.md)`                                                 | Step 4: judge motion language.                              |
-| `[../hyperframes-animation/](../hyperframes-animation/)`                                                         | Step 4: cite effect and blueprint IDs.                      |
+| `[../hyperframes-animation/](../../engine/hyperframes-animation/)`                                                         | Step 4: cite effect and blueprint IDs.                      |
 | `[sub-agents/frame-worker.md](sub-agents/frame-worker.md)`                                                       | Step 5: dispatch per-frame workers.                         |
-| `[../hyperframes-core/references/subagent-dispatch.md](../hyperframes-core/references/subagent-dispatch.md)`     | Step 5: dispatch sub-agents safely.                         |
-| `[../hyperframes-creative/frame-presets/claude/FRAME.md](../hyperframes-creative/frame-presets/claude/FRAME.md)` | Step 2: the claude preset (fixed style).                    |
+| `[../../engine/hyperframes-core/references/subagent-dispatch.md](../../engine/hyperframes-core/references/subagent-dispatch.md)`     | Step 5: dispatch sub-agents safely.                         |
+| `[../../engine/hyperframes-creative/frame-presets/claude/FRAME.md](../../engine/hyperframes-creative/frame-presets/claude/FRAME.md)` | Step 2: the claude preset (fixed style).                    |

@@ -42,7 +42,7 @@ an empty sentence.
 ## The moves (worked examples — study Shaan Puri)
 
 Shaan Puri's "One Minute Blog" essays are a master class in human-feeling short prose. Study the
-**moves**; set them to Sid's register (Shaan's persona — slang, profanity, NBA/celebrity palette — is
+**moves**; set them to the author's register (Shaan's persona — slang, profanity, NBA/celebrity palette — is
 his, not ours; the *techniques* transfer cleanly). Full teardown + index: `swipe/posts/shaan-puri/`.
 
 Several of these extend principles already in [voice-principles.md](voice-principles.md) (parenthetical
@@ -59,7 +59,7 @@ Write at the reader, then voice the pushback in their head and take it on.
 > "You might think that's foolish. Why agree to things so quickly? Shouldn't you think things through?" — *down*
 
 **Why it works:** it turns a monologue into a conversation. The reader feels met, not lectured.
-**For Sid:** keep it; this is already in voice-principles ("acknowledge the reader's position"). One beat, then move.
+**For the author:** keep it; this is already in voice-principles ("acknowledge the reader's position"). One beat, then move.
 
 ### 2. Undercut your own authority
 Right when you could sound like a guru, puncture it.
@@ -69,7 +69,7 @@ Right when you could sound like a guru, puncture it.
 > "I'll give you a car analogy (which is dangerous, because I'm the 1 man on Earth who knows absolutely nothing about cars… but I'll give it a try)" — *i got internet famous…*
 
 **Why it works:** self-deprecation buys trust. He's beside you, not above you.
-**For Sid:** keep the move, lose the slang. "I might be wrong here" or "I've only run this twice" does the same job in a clean register. (Don't tip into performative humility — voice-principles bans "I'm just a simple founder.")
+**For the author:** keep the move, lose the slang. "I might be wrong here" or "I've only run this twice" does the same job in a clean register. (Don't tip into performative humility — voice-principles bans "I'm just a simple founder.")
 
 ### 3. Parenthetical asides (the side-channel thought)
 The aside *is* the personality — the thing the writer couldn't help but mutter.
@@ -81,7 +81,7 @@ The aside *is* the personality — the thing the writer couldn't help but mutter
 > "(Even Nick Cannon paying child support for 11 kids got a better deal than that)." — *elon musk*
 
 **Why it works:** a perfectly linear argument reads like a robot. The detour signals a mind at work.
-**For Sid:** 1–2 per social post, 2–4 per essay (voice-principles limit). The aside should carry a real thought or a dry joke, not just chatter.
+**For the author:** 1–2 per social post, 2–4 per essay (voice-principles limit). The aside should carry a real thought or a dry joke, not just chatter.
 
 ### 4. Break rhythm — hard
 Follow a long sentence with a two-word fragment. Let a single line stand alone.
@@ -93,7 +93,7 @@ Follow a long sentence with a two-word fragment. Let a single line stand alone.
 > "Challenge accepted." — *creativity <3's constraints* (one line, by itself)
 
 **Why it works:** rhythm is what the ear hears. Uniform sentence length is the #1 tell of machine prose.
-**For Sid:** the workhorse is still the medium sentence (~55%); fragments *punctuate*, they don't dominate (voice-principles). If every line is a fragment, you've made a new kind of slop.
+**For the author:** the workhorse is still the medium sentence (~55%); fragments *punctuate*, they don't dominate (voice-principles). If every line is a fragment, you've made a new kind of slop.
 
 ### 5. Concrete sensory detail (specificity as texture, not just proof)
 Specifics don't only prove a claim — they make the reader *see* it.
@@ -105,7 +105,7 @@ Specifics don't only prove a claim — they make the reader *see* it.
 > "He thought a bag of Totino's pizza rolls was $22." — *strategically broke*
 
 **Why it works:** the exact brand, number, and sound are proof you were actually there. Vague = invented.
-**For Sid:** this is squarely on-brand (voice-principles "specificity as proof"). Pull the detail from the real work — the token cost, the tool name, the exact step.
+**For the author:** this is squarely on-brand (voice-principles "specificity as proof"). Pull the detail from the real work — the token cost, the tool name, the exact step.
 
 ### 6. Render the unflattering inner monologue
 Quote the embarrassing thought, not the polished takeaway.
@@ -115,7 +115,7 @@ Quote the embarrassing thought, not the polished takeaway.
 > "At the time, I felt like I was striking out. Over and over again. But I was having fun, so I kept going." — *strategically broke*
 
 **Why it works:** nobody's inner voice is a LinkedIn caption. The real thought is the fastest proof a person is behind the words.
-**For Sid:** keep it honest and specific to the moment. One real thought beats a paragraph of reflection.
+**For the author:** keep it honest and specific to the moment. One real thought beats a paragraph of reflection.
 
 ### 7. Break the fourth wall — admit the bit
 Call out your own move while doing it.
@@ -127,7 +127,7 @@ Call out your own move while doing it.
 > "OK this is getting long. But you're still here. Weird, right? That's because there's no such thing as too long, only 'too boring'." — *i got internet famous…*
 
 **Why it works:** showing the seams reads as honesty. You trust the reader enough to admit the trick.
-**For Sid:** use sparingly. One self-aware line per piece, max. It's seasoning, not the meal.
+**For the author:** use sparingly. One self-aware line per piece, max. It's seasoning, not the meal.
 
 ### 8. Quote real dialogue
 Let people talk. A line of real speech beats a summary of it.
@@ -137,7 +137,7 @@ Let people talk. A line of real speech beats a summary of it.
 > Ben, after agreeing on the spot: "huh? sorry I wasn't listening, I just went to GoDaddy buying the domain so I can setup the site tonight" — *down*
 
 **Why it works:** speech has texture that paraphrase sands off. It also moves the story without narration.
-**For Sid:** quote the client, the prospect, the engineer — the actual words from a real call or thread. (Honor the evidence rule: only quote what was really said.)
+**For the author:** quote the client, the prospect, the engineer — the actual words from a real call or thread. (Honor the evidence rule: only quote what was really said.)
 
 ### 9. Earned comparison (the intentional kind)
 Shaan reaches for a vivid image constantly. Most are *persona* (and most reflexive analogies are slop —
@@ -146,7 +146,7 @@ that's why anti-slop gates them). But the deliberate, clarifying comparison is s
 > "Safety is a serial killer. But it operates in a slow, boring fashion. Like a pillow suffocating an old-man on a hospital bed." — *someday*
 
 **Why it works (when it works):** a surprising, exact image makes an abstract idea physical and sticky.
-**For Sid:** this is the one place to stay disciplined. Run the **permission test** (anti-slop): is the
+**For the author:** this is the one place to stay disciplined. Run the **permission test** (anti-slop): is the
 subject abstract, does the image clarify, is it shorter than the literal version, exact, and normal read
 aloud? A deliberate image that passes = seasoning. A reflexive "it's like a journey/engine/bridge" =
 slop. Frequency limits still apply (0 under 800 words).
@@ -158,7 +158,7 @@ He writes the way he'd say it — contractions, interjections, the occasional so
 > "Wow." / "What?" — *strategically broke* / *stop working so hard* (standalone reactions)
 
 **Why it works:** it passes the "say it out loud" test by construction (voice-principles).
-**For Sid:** keep the contractions and the read-aloud cadence; drop the slang and profanity. Clean and
+**For the author:** keep the contractions and the read-aloud cadence; drop the slang and profanity. Clean and
 spoken, not casual-bro. The target is "smart friend explaining it at a bar," minus the bar.
 
 ### 11. The signature sign-off + turn it on the reader
@@ -168,8 +168,8 @@ End by handing the idea to the reader, then sign with a consistent mark.
 > Signature: "-Uncle Shaan" / "Stay thirsty, Uncle Shaan."
 
 **Why it works:** the close makes the reader *do* something with the idea; the signature builds a ritual.
-**For Sid:** end on the most specific or open note (voice-principles "endings that open"). A consistent
-sign-off can become a brand asset — pick one that fits Sid's voice, not a borrowed catchphrase.
+**For the author:** end on the most specific or open note (voice-principles "endings that open"). A consistent
+sign-off can become a brand asset — pick one that fits the author's voice, not a borrowed catchphrase.
 
 ---
 
@@ -186,7 +186,7 @@ even states the read-cost inside the post:
 > words, because…um… you're not average :)" — *mispriced assets*
 
 The constraint is a default, not a cage — he breaks it on purpose and announces it ("sometimes you just
-need a double stuffed Oreo," the 22-point *elon musk* essay). **For Sid:** the steal is *packaging a
+need a double stuffed Oreo," the 22-point *elon musk* essay). **For the author:** the steal is *packaging a
 named, repeatable content product with an explicit promise.*
 
 ### The post skeleton (the most copyable asset)
@@ -280,18 +280,18 @@ A deeper pull from the 21 essays for when you want range.
 
 ---
 
-## Setting it to Sid's register (adapt, don't transplant)
+## Setting it to the author's register (adapt, don't transplant)
 
 Same moves, different voice. This is *not* a list of bans — it's how to season for **this** voice.
 
 - **Slang / profanity → clean spoken register.** Keep the directness and the contractions; drop "risk it
   for the biscuit" and the cussing. Target: a sharp friend explaining it clearly, not a bro.
-- **Celebrity / sports palette → Sid's world.** Swap NBA and Elon for music, media, AI/agents, and the
-  real work of running the practice. Borrowed authority still works — just from names Sid's reader respects.
+- **Celebrity / sports palette → the author's world.** Swap NBA and Elon for music, media, AI/agents, and the
+  real work of running the practice. Borrowed authority still works — just from names the author's reader respects.
 - **Comparisons → still gated.** A deliberate, clarifying image is seasoning; a reflexive metaphor is
   slop. Run the permission test every time (anti-slop). Don't out-Shaan Shaan on analogy volume.
 - **Reframe constructions → rewrite to the positive claim.** Shaan uses light "what most people do / what
-  to do instead" turns. In Sid's voice those read as negative parallelism (anti-slop bans it). State the
+  to do instead" turns. In the author's voice those read as negative parallelism (anti-slop bans it). State the
   positive claim directly.
 
 The throughline: humanity is *deliberate imperfection* — the tangent, the fragment, the real thought,

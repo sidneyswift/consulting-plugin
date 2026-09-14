@@ -1,9 +1,14 @@
 ---
 name: consulting-pricing-builder
-description: Build three-tier pricing for a deal. Use when scoping investment — "build pricing", "what should I charge", "put together options", or during proposal drafting. Applies the 5-10x anchor and a payment structure.
+description: "Build three-tier pricing for a deal. Use when scoping investment — \"build pricing\", \"what should I charge\", \"put together options\", or during proposal drafting. Applies the 5-10x anchor and a payment structure."
 ---
 
 # Consulting Pricing Builder
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 ## Steps
 1. Anchor to value: estimate what NOT solving the problem costs the client over 12 months. Premium ≈ 10–20% of that.

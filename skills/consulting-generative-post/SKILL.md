@@ -1,9 +1,28 @@
 ---
 name: consulting-generative-post
-description: Produce a finished, post-ready branded VISUAL by compositing a Higgsfield-generated background (photoreal / cinematic / illustrative imagery) with an on-brand HTML text overlay. This is "the power move." Use on "make a post image / hero image / banner / OG card with a real/cinematic/AI background and a headline", "put a headline on a generated image", "branded visual over a photo/AI background", or whenever a social asset needs BOTH generative imagery AND clean, on-brand type. Orchestrates consulting-higgsfield (the background) + consulting-graphics (the overlay) and defers aesthetics to consulting-tasteful-design. NOT for a pure typographic graphic on a solid/gradient field (no generated photo) → consulting-graphics; NOT for raw generation with no text overlay → consulting-higgsfield.
+description: "Produce a finished, post-ready branded VISUAL by compositing a Higgsfield-generated background (photoreal / cinematic / illustrative imagery) with an on-brand HTML text overlay. This is \"the power move.\" Use on \"make a post image / hero image / banner / OG card with a real/cinematic/AI background and a headline\", \"put a headline on a generated image\", \"branded visual over a photo/AI background\", or whenever a social asset needs BOTH generative imagery AND clean, on-brand type. Orchestrates consulting-higgsfield (the background) + consulting-graphics (the overlay) and defers aesthetics to consulting-tasteful-design. NOT for a pure typographic graphic on a solid/gradient field (no generated photo) → consulting-graphics; NOT for raw generation with no text overlay → consulting-higgsfield."
 ---
 
 # Consulting Generative Post
+
+## Current brand
+
+Recoup/Consulting/Business work defaults to **Recoup Sky**. Read `brand/GUIDE.md` and the workspace
+`DESIGN.md`; explicit client/artist branding or a fidelity-only migration wins. Stage local resources:
+`node <installed-skill>/brand/materialize.mjs <output-directory>`. Use its CSS, actual DM Sans/IBM Plex
+Mono fonts, exact outlined SVG logo, and `brand/finals.json` reference IDs. No recurring brand setup
+question. Save editable source and `brand.lock.json` with reference IDs/expression beside the output.
+Marketing owns the authored identity; the bundled snapshot works without another checkout.
+
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
 
 The power move: **generate imagery neither HTML nor a stock library can give you (Higgsfield), then
 lay pixel-perfect on-brand type over it (consulting-graphics).** Each tool does the half it's best at —
@@ -28,16 +47,15 @@ AI makes the photoreal/cinematic field; HTML makes legible, on-brand text. Neith
    empty space, upper-left"); demand **no text/words** in the image. Preview cost, generate, and land the
    raw file in `integrations/higgsfield/_work/`.
 3. **Inspect the actual result — don't trust the prompt.** Open the generated image and find the real
-   darkest / emptiest region; AI rarely honors "negative space on the left" exactly. *That* region is
+   clearest region; AI rarely honors "negative space on the left" exactly. *That* region is
    where the text goes, and the focal element (a streak, a subject) is what the text must not collide with.
 4. **Compose the overlay** with `consulting-graphics`. Start from `references/overlay-shell.html` (or a
    `consulting-graphics` template like `statement`): swap the template's CSS color field for the generated
-   image (`background-size:cover`) and add a **directional legibility scrim** darkening only the text side
+   image (`background-size:cover`) and add a **directional legibility scrim** lightening or darkening only the text side
    (keep the focal element visible). Brand tokens from `DESIGN.md`; **never bake text into the AI image** —
    that's the whole point of overlaying it here.
 5. **Render + review.** `npx playwright screenshot --viewport-size="W,H" "file:///…/overlay.html" "…/out.png"`.
-   Then **look at the PNG**: does the headline read at thumbnail scale, clear of the focal element, footer
-   present, one signal accent? Iterate the overlay (not the workflow) until clean.
+   Then **look at the PNG**: does the headline read at thumbnail scale, clear of the focal element, exact company mark present where appropriate, readable contrast? Iterate the overlay (not the workflow) until clean.
 6. **Promote + hand off.** Move the keeper into `content/` (raw stays gitignored in `_work/`). For LinkedIn,
    pass the final asset + caption to `consulting-linkedin-publisher` — **drafts only, never auto-send.**
 
@@ -46,10 +64,9 @@ AI makes the photoreal/cinematic field; HTML makes legible, on-brand text. Neith
 `consulting-graphics` templates sit on a CSS color field; here the field is a **photo + scrim**:
 
 - **`background-size:cover; background-position:center`** fits a square generation into a 4:5 / 9:16 canvas.
-- **Scrim** = layered gradients that darken only the headline side (and the footer strip) so white type
-  reads, while leaving the generated focal element bright. The current recipe lives in the shell file.
-- Reuse a `consulting-graphics` template's *type treatment* (e.g. `statement`: Space Grotesk hook + one
-  `Instrument Serif` italic signal accent); only the field changes.
+- **Scrim** = a light or forest wash behind the text, selected after inspecting the actual image.
+  The shell defaults to ink text on light; its `dark` class switches to white type and the white logo.
+- Reuse a `consulting-graphics` template's *type treatment* (e.g. `statement`: DM Sans headline + limited lime emphasis); only the field changes.
 
 ## Cost discipline (inherits consulting-higgsfield)
 Preview every generation (`higgsfield generate cost …`) and **cite the actual credits** after. The overlay

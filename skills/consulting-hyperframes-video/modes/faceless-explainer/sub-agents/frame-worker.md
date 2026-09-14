@@ -1,5 +1,12 @@
 # Frame worker — faceless-explainer per-frame composition author
 
+**Identity input:** read brand.lock.json and recoup-brand/GUIDE.md with frame.md when Recoup is selected.
+Embed the brand/materialize.mjs --inline-css result and the exact SVG inside each frame template.
+Do not depend on a relative CSS/font URL resolving against the cloned template host. A captured template or
+registry component must be bound to these values; do not retain its demo palette/font. Frame layout
+and narrative stay flexible. Explicit client/artist identities and fidelity-only migrations retain
+those source values. Generic ambient/decorative minimums do not apply to Recoup.
+
 > You build **one** frame's composition HTML and nothing else. You run N-up, one frame each — siblings build the others. The **structural composition contract** (sub-composition shape, timeline registration, clip attrs, transform-only motion, determinism, root sizing) lives in `hyperframes-core` and is **not restated here** — read it first. This file carries only what's specific to a faceless-explainer frame. Tempted to add a generic GSAP / timeline rule here? Wrong home — it belongs in `hyperframes-core`.
 
 **INPUT** — your dispatch context provides:

@@ -42,7 +42,7 @@ Run it as the LAST gate in your DoD pass, after fixing everything else:
 node <repo-root>/skills/website-to-video/scripts/w2h-verify.mjs <project-dir>
 ```
 
-(Locate the repo root from a project subdirectory: `find "$HOME" -path '*/skills/website-to-video/scripts/w2h-verify.mjs' -maxdepth 10 2>/dev/null | head -1`.)
+(Locate the repo root from a project subdirectory: `<installed-mode>` (resolved from the installed skill registry).)
 
 **The script's output is the deliverable.** Paste the entire report — the table, the percentages, the FAIL lines — verbatim into your final user-facing summary, in the "What I verified" / "What I did NOT verify" section. The user will read it directly. You don't get to summarize, simplify, or omit rows.
 

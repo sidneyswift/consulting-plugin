@@ -1,84 +1,42 @@
 ---
 name: consulting-article-illustrator
-description: Generate hand-drawn "whiteboard / excalidraw"-style explainer images for articles and posts — the doodle-marker diagrams that sit inside a pillar to explain a concept (a flow, a comparison, a loop, a stack, a hub-and-spoke, a numbered framework). Made with gpt-image-2 in the brand palette: light-grey background, black marker line work + hand-lettering, a single blue accent. Plans a figure set — a hero image at the top (above the first line; doubles as the social/OG preview) plus ~1 diagram per section — and embeds them inline. Use when asked to "make an article image / diagram / explainer / infographic / hero / thumbnail", a "hand-drawn / sketch / whiteboard" visual, or to illustrate a blog post / LinkedIn article / pillar. NOT for clean HTML social graphics (use consulting-graphics) or anything animated (use consulting-hyperframes-video).
+description: "Create Recoup editorial article heroes and editable concept diagrams: flow, comparison, cycle, stack, hub and framework. Uses approved brand references, exact DM Sans labels and supplied logos; generated environments are composed separately from text."
 ---
 
 # Consulting Article Illustrator
 
-Hand-drawn **whiteboard explainer diagrams** for articles — the friendly doodle-marker visuals that make
-a concept legible inside a pillar post. Made with **gpt-image-2**, so this is a **prompt + style system**.
-
-- **This skill** = hand-drawn, doodle, marker — concept *explainers* inside articles.
-- **`consulting-graphics`** = clean HTML→PNG social graphics (statement / stat / framework-blocks).
-- **`consulting-hyperframes-video`** = anything animated/motion.
-
-## The look
-| Role | Value | Notes |
-|---|---|---|
-| Background | **light grey** `#e9ebee` | soft, flat — not pure white, no gradient |
-| Line work + lettering | **black marker** | wobbly hand-drawn boxes/arrows; legible hand-lettering |
-| Accent | **one blue** `#2a5bd0` | highlighter swashes, underlines, numbered circles, checkmarks, ticks |
-
-Doodle vocabulary: slightly-wobbly rounded-rectangle boxes, hand-drawn solid + dashed arrows, simple
-line-doodle icons (brain, gears, laptop, clock, lightbulb, magnet, file, server…), an optional friendly
-mascot, lots of whitespace, flat — no photoreal, no gradients. Match the bundled `samples/`. Defer brand
-tokens to the project **`DESIGN.md`**.
-
-## Density & placement
-- **Open with a hero.** Every article gets a **hero** — the title concept as **one bold metaphor (a cover, not a diagram)** — at the **very top, above the first line**. It's the bundle's first image, `images/image1.png`, and it doubles as the social/OG preview.
-- **Name by reading order.** Every image lives in the bundle's `images/` folder, named `image1.png`, `image2.png`, … in the order it appears (hero = `image1`). The *meaning* lives in each embed's alt text, not the filename.
-- **Then ~1 diagram per major section/concept.** A 4-section pillar → a hero + ~4 section figures. Cap section figures at **~4–6**.
-- **Place each section figure at its break**, right after that section's point lands.
-- **Lead with the strongest archetype** (a comparison or a flow usually reads fastest).
+Illustrate articles with Recoup editorial heroes and concept diagrams. Use the selected workspace
+and its existing content bundle. Load DESIGN.md and [brand/GUIDE.md](brand/GUIDE.md); an explicit
+client/artist identity wins. Stage the self-contained brand package with
+`node <installed-skill>/brand/materialize.mjs <output-directory>`.
 
 ## Workflow
-1. **Plan the figure set.** Read the draft; list its major sections; per **Density & placement** pick a
-   **hero** (the title concept, for the top) plus the concept + archetype for each section. One idea per figure.
-2. **Write the prompt** = the **style block** + the **archetype block**, filled with the concept's real
-   labels (templates: [references/prompt-kit.md](references/prompt-kit.md)). Keep labels short (≤3–4 words)
-   — gpt-image-2 garbles long text.
-3. **Generate with gpt-image-2.** *Attended / local:* the `GenerateImage` tool in-session, or the
-   Higgsfield CLI (`gpt-image-2 --image $REF`, a `samples/` image as the style reference). *Unattended /
-   cloud pipeline:* the **Higgsfield MCP** connector with model **`gpt-image-2`** (the CLI's browser auth
-   can't run there) — don't substitute another model. Landscape ~3:2 in-article; 1:1 or 4:5 if it also
-   runs as a post.
-4. **Run the bar** (below); regenerate on any miss.
-5. **Save + embed.** Save every image in the bundle's `images/` folder, numbered in **reading order**: the
-   **hero** is `images/image1.png` (embed it at the **very top, above the first line**), then each section
-   figure is `images/image2.png`, `image3.png`, … embedded at its break with descriptive alt text that
-   carries the meaning: `![what the figure shows](images/image2.png)` (see `content/AGENTS.md`).
-   Scratch/tests → `content/_work/article-images/`.
 
-## Layout archetypes
-| Archetype | Use for | Shape |
-|---|---|---|
-| **Hero / title card** | the lead image (top of the article) + social preview | a COVER, not a diagram: ONE central doodle (the core metaphor) + the hand-lettered TITLE with a blue underline, nothing else — no steps, lists, panels, or flow arrows. Wide 16:9, poster-like, mostly empty space |
-| **Flow / pipeline** | a process, before→after, a path | 2–4 boxes left→right joined by arrows; dash + blue-highlight the pivotal box |
-| **Comparison** | X vs Y, old vs new, tool vs system | vertical split; two headings (blue underline); blue-highlight pill verdict under each |
-| **Cycle / loop** | a compounding/repeating system | 4–6 boxes in a ring, curved arrows, blue numbered circles |
-| **Stack / layers** | a layered architecture | stacked rows + a left brace label; blue-highlight the key layer |
-| **Hub-and-spoke** | one core + its parts | center node + satellite boxes on connectors |
-| **Framework** | a named N-part model, inputs→output | numbered rows (blue circles) between a "messy inputs" cluster and a clean "output" |
+1. Read the article. Plan one hero above the first line plus roughly one useful figure per major
+   section (usually at most 4–6). One idea per figure; omit redundant pictures.
+2. Choose a concept and archetype from references/prompt-kit.md. Prefer Paper trail, Margin notes,
+   Catalog index or Blueprint among brand/finals.json references. Diagrams use paper/white/pale-blue
+   surfaces, ink structure, sky connections and restrained lime emphasis. DM Sans is the exact label
+   font, mono only for short indices. A restrained drawn line is optional; grey whiteboard and
+   hand lettering are no longer the house default.
+3. For exact diagrams, author editable SVG/HTML and render locally; use consulting-graphics for
+   rendering and format safe zones. For an expressive hero/environment use an available image tool
+   or consulting-higgsfield, then composite editable labels and supplied logo with HTML. Generate
+   no text, logos or fake documents. Read the actual approved reference before prompting.
+4. Review the render: accurate relationship, correct spelling, contrast, readable at article width,
+   no overflow, exact loaded font/mark, one focal idea. Do not enforce legacy sample styling.
+5. Save hero as images/image1.png above the first line, then image2.png onward in reading order.
+   Use descriptive alt text explaining each figure. Keep editable sources and brand.lock.json with
+   expression/reference IDs alongside the bundle. Scratch goes in content/_work/article-images/.
 
-## The bar — check every render before showing
-- [ ] **Light-grey** background, flat?
-- [ ] **Black marker** line work + legible hand-lettering (labels spelled correctly)?
-- [ ] **Blue** the only accent?
-- [ ] Hand-drawn doodle feel (wobbly boxes, doodle icons), not a clean vector chart?
-- [ ] One clear idea, lots of whitespace, reads at article width?
-- [ ] Matches the bundled `samples/`?
+## Scheduled runs
 
-Fail any box → don't ship it; fix the prompt and regenerate.
+consulting-nightly-content passes the selected brand and reference IDs. Use local HTML/SVG rendering
+for diagrams. If generative imagery is needed, use its configured available provider/model and
+report unavailable access; never claim a generation succeeded or invent a score. Stage drafts for
+review, never auto-publish. No additional provider call is needed to typeset an exact diagram.
 
-## Samples
-`samples/` holds approved exemplars to match: `flow.png`, `compare.png`, `cycle.png`.
+## Historical samples
 
-## Nightly pipeline hook
-`consulting-nightly-content` can **auto-illustrate** a staged pillar: generate every image via the
-**Higgsfield MCP** connector with model **`gpt-image-2`** (never the in-session `GenerateImage` tool or a
-fallback model), apply **Density & placement**, save into the draft's `images/` as `image1.png` (hero) …
-`imageN.png`, embed inline, and leave it staged for review (never auto-publish). If the MCP or `gpt-image-2` is unavailable,
-stage without figures and flag — don't swap models.
-
-> **Taste authority:** `consulting-tasteful-design` + `DESIGN.md` govern brand look across every medium;
-> this is their hand-drawn-explainer implementation.
+samples/flow.png, compare.png and cycle.png preserve the previous whiteboard identity as historical
+references. They are not current Recoup exemplars. Use brand/finals.json and the new prompt kit.

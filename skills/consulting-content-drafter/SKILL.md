@@ -1,9 +1,14 @@
 ---
 name: consulting-content-drafter
-description: Turn an idea or insight into a publish-ready draft. Use on "draft a post/blog about X", "write this up", or when promoting a signal from signals/.
+description: "Turn an idea or insight into a publish-ready draft. Use on \"draft a post/blog about X\", \"write this up\", or when promoting a signal from signals/."
 ---
 
 # Consulting Content Drafter
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 ## Steps
 1. Take the signal (from `signals/`) — read its `source`/`related` and traverse to the raw for context.

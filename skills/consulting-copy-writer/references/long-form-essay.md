@@ -41,7 +41,7 @@ Detailed tour of current reality. This is the evidence base for everything that 
 Requirements:
 - Named people with roles (Kieran Klaassen, general manager of Cora)
 - Named tools and products (Codex, Claude Code, Fin, Proof)
-- Specific numbers (65 percent of 202 conversations, $62 per deck, 24 skills and 18 scripts)
+- Specific, sourced numbers (for example a measured cycle time and its sample size; never borrow figures from a writing sample)
 - Screenshots or visual descriptions when relevant
 - Organize with clear subsections (each subsection = one aspect of the landscape)
 

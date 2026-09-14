@@ -17,7 +17,7 @@ This format should feel like a smart operator explaining how they currently see 
 
 The piece can have multiple ideas, but they should all orbit one controlling distinction.
 
-## Patterns from Sid's tool-calling sample
+## Patterns to practice in the fictional samples
 
 ### 1. Reduction to the underlying concept
 
@@ -230,7 +230,7 @@ For newsletters or blog-style social articles:
 This format often includes claims about tools, protocols, products, and market direction. Do not add technical facts that are not in the source notes unless you verify them.
 
 - Treat names, specs, product capabilities, dates, and numbers as claims.
-- If the source note is Sid's own working model, keep the posture calibrated: "I think," "today," "my current read."
+- If the source note is the author's own working model, keep the posture calibrated: "I think," "today," "my current read."
 - If a claim needs external proof, verify it before publishing or write around it as a belief rather than a fact.
 - Do not inflate the sample with invented examples just to make the comparison feel complete.
 

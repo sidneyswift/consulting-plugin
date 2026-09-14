@@ -1,12 +1,17 @@
 ---
 name: consulting-copy-reviewer
-description: Reader-reaction review of a finished draft, run through a fresh-context subagent that ROLE-PLAYS Sid's ICP customer (a founder / CEO / C-suite exec of a $5M-$500M creative, music, entertainment, CPG, or marketing company, sometimes a larger construction firm). Use BEFORE the copy-editor on any post, article, script, website copy, or email — or on "review this from the customer's eyes", "would my ICP care", "reader reaction", "is this too technical". Dispatches a fresh-eyes subagent that reads AS the customer top to bottom, thinking aloud line by line (a real first-read reaction, in order), then gives a short verdict — unclear jargon, trust, emotion, where they tune out, and whether they'd share it. The main agent then rewrites from that read. NOT the craft/slop pass — that is consulting-copy-editor, which runs after.
+description: "Reader-reaction review of a finished draft, run through a fresh-context subagent that ROLE-PLAYS the owner's ICP customer (a founder / CEO / C-suite exec of a $5M-$500M creative, music, entertainment, CPG, or marketing company, sometimes a larger construction firm). Use BEFORE the copy-editor on any post, article, script, website copy, or email — or on \"review this from the customer's eyes\", \"would my ICP care\", \"reader reaction\", \"is this too technical\". Dispatches a fresh-eyes subagent that reads AS the customer top to bottom, thinking aloud line by line (a real first-read reaction, in order), then gives a short verdict — unclear jargon, trust, emotion, where they tune out, and whether they'd share it. The main agent then rewrites from that read. NOT the craft/slop pass — that is consulting-copy-editor, which runs after."
 ---
 
 # Consulting Copy-Reviewer (the customer's eyes)
 
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+
 `consulting-copy-editor` is the *editor's* pass — slop, voice, craft. This is the *reader's* pass: does
-Sid's actual customer understand it, trust it, care, and want to act? The review runs in a
+the owner's actual customer understand it, trust it, care, and want to act? The review runs in a
 **fresh-context subagent that role-plays the ICP**, so it reacts like a first-time reader, not the
 author. It returns **notes only**; the **main agent rewrites** from them. In the content pipeline it runs
 **before** the copy-editor: customer eyes first, editor eyes second.
@@ -34,8 +39,7 @@ notes and let the parent rewrite; don't score or commit here.
      non-technical house ICP: an engineer persona reads "JSON serialization" without blinking, and the
      jargon check — the first thing this gate exists to run — silently dies for everyone else. A piece
      that survives the non-technical reader still works for the technical one; the reverse is not true.
-     (Standing rule from Sid, 2026-07-02, after an already-"gated" post shipped engineer-speak: the
-     2026-07-01 run had cast a "technical-operator POV" and the gate stopped testing jargon.) If a
+     The reviewer should judge whether the intended non-technical reader can follow the draft. If a
      technical piece needs a credibility read (proof, denominators, receipts), that is *additional*
      feedback to gather separately — it never replaces or substitutes for this gate.
    - **Record the persona in the gate.** When you write the `gates:` line in the file/`meta.yml`, name

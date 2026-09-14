@@ -1,30 +1,51 @@
 ---
 name: consulting-linkedin-publisher
-description: Turn a consulting insight or content draft into a published or scheduled LinkedIn post. Use on "post this to LinkedIn", "publish my draft", "schedule a LinkedIn post", or after consulting-content-drafter produces a draft. Publishes via Postbridge.
+description: "Prepare, publish, or schedule a LinkedIn post using the selected workspace publishing account and verified provider state. Use for LinkedIn publishing and scheduling requests."
 ---
 
 # Consulting LinkedIn Publisher
 
-Ship content from the flywheel to LinkedIn. The off-ramp of `content/` → distribution.
+## Visual handoff
 
-## Steps
-1. **Pick the source.** A draft in `content/03-drafts/`, a signal in `signals/`, or text
-   the user gives. If it's an insight (not yet post-shaped), run `consulting-content-drafter` first.
-2. **Shape for LinkedIn.** Hook in line 1, short lines, one idea, soft CTA. Keep the practice's
-   positioning (see `positioning/`). No hashtag spam.
-3. **Choose the account.** `sidney` (id 34429, default — personal authority) or `recoupable`
-   (id 34430 — company). Confirm if ambiguous.
-4. **Publish.** Save the final caption to a file, then run:
-   `python integrations/linkedin/_work/publish.py --caption-file <file> --account sidney`
-   Add `--schedule <ISO-UTC>` to schedule, or `--draft` to stage. The script confirms before sending.
-   - **Attach media** with `--media <path>` (repeatable): `.png`/`.jpg` image, `.mp4`/`.mov` video, or a
-     `.pdf` to ship a swipeable LinkedIn document/carousel (the highest-dwell format; add `--document-title`).
-   - **Animated post?** Postbridge takes **no `.gif`** — render/convert to an MP4 loop first with
-     `python integrations/linkedin/_work/make_loop.py <clip-or.gif> [--pad]`, then attach the `-loop.mp4`.
-     For a *literal* GIF, upload it by hand in the LinkedIn composer (<5MB). Full playbook:
-     `knowledge/sops/animated-media-for-posts-and-article-headers.md`.
-5. **Log it.** Write the published post + timestamp + account to `integrations/linkedin/published/`
-   and move the source from `content/03-drafts/` → `content/04-published/`.
-6. **Close the loop.** Note the post URL so `consulting-linkedin-audience` can pull its engagement later.
+When this workflow creates or requests a rendered artifact, use `consulting-tasteful-design` and
+the selected workspace DESIGN.md. House identity is Recoup Sky; explicit client/artist branding wins.
+Pass brand/version, expression, format, reference IDs and output folder to the media skill. Its bundled
+package supplies exact fonts/logos. Keep new derivatives in the current identity while preserving
+historical evidence. Save editable source and brand.lock.json with the deliverable. Ordinary text
+outputs stay text; a script is not a rendered video. Existing data dashboards retain their canonical
+Recoup CSS during data updates. Do not publish private client work to the public Brand Studio.
 
-Never auto-send without the user's go-ahead on the final copy.
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
+
+Publish or schedule authorized content using the selected workspace's publishing account.
+
+1. Read the source draft or signal and the workspace's voice/positioning rules. Shape the caption
+   for LinkedIn; preserve the author's meaning and verify claims.
+2. Discover the connected accounts through the available publishing connector or the workspace's
+   reviewed provider configuration. Match the requested personal or company profile by its displayed
+   identity and provider ID. Never use a plugin-embedded account ID or default to its author's account.
+   If the intended profile remains ambiguous, resolve it before creating an external post.
+3. Default to a local draft. If a publishing connector is available, use its supported draft,
+   schedule, or publish action within the user's authorization. An authorized publish request does
+   not need a second approval invented by this skill.
+4. A workspace may supply `integrations/linkedin/_work/publish.py`. It is an optional local adapter,
+   not part of this plugin. Inspect its current help and account mapping before use; do not assume
+   arbitrary account IDs are accepted by its `--account` option. If no connector or compatible
+   adapter exists, leave the caption/media ready and identify the missing publishing connection.
+5. Attach media in a format the selected provider supports. Convert animation to MP4 when necessary;
+   use an available media tool or the workspace's reviewed loop helper. Check document/carousel support
+   against the provider's current capabilities. Keep original source assets.
+6. Record the provider receipt, account, timestamp, URL, and actual state. Scheduled is not published;
+   draft is not scheduled. Move a source to `content/04-published/` only after publication is verified.
+7. Save the verified post URL for `consulting-linkedin-audience` to inspect engagement later.
+
+Credentials belong in the user's connector or selected workspace environment, never in this skill
+or a chat message. Do not publish, send, or schedule without authorization for that action.

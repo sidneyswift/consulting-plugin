@@ -1,9 +1,14 @@
 ---
 name: consulting-comms-logger
-description: Log a single comms event on a deal/client (you sent, they replied, it was opened, you got a message) and reconcile state. Use on "I sent that", "he replied", "they opened it", "got a reply from {name}", "just emailed {name}", or a screenshot of a sent/received message. Faithfully records the as-sent/as-received text + the engagement signal (open != reply), then updates the deal AGENTS.md, _board.md, any active followups sequence, and whose ball it is. NOT consulting-call-processor (the heavy "new material -> extract + mine" loop for transcripts/notes/results) and NOT consulting-inbox-triage (the radar for what needs a reply across deals) -- this is the light "log one touch and reconcile" move.
+description: "Log a single comms event on a deal/client (you sent, they replied, it was opened, you got a message) and reconcile state. Use on \"I sent that\", \"he replied\", \"they opened it\", \"got a reply from {name}\", \"just emailed {name}\", or a screenshot of a sent/received message. Faithfully records the as-sent/as-received text + the engagement signal (open != reply), then updates the deal AGENTS.md, _board.md, any active followups sequence, and whose ball it is. NOT consulting-call-processor (the heavy \"new material -> extract + mine\" loop for transcripts/notes/results) and NOT consulting-inbox-triage (the radar for what needs a reply across deals) -- this is the light \"log one touch and reconcile\" move."
 ---
 
 # Consulting Comms Logger
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 The fast path for **after** a touch happens. Email skills (`consulting-outbound-email`,
 `consulting-followup-sequencer`) own *drafting*; this skill owns *recording the event and
@@ -20,7 +25,7 @@ memory, so a logged touch must leave the dashboards true.
 
 2. **Capture the event faithfully (evidence discipline).**
    - **As-sent / as-received text, verbatim** — what *actually* went out, not the draft you think
-     was sent. From a screenshot, transcribe exactly. Note the provenance ("logged from Sid's word"
+     was sent. From a screenshot, transcribe exactly. Note the provenance ("logged from the owner's word"
      vs. "screenshot" vs. "live Gmail"), since a screenshot is stronger than a paraphrase.
    - **Channel + timestamp** (thread subject, LinkedIn, etc.), in the user's timezone.
    - **Engagement signal, read literally:** an **open / read-receipt is engagement, not a reply**;
@@ -52,14 +57,15 @@ memory, so a logged touch must leave the dashboards true.
 6. **Report + commit.** Summarize what changed in one or two lines; the commit is the memory. Offer
    to commit (don't auto-commit unless asked).
 
-## Worked example (Stellar, 2026-06-23)
-One thread, three touches logged in a session, dashboards kept true throughout:
-- **Touch 1 sent 12:43pm ET** -> logged as-sent text; **opened ~2 min later** logged as *engaged, not
-  a reply* (open != reply); ball stayed on Morten.
-- **Morten replied 12:47pm** (partner-gated, no timeline) cc'ing a new stakeholder (Ryan Peterson)
-  -> followups sequence **STOPPED** (Touch 2/3 voided); new stakeholder captured live from Gmail and
-  added dedup-safe to Attio; Next action + board + email-signal reconciled; ball read as on him.
-- **Reply-all sent 3:19pm** -> ball back on Ryan/partners; "don't chase"; watch date set.
+## Worked example — fictional touch sequence
+
+All names, companies, and events here are invented.
+- A proposal email to Morgan at Cedar Lantern Studio is opened. Record an open; the ball remains
+  with Morgan because no reply has arrived.
+- Morgan replies and introduces Jordan. Stop the queued nudge sequence, verify Jordan's address
+  from that reply, and check for an existing CRM record before adding one.
+- The consultant answers Jordan's question. Log the actual sent text and receipt, then update who
+  owes the next action. None of these touches proves a purchase commitment.
 
 ## Related
 - Heavy intake (transcript / note / result) -> `consulting-call-processor`.

@@ -1,9 +1,24 @@
 ---
 name: consulting-graphics
-description: Generate on-brand social media graphics for any platform and format — feed posts, carousels, stories/reels covers, banners and headers, profile pictures, YouTube thumbnails, Pinterest pins, Open Graph link cards, and ad creative. Renders HTML to PNG via Playwright at correct platform dimensions with safe zones. Use when asked to create a social post, carousel, slide deck for social, story/reel, cover/banner, profile picture, thumbnail, pin, OG image, or to resize/adapt one design across multiple platforms and aspect ratios (1:1, 4:5, 9:16, 16:9, 1.91:1, 2:3, banners, pfps). Visual styles live as templates in references/; output-craft playbooks (thumbnail, carousel, …) live in references/recipes/; dimensions and safe zones in references/dimensions.md. Static images only — for video, motion graphics, or anything animated, use consulting-hyperframes-video.
+description: "Generate on-brand social media graphics for any platform and format — feed posts, carousels, stories/reels covers, banners and headers, profile pictures, YouTube thumbnails, Pinterest pins, Open Graph link cards, and ad creative. Renders HTML to PNG via Playwright at correct platform dimensions with safe zones. Use when asked to create a social post, carousel, slide deck for social, story/reel, cover/banner, profile picture, thumbnail, pin, OG image, or to resize/adapt one design across multiple platforms and aspect ratios (1:1, 4:5, 9:16, 16:9, 1.91:1, 2:3, banners, pfps). Visual styles live as templates in references/; output-craft playbooks (thumbnail, carousel, …) live in references/recipes/; dimensions and safe zones in references/dimensions.md. Static images only — for video, motion graphics, or anything animated, use consulting-hyperframes-video."
 ---
 
 # Consulting Graphics
+
+## Current brand
+
+Recoup/Consulting/Business work defaults to **Recoup Sky**. Read `brand/GUIDE.md` and the workspace
+`DESIGN.md`; explicit client/artist branding or a fidelity-only migration wins. Stage local resources:
+`node <installed-skill>/brand/materialize.mjs <output-directory>`. Use its CSS, actual DM Sans/IBM Plex
+Mono fonts, exact outlined SVG logo, and `brand/finals.json` reference IDs. No recurring brand setup
+question. Save editable source and `brand.lock.json` with reference IDs/expression beside the output.
+Marketing owns the authored identity; the bundled snapshot works without another checkout.
+
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 Generate on-brand social media graphics from content, at the right dimensions for any platform and placement. HTML → Playwright screenshot → PNG. **Static images only — for video, motion graphics, or anything animated, use `consulting-hyperframes-video`.**
 
@@ -26,11 +41,11 @@ You can render the *same* template at *many* formats — that's how you create o
 **Step 0: Load the brand + the kit**
 
 1. Read the project's top-level **`DESIGN.md`** — the brand source of truth: the CSS palette, fonts, the
-   standard footer signature (Recoup mark · Sidney Swift · recoupable.com), and the "bold, not boring"
+   selected Recoup package, optional author attribution, and composition
    principles every template builds on. **Always read this before composing.** Never hardcode a value
    that disagrees with it; for anything it doesn't cover (e.g. audience), ask — don't invent.
-2. Read `~/.config/consulting-graphics/.env` for `DEFAULT_TEMPLATE` + primary platform/format. If it lacks
-   `SETUP_COMPLETE=true`, ask which template to default to and the primary platform/format, then write it.
+2. Use the brief’s format; otherwise default to a 1080×1350 feed graphic. Choose a relevant approved
+   reference from `brand/finals.json`; no local setup file or brand questionnaire is required.
 
 ## Workflow
 
@@ -38,14 +53,14 @@ You can render the *same* template at *many* formats — that's how you create o
 2. **Choose the template** (the composition) by what the *content* is, not a default look: `framework-blocks` for teaching/lists/how-tos, `statement` for hooks/POVs/quotes/announcements, `stat` for a number or proof, `editorial` for the occasional restrained piece. Read `DESIGN.md`, then `references/<template>.md`. Across a batch, deliberately mix them. **Then read the recipe** for the output (`references/recipes/<output>.md` — e.g. thumbnail, carousel) for its craft bar.
 3. **Apply brand from `DESIGN.md`.** Use the brand name, logo SVG, and handle for footers/close slides/profile marks.
 4. **Compose for the format.** Match the layout to the canvas — a 4:5 feed post, a 9:16 story, a 4:1 banner, and a circular pfp are different compositions, not the same art stretched. Respect the safe zone for the format (see dimensions.md). For multi-slide carousels, one idea per slide.
-5. **Generate HTML** sized to the target canvas. Set `body { width: Wpx; height: Hpx; }`. Replace `BRAND_NAME` with the brand from `DESIGN.md`; use its logo SVG.
+5. **Stage `brand/materialize.mjs` in the output directory and load `recoup-brand/brand.css`. Generate HTML** sized to the target canvas. Set `body { width: Wpx; height: Hpx; }`. Replace `BRAND_NAME` with the brand from `DESIGN.md`; use its logo SVG.
 6. **Render to PNG** via Playwright at the matching viewport:
 
    ```bash
    npx playwright screenshot --viewport-size="WIDTH,HEIGHT" "file:///abs/path/graphic.html" "/abs/path/graphic.png"
    ```
 
-7. **Review each render visually** against the safe zone and the template's quality checklist. If cluttered, split or simplify. If text is hard to read at phone scale, increase size/contrast.
+7. **Wait for `document.fonts.ready` before capture; verify DM Sans actually loaded. Review each render visually** against the safe zone and the template's quality checklist. If cluttered, split or simplify. If text is hard to read at phone scale, increase size/contrast.
 8. **Iterate** until clean.
 
 ## Create once, adapt everywhere
@@ -69,13 +84,13 @@ To ship the same design across platforms and sizes:
 | Template | Field | Dominant element | Best for | Reference |
 |----------|-------|------------------|----------|-----------|
 | `framework-blocks` | light + dark header band | a named, color-coded framework (numbered or acronym variant) | teaching / "save this" infographics, lists, how-tos — the reach + lead-magnet engine | [references/framework-blocks.md](references/framework-blocks.md) |
-| `statement` | full-bleed dark | one huge line | hooks, contrarian POVs, manifestos, quote cards, announcements | [references/statement.md](references/statement.md) |
+| `statement` | sky or forest | one huge line | hooks, contrarian POVs, manifestos, quote cards, announcements | [references/statement.md](references/statement.md) |
 | `stat` | dark or light | one giant number | data drops, proof, milestones, before/after | [references/stat.md](references/stat.md) |
-| `editorial` | crisp light, minimal | a quiet serif headline | the occasional restrained, premium piece — **one option, not the default** | [references/editorial.md](references/editorial.md) |
+| `editorial` | crisp light, minimal | a clear DM Sans headline | the occasional restrained, premium piece — **one option, not the default** | [references/editorial.md](references/editorial.md) |
 
 > **Taste authority:** `consulting-tasteful-design` is the house north star for look-and-feel across
 > every medium; this kit is its still-graphics implementation. Brand tokens (color/type/logo/footer)
-> live in **`DESIGN.md`** — read it first. Default is bold (`framework-blocks`); a
+> live in **`DESIGN.md`** — read it first. Choose by the content; a
 > single minimal template is what made everything samey, so `editorial` is one choice, not the floor.
 
 To add a template: create `references/<name>.md` (visual identity, layout rules, a complete HTML shell
@@ -112,7 +127,7 @@ The full "bold, not boring" stance + the anti-AI-slop checklist live in **`consu
 (`DESIGN.md`). The essentials:
 
 - Every graphic/slide earns its place — if it adds no new idea, cut it.
-- **Commit to a color field** (full-bleed dark or crisp light). No pale washed-out gradients — that's the slop tell.
+- **Choose the expression**: white/paper editorial, functional white, or expressive sky/forest. Calm sky gradients are part of the current identity.
 - **One thing is huge** — a hook, a number, or a framework, legible as a thumbnail.
 - **Color carries meaning:** `--accent` for structure, one `--signal` pop for the eye-hit. Never rainbow.
 - **Make it saveable:** real numbers, named frameworks, worked examples (specificity is the design).

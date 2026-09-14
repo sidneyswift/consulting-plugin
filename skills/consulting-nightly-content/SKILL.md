@@ -1,16 +1,36 @@
 ---
 name: consulting-nightly-content
-description: Phase 3 of the nightly pipeline — the demand engine's post-first LinkedIn lane. After capture + janitor, pick a strong signal and stage one evidence-backed, LinkedIn-only post for review. Default to a failure, build-in-public scene, or concrete mechanism; never require an article, email, or image. Pillars are an optional weekly authority lane after a post has proved useful. Never publishes. Use on "run the nightly content", "draft today's LinkedIn post", or as the nightly content ritual.
+description: "Phase 3 of the nightly pipeline — the demand engine's post-first LinkedIn lane. After capture + janitor, pick a strong signal and stage one evidence-backed, LinkedIn-only post for review. Default to a failure, build-in-public scene, or concrete mechanism; never require an article, email, or image. Pillars are an optional weekly authority lane after a post has proved useful. Never publishes. Use on \"run the nightly content\", \"draft today's LinkedIn post\", or as the nightly content ritual."
 ---
 
 # Consulting Nightly Content (post-first demand engine)
+
+## Visual handoff
+
+When this workflow creates or requests a rendered artifact, use `consulting-tasteful-design` and
+the selected workspace DESIGN.md. House identity is Recoup Sky; explicit client/artist branding wins.
+Pass brand/version, expression, format, reference IDs and output folder to the media skill. Its bundled
+package supplies exact fonts/logos. Keep new derivatives in the current identity while preserving
+historical evidence. Save editable source and brand.lock.json with the deliverable. Ordinary text
+outputs stay text; a script is not a rendered video. Existing data dashboards retain their canonical
+Recoup CSS during data updates. Do not publish private client work to the public Brand Studio.
+
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
 
 Capture turns calls, product work, and failures into signals. This skill turns the strongest signal into
 one **native LinkedIn post** that a buyer can understand and forward without an article. Long-form is
 optional and downstream: write a pillar only after a post proves the idea deserves expansion, or during
 the separate weekly authority lane.
 
-The engine drafts; **Sid publishes.** Quality over cadence.
+The engine drafts; **the owner publishes.** Quality over cadence.
 
 ## Default output — one LinkedIn-only bundle in drafts/
 ```
@@ -24,7 +44,7 @@ prerequisites for a LinkedIn draft. Product-update signals may use their own ann
 must still produce a complete native post.
 
 ## Rails
-1. **Never auto-publish.** Drafts only; Sid reviews + publishes via `consulting-linkedin-publisher` (Postbridge).
+1. **Never auto-publish.** Drafts only; the owner reviews + publishes via `consulting-linkedin-publisher` (Postbridge).
 2. **Grounded, not fabricated.** Every claim traces to a real captured insight/transcript — carry the
    citation. Never invent a client name, number, or result; confirm before naming a client, or write generically.
 3. **Voice = `consulting-copy-writer`** (no exceptions): no em-dashes, anti-slop list, specific, human. Read it.
@@ -53,13 +73,13 @@ must still produce a complete native post.
 
 2. **Write `brief.md`.** Use the repository template. Name the buyer, live problem, scene, what broke or
    changed, primary evidence, mechanism, practical takeaway, and native reader exit. If the source cannot
-   support a concrete scene or mechanism, stop with `Needs Sid`; do not inflate it into prose.
+   support a concrete scene or mechanism, stop with `Needs owner`; do not inflate it into prose.
 
 3. **Write the LinkedIn POST.** Read `consulting-copy-writer` §social and
    `consulting-linkedin-post-architect`. Start at the beginning of the scene, not in the middle of an
    article argument. Deliver the full mechanism and takeaway in the post. Default to no outbound URL,
    no raw Calendly, no `recoupable.dev`, and no “read the article.” A native close may make the consulting
-   relevance explicit or point to Sid's profile.
+   relevance explicit or point to the owner's profile.
 
 4. **Reader review + one edit.** Run `consulting-copy-reviewer` through the buyer named in `brief.md`.
    Require clear answers to: Who is this for? What changed? Why believe it? What can the reader do with
@@ -71,7 +91,7 @@ must still produce a complete native post.
    Then set the consumed signal's `status: used` + `used_by:`
    the bundle path, and regenerate `signals/_index.md` (an `evergreen` insight stays evergreen — append
    the bundle to its `used_by` history instead). Write `business/ops/content-reports/<date>.md` (**Post ·
-   Post gates · Skipped (why) · Needs Sid**), run
+   Post gates · Skipped (why) · Needs owner**), run
    `python evals/content/score_run.py` (composite + flags at top), commit each draft why-first, stamp
    `content/_work/LAST_DRAFTED`, then stop.
 

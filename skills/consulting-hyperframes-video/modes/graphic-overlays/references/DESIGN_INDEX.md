@@ -1,5 +1,11 @@
 # V—Take Visual Design Library
 
+Recoup default: `styles/recoup-sky.html`. Stage the video skill's brand/materialize.mjs beside the
+final composition and load recoup-brand/brand.css. This local HTML recipe supplies actual Recoup
+card and lower-third CSS. Prefer Blue sweep solo/duo/vertical Finals for podcast camera frames;
+retain transparent camera openings. Alternative style groups below require an explicit other identity.
+
+
 This directory is a **reference library** for the graphic-overlays skill. Style, layout,
 and video frame are three **orthogonal** dimensions you can freely mix when
 designing a takeaway video.

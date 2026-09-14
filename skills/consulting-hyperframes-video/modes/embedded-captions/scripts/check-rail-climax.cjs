@@ -19,45 +19,9 @@ const path = require("path");
 const fs = require("fs");
 const os = require("os");
 
-const HF_ROOTS = [
-  process.env.HYPERFRAMES_ROOT,
-  path.resolve(__dirname, "../../.."),
-  path.join(os.homedir(), "Downloads", "hyperframes"),
-].filter(Boolean);
-
-function findInBun(root, pkg, sub) {
-  const cands = [path.join(root, "node_modules", pkg)];
-  const bunDir = path.join(root, "node_modules", ".bun");
-  try {
-    if (fs.existsSync(bunDir))
-      for (const d of fs.readdirSync(bunDir))
-        if (d.startsWith(pkg + "@")) cands.push(path.join(bunDir, d, "node_modules", pkg));
-  } catch {
-    /* ignore */
-  }
-  for (const c of cands) {
-    const p = sub ? path.join(c, sub) : c;
-    if (fs.existsSync(p)) return p;
-  }
-  return null;
-}
-
-let puppeteer = null,
-  gsapSource = null;
-for (const root of HF_ROOTS) {
-  if (!puppeteer) {
-    const p = findInBun(root, "puppeteer");
-    if (p) {
-      try {
-        puppeteer = require(p);
-      } catch {}
-    }
-  }
-  if (!gsapSource) {
-    const g = findInBun(root, "gsap", path.join("dist", "gsap.min.js"));
-    if (g) gsapSource = fs.readFileSync(g, "utf8");
-  }
-}
+const { loadPackage, resolvePackage } = require("../../../engine/runtime/dependencies.cjs");
+const puppeteer = loadPackage("puppeteer");
+const gsapSource = fs.readFileSync(resolvePackage("gsap/dist/gsap.min.js"), "utf8");
 
 const norm = (s) =>
   String(s)
@@ -164,7 +128,7 @@ async function main() {
   try {
     browser = await puppeteer.launch({
       headless: "new",
-      executablePath: fs.existsSync(exe) ? exe : undefined,
+      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || process.env.CHROMIUM_PATH || (fs.existsSync(exe) ? exe : undefined),
       args: ["--disable-web-security", "--allow-file-access-from-files", "--disable-dev-shm-usage"],
     });
   } catch (e) {

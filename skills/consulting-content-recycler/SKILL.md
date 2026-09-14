@@ -1,9 +1,29 @@
 ---
 name: consulting-content-recycler
-description: Squeeze every published winner — repost proven posts with a fresh hook, re-share your own winners with added context, and fan one outlier post into multiple new formats. Use on "what should I repost", "recycle my winners", "this post popped, what now", "turn this outlier into more posts", "wring the towel", after an engagement pull shows a post outperforming baseline, or on the Friday review's recycle step. Reads published bundles + engagement data; stages new drafts; never auto-posts.
+description: "Squeeze every published winner — repost proven posts with a fresh hook, re-share your own winners with added context, and fan one outlier post into multiple new formats. Use on \"what should I repost\", \"recycle my winners\", \"this post popped, what now\", \"turn this outlier into more posts\", \"wring the towel\", after an engagement pull shows a post outperforming baseline, or on the Friday review's recycle step. Reads published bundles + engagement data; stages new drafts; never auto-posts."
 ---
 
 # Consulting Content Recycler
+
+## Visual handoff
+
+When this workflow creates or requests a rendered artifact, use `consulting-tasteful-design` and
+the selected workspace DESIGN.md. House identity is Recoup Sky; explicit client/artist branding wins.
+Pass brand/version, expression, format, reference IDs and output folder to the media skill. Its bundled
+package supplies exact fonts/logos. Keep new derivatives in the current identity while preserving
+historical evidence. Save editable source and brand.lock.json with the deliverable. Ordinary text
+outputs stay text; a script is not a rendered video. Existing data dashboards retain their canonical
+Recoup CSS during data updates. Do not publish private client work to the public Brand Studio.
+
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
 
 Most operators find a winner, use it once, and move on. This skill is the reuse loop: **a winner is
 an asset, and an outlier is information.** Only a fraction of followers saw the original; everyone

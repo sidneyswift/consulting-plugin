@@ -12,7 +12,7 @@
 set -euo pipefail
 
 THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SCRIPTS_DIR="$(cd "$THIS_DIR/../../../scripts" && pwd)"
+SCRIPTS_DIR="${HYPERFRAMES_TEST_SCRIPTS_DIR:-$(cd "$THIS_DIR/../../../scripts" && pwd)}"
 EXPECTED="$THIS_DIR/expected.json"
 
 if [[ ! -f "$SCRIPTS_DIR/lint_source.py" ]]; then

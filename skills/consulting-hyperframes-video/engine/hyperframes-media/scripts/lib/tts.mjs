@@ -1,14 +1,16 @@
+import runtime from "../../../runtime/dependencies.cjs";
 // tts.mjs — multi-provider TTS for the media audio engine. The provider chain,
 // auto-detected from env, is the one documented in ../SKILL.md:
 //
-//   1. HeyGen (Starfish)  — $HEYGEN_API_KEY / $HYPERFRAMES_API_KEY / ~/.heygen.
+//   1. HeyGen (Starfish)  — $HEYGEN_API_KEY / $HYPERFRAMES_API_KEY / explicit
+//        $HEYGEN_CONFIG_DIR.
 //        Direct v3 REST (NOT `hyperframes tts`, which in the published build is
 //        Kokoro-only and silently ignores a HeyGen key). Returns word_timestamps
 //        in the same call, so no separate transcribe pass.
-//   2. ElevenLabs         — $ELEVENLABS_API_KEY + `pip install elevenlabs`. No
+//   2. ElevenLabs         — $ELEVENLABS_API_KEY + elevenlabs in the selected Python. No
 //        word timings → caller chains transcribeWav().
-//   3. Kokoro-82M (local) — always available, via the published `hyperframes tts`
-//        CLI. No word timings → caller chains transcribeWav().
+//   3. Kokoro-82M (local) — requires the prepared runtime and local model, via
+//        `hyperframes tts`. No word timings → caller chains transcribeWav().
 //
 // "HeyGen available" is decided by CREDENTIAL presence (heygenCredential), never
 // by the CLI — see the note above.
@@ -25,7 +27,7 @@ export function heygenAvailable() {
 }
 export function elevenlabsAvailable() {
   if (!process.env.ELEVENLABS_API_KEY) return false;
-  const r = spawnSync("python3", ["-c", "import elevenlabs"], { stdio: "ignore" });
+  const r = spawnSync(process.env.HYPERFRAMES_PYTHON || "python3", ["-c", "import elevenlabs"], { stdio: "ignore" });
   return r.status === 0;
 }
 
@@ -36,7 +38,7 @@ export function pickProvider(userProvider) {
       throw new Error(`invalid provider "${userProvider}" (heygen | elevenlabs | kokoro)`);
     if (userProvider === "heygen" && !heygenAvailable())
       throw new Error(
-        "provider=heygen but no HeyGen credentials (set $HEYGEN_API_KEY or run `hyperframes auth login`)",
+        "provider=heygen but no HeyGen credentials (set HEYGEN_API_KEY or explicitly select HEYGEN_CONFIG_DIR)",
       );
     if (userProvider === "elevenlabs" && !process.env.ELEVENLABS_API_KEY)
       throw new Error("provider=elevenlabs but $ELEVENLABS_API_KEY is not set");
@@ -120,7 +122,8 @@ save(audio, sys.argv[3])
 // ── synthesize one line ───────────────────────────────────────────────────────
 // Writes wav at wavAbs. Returns { ok, words } — words is the raw
 // [{text,start,end}] array for HeyGen (native), or null for ElevenLabs/Kokoro
-// (caller must transcribeWav). Never throws; failures return { ok:false }.
+// (caller must transcribeWav). Provider failures return { ok:false };
+// missing runtime or filesystem setup can throw an actionable setup error.
 export async function synthesizeOne({
   provider,
   text,
@@ -131,20 +134,21 @@ export async function synthesizeOne({
   hyperframesDir,
 }) {
   if (provider === "heygen") return synthesizeHeygen({ text, voiceId, lang, speed, wavAbs });
-  if (provider === "elevenlabs") {
-    const r = await spawnP(
-      "python3",
-      ["-c", ELEVENLABS_PY, writeTmpText(text), voiceId, wavAbs],
-      {},
-    );
-    return { ok: r.status === 0 && existsSync(wavAbs), words: null };
+  const textFile = writeTmpText(text);
+  try {
+    if (provider === "elevenlabs") {
+      const r = await spawnP(process.env.HYPERFRAMES_PYTHON || "python3",
+        ["-c", ELEVENLABS_PY, textFile, voiceId, wavAbs], {});
+      return { ok: r.status === 0 && existsSync(wavAbs), words: null };
+    }
+    const wavRel = relTo(hyperframesDir, wavAbs);
+    const args = [runtime.cliPath(), "tts", textFile, "--voice", voiceId, "--output", wavRel];
+    if (lang !== "en") args.push("--lang", lang);
+    const result = await spawnP(process.execPath, args, { cwd: hyperframesDir });
+    return { ok: result.status === 0 && existsSync(wavAbs), words: null };
+  } finally {
+    rmSync(dirname(textFile), { recursive: true, force: true });
   }
-  // kokoro — via the published CLI; --output is relative to the project dir.
-  const wavRel = relTo(hyperframesDir, wavAbs);
-  const args = ["hyperframes", "tts", writeTmpText(text), "--voice", voiceId, "--output", wavRel];
-  if (lang !== "en") args.push("--lang", lang);
-  const r = await spawnP("npx", args, { cwd: hyperframesDir });
-  return { ok: r.status === 0 && existsSync(wavAbs), words: null };
 }
 
 async function synthesizeHeygen({ text, voiceId, lang, speed, wavAbs }) {
@@ -187,21 +191,24 @@ async function synthesizeHeygen({ text, voiceId, lang, speed, wavAbs }) {
 export async function transcribeWav({ wavRel, lang = "en", hyperframesDir }) {
   const model = lang === "en" ? "small.en" : "small";
   const td = mkdtempSync(join(tmpdir(), "hf-trans-"));
-  const args = ["hyperframes", "transcribe", wavRel, "--model", model, "--dir", td];
-  if (lang !== "en") args.push("--language", lang);
-  const r = await spawnP("npx", args, { cwd: hyperframesDir });
-  let words = null;
-  if (r.status === 0) {
-    const src = join(td, "transcript.json");
-    if (existsSync(src)) {
-      try {
-        const arr = JSON.parse(readFileSync(src, "utf8"));
-        if (Array.isArray(arr) && arr.length) words = arr;
-      } catch {}
+  try {
+    const args = [runtime.cliPath(), "transcribe", wavRel, "--model", model, "--dir", td];
+    if (lang !== "en") args.push("--language", lang);
+    const r = await spawnP(process.execPath, args, { cwd: hyperframesDir });
+    let words = null;
+    if (r.status === 0) {
+      const src = join(td, "transcript.json");
+      if (existsSync(src)) {
+        try {
+          const arr = JSON.parse(readFileSync(src, "utf8"));
+          if (Array.isArray(arr) && arr.length) words = arr;
+        } catch {}
+      }
     }
+    return words;
+  } finally {
+    rmSync(td, { recursive: true, force: true });
   }
-  rmSync(td, { recursive: true, force: true });
-  return words;
 }
 
 // ── tiny local utils ──────────────────────────────────────────────────────────
