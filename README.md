@@ -84,3 +84,13 @@ repository need a separate reviewed update. Neither a skill edit nor a version b
 The `consulting-*` names remain stable so existing workspace routines keep resolving them.
 Moving capabilities into another plugin is a separate packaging step, including that repository's
 manifest, naming, dependency, and publication checks.
+
+## Recoup media identity
+
+Version 1.8.0 binds house media to Recoup Sky. The canonical reviewed distribution lives in
+`skills/consulting-tasteful-design/brand/`, with source revision, exact asset hashes, font notices,
+Finals references and a portable staging helper. Six independent media skills carry generated copies.
+After updating the canonical package, run `python3 scripts/sync_brand.py`; verification uses
+`python3 scripts/sync_brand.py --check` and `node --test tests/brand.test.mjs`.
+See the brand GUIDE.md for client overrides and private output ownership. No history or private
+business evidence belongs in a public brand package. Existing optional vendor fonts are retained.

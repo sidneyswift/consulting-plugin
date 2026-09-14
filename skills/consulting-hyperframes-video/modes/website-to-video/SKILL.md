@@ -5,6 +5,16 @@ description: "Capture a general website/URL and turn it into a HyperFrames video
 
 # Website to HyperFrames
 
+## Selected brand
+
+For Recoup/Consulting/Business, read `../../brand/GUIDE.md` and stage
+`node <video-skill>/brand/materialize.mjs <project-directory>`. Use the packaged CSS/fonts/exact SVGs.
+Identity is selected before frame.md; a frame can change layout/timing but cannot replace the brand.
+Generic style catalogues below are alternatives for an explicit other brand, not Recoup defaults.
+An explicitly selected client/artist identity or fidelity-only migration preserves that identity.
+Record brand/version, expression and reference IDs with editable sources in the existing output folder.
+
+
 **Portable setup:** read `../../engine/runtime/SETUP.md` for the pinned runtime. Resolve bundled resources from this
 installed skill and write outputs into the selected project. Brand fonts and identity come from that
 workspace's `DESIGN.md` or supplied brief; preset fonts and logos are examples, not required defaults.
@@ -49,7 +59,7 @@ Capture the site, then read the extracted data to understand the **brand and pro
 
 **Read:** [references/step-1-design.md](references/step-1-design.md)
 
-Write DESIGN.md — a brand cheat sheet covering the visual identity: colors, typography, component styles, layout principles. Use `design-styles.json` for exact computed values.
+For Recoup work, stage the packaged Sky identity and record its version in DESIGN.md; captured `design-styles.json` supplies product/context evidence, not replacement brand tokens. For an explicitly selected client-site identity, write its cheat sheet from the captured exact values.
 
 **Speed option:** For fast-pacing videos (billboard-per-beat), DESIGN.md can be a 50-line summary of colors + fonts + do's/don'ts — not a 300-line document. The sub-agent prompt in Step 5 pastes brand values directly, so DESIGN.md depth only matters for complex compositions.
 

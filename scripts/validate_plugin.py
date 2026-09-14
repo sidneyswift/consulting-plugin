@@ -30,6 +30,10 @@ def main():
             names.add(name[1])
         if not re.search(r'^description:\s*\S', match[1], re.M):
             errors.append(f'{path.relative_to(ROOT)}: missing description')
+    brand_check = subprocess.run([sys.executable, str(ROOT / 'scripts/sync_brand.py'), '--check'],
+                                 capture_output=True, text=True)
+    if brand_check.returncode:
+        errors.append(brand_check.stdout + brand_check.stderr)
     versions = set()
     for folder in ['.claude-plugin', '.cursor-plugin', '.codex-plugin']:
         doc = json.loads((ROOT / folder / 'plugin.json').read_text()); versions.add(doc['version'])

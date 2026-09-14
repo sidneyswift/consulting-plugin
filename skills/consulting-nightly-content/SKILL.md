@@ -5,6 +5,17 @@ description: "Phase 3 of the nightly pipeline — the demand engine's insight la
 
 # Consulting Nightly Content (article-first flywheel engine)
 
+## Visual handoff
+
+When this workflow creates or requests a rendered artifact, use `consulting-tasteful-design` and
+the selected workspace DESIGN.md. House identity is Recoup Sky; explicit client/artist branding wins.
+Pass brand/version, expression, format, reference IDs and output folder to the media skill. Its bundled
+package supplies exact fonts/logos. Keep new derivatives in the current identity while preserving
+historical evidence. Save editable source and brand.lock.json with the deliverable. Ordinary text
+outputs stay text; a script is not a rendered video. Existing data dashboards retain their canonical
+Recoup CSS during data updates. Do not publish private client work to the public Brand Studio.
+
+
 **Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
 Reality headings. Business paths below are relative to that project. Bundled resources are relative
 to this installed skill; sibling capabilities resolve by their installed names. Never search another
@@ -100,9 +111,9 @@ See `content/AGENTS.md`.)
    brand taste via **`consulting-tasteful-design`** / `DESIGN.md`). Per its density rule, produce the
    **hero** — saved as `images/image1.png` and embedded above the first line — **plus ~1 inline figure per
    major section**, saved as `images/image2.png`, `image3.png`, … (reading order) and embedded at each
-   section break (pick the archetype that fits each concept). Hand-drawn whiteboard palette; generate with **gpt-image-2** (this
-   run is a cloud worker with the Higgsfield connector → use the illustrator's Higgsfield `gpt-image-2`
-   route). Run the illustrator's bar on each image. If image generation isn't available, stage the
+   section break (pick the archetype that fits each concept). Use the Recoup editorial package and selected Finals reference IDs. Render exact
+   diagrams locally with HTML/SVG; generate hero environments only through the configured available
+   provider, then overlay type/logo. Run the illustrator's checks. If rendering is unavailable, stage the
    article without figures and flag it in the report — don't block the article.
 
 8. **Write the manifest, mark the signal, report, score, commit.** Write the bundle **`meta.yml`** — the

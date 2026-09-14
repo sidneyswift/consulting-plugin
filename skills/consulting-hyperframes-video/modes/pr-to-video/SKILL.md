@@ -5,6 +5,16 @@ description: "turn a GitHub pull request (a PR URL like github.com/<owner>/<repo
 
 # PR to HyperFrames
 
+## Selected brand
+
+For Recoup/Consulting/Business, read `../../brand/GUIDE.md` and stage
+`node <video-skill>/brand/materialize.mjs <project-directory>`. Use the packaged CSS/fonts/exact SVGs.
+Identity is selected before frame.md; a frame can change layout/timing but cannot replace the brand.
+Generic style catalogues below are alternatives for an explicit other brand, not Recoup defaults.
+An explicitly selected client/artist identity or fidelity-only migration preserves that identity.
+Record brand/version, expression and reference IDs with editable sources in the existing output folder.
+
+
 **Portable setup:** read `../../engine/runtime/SETUP.md` for the pinned runtime. Resolve bundled resources from this
 installed skill and write outputs into the selected project. Brand fonts and identity come from that
 workspace's `DESIGN.md` or supplied brief; preset fonts and logos are examples, not required defaults.
@@ -26,7 +36,7 @@ Workflow: Step 0 setup → `hyperframes.json`; Step 1 ingest → `capture/extrac
 
 Goal: Lock the PR reference and the core video brief, and create the HyperFrames project if needed.
 
-Get the **PR reference** (a full URL, an `<owner>/<repo>#<N>` ref, or "this PR" in a checked-out repo) and, in one message, confirm the brief — lead with a recommended default for each and pre-fill anything `/hyperframes` already set: **angle** (changelog / feature-reveal / fix-explainer / refactor-walkthrough — default: infer from the PR), **audience** (default: developers), **length** (default ~60-90s), **aspect** (default 16:9), **language**. The style is always **claude**. Proceed only after the user replies; a "go" accepts the defaults.
+Get the **PR reference** (a full URL, an `<owner>/<repo>#<N>` ref, or "this PR" in a checked-out repo) and, in one message, confirm the brief — lead with a recommended default for each and pre-fill anything `/hyperframes` already set: **angle** (changelog / feature-reveal / fix-explainer / refactor-walkthrough — default: infer from the PR), **audience** (default: developers), **length** (default ~60-90s), **aspect** (default 16:9), **language**. The house style is **Recoup Sky**. Reuse already supplied preferences and proceed when the user has delegated the choices.
 
 Initialize only if `hyperframes.json` is missing. Name `<project>` from the PR in kebab-case, such as `acme-sdk-pr-1842`; never use the workspace name or a timestamp.
 
@@ -48,7 +58,7 @@ PR="<url | owner/repo#N | N>"
 # capture/diff.patch — no scratch dir. gh auth / not-found / private errors exit 1 here.
 (cd "videos/<project>" && node <SKILL_DIR>/scripts/fetch-pr.mjs --pr "$PR" --out-dir ./capture)
 
-# Offline transform → capture/extracted/{tokens.json (colors:[] → claude palette),
+# Offline transform → capture/extracted/{tokens.json (colors:[]; identity resolved in Step 2),
 # visible-text.txt (the brief), people.json (contributors, bot-filtered, avatarFile=assets/<login>.png)}.
 (cd "videos/<project>" && node <SKILL_DIR>/scripts/ingest.mjs \
   --pr-json ./capture/pr.json --diff ./capture/diff.patch --out-dir ./capture/extracted)
@@ -67,17 +77,22 @@ If `fetch-pr.mjs` exits 1 (gh auth / not found / private), report its stderr and
 
 ## Step 2: Design System
 
-Goal: Adopt the claude frame preset; a script turns it into this video's `frame.md` + caption skin.
+Goal: resolve the selected identity before authoring frames.
 
-The style is fixed — **claude** (warm editorial; a navy code surface built for diffs). Run:
+For Recoup/Consulting/Business run:
 
 ```bash
-node <SKILL_DIR>/scripts/build-frame.mjs --preset claude --hyperframes .
+node <SKILL_DIR>/scripts/build-frame.mjs --brand recoup-sky --hyperframes .
 ```
 
-The script copies the claude preset's `FRAME.md` → `frame.md`, remixes it onto any brand tokens in `capture/extracted/tokens.json` (a PR has none → `colors:[]`/`fonts:[]` keeps claude's own palette, a complete design), copies the preset's `caption-skin.html`, and self-validates (exits 1 on a broken mapping). Proceed as soon as it exits 0 — no hand-editing.
+This stages a versioned frame, exact font/logo files, caption skin and brand.lock.json from the
+bundled package. Colors map exactly by role; display/body are DM Sans, labels IBM Plex Mono.
+Empty capture tokens cannot substitute a vendor identity. Load recoup-brand/brand.css in each page.
+For an explicitly different client/artist brand use `--brand source --preset <name>` and supply
+its source tokens/fonts/caption styling. Its `typography.display.family` and `typography.body.family`
+roles take precedence over the legacy font array. Review the source preset's caption skin as well.
 
-**Gate:** `build-frame.mjs` exited 0 — `frame.md` exists from the claude preset, and `caption-skin.html` is at the project root.
+**Gate:** builder exits 0; inspect frame.md, caption-skin.html, font loading and brand.lock.json.
 
 ---
 
@@ -199,7 +214,7 @@ Do not rerun `lint`, `validate`, `inspect`, or `snapshot` after rendering unless
 
 **Formats:** landscape `1920x1080` by default; portrait `1080x1920`; square `1080x1080`. Set the format once in the storyboard frontmatter.
 
-**PR deltas vs a captured-asset workflow:** no Step 1 capture (the `gh` CLI ingests the PR into a synthetic `capture/extracted/` package — `tokens.json` + `visible-text.txt` + `people.json`); the only real assets are the contributors' `assets/<login>.png` avatars (an optional credits close); no `asset-descriptions.md`, no asset-staging step. Code beats are rendered by the `code-*` registry blocks on claude's navy Code Surface; the style is always **claude**.
+**PR deltas vs a captured-asset workflow:** no Step 1 capture (the `gh` CLI ingests the PR into a synthetic `capture/extracted/` package — `tokens.json` + `visible-text.txt` + `people.json`); the only real assets are the contributors' `assets/<login>.png` avatars (an optional credits close); no `asset-descriptions.md`, no asset-staging step. Code beats are rendered by the `code-*` registry blocks on the selected brand's code surface; Recoup defaults to forest with IBM Plex Mono code.
 
 **Background scripts:** the workflow ships these under `scripts/`: `fetch-pr` (PR → `capture/pr.json` + `diff.patch` via `gh`; large-PR-safe, no scratch), `ingest` (→ synthetic capture package; offline), and `fetch-people-avatars` (contributor avatars → `assets/`); plus the shared engine — `build-frame` (adopt + brand-remix a preset into `frame.md` + caption skin), `audio` (TTS, BGM, SFX, duration sync), `captions`, `transitions` (inject + verify), and `assemble-index`. Everything else is the `hyperframes` CLI. Code blocks install via `npx hyperframes add <name>`.
 

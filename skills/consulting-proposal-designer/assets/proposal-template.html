@@ -1,98 +1,99 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>{{CLIENT_NAME}} Proposal</title><style>
   @page { size:A4; margin:17mm 17mm; }
   * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:var(--brand-body-font, Arial),sans-serif; color:#252b36; line-height:1.5; font-size:10pt; background:#fff; }
+  body { font-family:var(--brand-body-font, Arial),sans-serif; color:var(--recoup-ink); line-height:1.5; font-size:10pt; background:#fff; }
   .wrap { max-width:720px; margin:0 auto; padding:8px 0; }
 
   .head { position:relative; }
-  .dotwave { position:absolute; top:-10px; right:-8px; opacity:.9; }
   .brandrow { margin-bottom:26px; }
-  .kicker { font-size:8pt; letter-spacing:.2em; text-transform:uppercase; color:#3f5fb0; font-weight:800; }
-  .doctitle { font-size:18pt; line-height:1.15; color:#14254a; letter-spacing:-0.01em; margin:6px 0 10px; font-weight:800; }
-  .meta { font-size:9pt; color:#6b7280; }
-  .meta b { color:#252b36; font-weight:600; }
-  .rule { height:3px; background:#3f5fb0; width:52px; margin:14px 0 22px; border-radius:2px; }
+  .kicker { font-size:8pt; letter-spacing:.2em; text-transform:uppercase; color:var(--recoup-link); font-weight:500; }
+  .doctitle { font-size:18pt; line-height:1.15; color:var(--recoup-forest); letter-spacing:-0.01em; margin:6px 0 10px; font-weight:500; }
+  .meta { font-size:9pt; color:var(--recoup-muted); }
+  .meta b { color:var(--recoup-ink); font-weight:600; }
+  .rule { height:3px; background:var(--recoup-link); width:52px; margin:14px 0 22px; border-radius:2px; }
 
-  .lead { font-size:11pt; line-height:1.6; color:#2a2f3a; margin-bottom:11px; }
+  .lead { font-size:11pt; line-height:1.6; color:var(--recoup-ink); margin-bottom:11px; }
   .lead.last { margin-bottom:34px; }
-  .lead b { color:#14254a; }
+  .lead b { color:var(--recoup-forest); }
 
-  .lbl { font-size:8.2pt; letter-spacing:.15em; text-transform:uppercase; color:#3f5fb0; font-weight:800; margin-bottom:13px; }
+  .lbl { font-size:8.2pt; letter-spacing:.15em; text-transform:uppercase; color:var(--recoup-link); font-weight:500; margin-bottom:13px; }
 
   .cols { width:100%; border-collapse:separate; border-spacing:0; margin-bottom:34px; }
   .cols td { width:50%; vertical-align:top; }
   .cols td.gap { width:18px; }
-  .panel { border:1px solid #d9e1f2; border-radius:12px; padding:18px 20px; height:100%; background:#f3f6fc; }
-  .panel.up { background:#0b1020; border-color:#0b1020; }
-  .panel h3 { font-size:8.2pt; letter-spacing:.12em; text-transform:uppercase; font-weight:800; margin-bottom:13px; }
-  .panel.now h3 { color:#5a6b8c; }
-  .panel.up h3 { color:#9bb2ec; }
+  .panel { border:1px solid var(--recoup-border); border-radius:12px; padding:18px 20px; height:100%; background:var(--recoup-pale); }
+  .panel.up { background:var(--recoup-forest); border-color:var(--recoup-forest); }
+  .panel h3 { font-size:8.2pt; letter-spacing:.12em; text-transform:uppercase; font-weight:500; margin-bottom:13px; }
+  .panel.now h3 { color:var(--recoup-muted); }
+  .panel.up h3 { color:var(--recoup-lime); }
   .panel ul { list-style:none; }
   .panel li { font-size:9.8pt; line-height:1.45; padding-left:18px; position:relative; margin-bottom:12px; }
   .panel li:last-child { margin-bottom:0; }
-  .panel.now li::before { content:"\2022"; position:absolute; left:1px; color:#b6c0d6; }
-  .panel.up { color:#dfe5f3; }
-  .panel.up li::before { content:"\2713"; position:absolute; left:0; color:#9bb2ec; font-weight:700; }
+  .panel.now li::before { content:"\2022"; position:absolute; left:1px; color:var(--recoup-muted); }
+  .panel.up { color:var(--recoup-white); }
+  .panel.up li::before { content:"\2713"; position:absolute; left:0; color:var(--recoup-lime); font-weight:500; }
   .panel.up li b { color:#fff; }
 
   .steps { width:100%; border-collapse:separate; border-spacing:0; }
   .steps td { width:25%; vertical-align:top; padding-right:16px; }
   .steps td:last-child { padding-right:0; }
-  .stepnum { font-size:8.4pt; font-weight:800; color:#3f5fb0; letter-spacing:.06em; margin-bottom:5px; }
-  .steph { font-size:11pt; font-weight:700; color:#14254a; margin-bottom:4px; }
-  .stepd { font-size:9.4pt; color:#555b66; line-height:1.45; }
-  .howfoot { font-size:9.2pt; color:#6b7280; font-style:italic; margin-top:18px; }
+  .stepnum { font-size:8.4pt; font-weight:500; color:var(--recoup-link); letter-spacing:.06em; margin-bottom:5px; }
+  .steph { font-size:11pt; font-weight:500; color:var(--recoup-forest); margin-bottom:4px; }
+  .stepd { font-size:9.4pt; color:var(--recoup-muted); line-height:1.45; }
+  .howfoot { font-size:9.2pt; color:var(--recoup-muted); font-style:italic; margin-top:18px; }
 
   .p2 { page-break-before:always; margin-top:30px; }
-  .runhead { display:flex; align-items:center; gap:9px; padding-bottom:11px; border-bottom:1px solid #e3e9f5; margin-bottom:26px; }
-  .runhead .rl { font-size:8pt; letter-spacing:.14em; text-transform:uppercase; color:#8a93a6; font-weight:700; }
-  .runhead .rr { margin-left:auto; font-size:8pt; color:#aeb3bb; }
+  .runhead { display:flex; align-items:center; gap:9px; padding-bottom:11px; border-bottom:1px solid var(--recoup-border); margin-bottom:26px; }
+  .runhead .rl { font-size:8pt; letter-spacing:.14em; text-transform:uppercase; color:var(--recoup-muted); font-weight:500; }
+  .runhead .rr { margin-left:auto; font-size:8pt; color:var(--recoup-muted); }
 
-  .invest { border:1.5px solid #14254a; border-radius:13px; overflow:hidden; }
-  .invest .note { font-size:9.2pt; color:#555b66; line-height:1.45; padding:12px 18px 2px; }
+  .invest { border:1.5px solid var(--recoup-forest); border-radius:13px; overflow:hidden; }
+  .invest .note { font-size:9.2pt; color:var(--recoup-muted); line-height:1.45; padding:12px 18px 2px; }
   table.tiers { width:100%; border-collapse:collapse; }
-  table.tiers td { padding:11px 18px; border-top:1px solid #e3e9f5; vertical-align:top; }
+  table.tiers td { padding:11px 18px; border-top:1px solid var(--recoup-border); vertical-align:top; }
   table.tiers tr:first-child td { border-top:none; padding-top:20px; }
-  .trec { background:#eef2fc; }
+  .trec { background:var(--recoup-pale); }
   .opt { width:27%; }
-  .opt .nm { font-size:11pt; font-weight:700; color:#14254a; }
-  .opt .recpill { display:inline-block; font-size:7pt; font-weight:800; letter-spacing:.06em; background:#3f5fb0; color:#fff; padding:2px 6px; border-radius:3px; margin-top:6px; }
-  .prc { font-size:17pt; font-weight:800; color:#14254a; width:19%; white-space:nowrap; letter-spacing:-0.01em; padding-top:14px; }
-  .prc span { font-size:9pt; font-weight:600; color:#8a93a6; }
-  .chg { font-size:9.6pt; color:#3a404a; line-height:1.45; }
-  .chg b { color:#14254a; }
-  .chg .plus { font-size:8.8pt; font-weight:700; color:#14254a; margin-bottom:6px; }
+  .opt .nm { font-size:11pt; font-weight:500; color:var(--recoup-forest); }
+  .opt .recpill { display:inline-block; font-size:7pt; font-weight:500; letter-spacing:.06em; background:var(--recoup-link); color:#fff; padding:2px 6px; border-radius:3px; margin-top:6px; }
+  .prc { font-size:17pt; font-weight:500; color:var(--recoup-forest); width:19%; white-space:nowrap; letter-spacing:-0.01em; padding-top:14px; }
+  .prc span { font-size:9pt; font-weight:600; color:var(--recoup-muted); }
+  .chg { font-size:9.6pt; color:var(--recoup-ink); line-height:1.45; }
+  .chg b { color:var(--recoup-forest); }
+  .chg .plus { font-size:8.8pt; font-weight:500; color:var(--recoup-forest); margin-bottom:6px; }
   .chg ul.feat { list-style:none; margin:0; }
   .chg ul.feat li { position:relative; padding-left:16px; margin-bottom:4px; font-size:9.3pt; line-height:1.32; }
   .chg ul.feat li:last-child { margin-bottom:0; }
-  .chg ul.feat li::before { content:"\2713"; position:absolute; left:0; color:#3f5fb0; font-weight:700; }
-  .chg ul.feat li b { color:#14254a; }
-  .chg .bf { display:block; margin-top:8px; font-size:8.8pt; font-style:italic; color:#7a828f; }
-  .assure { background:#f3f6fc; font-size:9pt; color:#3a404a; padding:9px 18px; border-top:1px solid #e3e9f5; }
-  .assure b { color:#14254a; }
-  .mtm { background:#f3f6fc; border:1px solid #e3e9f5; border-radius:9px; font-size:9pt; color:#3a404a; padding:10px 16px; }
-  .mtm b { color:#14254a; }
-  .proj { font-size:9.4pt; font-style:italic; color:#555b66; margin:14px 0 10px; line-height:1.5; }
-  .proj b { color:#14254a; }
+  .chg ul.feat li::before { content:"\2713"; position:absolute; left:0; color:var(--recoup-link); font-weight:500; }
+  .chg ul.feat li b { color:var(--recoup-forest); }
+  .chg .bf { display:block; margin-top:8px; font-size:8.8pt; font-style:italic; color:var(--recoup-muted); }
+  .assure { background:var(--recoup-pale); font-size:9pt; color:var(--recoup-ink); padding:9px 18px; border-top:1px solid var(--recoup-border); }
+  .assure b { color:var(--recoup-forest); }
+  .mtm { background:var(--recoup-pale); border:1px solid var(--recoup-border); border-radius:9px; font-size:9pt; color:var(--recoup-ink); padding:10px 16px; }
+  .mtm b { color:var(--recoup-forest); }
+  .proj { font-size:9.4pt; font-style:italic; color:var(--recoup-muted); margin:14px 0 10px; line-height:1.5; }
+  .proj b { color:var(--recoup-forest); }
 
-  .close { background:#0b1020; border-radius:13px; padding:15px 20px; color:#dfe5f3; break-inside:avoid; }
-  .close .anchor { font-size:9.6pt; line-height:1.5; padding-bottom:11px; margin-bottom:11px; border-bottom:1px solid #232a39; }
+  .close { background:var(--recoup-forest); border-radius:13px; padding:15px 20px; color:var(--recoup-white); break-inside:avoid; }
+  .close .anchor { font-size:9.6pt; line-height:1.5; padding-bottom:11px; margin-bottom:11px; border-bottom:1px solid #586F78; }
   .close .anchor b { color:#fff; }
-  .close h4 { font-size:8.2pt; letter-spacing:.14em; text-transform:uppercase; color:#9bb2ec; font-weight:800; margin-bottom:8px; }
+  .close h4 { font-size:8.2pt; letter-spacing:.14em; text-transform:uppercase; color:var(--recoup-lime); font-weight:500; margin-bottom:8px; }
   .close ol { list-style:none; counter-reset:s; }
-  .close li { counter-increment:s; position:relative; padding-left:26px; margin-bottom:7px; font-size:9.6pt; line-height:1.4; color:#eef0f6; }
+  .close li { counter-increment:s; position:relative; padding-left:26px; margin-bottom:7px; font-size:9.6pt; line-height:1.4; color:var(--recoup-white); }
   .close li:last-child { margin-bottom:0; }
-  .close li::before { content:counter(s); position:absolute; left:0; top:-1px; width:17px; height:17px; background:#3f5fb0; color:#fff; border-radius:50%; font-size:8pt; font-weight:800; text-align:center; line-height:17px; }
+  .close li::before { content:counter(s); position:absolute; left:0; top:-1px; width:17px; height:17px; background:var(--recoup-link); color:#fff; border-radius:50%; font-size:8pt; font-weight:500; text-align:center; line-height:17px; }
   .close li b { color:#fff; }
 
-  .foot { font-size:8pt; color:#aeb3bb; text-align:center; margin-top:14px; }
+  .foot { font-size:8pt; color:var(--recoup-muted); text-align:center; margin-top:14px; }
 
+.doctitle,.steph,.prc{font-family:var(--brand-display-font),sans-serif;font-weight:500}
+  .kicker,.lbl,.stepnum,.runhead,.panel h3,.close h4{font-family:var(--brand-label-font),monospace;font-weight:400}
+  .brandrow img,.brandrow svg{width:145px;height:auto}.foot{font-size:8pt;color:var(--recoup-muted)}
 {{BRAND_CSS}}
 </style></head><body><div class="wrap">
 
   <div class="head">
-    <div class="dotwave"><svg viewBox="0 0 440 200" width="440" height="200" xmlns="http://www.w3.org/2000/svg"><circle cx="440.0" cy="12.0" r="2.30" fill="#16284c" opacity="0.55"/><circle cx="433.0" cy="9.1" r="2.28" fill="#16284c" opacity="0.543"/><circle cx="425.9" cy="6.2" r="2.26" fill="#16284c" opacity="0.537"/><circle cx="418.6" cy="3.3" r="2.24" fill="#16284c" opacity="0.53"/><circle cx="411.1" cy="0.4" r="2.21" fill="#16284c" opacity="0.523"/><circle cx="225.9" cy="1.1" r="1.67" fill="#16284c" opacity="0.349"/><circle cx="214.5" cy="4.8" r="1.63" fill="#16284c" opacity="0.339"/><circle cx="202.9" cy="8.6" r="1.60" fill="#16284c" opacity="0.328"/><circle cx="191.0" cy="12.3" r="1.56" fill="#16284c" opacity="0.317"/><circle cx="178.9" cy="15.7" r="1.53" fill="#16284c" opacity="0.305"/><circle cx="166.6" cy="18.8" r="1.49" fill="#16284c" opacity="0.294"/><circle cx="154.0" cy="21.3" r="1.45" fill="#16284c" opacity="0.282"/><circle cx="141.1" cy="23.2" r="1.42" fill="#16284c" opacity="0.27"/><circle cx="128.0" cy="24.4" r="1.38" fill="#16284c" opacity="0.258"/><circle cx="114.6" cy="24.6" r="1.34" fill="#16284c" opacity="0.245"/><circle cx="101.0" cy="23.9" r="1.30" fill="#16284c" opacity="0.232"/><circle cx="87.1" cy="22.2" r="1.26" fill="#16284c" opacity="0.219"/><circle cx="72.8" cy="19.4" r="1.22" fill="#16284c" opacity="0.206"/><circle cx="58.3" cy="15.6" r="1.17" fill="#16284c" opacity="0.192"/><circle cx="43.5" cy="10.9" r="1.13" fill="#16284c" opacity="0.178"/><circle cx="28.4" cy="5.4" r="1.08" fill="#16284c" opacity="0.164"/><circle cx="440.0" cy="40.9" r="2.30" fill="#16284c" opacity="0.55"/><circle cx="433.0" cy="38.0" r="2.28" fill="#16284c" opacity="0.543"/><circle cx="425.9" cy="34.9" r="2.26" fill="#16284c" opacity="0.537"/><circle cx="418.6" cy="31.7" r="2.24" fill="#16284c" opacity="0.53"/><circle cx="411.1" cy="28.4" r="2.21" fill="#16284c" opacity="0.523"/><circle cx="403.5" cy="24.9" r="2.19" fill="#16284c" opacity="0.516"/><circle cx="395.8" cy="21.4" r="2.17" fill="#16284c" opacity="0.509"/><circle cx="387.9" cy="17.9" r="2.15" fill="#16284c" opacity="0.501"/><circle cx="379.8" cy="14.3" r="2.12" fill="#16284c" opacity="0.494"/><circle cx="371.6" cy="10.9" r="2.10" fill="#16284c" opacity="0.486"/><circle cx="363.2" cy="7.6" r="2.07" fill="#16284c" opacity="0.478"/><circle cx="354.6" cy="4.4" r="2.05" fill="#16284c" opacity="0.47"/><circle cx="345.9" cy="1.5" r="2.02" fill="#16284c" opacity="0.462"/><circle cx="225.9" cy="2.3" r="1.67" fill="#16284c" opacity="0.349"/><circle cx="214.5" cy="5.9" r="1.63" fill="#16284c" opacity="0.339"/><circle cx="202.9" cy="10.0" r="1.60" fill="#16284c" opacity="0.328"/><circle cx="191.0" cy="14.3" r="1.56" fill="#16284c" opacity="0.317"/><circle cx="178.9" cy="18.8" r="1.53" fill="#16284c" opacity="0.305"/><circle cx="166.6" cy="23.3" r="1.49" fill="#16284c" opacity="0.294"/><circle cx="154.0" cy="27.7" r="1.45" fill="#16284c" opacity="0.282"/><circle cx="141.1" cy="31.8" r="1.42" fill="#16284c" opacity="0.27"/><circle cx="128.0" cy="35.3" r="1.38" fill="#16284c" opacity="0.258"/><circle cx="114.6" cy="38.2" r="1.34" fill="#16284c" opacity="0.245"/><circle cx="101.0" cy="40.2" r="1.30" fill="#16284c" opacity="0.232"/><circle cx="87.1" cy="41.1" r="1.26" fill="#16284c" opacity="0.219"/><circle cx="72.8" cy="41.0" r="1.22" fill="#16284c" opacity="0.206"/><circle cx="58.3" cy="39.6" r="1.17" fill="#16284c" opacity="0.192"/><circle cx="43.5" cy="36.9" r="1.13" fill="#16284c" opacity="0.178"/><circle cx="28.4" cy="33.0" r="1.08" fill="#16284c" opacity="0.164"/><circle cx="13.0" cy="27.9" r="1.04" fill="#16284c" opacity="0.15"/><circle cx="-2.7" cy="21.8" r="0.99" fill="#16284c" opacity="0.135"/><circle cx="440.0" cy="68.9" r="2.30" fill="#16284c" opacity="0.55"/><circle cx="433.0" cy="66.8" r="2.28" fill="#16284c" opacity="0.543"/><circle cx="425.9" cy="64.3" r="2.26" fill="#16284c" opacity="0.537"/><circle cx="418.6" cy="61.6" r="2.24" fill="#16284c" opacity="0.53"/><circle cx="411.1" cy="58.6" r="2.21" fill="#16284c" opacity="0.523"/><circle cx="403.5" cy="55.3" r="2.19" fill="#16284c" opacity="0.516"/><circle cx="395.8" cy="51.7" r="2.17" fill="#16284c" opacity="0.509"/><circle cx="387.9" cy="48.0" r="2.15" fill="#16284c" opacity="0.501"/><circle cx="379.8" cy="44.0" r="2.12" fill="#16284c" opacity="0.494"/><circle cx="371.6" cy="39.9" r="2.10" fill="#16284c" opacity="0.486"/><circle cx="363.2" cy="35.8" r="2.07" fill="#16284c" opacity="0.478"/><circle cx="354.6" cy="31.5" r="2.05" fill="#16284c" opacity="0.47"/><circle cx="345.9" cy="27.4" r="2.02" fill="#16284c" opacity="0.462"/><circle cx="336.9" cy="23.2" r="2.00" fill="#16284c" opacity="0.453"/><circle cx="327.8" cy="19.3" r="1.97" fill="#16284c" opacity="0.445"/><circle cx="318.5" cy="15.6" r="1.94" fill="#16284c" opacity="0.436"/><circle cx="309.1" cy="12.2" r="1.91" fill="#16284c" opacity="0.427"/><circle cx="299.4" cy="9.2" r="1.88" fill="#16284c" opacity="0.418"/><circle cx="289.5" cy="6.6" r="1.86" fill="#16284c" opacity="0.409"/><circle cx="279.4" cy="4.7" r="1.83" fill="#16284c" opacity="0.399"/><circle cx="269.1" cy="3.3" r="1.80" fill="#16284c" opacity="0.39"/><circle cx="258.7" cy="2.6" r="1.76" fill="#16284c" opacity="0.38"/><circle cx="247.9" cy="2.6" r="1.73" fill="#16284c" opacity="0.37"/><circle cx="237.0" cy="3.4" r="1.70" fill="#16284c" opacity="0.36"/><circle cx="225.9" cy="5.0" r="1.67" fill="#16284c" opacity="0.349"/><circle cx="214.5" cy="7.3" r="1.63" fill="#16284c" opacity="0.339"/><circle cx="202.9" cy="10.4" r="1.60" fill="#16284c" opacity="0.328"/><circle cx="191.0" cy="14.1" r="1.56" fill="#16284c" opacity="0.317"/><circle cx="178.9" cy="18.5" r="1.53" fill="#16284c" opacity="0.305"/><circle cx="166.6" cy="23.3" r="1.49" fill="#16284c" opacity="0.294"/><circle cx="154.0" cy="28.5" r="1.45" fill="#16284c" opacity="0.282"/><circle cx="141.1" cy="33.8" r="1.42" fill="#16284c" opacity="0.27"/><circle cx="128.0" cy="39.1" r="1.38" fill="#16284c" opacity="0.258"/><circle cx="114.6" cy="44.2" r="1.34" fill="#16284c" opacity="0.245"/><circle cx="101.0" cy="48.7" r="1.30" fill="#16284c" opacity="0.232"/><circle cx="87.1" cy="52.6" r="1.26" fill="#16284c" opacity="0.219"/><circle cx="72.8" cy="55.5" r="1.22" fill="#16284c" opacity="0.206"/><circle cx="58.3" cy="57.3" r="1.17" fill="#16284c" opacity="0.192"/><circle cx="43.5" cy="57.7" r="1.13" fill="#16284c" opacity="0.178"/><circle cx="28.4" cy="56.7" r="1.08" fill="#16284c" opacity="0.164"/><circle cx="13.0" cy="54.2" r="1.04" fill="#16284c" opacity="0.15"/><circle cx="-2.7" cy="50.1" r="0.99" fill="#16284c" opacity="0.135"/><circle cx="440.0" cy="91.9" r="2.30" fill="#16284c" opacity="0.55"/><circle cx="433.0" cy="91.2" r="2.28" fill="#16284c" opacity="0.543"/><circle cx="425.9" cy="90.1" r="2.26" fill="#16284c" opacity="0.537"/><circle cx="418.6" cy="88.7" r="2.24" fill="#16284c" opacity="0.53"/><circle cx="411.1" cy="86.8" r="2.21" fill="#16284c" opacity="0.523"/><circle cx="403.5" cy="84.6" r="2.19" fill="#16284c" opacity="0.516"/><circle cx="395.8" cy="81.9" r="2.17" fill="#16284c" opacity="0.509"/><circle cx="387.9" cy="78.9" r="2.15" fill="#16284c" opacity="0.501"/><circle cx="379.8" cy="75.5" r="2.12" fill="#16284c" opacity="0.494"/><circle cx="371.6" cy="71.7" r="2.10" fill="#16284c" opacity="0.486"/><circle cx="363.2" cy="67.6" r="2.07" fill="#16284c" opacity="0.478"/><circle cx="354.6" cy="63.2" r="2.05" fill="#16284c" opacity="0.47"/><circle cx="345.9" cy="58.6" r="2.02" fill="#16284c" opacity="0.462"/><circle cx="336.9" cy="53.8" r="2.00" fill="#16284c" opacity="0.453"/><circle cx="327.8" cy="48.9" r="1.97" fill="#16284c" opacity="0.445"/><circle cx="318.5" cy="43.9" r="1.94" fill="#16284c" opacity="0.436"/><circle cx="309.1" cy="39.0" r="1.91" fill="#16284c" opacity="0.427"/><circle cx="299.4" cy="34.2" r="1.88" fill="#16284c" opacity="0.418"/><circle cx="289.5" cy="29.7" r="1.86" fill="#16284c" opacity="0.409"/><circle cx="279.4" cy="25.5" r="1.83" fill="#16284c" opacity="0.399"/><circle cx="269.1" cy="21.8" r="1.80" fill="#16284c" opacity="0.39"/><circle cx="258.7" cy="18.6" r="1.76" fill="#16284c" opacity="0.38"/><circle cx="247.9" cy="16.0" r="1.73" fill="#16284c" opacity="0.37"/><circle cx="237.0" cy="14.2" r="1.70" fill="#16284c" opacity="0.36"/><circle cx="225.9" cy="13.2" r="1.67" fill="#16284c" opacity="0.349"/><circle cx="214.5" cy="13.2" r="1.63" fill="#16284c" opacity="0.339"/><circle cx="202.9" cy="14.0" r="1.60" fill="#16284c" opacity="0.328"/><circle cx="191.0" cy="15.8" r="1.56" fill="#16284c" opacity="0.317"/><circle cx="178.9" cy="18.6" r="1.53" fill="#16284c" opacity="0.305"/><circle cx="166.6" cy="22.3" r="1.49" fill="#16284c" opacity="0.294"/><circle cx="154.0" cy="26.8" r="1.45" fill="#16284c" opacity="0.282"/><circle cx="141.1" cy="32.0" r="1.42" fill="#16284c" opacity="0.27"/><circle cx="128.0" cy="37.7" r="1.38" fill="#16284c" opacity="0.258"/><circle cx="114.6" cy="43.8" r="1.34" fill="#16284c" opacity="0.245"/><circle cx="101.0" cy="50.1" r="1.30" fill="#16284c" opacity="0.232"/><circle cx="87.1" cy="56.1" r="1.26" fill="#16284c" opacity="0.219"/><circle cx="72.8" cy="61.8" r="1.22" fill="#16284c" opacity="0.206"/><circle cx="58.3" cy="66.7" r="1.17" fill="#16284c" opacity="0.192"/><circle cx="43.5" cy="70.6" r="1.13" fill="#16284c" opacity="0.178"/><circle cx="28.4" cy="73.2" r="1.08" fill="#16284c" opacity="0.164"/><circle cx="13.0" cy="74.3" r="1.04" fill="#16284c" opacity="0.15"/><circle cx="-2.7" cy="73.7" r="0.99" fill="#16284c" opacity="0.135"/><circle cx="440.0" cy="106.6" r="2.30" fill="#16284c" opacity="0.55"/><circle cx="433.0" cy="107.7" r="2.28" fill="#16284c" opacity="0.543"/><circle cx="425.9" cy="108.4" r="2.26" fill="#16284c" opacity="0.537"/><circle cx="418.6" cy="108.8" r="2.24" fill="#16284c" opacity="0.53"/><circle cx="411.1" cy="108.8" r="2.21" fill="#16284c" opacity="0.523"/><circle cx="403.5" cy="108.3" r="2.19" fill="#16284c" opacity="0.516"/><circle cx="395.8" cy="107.4" r="2.17" fill="#16284c" opacity="0.509"/><circle cx="387.9" cy="106.0" r="2.15" fill="#16284c" opacity="0.501"/><circle cx="379.8" cy="104.1" r="2.12" fill="#16284c" opacity="0.494"/><circle cx="371.6" cy="101.6" r="2.10" fill="#16284c" opacity="0.486"/><circle cx="363.2" cy="98.7" r="2.07" fill="#16284c" opacity="0.478"/><circle cx="354.6" cy="95.3" r="2.05" fill="#16284c" opacity="0.47"/><circle cx="345.9" cy="91.3" r="2.02" fill="#16284c" opacity="0.462"/><circle cx="336.9" cy="86.9" r="2.00" fill="#16284c" opacity="0.453"/><circle cx="327.8" cy="82.2" r="1.97" fill="#16284c" opacity="0.445"/><circle cx="318.5" cy="77.0" r="1.94" fill="#16284c" opacity="0.436"/><circle cx="309.1" cy="71.6" r="1.91" fill="#16284c" opacity="0.427"/><circle cx="299.4" cy="65.9" r="1.88" fill="#16284c" opacity="0.418"/><circle cx="289.5" cy="60.2" r="1.86" fill="#16284c" opacity="0.409"/><circle cx="279.4" cy="54.5" r="1.83" fill="#16284c" opacity="0.399"/><circle cx="269.1" cy="48.8" r="1.80" fill="#16284c" opacity="0.39"/><circle cx="258.7" cy="43.5" r="1.76" fill="#16284c" opacity="0.38"/><circle cx="247.9" cy="38.4" r="1.73" fill="#16284c" opacity="0.37"/><circle cx="237.0" cy="34.0" r="1.70" fill="#16284c" opacity="0.36"/><circle cx="225.9" cy="30.1" r="1.67" fill="#16284c" opacity="0.349"/><circle cx="214.5" cy="27.1" r="1.63" fill="#16284c" opacity="0.339"/><circle cx="202.9" cy="24.9" r="1.60" fill="#16284c" opacity="0.328"/><circle cx="191.0" cy="23.8" r="1.56" fill="#16284c" opacity="0.317"/><circle cx="178.9" cy="23.8" r="1.53" fill="#16284c" opacity="0.305"/><circle cx="166.6" cy="24.9" r="1.49" fill="#16284c" opacity="0.294"/><circle cx="154.0" cy="27.2" r="1.45" fill="#16284c" opacity="0.282"/><circle cx="141.1" cy="30.6" r="1.42" fill="#16284c" opacity="0.27"/><circle cx="128.0" cy="35.1" r="1.38" fill="#16284c" opacity="0.258"/><circle cx="114.6" cy="40.6" r="1.34" fill="#16284c" opacity="0.245"/><circle cx="101.0" cy="46.9" r="1.30" fill="#16284c" opacity="0.232"/><circle cx="87.1" cy="53.7" r="1.26" fill="#16284c" opacity="0.219"/><circle cx="72.8" cy="60.8" r="1.22" fill="#16284c" opacity="0.206"/><circle cx="58.3" cy="67.9" r="1.17" fill="#16284c" opacity="0.192"/><circle cx="43.5" cy="74.7" r="1.13" fill="#16284c" opacity="0.178"/><circle cx="28.4" cy="80.7" r="1.08" fill="#16284c" opacity="0.164"/><circle cx="13.0" cy="85.6" r="1.04" fill="#16284c" opacity="0.15"/><circle cx="-2.7" cy="89.0" r="0.99" fill="#16284c" opacity="0.135"/><circle cx="440.0" cy="111.5" r="2.30" fill="#16284c" opacity="0.55"/><circle cx="433.0" cy="114.4" r="2.28" fill="#16284c" opacity="0.543"/><circle cx="425.9" cy="117.0" r="2.26" fill="#16284c" opacity="0.537"/><circle cx="418.6" cy="119.4" r="2.24" fill="#16284c" opacity="0.53"/><circle cx="411.1" cy="121.5" r="2.21" fill="#16284c" opacity="0.523"/><circle cx="403.5" cy="123.1" r="2.19" fill="#16284c" opacity="0.516"/><circle cx="395.8" cy="124.4" r="2.17" fill="#16284c" opacity="0.509"/><circle cx="387.9" cy="125.2" r="2.15" fill="#16284c" opacity="0.501"/><circle cx="379.8" cy="125.4" r="2.12" fill="#16284c" opacity="0.494"/><circle cx="371.6" cy="125.2" r="2.10" fill="#16284c" opacity="0.486"/><circle cx="363.2" cy="124.3" r="2.07" fill="#16284c" opacity="0.478"/><circle cx="354.6" cy="122.8" r="2.05" fill="#16284c" opacity="0.47"/><circle cx="345.9" cy="120.7" r="2.02" fill="#16284c" opacity="0.462"/><circle cx="336.9" cy="117.9" r="2.00" fill="#16284c" opacity="0.453"/><circle cx="327.8" cy="114.5" r="1.97" fill="#16284c" opacity="0.445"/><circle cx="318.5" cy="110.4" r="1.94" fill="#16284c" opacity="0.436"/><circle cx="309.1" cy="105.8" r="1.91" fill="#16284c" opacity="0.427"/><circle cx="299.4" cy="100.6" r="1.88" fill="#16284c" opacity="0.418"/><circle cx="289.5" cy="94.9" r="1.86" fill="#16284c" opacity="0.409"/><circle cx="279.4" cy="88.9" r="1.83" fill="#16284c" opacity="0.399"/><circle cx="269.1" cy="82.5" r="1.80" fill="#16284c" opacity="0.39"/><circle cx="258.7" cy="75.9" r="1.76" fill="#16284c" opacity="0.38"/><circle cx="247.9" cy="69.3" r="1.73" fill="#16284c" opacity="0.37"/><circle cx="237.0" cy="62.8" r="1.70" fill="#16284c" opacity="0.36"/><circle cx="225.9" cy="56.5" r="1.67" fill="#16284c" opacity="0.349"/><circle cx="214.5" cy="50.7" r="1.63" fill="#16284c" opacity="0.339"/><circle cx="202.9" cy="45.5" r="1.60" fill="#16284c" opacity="0.328"/><circle cx="191.0" cy="41.1" r="1.56" fill="#16284c" opacity="0.317"/><circle cx="178.9" cy="37.7" r="1.53" fill="#16284c" opacity="0.305"/><circle cx="166.6" cy="35.4" r="1.49" fill="#16284c" opacity="0.294"/><circle cx="154.0" cy="34.3" r="1.45" fill="#16284c" opacity="0.282"/><circle cx="141.1" cy="34.6" r="1.42" fill="#16284c" opacity="0.27"/><circle cx="128.0" cy="36.2" r="1.38" fill="#16284c" opacity="0.258"/><circle cx="114.6" cy="39.3" r="1.34" fill="#16284c" opacity="0.245"/><circle cx="101.0" cy="43.7" r="1.30" fill="#16284c" opacity="0.232"/><circle cx="87.1" cy="49.4" r="1.26" fill="#16284c" opacity="0.219"/><circle cx="72.8" cy="56.1" r="1.22" fill="#16284c" opacity="0.206"/><circle cx="58.3" cy="63.6" r="1.17" fill="#16284c" opacity="0.192"/><circle cx="43.5" cy="71.6" r="1.13" fill="#16284c" opacity="0.178"/><circle cx="28.4" cy="79.7" r="1.08" fill="#16284c" opacity="0.164"/><circle cx="13.0" cy="87.6" r="1.04" fill="#16284c" opacity="0.15"/><circle cx="-2.7" cy="94.7" r="0.99" fill="#16284c" opacity="0.135"/><circle cx="440.0" cy="108.2" r="2.30" fill="#16284c" opacity="0.55"/><circle cx="433.0" cy="112.2" r="2.28" fill="#16284c" opacity="0.543"/><circle cx="425.9" cy="116.2" r="2.26" fill="#16284c" opacity="0.537"/><circle cx="418.6" cy="120.2" r="2.24" fill="#16284c" opacity="0.53"/><circle cx="411.1" cy="124.0" r="2.21" fill="#16284c" opacity="0.523"/><circle cx="403.5" cy="127.6" r="2.19" fill="#16284c" opacity="0.516"/><circle cx="395.8" cy="130.9" r="2.17" fill="#16284c" opacity="0.509"/><circle cx="387.9" cy="133.9" r="2.15" fill="#16284c" opacity="0.501"/><circle cx="379.8" cy="136.6" r="2.12" fill="#16284c" opacity="0.494"/><circle cx="371.6" cy="138.8" r="2.10" fill="#16284c" opacity="0.486"/><circle cx="363.2" cy="140.4" r="2.07" fill="#16284c" opacity="0.478"/><circle cx="354.6" cy="141.5" r="2.05" fill="#16284c" opacity="0.47"/><circle cx="345.9" cy="142.0" r="2.02" fill="#16284c" opacity="0.462"/><circle cx="336.9" cy="141.7" r="2.00" fill="#16284c" opacity="0.453"/><circle cx="327.8" cy="140.8" r="1.97" fill="#16284c" opacity="0.445"/><circle cx="318.5" cy="139.0" r="1.94" fill="#16284c" opacity="0.436"/><circle cx="309.1" cy="136.4" r="1.91" fill="#16284c" opacity="0.427"/><circle cx="299.4" cy="133.1" r="1.88" fill="#16284c" opacity="0.418"/><circle cx="289.5" cy="128.9" r="1.86" fill="#16284c" opacity="0.409"/><circle cx="279.4" cy="124.0" r="1.83" fill="#16284c" opacity="0.399"/><circle cx="269.1" cy="118.4" r="1.80" fill="#16284c" opacity="0.39"/><circle cx="258.7" cy="112.1" r="1.76" fill="#16284c" opacity="0.38"/><circle cx="247.9" cy="105.3" r="1.73" fill="#16284c" opacity="0.37"/><circle cx="237.0" cy="98.1" r="1.70" fill="#16284c" opacity="0.36"/><circle cx="225.9" cy="90.7" r="1.67" fill="#16284c" opacity="0.349"/><circle cx="214.5" cy="83.2" r="1.63" fill="#16284c" opacity="0.339"/><circle cx="202.9" cy="75.7" r="1.60" fill="#16284c" opacity="0.328"/><circle cx="191.0" cy="68.6" r="1.56" fill="#16284c" opacity="0.317"/><circle cx="178.9" cy="62.0" r="1.53" fill="#16284c" opacity="0.305"/><circle cx="166.6" cy="56.2" r="1.49" fill="#16284c" opacity="0.294"/><circle cx="154.0" cy="51.4" r="1.45" fill="#16284c" opacity="0.282"/><circle cx="141.1" cy="47.8" r="1.42" fill="#16284c" opacity="0.27"/><circle cx="128.0" cy="45.5" r="1.38" fill="#16284c" opacity="0.258"/><circle cx="114.6" cy="44.8" r="1.34" fill="#16284c" opacity="0.245"/><circle cx="101.0" cy="45.7" r="1.30" fill="#16284c" opacity="0.232"/><circle cx="87.1" cy="48.3" r="1.26" fill="#16284c" opacity="0.219"/><circle cx="72.8" cy="52.6" r="1.22" fill="#16284c" opacity="0.206"/><circle cx="58.3" cy="58.3" r="1.17" fill="#16284c" opacity="0.192"/><circle cx="43.5" cy="65.5" r="1.13" fill="#16284c" opacity="0.178"/><circle cx="28.4" cy="73.7" r="1.08" fill="#16284c" opacity="0.164"/><circle cx="13.0" cy="82.6" r="1.04" fill="#16284c" opacity="0.15"/><circle cx="-2.7" cy="91.8" r="0.99" fill="#16284c" opacity="0.135"/></svg></div>
-    <div class="brandrow">{{BRAND_NAME}}</div>
+    <div class="brandrow">{{BRAND_LOCKUP_HTML}}</div>
     <div class="kicker">Proposal</div>
     <div class="doctitle">{{DOC_TITLE}}</div>
     <div class="meta">Prepared for {{CLIENT_CONTACT}}, {{CLIENT_NAME}}</div>
@@ -160,7 +161,7 @@
       </ol>
     </div>
 
-    <div class="foot">{{BRAND_NAME}} &nbsp;&middot;&nbsp; {{BRAND_TAGLINE}} &nbsp;&middot;&nbsp; {{AUTHOR_NAME}} &nbsp;&middot;&nbsp; {{DOC_DATE}}</div>
+    <div class="foot">{{BRAND_NAME}} &nbsp;&middot;&nbsp; {{BRAND_TAGLINE}} &nbsp;&middot;&nbsp; {{DOC_DATE}}</div>
   </div>
 
 </div></body></html>

@@ -1,11 +1,21 @@
 ---
 name: embedded-captions
-description: 'Add captions to a talking-head video. ONE catalog (CATALOG.md) of 32 visual identities behind two engines: column-flow (captions composited INTO the scene — matte occlusion + mix-blend; cream/ink/editorial/keynote/documentary/loud/neon/glitch/chrome/velocity) and themed constitutions (anchor/ordnance/terminal/neonsign/stardust/stomp/scoreboard/transit/vhs/arcade/dossier/laser/thunder/hologram/biolume/aurora/spectrum/papercut/popup/chalkboard/graffiti/brush/inkwater/ransom/lastpage/nightcity — e.g. a glyph-decode climax, a neon sign WRITTEN stroke by stroke, or the quiet `anchor` rail default). Route by identity, never by mode. Trigger on "captions/subtitles", "embed/cinematic captions", "VFX captions", "炸/特效/酷炫字幕", a named identity, or top-tier motion-graphics asks. Embedding every word is wrong for most talking-head content — `anchor` is the verbatim default. Pipeline: transcription → hyperframes remove-background matting → HTML render → ffmpeg overlay. Requires hyperframes and a single-subject clip.'
+description: "Add readable captions and optional embedded emphasis to talking-head video. Recoup house work defaults to the packaged recoup-sky theme with DM Sans, a forest plate and lime emphasis; an explicit other identity can use the existing caption catalogue. Transcribes, renders and composites while checking timing, overflow and occlusion."
 metadata:
   tags: captions, embedded-captions, occlusion, matting, talking-head, rembg-matting, whisper, ffmpeg, cinematic
 ---
 
 # Embedded Captions
+
+## Selected brand
+
+For Recoup/Consulting/Business, read `../../brand/GUIDE.md` and stage
+`node <video-skill>/brand/materialize.mjs <project-directory>`. Use the packaged CSS/fonts/exact SVGs.
+Identity is selected before frame.md; a frame can change layout/timing but cannot replace the brand.
+Generic style catalogues below are alternatives for an explicit other brand, not Recoup defaults.
+An explicitly selected client/artist identity or fidelity-only migration preserves that identity.
+Record brand/version, expression and reference IDs with editable sources in the existing output folder.
+
 
 **Portable setup:** read `../../engine/runtime/SETUP.md` for the pinned runtime. Resolve bundled resources from this
 installed skill and write outputs into the selected project. Brand fonts and identity come from that
@@ -14,7 +24,7 @@ Keep original asset notices. Use approved workspace fonts for deliverables; opti
 assets do not grant commercial usage rights. Client stories and figures in templates are illustrative,
 never evidence of a real result. Missing provider access remains a reported gap.
 
-**One catalog, picked up front** ([CATALOG.md](CATALOG.md) — 17 identities; the three engines behind it are backend detail). **Standard** (default) builds a clean verbatim **rail** (lower-third subtitle carrying most text) + an **embed** climax composited _into_ the scene behind the subject at the peak. **Cinematic** is pure embed — no rail, every caption composited behind the subject (hero typography, accumulation, occlusion as the effect). **Theme** is a complete themed constitution — body paradigm × hero setpiece × front fx × plate reaction, composed from registries ([themes/README.md](themes/README.md)): `ordnance` `terminal` `neonsign` `stardust` `stomp`. Most explainer / voiceover is **Standard**; **embed is the scarce, earned peak** — embedding every word is the common mistake; Theme is for VFX-grade asks ("炸", "特效", "像 AE 做的").
+**House route:** Recoup Sky → `theme.json` with `dna: "recoup-sky"` → `make-theme.cjs` → existing render/composite and timing/overflow/occlusion gates. Most words stay on the readable foreground rail; an optional embedded peak is a deliberate choice. The generic catalog remains for explicitly different identities. The brand is already selected for house work; don't route it through the old Standard/anchor default.
 
 ---
 
@@ -27,7 +37,7 @@ deterministic is computed or compiled, never hand-written:
 2. `hyperframes init` (skip it if the project dir already exists with the video inside — `matte.cjs`/`transcribe.cjs` adopt any video in the dir as source.mp4) → **`bash scripts/prepare.sh <project>`** (matte ∥ transcribe ∥ audio-envelope in parallel, then safe-zones v2 with scene palette/optics/lighting — one command, nothing forgotten)
 3. **author a small JSON of creative choices** (read `safe-zones.json` first):
    Cinematic → `plan.json` → `fill-timings.cjs` → `fit-fonts.cjs` → `make-composition.cjs`;
-   Theme → `theme.json` → `make-theme.cjs` (rail/panel/poem/takeover paradigms; `anchor` is the quiet rail default)
+   Theme → `theme.json` → `make-theme.cjs` (rail/panel/poem/takeover paradigms; `recoup-sky` is the house rail default; `anchor` is a generic alternative)
 4. **Visual QA**: `node scripts/preview-frames.cjs <project>` → faithful composite previews in ~2s/frame (no render). Check § Visual QA before paying for a render.
 5. `render-and-composite.sh` → gates (timing / occlusion+hero / overflow / hand-off) → `final.mp4`
 
@@ -71,11 +81,11 @@ recommend ONE with a one-line why → **the user picks** → author that identit
 file. Identities are engine-locked (no cross combos; opening one is a
 validation event — see dna/README.md).
 
-**Always present your recommendation and let the user pick before you author.** Don't silently default.
+For house work, use the known Recoup identity. Ask only about unresolved creative choices that matter; honor delegated defaults. For another brand, recommend from the generic catalog.
 
 (The full identity table lives in [CATALOG.md](CATALOG.md) — single source of truth for routing. The engine docs below describe each backend's authoring contract.)
 
-**Recommendation heuristic**: use the "Shortlisting heuristics" in [CATALOG.md](CATALOG.md) — they are identity-level (e.g. "炸" shortlists ordnance/stomp/terminal/loud and picks by WHAT should explode), never category-level. Unsure → `anchor`.
+**Recommendation heuristic**: use the "Shortlisting heuristics" in [CATALOG.md](CATALOG.md) — they are identity-level (e.g. "炸" shortlists ordnance/stomp/terminal/loud and picks by WHAT should explode), never category-level. Recoup house work → `recoup-sky`; unknown external identity → recommend `anchor`.
 
 - **Cinematic** → write `plan.json` for a locked template, compiled by `make-composition.cjs`.
 - **Theme** → read [themes/README.md](themes/README.md), author `theme.json`, run `scripts/render-theme.sh` (compiles + renders + plate reaction → **final_fx.mp4**).

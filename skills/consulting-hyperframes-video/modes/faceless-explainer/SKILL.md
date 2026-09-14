@@ -5,6 +5,16 @@ description: "turn arbitrary text — an article, notes, a topic, a brief — in
 
 # Faceless Explainer to HyperFrames
 
+## Selected brand
+
+For Recoup/Consulting/Business, read `../../brand/GUIDE.md` and stage
+`node <video-skill>/brand/materialize.mjs <project-directory>`. Use the packaged CSS/fonts/exact SVGs.
+Identity is selected before frame.md; a frame can change layout/timing but cannot replace the brand.
+Generic style catalogues below are alternatives for an explicit other brand, not Recoup defaults.
+An explicitly selected client/artist identity or fidelity-only migration preserves that identity.
+Record brand/version, expression and reference IDs with editable sources in the existing output folder.
+
+
 **Portable setup:** read `../../engine/runtime/SETUP.md` for the pinned runtime. Resolve bundled resources from this
 installed skill and write outputs into the selected project. Brand fonts and identity come from that
 workspace's `DESIGN.md` or supplied brief; preset fonts and logos are examples, not required defaults.
@@ -41,7 +51,7 @@ Goal: Fold the user's text into the project as the source of information. There 
 Save the user's full input verbatim, then create the synthetic capture package by hand:
 
 - `capture/extracted/visible-text.txt` — the full article / notes / topic / brief, verbatim. This is the source of **information**, not a story template (Step 3 reshapes it).
-- `capture/extracted/tokens.json` — `{ "title": "", "description": "", "colors": [], "fonts": [] }`. Fill `title`/`description` from the brief. Leave `colors`/`fonts` empty unless the user explicitly gave brand colors or fonts — then add them (the design preset supplies a complete palette regardless).
+- `capture/extracted/tokens.json` — `{ "title": "", "description": "", "colors": [], "fonts": [] }`. Fill `title`/`description` from the brief. These capture fields may be empty: Step 2 resolves Recoup from the bundled package, not from a guessed preset.
 
 Do **not** run `npx hyperframes capture` (there is no URL). Do not create `asset-descriptions.md` or populate `capture/assets/` — faceless visuals are invented in Steps 4-5, not captured. The one exception: if the user supplied a real image, place it under `public/<basename>` and note it for Step 3.
 
@@ -51,19 +61,22 @@ Do **not** run `npx hyperframes capture` (there is no URL). Do not create `asset
 
 ## Step 2: Design System
 
-Goal: Choose one shipped frame preset; a script turns it into this video's `frame.md` + caption skin.
+Goal: resolve the selected identity before authoring frames.
 
-You make the one judgment call — **which preset**. Read `../../engine/hyperframes-creative/references/design-spec.md` and browse `../../engine/hyperframes-creative/frame-presets`; pick the preset whose look best fits the topic, tone, and audience. Then run:
+For Recoup/Consulting/Business run:
 
 ```bash
-node <SKILL_DIR>/scripts/build-frame.mjs --preset <name> --hyperframes .
+node <SKILL_DIR>/scripts/build-frame.mjs --brand recoup-sky --hyperframes .
 ```
 
-The script does the rest deterministically: copies the preset's `FRAME.md` → `frame.md` and **remixes** it onto any brand tokens in `capture/extracted/tokens.json` (brand colors mapped onto the preset's color keys by role; the preset's display + body fonts swapped for the brand's), copies the preset's `caption-skin.html` verbatim, and self-validates (exits 1 on a broken mapping). Proceed as soon as it exits 0 — no hand-editing of the spec.
+This stages a versioned frame, exact font/logo files, caption skin and brand.lock.json from the
+bundled package. Colors map exactly by role; display/body are DM Sans, labels IBM Plex Mono.
+Empty capture tokens cannot substitute a vendor identity. Load recoup-brand/brand.css in each page.
+For an explicitly different client/artist brand use `--brand source --preset <name>` and supply
+its source tokens/fonts/caption styling. Its `typography.display.family` and `typography.body.family`
+roles take precedence over the legacy font array. Review the source preset's caption skin as well.
 
-A faceless explainer usually has **no brand colors/fonts** (`tokens.json` colors/fonts empty) → the script keeps the preset's own palette, a complete shippable design. Only when the user named brand colors/fonts add them to `tokens.json` before running, and only adjust `frame.md` by hand afterward if a mapping truly needs it.
-
-**Gate:** `build-frame.mjs` exited 0 — `frame.md` exists from a named preset, and (when the preset ships one) `caption-skin.html` is at the project root.
+**Gate:** builder exits 0; inspect frame.md, caption-skin.html, font loading and brand.lock.json.
 
 ---
 

@@ -5,6 +5,16 @@ description: "Package an existing talking-head / interview / podcast video by la
 
 # Graphic Overlays
 
+## Selected brand
+
+For Recoup/Consulting/Business, read `../../brand/GUIDE.md` and stage
+`node <video-skill>/brand/materialize.mjs <project-directory>`. Use the packaged CSS/fonts/exact SVGs.
+Identity is selected before frame.md; a frame can change layout/timing but cannot replace the brand.
+Generic style catalogues below are alternatives for an explicit other brand, not Recoup defaults.
+An explicitly selected client/artist identity or fidelity-only migration preserves that identity.
+Record brand/version, expression and reference IDs with editable sources in the existing output folder.
+
+
 **Portable setup:** read `../../engine/runtime/SETUP.md` for the pinned runtime. Resolve bundled resources from this
 installed skill and write outputs into the selected project. Brand fonts and identity come from that
 workspace's `DESIGN.md` or supplied brief; preset fonts and logos are examples, not required defaults.
@@ -139,7 +149,7 @@ the composition you author in Step 9:
     "height": 1920,
     "durationSeconds": 121.2,
     "layout": "portrait",
-    "themeId": "noir",
+    "themeId": "recoup-sky",
     "seed": 42
   },
   "videoTrack": {
@@ -254,6 +264,15 @@ shape that captures the data. The agent decides the shape per card.
 
 **Optional outro.** This skill ships **no fixed brand outro**. If the user wants a closing card, design a neutral one yourself (wordmark + one-line tagline, ~1.5-2s, fade in -> short hold -> fade out), append it to `cards[]`, and extend `composition.durationSeconds` to its `endSec`. Otherwise end on the last content card.
 
+### Recoup style selection
+
+For house work set `themeId`/`style` to `recoup-sky` and use `references/styles/recoup-sky.html`.
+Read relevant Blue sweep camera-frame references from ../../brand/finals.json. Stage the brand
+package into the public composition directory before assembly; load its CSS and exact logo path.
+Camera openings remain transparent. Use the input aspect ratio and an appropriate layout; do not
+ask the known brand/style question again. The following questionnaire applies only to unresolved
+format/layout choices or an explicitly different brand. Honor delegated defaults.
+
 ### 7. Decide Render Strategy
 
 #### Confirm Visual Direction with User (DO THIS FIRST)
@@ -302,8 +321,7 @@ Rules that apply to every channel:
 - If the user has already pre-approved defaults ("just use defaults",
   "no need to ask", "auto-pick everything") or asked you not to ask — **skip
   the question entirely** and use: `recommendedRatio`, `layout="stack"`
-  (safest cross-ratio default), `style` chosen from transcript tone in
-  the most neutral group (editorial/data), `autoCount`. Tell the user
+  (safest cross-ratio default), `style="recoup-sky"` for house work (otherwise selected client identity), `autoCount`. Tell the user
   what you picked in one sentence and continue.
 
 **Channel A — native `AskUserQuestion`:**

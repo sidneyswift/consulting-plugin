@@ -5,6 +5,16 @@ description: "Generate AI media for content by driving the Higgsfield CLI — ph
 
 # Consulting Higgsfield
 
+## Current brand
+
+Recoup/Consulting/Business work defaults to **Recoup Sky**. Read `brand/GUIDE.md` and the workspace
+`DESIGN.md`; explicit client/artist branding or a fidelity-only migration wins. Stage local resources:
+`node <installed-skill>/brand/materialize.mjs <output-directory>`. Use its CSS, actual DM Sans/IBM Plex
+Mono fonts, exact outlined SVG logo, and `brand/finals.json` reference IDs. No recurring brand setup
+question. Save editable source and `brand.lock.json` with reference IDs/expression beside the output.
+Marketing owns the authored identity; the bundled snapshot works without another checkout.
+
+
 **Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
 Reality headings. Business paths below are relative to that project. Bundled resources are relative
 to this installed skill; sibling capabilities resolve by their installed names. Never search another

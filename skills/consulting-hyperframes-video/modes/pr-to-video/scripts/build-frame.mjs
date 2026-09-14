@@ -1,23 +1,9 @@
 #!/usr/bin/env node
-// build-frame.mjs — Step 2 design system in ONE command. The LLM only chooses a
-// preset; this does the deterministic rest: copy the preset's FRAME.md → frame.md,
-// remix its colors/typography onto the project's brand tokens, copy the preset's
-// caption-skin.html, and self-validate. "Strict on brand" is deterministic, so it's
-// a script, not LLM hand-editing (which mis-copies hex / breaks keys).
-//
-//   node build-frame.mjs --preset capsule --hyperframes .
-//     [--tokens capture/extracted/tokens.json]  [--preset-dir <abs path to frame-presets>]
-//
-// Remix rule — ONLY `colors:` values and `typography:` fontFamily change; keys,
-// structure, geometry, and components are untouched:
-//   colors — map brand tokens onto the preset's keys BY ROLE: the ink-role key takes
-//            the brand ink (darkest/ink-named), the canvas-role key takes the brand
-//            canvas (lightest), and every other color is repainted with the nearest
-//            brand accent's hue+saturation while KEEPING its own lightness, so tint
-//            families (sun / sun-soft / haze) stay a family. Empty brand colors → the
-//            preset palette is kept (it is already a complete, good design).
-//   fonts  — the preset's display family → the brand display font, its body family →
-//            the brand body font, wherever they appear. Empty brand fonts → kept.
+// Resolve the selected identity before composition. House work defaults to the
+// packaged Recoup Sky frame, exact assets and caption skin (no color remix).
+// Explicit other identities use --brand source --preset <name> with capture tokens.
+// Legacy source remix preserves its preset structure; named typography roles win
+// over an untyped font list. Outputs belong to --hyperframes, never the plugin.
 
 import { copyFileSync, existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
@@ -44,13 +30,22 @@ const die = (m) => {
   process.exit(1);
 };
 
-const presetName = flag("preset", null);
+const selectedBrand = flag("brand", "recoup-sky");
+const presetName = flag("preset", selectedBrand === "recoup-sky" ? "recoup-sky" : null);
 const hyperframesDir = resolve(flag("hyperframes", "."));
 const presetDir = resolve(
   flag("preset-dir", join(__dirname, "../../../engine/hyperframes-creative/frame-presets")),
 );
 const tokensPath = resolve(flag("tokens", join(hyperframesDir, "capture/extracted/tokens.json")));
 
+if (!["recoup-sky", "source"].includes(selectedBrand)) die("--brand must be recoup-sky or source");
+if (selectedBrand === "recoup-sky") {
+  if (presetName !== "recoup-sky") die("Recoup uses its own frame. For another identity explicitly pass --brand source.");
+  const { buildRecoupFrame } = await import("../../../brand/materialize.mjs");
+  buildRecoupFrame(hyperframesDir);
+  console.log("✓ Recoup Sky frame, fonts, exact logos, caption skin and provenance staged");
+  process.exit(0);
+}
 if (!presetName) die("--preset <name> is required");
 const presetFrame = join(presetDir, presetName, "FRAME.md");
 if (!existsSync(presetFrame)) {
@@ -118,10 +113,12 @@ const hueDist = (a, b) => {
 // ── brand tokens ──────────────────────────────────────────────────────────────
 let brandColors = [];
 let brandFonts = [];
+let namedFonts = null;
 let brandColorStats = []; // rich per-color usage stats (areaBg / interactiveBg / textCount …)
 if (existsSync(tokensPath)) {
   try {
     const t = JSON.parse(readFileSync(tokensPath, "utf8"));
+    namedFonts = t.typography ?? null;
     brandColors = (t.colors ?? [])
       .map((c) => (typeof c === "string" ? c : (c?.hex ?? c?.value ?? "")))
       .map((c) => String(c).trim())
@@ -232,13 +229,13 @@ if (brandColors.length && presetColors.length) {
 }
 
 // ── font remix ────────────────────────────────────────────────────────────────
-if (brandFonts.length) {
+if (brandFonts.length || namedFonts) {
   const pf = parseFonts(md);
   const strip = (q) => (q ? q.replace(/^"|"$/g, "") : null);
   const pDisplay = strip(pf.display);
   const pBody = strip(pf.body);
-  const bDisplay = brandFonts[0];
-  const bBody = brandFonts[1] ?? brandFonts[0];
+  const bDisplay = namedFonts?.display?.family ?? brandFonts[0];
+  const bBody = namedFonts?.body?.family ?? brandFonts[1] ?? brandFonts[0];
   if (pDisplay && bDisplay) md = md.split(`"${pDisplay}"`).join(`"${bDisplay}"`);
   if (pBody && pBody !== pDisplay && bBody) md = md.split(`"${pBody}"`).join(`"${bBody}"`);
   summary.push(`fonts: display ${pDisplay}→${bDisplay}, body ${pBody}→${bBody}`);

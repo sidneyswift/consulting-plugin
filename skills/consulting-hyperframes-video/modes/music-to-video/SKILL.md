@@ -5,6 +5,16 @@ description: "Use when the user has a music track (an audio file, or a video to 
 
 # music-to-video — one music-grounded, beat-synced video workflow
 
+## Selected brand
+
+For Recoup/Consulting/Business, read `../../brand/GUIDE.md` and stage
+`node <video-skill>/brand/materialize.mjs <project-directory>`. Use the packaged CSS/fonts/exact SVGs.
+Identity is selected before frame.md; a frame can change layout/timing but cannot replace the brand.
+Generic style catalogues below are alternatives for an explicit other brand, not Recoup defaults.
+An explicitly selected client/artist identity or fidelity-only migration preserves that identity.
+Record brand/version, expression and reference IDs with editable sources in the existing output folder.
+
+
 **Portable setup:** read `../../engine/runtime/SETUP.md` for the pinned runtime. Resolve bundled resources from this
 installed skill and write outputs into the selected project. Brand fonts and identity come from that
 workspace's `DESIGN.md` or supplied brief; preset fonts and logos are examples, not required defaults.
@@ -88,7 +98,7 @@ Goal: Turn the skeleton into an approved, complete `STORYBOARD.md`.
 
 Read [`references/planning.md`](references/planning.md), [`storyboard-format.md`](references/storyboard-format.md), [`template-catalog.md`](references/template-catalog.md), [`motion-primitive-catalog.md`](references/motion-primitive-catalog.md), and [`montage.md`](references/montage.md) (only if the user supplied assets). Editing the same file in place, do two things:
 
-1. **Pick the brand.** Choose one preset from `../../engine/hyperframes-creative/frame-presets` using the table in `../../engine/hyperframes-creative/references/design-spec.md` (match the track's mood; **only its fonts and colors matter** — templates own composition). Copy it into `frame.md` **unmodified** and fill the frontmatter `style` (font + a ≤4–6 swatch palette) from it.
+1. **Resolve the brand.** For Recoup use the bundled Sky package and `../faceless-explainer/scripts/build-frame.mjs --brand recoup-sky --hyperframes <project-directory>`. Fill the storyboard style from that frame. For an explicit artist/client brief use its supplied identity; choose a generic preset only for that requested identity. Composition templates cannot replace fonts/colors.
 2. **Fill every frame.** Decide its groups and give each a treatment: a matched template from the catalog (with bound params and real audiomap anchors), a free-compose from the primitive catalog, or an asset treatment that **obeys `pacing`**. Write the copy. You own WHAT (template / primitives + content + anchors); the frame-worker owns HOW — **never write millisecond tweens into the storyboard**.
 
 ```bash
@@ -98,7 +108,7 @@ node <SKILL_DIR>/scripts/validate-plan.mjs --storyboard "$PROJECT_DIR/STORYBOARD
 
 Fix every `✗` (hard errors: duration mismatch, frames not tiling the track, a missing `src`); warnings are best-effort. Then show the user a frame-by-frame summary and iterate until they approve.
 
-**Gate:** `frame.md` is a verbatim preset copy; `validate-plan.mjs` exits 0; the user approved the plan.
+**Gate:** `frame.md` matches the selected brand package or explicit source identity; `validate-plan.mjs` exits 0; the user approved the plan.
 
 ---
 

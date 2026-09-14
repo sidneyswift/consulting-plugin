@@ -21,22 +21,15 @@ realization, intra-frame cuts. **Never write millisecond tweens into the storybo
 - [`montage.md`](montage.md) — asset treatments (only if the user supplied images/videos).
 - User brief / supplied copy — topic, mood, exact words to keep.
 
-## Step A — pick the brand spine (one preset, unmodified)
+## Step A — resolve the selected identity
 
-The whole video shares one type family + palette. Pick **one ready-made preset** from
-`../../../engine/hyperframes-creative/frame-presets` using the preset table in
-`../../../engine/hyperframes-creative/references/design-spec.md` — choose by the track's mood + the brief,
-and **only its fonts + colors matter** (templates own composition + motion; the preset only
-sets the look). Copy it in **unmodified**:
+For Recoup/Consulting/Business, generate the packaged Sky frame with the installed video skill's
+`modes/faceless-explainer/scripts/build-frame.mjs --brand recoup-sky --hyperframes <project-directory>`.
+For explicit artist/client work, use that supplied identity; a generic preset is only an explicit
+alternative. Stage fonts and logo assets locally. Templates choose composition and motion, not brand.
 
-```bash
-cp ../../../engine/hyperframes-creative/frame-presets<preset>/FRAME.md "$PROJECT_DIR/frame.md"
-```
-
-Then fill the storyboard frontmatter `style` from it: the `font` from its `typography:` and a
-≤4–6 swatch `palette` from its `colors:`. **Quote the hex / family verbatim — never invent or
-round.** Every group's palette params draw from this one palette; that unity is what makes
-different templates read as one piece.
+Fill storyboard `style.font` and its working palette from frame.md, quoting exact values.
+DM Sans is display/body; IBM Plex Mono is for labels/code. Load recoup-brand/brand.css in each frame.
 
 ## Step B — per frame, decide its groups
 
@@ -95,7 +88,7 @@ iterate until approved.
 
 ## Self-check
 
-- `frame.md` is a verbatim copy of one preset; frontmatter `style.font` / `style.palette` are drawn from it (exact values).
+- `frame.md` matches the selected identity; frontmatter `style.font` / `style.palette` are drawn from it (exact values).
 - Every frame became ≥1 group; groups tile the frame span in order; no group < ~1 bar; no group boundary inside a `rolls[]` run.
 - Each group is exactly one of template / free_design / asset.
 - Template `params` keys match the catalog entry; `role_bindings` / `anchors` use real audiomap seconds.

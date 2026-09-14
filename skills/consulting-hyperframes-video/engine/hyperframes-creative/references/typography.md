@@ -1,5 +1,11 @@
 # Typography
 
+**Recoup override:** selected brand/GUIDE.md and its manifest take priority over generic style
+suggestions below. Use DM Sans 450–500 headlines/400 body, Plex Mono labels/code, actual outlined
+logos, white/paper/sky/forest expressions. Static space and stationary texture are valid; no minimum
+decorative count, compulsory breathing/glow, serif pairing, or arbitrary color remix applies to Recoup.
+Generic catalogues remain for explicitly different brands. Check composition, not decorative density.
+
 The compiler **pre-bundles a fixed set** of fonts (the table below) — write one of those families in `font-family` and it renders deterministically, offline, with no setup and no warning. A name _outside_ that set is **not silently dropped**: if it's a real Google font the compiler fetches it from Google Fonts at **build time** and embeds it, so it _does_ render — but that implicit path (a) trips a `font_family_without_font_face` lint warning, and (b) is **fail-closed in distributed/cloud renders** — if Google is unreachable the render _errors_ rather than quietly substituting a system font. Beyond that, **local renders auto-capture fonts you actually have**: a family installed on your machine, a local `@font-face` path, or an external CDN stylesheet all get compressed to woff2 and inlined at build time. So a name on **neither** the bundle **nor** Google Fonts only truly falls back to a generic system font when it's _also_ not installed locally and not declared in an `@font-face` — and even that logs a compiler warning. **One caveat**: distributed/cloud (Lambda) renders disable system-font capture, so don't rely on a locally-installed-only font for those. So don't assume an un-bundled display name will Just Work: for anything that must render predictably, pick a bundled family below **or embed your own `@font-face`** (see "Finding Fonts").
 
 ## Contents

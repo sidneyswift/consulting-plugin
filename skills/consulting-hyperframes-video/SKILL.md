@@ -16,6 +16,16 @@ metadata: { "tags": "video, animation, motion-graphics, hyperframes, router, hou
 
 # Consulting HyperFrames Video — start here
 
+## Current brand
+
+Recoup/Consulting/Business work defaults to **Recoup Sky**. Read `brand/GUIDE.md` and the workspace
+`DESIGN.md`; explicit client/artist branding or a fidelity-only migration wins. Stage local resources:
+`node <installed-skill>/brand/materialize.mjs <output-directory>`. Use its CSS, actual DM Sans/IBM Plex
+Mono fonts, exact outlined SVG logo, and `brand/finals.json` reference IDs. No recurring brand setup
+question. Save editable source and `brand.lock.json` with reference IDs/expression beside the output.
+Marketing owns the authored identity; the bundled snapshot works without another checkout.
+
+
 **Portable setup:** read `engine/runtime/SETUP.md` for the pinned runtime. Resolve bundled resources from this
 installed skill and write outputs into the selected project. Brand fonts and identity come from that
 workspace's `DESIGN.md` or supplied brief; preset fonts and logos are examples, not required defaults.

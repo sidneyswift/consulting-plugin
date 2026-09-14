@@ -1,5 +1,11 @@
 # House Style
 
+**Recoup override:** selected brand/GUIDE.md and its manifest take priority over generic style
+suggestions below. Use DM Sans 450–500 headlines/400 body, Plex Mono labels/code, actual outlined
+logos, white/paper/sky/forest expressions. Static space and stationary texture are valid; no minimum
+decorative count, compulsory breathing/glow, serif pairing, or arbitrary color remix applies to Recoup.
+Generic catalogues remain for explicitly different brands. Check composition, not decorative density.
+
 Creative direction for compositions when no design spec (`frame.md` or `design.md`) is provided. These are starting points — override anything that doesn't serve the content. When a design spec exists, its brand values take precedence; house-style fills gaps.
 
 ## Before Writing HTML
