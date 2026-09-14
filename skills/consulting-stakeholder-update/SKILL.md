@@ -1,9 +1,14 @@
 ---
 name: consulting-stakeholder-update
-description: The writing style for a quick update or recap to an external stakeholder (client sponsor, champion, exec, partner) after a session, milestone, or to flag a blocker plus an ask. Use on "draft an update to {name}", "recap the session for the client", "send {sponsor} a quick note", "status update", "check in with {stakeholder}". Runs on top of consulting-outbound-email (the process) and consulting-copy-writer (the voice), shaping them into a fast, scannable update built on simplicity, clarity, and play. Not for internal post-session notes (those are unfiltered, Sid's POV) and not the formal bi-weekly progress report (heavier) — this is the light note between them.
+description: "The writing style for a quick update or recap to an external stakeholder (client sponsor, champion, exec, partner) after a session, milestone, or to flag a blocker plus an ask. Use on \"draft an update to {name}\", \"recap the session for the client\", \"send {sponsor} a quick note\", \"status update\", \"check in with {stakeholder}\". Runs on top of consulting-outbound-email (the process) and consulting-copy-writer (the voice), shaping them into a fast, scannable update built on simplicity, clarity, and play. Not for internal post-session notes (those are unfiltered, the owner's POV) and not the formal bi-weekly progress report (heavier) — this is the light note between them."
 ---
 
 # Consulting Stakeholder Update
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 The style for a short note to a stakeholder: a recap after a working session, a milestone update, or
 a "here's what surfaced and what I need" flag. It sits **on top of `consulting-outbound-email`** (the
@@ -50,30 +55,22 @@ trusted partner wrote it in two minutes, not a status report.
 - Is the ask aimed at the right person and low-effort for them?
 - Does it sound like you, not a status bot? (And zero em-dashes — see `consulting-copy-writer`.)
 
-## Worked example — session recap to a sponsor (Darren session 1 → Evan, 2026-06-23)
-Setup-heavy session, framed as a win plus one routed ask. ~150 words, scannable, warm sign-off.
+## Worked example — fictional session recap
 
-> Hey Evan,
->
-> Great first session with Darren. I saw exactly how he's using AI, and we started building Seeker's finance AI operating system in Claude Code.
->
-> One thing surfaced that's bigger than Darren: he was still in Claude Chat, not the coding agents (Cowork / Code) where the real leverage is. Windows machines need some setup a Mac doesn't:
-> - The virtual machine platform enabled
-> - Git, Node.js, and Python installed
->
-> We worked around it today. But it's worth a quick conversation with IT about setting every machine up so the team is AI-ready out of the box.
->
-> A few cheap tools would speed Darren up. No need to go org-wide yet. Let's go person by person until something's worth scaling:
-> - Granola for meeting notes
-> - Wispr Flow for voice prompting
-> - GitHub access to save his work to the company's codebase
->
-> Last thing: I can start scoping the IRIS API connection. Darren said Janet can help, so feel free to connect us.
->
-> Ok byyyyyeeeee
->
-> Sid
+All names, companies, and events in this example are invented.
 
-Why it works: headline win first; the blocker is a finding with a fix, not a gripe; the one real ask
-(IT) is routed and low-effort; tools and next step are bulleted and brief; the sign-off keeps the
-rapport. Plain words throughout, no jargon, no em-dashes.
+> Hey Morgan,
+>
+> Jordan and I tested the new intake flow at Cedar Lantern Studio today. The team can now turn a
+> request into a draft brief without copying it across three documents.
+>
+> One thing needs fixing before the pilot: the shared folder is read-only for the coordinators.
+> Could you connect us with whoever manages folder access? I'll send them the exact change we need.
+>
+> Once access is sorted, Jordan will try it with the next request and tell us what breaks.
+>
+> Thanks,
+> Alex
+
+Why it works: the result comes first, the blocker has a concrete fix, and the sponsor has one
+clear ask. Replace every example fact with evidence from the actual engagement.

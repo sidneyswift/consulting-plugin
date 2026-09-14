@@ -2,7 +2,7 @@
 
 Use this reference in Step 3 to write `STORYBOARD.md` and `SCRIPT.md` for a product launch, promo, feature reveal, or marketing video.
 
-This file defines the story: what the video says, in what order, and why each frame exists. It does not define layout, visual effects, animation, or final markdown schemas. For exact file syntax, follow `../hyperframes-core/references/storyboard-format.md` and `../hyperframes-core/references/script-format.md`.
+This file defines the story: what the video says, in what order, and why each frame exists. It does not define layout, visual effects, animation, or final markdown schemas. For exact file syntax, follow `../../../engine/hyperframes-core/references/storyboard-format.md` and `../../../engine/hyperframes-core/references/script-format.md`.
 
 ## Read first
 

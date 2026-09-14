@@ -1,7 +1,7 @@
 // heygen.mjs — vendored HeyGen REST helpers (auth + transport) for the audio
 // pipeline. The credential resolver is copied from hyperframes-media's
 // heygen-tts.mjs (and matches the hyperframes CLI auth): first usable source
-// wins — $HEYGEN_API_KEY / $HYPERFRAMES_API_KEY → a nearby .env → ~/.heygen/
+// wins — $HEYGEN_API_KEY / $HYPERFRAMES_API_KEY → the selected project environment → ~/.heygen/
 // credentials (oauth → Bearer, else api_key → X-Api-Key; $HEYGEN_CONFIG_DIR
 // overrides the dir). Vendored so the skill ships standalone. Pure node.
 
@@ -11,32 +11,22 @@ import { dirname, join, resolve } from "node:path";
 
 export const HEYGEN_BASE = "https://api.heygen.com/v3";
 
-// Walk up ≤5 dirs from startDir; load the first .env (shell env always wins).
+// Read only the explicitly selected project. No parent-directory credential discovery.
 export function loadEnvFromDir(startDir) {
-  let dir = resolve(startDir);
-  for (let i = 0; i < 5; i++) {
-    const envPath = join(dir, ".env");
-    if (existsSync(envPath)) {
-      for (const raw of readFileSync(envPath, "utf8").split("\n")) {
-        let line = raw.trim();
-        if (!line || line.startsWith("#")) continue;
-        if (line.startsWith("export ")) line = line.slice(7).trim();
-        const eq = line.indexOf("=");
-        if (eq < 1) continue;
-        const key = line.slice(0, eq).trim();
-        let val = line.slice(eq + 1).trim();
-        if (val.startsWith('"') || val.startsWith("'")) {
-          const q = val[0];
-          const end = val.indexOf(q, 1);
-          val = end > 0 ? val.slice(1, end) : val.slice(1);
-        }
-        if (!(key in process.env)) process.env[key] = val;
-      }
-      return;
+  const dir = resolve(process.env.HYPERFRAMES_WORKSPACE_DIR || startDir);
+  const allowed = new Set(["HEYGEN_API_KEY", "HYPERFRAMES_API_KEY", "ELEVENLABS_API_KEY", "GEMINI_API_KEY", "GOOGLE_API_KEY"]);
+  for (const file of [".env.local", ".env"]) {
+    const envPath = join(dir, file);
+    if (!existsSync(envPath)) continue;
+    for (const raw of readFileSync(envPath, "utf8").split("\n")) {
+      const match = raw.trim().match(/^(?:export\s+)?([A-Z_][A-Z0-9_]*)\s*=\s*(.*)$/);
+      if (!match || !allowed.has(match[1]) || match[1] in process.env) continue;
+      let value = match[2].trim();
+      if ((value.startsWith('"') && value.endsWith('"')) ||
+          (value.startsWith("'") && value.endsWith("'"))) value = value.slice(1, -1);
+      else value = value.replace(/\s+#.*$/, "").trim();
+      process.env[match[1]] = value;
     }
-    const parent = dirname(dir);
-    if (parent === dir) break;
-    dir = parent;
   }
 }
 
@@ -45,7 +35,8 @@ export function heygenCredential() {
   const envKey = process.env.HEYGEN_API_KEY || process.env.HYPERFRAMES_API_KEY;
   if (envKey) return { headers: { "X-Api-Key": envKey } };
 
-  const file = join(process.env.HEYGEN_CONFIG_DIR || join(homedir(), ".heygen"), "credentials");
+  if (!process.env.HEYGEN_CONFIG_DIR) return null;
+  const file = join(process.env.HEYGEN_CONFIG_DIR, "credentials");
   if (!existsSync(file)) return null;
   const raw = readFileSync(file, "utf8").trim();
   if (!raw) return null;
@@ -78,7 +69,7 @@ export function heygenAuthHeaders() {
       "HeyGen OAuth token expired — run `hyperframes auth refresh` (or `hyperframes auth login`)",
     );
   throw new Error(
-    "no HeyGen credentials — set $HEYGEN_API_KEY, or run `hyperframes auth login` (writes ~/.heygen/credentials)",
+    "no HeyGen credentials — set HEYGEN_API_KEY or explicitly select your authenticated HEYGEN_CONFIG_DIR",
   );
 }
 

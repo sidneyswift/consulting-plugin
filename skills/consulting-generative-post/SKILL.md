@@ -1,9 +1,18 @@
 ---
 name: consulting-generative-post
-description: Produce a finished, post-ready branded VISUAL by compositing a Higgsfield-generated background (photoreal / cinematic / illustrative imagery) with an on-brand HTML text overlay. This is "the power move." Use on "make a post image / hero image / banner / OG card with a real/cinematic/AI background and a headline", "put a headline on a generated image", "branded visual over a photo/AI background", or whenever a social asset needs BOTH generative imagery AND clean, on-brand type. Orchestrates consulting-higgsfield (the background) + consulting-graphics (the overlay) and defers aesthetics to consulting-tasteful-design. NOT for a pure typographic graphic on a solid/gradient field (no generated photo) → consulting-graphics; NOT for raw generation with no text overlay → consulting-higgsfield.
+description: "Produce a finished, post-ready branded VISUAL by compositing a Higgsfield-generated background (photoreal / cinematic / illustrative imagery) with an on-brand HTML text overlay. This is \"the power move.\" Use on \"make a post image / hero image / banner / OG card with a real/cinematic/AI background and a headline\", \"put a headline on a generated image\", \"branded visual over a photo/AI background\", or whenever a social asset needs BOTH generative imagery AND clean, on-brand type. Orchestrates consulting-higgsfield (the background) + consulting-graphics (the overlay) and defers aesthetics to consulting-tasteful-design. NOT for a pure typographic graphic on a solid/gradient field (no generated photo) → consulting-graphics; NOT for raw generation with no text overlay → consulting-higgsfield."
 ---
 
 # Consulting Generative Post
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
 
 The power move: **generate imagery neither HTML nor a stock library can give you (Higgsfield), then
 lay pixel-perfect on-brand type over it (consulting-graphics).** Each tool does the half it's best at —

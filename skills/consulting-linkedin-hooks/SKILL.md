@@ -1,9 +1,18 @@
 ---
 name: consulting-linkedin-hooks
-description: Write or critique the first line of a LinkedIn post (the hook) using patterns reverse-engineered from real top-performing posts. Use on "write hooks for this", "give me 10 hooks", "fix this hook", "why won't this hook land", "what's a scroll-stopping opener", or whenever drafting/critiquing a post's line 1. This is the dedicated hook engine; consulting-linkedin-post-architect handles whole-post structure and defers here for the hook; consulting-copy-writer governs voice/anti-slop.
+description: "Write or critique the first line of a LinkedIn post (the hook) using patterns reverse-engineered from real top-performing posts. Use on \"write hooks for this\", \"give me 10 hooks\", \"fix this hook\", \"why won't this hook land\", \"what's a scroll-stopping opener\", or whenever drafting/critiquing a post's line 1. This is the dedicated hook engine; consulting-linkedin-post-architect handles whole-post structure and defers here for the hook; consulting-copy-writer governs voice/anti-slop."
 ---
 
 # Consulting LinkedIn Hooks
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
 
 Line 1 is ~80% of a LinkedIn post's performance — it decides whether anyone reads line 2. This skill
 generates and critiques hooks from **patterns measured against real engagement**, not generic advice.
@@ -11,7 +20,7 @@ Patterns + cited examples + the empirical rules live in **[references/hook-patte
 
 ## The one rule
 Steal **structure**, not persona or slop. The patterns come from creators (Justin Welsh, Jasmin Alić,
-Ruben Hassid, …) whose voice Sid doesn't share. Map the shape onto Sid's substance (AI/agents for
+Ruben Hassid, …) whose voice the owner doesn't share. Map the shape onto the owner's substance (AI/agents for
 music & media; B2B AI adoption) and run the result through `consulting-copy-writer` (no banned words,
 no em-dash). Ruben Hassid's AI hooks are the closest direct transfer — start there for AI content.
 

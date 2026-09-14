@@ -5134,12 +5134,15 @@ function setpieceCoverword() {
       return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
     };
   })();
-  const CPM = JSON.parse(
-    fs.readFileSync(path.join(SKILL, "assets/brand/cyberpunk-widths.json"), "utf8"),
-  );
-  const fontB64 = fs
-    .readFileSync(path.join(SKILL, "assets/brand/CyberpunkReplica.ttf"))
-    .toString("base64");
+  const useDemoFont = process.env.HYPERFRAMES_ENABLE_DEMO_FONTS === "1";
+  const fontPath = process.env.HYPERFRAMES_BRAND_FONT ||
+    (useDemoFont && path.join(SKILL, "assets/brand/CyberpunkReplica.ttf"));
+  const metricsPath = process.env.HYPERFRAMES_BRAND_METRICS ||
+    (useDemoFont && !process.env.HYPERFRAMES_BRAND_FONT && path.join(SKILL, "assets/brand/cyberpunk-widths.json"));
+  if (!fontPath || !metricsPath) throw new Error(
+    "The coverword theme needs an approved TTF in HYPERFRAMES_BRAND_FONT and matching width metrics in HYPERFRAMES_BRAND_METRICS. Choose another theme or explicitly opt into the demo asset under its included terms.");
+  const CPM = JSON.parse(fs.readFileSync(metricsPath, "utf8"));
+  const fontB64 = fs.readFileSync(fontPath).toString("base64");
   const DISP = HG.coverDisp || heroText[0].toUpperCase() + heroText.slice(1).toLowerCase();
   const hpx = HG.fontPx;
   const em =

@@ -20,7 +20,10 @@ frame.md  →  design.md  →  DESIGN.md
 ```
 
 ```bash
-SPEC=$(ls frame.md design.md DESIGN.md 2>/dev/null | head -1)
+SPEC=""
+for candidate in frame.md design.md DESIGN.md; do
+  if [ -f "$candidate" ]; then SPEC="$candidate"; break; fi
+done
 ```
 
 - `frame.md` is the preferred spec for video / hyperframes projects and wins when more than one exists.

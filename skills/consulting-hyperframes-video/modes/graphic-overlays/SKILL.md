@@ -1,9 +1,16 @@
 ---
 name: graphic-overlays
-description: Package an existing talking-head / interview / podcast video by layering timed, designed GRAPHIC OVERLAY cards onto the playing video — titles, lower-thirds, data callouts, quotes, side panels, picture-in-picture — synced to the transcript. The source video plays in full; the agent designs and writes each card's HTML in conversation, then renders to MP4 via hyperframes. Use when the user asks for graphic overlays, on-screen graphics / lower-thirds / data callouts / kinetic titles on a video, "package / dress up my video", "add overlay cards / graphic cards", or AI-composed graphic packaging of an existing video. NOT for plain subtitles (→ embedded-captions) or building a video from scratch (→ the creation workflows); when unsure overlays-vs-captions, see /hyperframes.
+description: "Package an existing talking-head / interview / podcast video by layering timed, designed GRAPHIC OVERLAY cards onto the playing video — titles, lower-thirds, data callouts, quotes, side panels, picture-in-picture — synced to the transcript. The source video plays in full; the agent designs and writes each card's HTML in conversation, then renders to MP4 via hyperframes. Use when the user asks for graphic overlays, on-screen graphics / lower-thirds / data callouts / kinetic titles on a video, \"package / dress up my video\", \"add overlay cards / graphic cards\", or AI-composed graphic packaging of an existing video. NOT for plain subtitles (→ embedded-captions) or building a video from scratch (→ the creation workflows); when unsure overlays-vs-captions, see /hyperframes."
 ---
 
 # Graphic Overlays
+
+**Portable setup:** read `../../engine/runtime/SETUP.md` for the pinned runtime. Resolve bundled resources from this
+installed skill and write outputs into the selected project. Brand fonts and identity come from that
+workspace's `DESIGN.md` or supplied brief; preset fonts and logos are examples, not required defaults.
+Keep original asset notices. Use approved workspace fonts for deliverables; optional legacy demo
+assets do not grant commercial usage rights. Client stories and figures in templates are illustrative,
+never evidence of a real result. Missing provider access remains a reported gap.
 
 Graphic Overlays takes a local video that **plays in full** and layers a sequence of
 timed, designed **graphic cards** onto it — titles, lower-thirds, data callouts,
@@ -145,15 +152,15 @@ the composition you author in Step 9:
   "cards": [
     {
       "id": "card-01",
-      "intent": "Hook with the speaker's anxious midnight question",
+      "intent": "Introduce a fictional intake question",
       "startSec": 0.5,
       "endSec": 13.0,
       "accentIndex": 0,
       "zone": "fullscreen",
       "contentHints": {
         "kicker": "AN HONEST QUESTION",
-        "title": "The soul-searching question at 11 PM",
-        "detail": "Client's 60-second voice message: 'If the RMB appreciates, does that mean my USD policy is a terrible loss?'"
+        "title": "A missing reference file",
+        "detail": "Fictional Cedar Lantern Studio request: 'Which files belong with this brief?'"
       }
     }
   ]
@@ -242,7 +249,7 @@ sub-compositions** (one .html per chapter, mounted with
 `data-composition-src`) so the GSAP timeline per file stays manageable
 — see the `timeline_track_too_dense` HyperFrames lint warning.
 
-`content` can be a plain string ("Title: annualized 5.69%\nNotes: ...") or any JSON
+`content` can be a plain string ("Title: fictional intake example\nNotes: ...") or any JSON
 shape that captures the data. The agent decides the shape per card.
 
 **Optional outro.** This skill ships **no fixed brand outro**. If the user wants a closing card, design a neutral one yourself (wordmark + one-line tagline, ~1.5-2s, fade in -> short hold -> fade out), append it to `cards[]`, and extend `composition.durationSeconds` to its `endSec`. Otherwise end on the last content card.
@@ -495,7 +502,7 @@ Pick from these `themeId` palettes (use them as `--accent-N` /
 | mono    | `#000 #555 #888 #aaa #ccc`                | `#fff`            | `#000`    |
 
 Available fonts (woff2 in `<SKILL_DIR>/assets/fonts/`, staged to work dir in Step 9): `Caveat` (handwriting),
-`LXGW WenKai TC` (Chinese hand-script), `Inter` (modern sans), `Virgil`
+`LXGW WenKai TC` (Chinese hand-script), `Inter` (modern sans), an approved workspace handwriting font
 (geometric hand). Reference via `@font-face` or `font-family` directly.
 
 For inspiration on visual patterns, `<SKILL_DIR>/references/styles/`
@@ -828,8 +835,8 @@ ffmpeg -y -i "$VIDEO_PATH" -c:v libx264 -crf 18 -g 30 -keyint_min 30 \
         font-display: block;
       }
       @font-face {
-        font-family: "Virgil";
-        src: url("fonts/Virgil.woff2") format("woff2");
+        font-family: "WorkspaceHandwriting";
+        src: url("fonts/workspace-handwriting.woff2") format("woff2");
         font-display: block;
       }
 

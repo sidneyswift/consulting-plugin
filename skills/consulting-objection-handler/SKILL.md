@@ -1,9 +1,14 @@
 ---
 name: consulting-objection-handler
-description: Turn a raw objection into a tailored response. Use when a prospect pushes back — "they said it's too expensive", "they want to think about it", "how do I respond to this objection".
+description: "Turn a raw objection into a tailored response. Use when a prospect pushes back — \"they said it's too expensive\", \"they want to think about it\", \"how do I respond to this objection\"."
 ---
 
 # Consulting Objection Handler
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 ## Steps
 1. Classify the objection against the core set (`library/scripts/objection-responses.md`):

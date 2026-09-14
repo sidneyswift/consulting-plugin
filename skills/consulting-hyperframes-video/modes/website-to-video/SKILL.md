@@ -5,6 +5,13 @@ description: "Capture a general website/URL and turn it into a HyperFrames video
 
 # Website to HyperFrames
 
+**Portable setup:** read `../../engine/runtime/SETUP.md` for the pinned runtime. Resolve bundled resources from this
+installed skill and write outputs into the selected project. Brand fonts and identity come from that
+workspace's `DESIGN.md` or supplied brief; preset fonts and logos are examples, not required defaults.
+Keep original asset notices. Use approved workspace fonts for deliverables; optional legacy demo
+assets do not grant commercial usage rights. Client stories and figures in templates are illustrative,
+never evidence of a real result. Missing provider access remains a reported gap.
+
 Capture a website, then produce a professional video from it.
 
 > **Confirm the route before Step 0.** This skill makes a video _of / from a general site_. If the user is really **marketing / launching / promoting a product** (even from this URL, even "promo for our site") → `/product-launch-video`. A **topic explainer with no site** → `/faceless-explainer`; a **GitHub PR** → `/pr-to-video`; **re-cutting / recoloring / reordering an existing video file** → out of scope. Routed here on a vague "make a video", or unsure launch-vs-general-site? **Read `/hyperframes` first** (full routing table + § What HyperFrames cannot do).
@@ -137,5 +144,5 @@ Beat count is not in this table intentionally — it should come from the storyb
 | [step-4-vo.md](references/step-4-vo.md)                                            | Step 4 — TTS provider choice, generation, timing                                                                                               |
 | [step-5-build.md](references/step-5-build.md)                                      | Step 5 — build index.html + compositions                                                                                                       |
 | [step-6-validate.md](references/step-6-validate.md)                                | Step 6 — lint, validate, snapshots (scaled to video length), preview                                                                           |
-| [techniques.md](../hyperframes/references/techniques.md)                           | Steps 3 & 5 — 13 primitive animation techniques with code patterns (adapt, don't copy-paste)                                                   |
-| [html-in-canvas-patterns.md](../hyperframes/references/html-in-canvas-patterns.md) | Step 5 — complete code patterns for HTML-in-Canvas effects (lives in the hyperframes skill)                                                    |
+| [techniques.md](../../engine/hyperframes-animation/techniques.md)                           | Steps 3 & 5 — 13 primitive animation techniques with code patterns (adapt, don't copy-paste)                                                   |
+| [html-in-canvas-patterns.md](../../engine/hyperframes-animation/adapters/html-in-canvas-patterns.md) | Step 5 — complete code patterns for HTML-in-Canvas effects (lives in the hyperframes skill)                                                    |

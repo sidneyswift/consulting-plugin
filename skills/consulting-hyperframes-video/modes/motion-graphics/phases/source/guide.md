@@ -18,4 +18,4 @@ Runs **only when `shot-plan.json.asset_needs` is non-empty** (the form categorie
 
 If a provider / search is unavailable, mark the need unmet in `context.log`; the category falls back to asset-free where possible (e.g. `news` → typographic headline without the sourced image).
 
-> Illustrative: `(cd "$PROJECT_DIR" && node <SKILL_DIR>/phases/source/resolve.mjs --plan ./shot-plan.json --out ./assets)` — or drive media-use's `resolve` procedure directly.
+> Use an available media connector for the selected asset references. If unavailable, use the asset-free fallback below; no resolver script is bundled.

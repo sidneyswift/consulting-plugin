@@ -1,9 +1,18 @@
 ---
 name: consulting-linkedin-audience
-description: Turn LinkedIn engagement into leads. Use on "who engaged with my post", "pull LinkedIn leads", "find warm leads from LinkedIn", or after a post gets traction. Pulls reactors/commenters via Apify and cross-references Attio to surface engaged-but-not-in-CRM outreach candidates.
+description: "Turn LinkedIn engagement into leads. Use on \"who engaged with my post\", \"pull LinkedIn leads\", \"find warm leads from LinkedIn\", or after a post gets traction. Pulls reactors/commenters via Apify and cross-references Attio to surface engaged-but-not-in-CRM outreach candidates."
 ---
 
 # Consulting LinkedIn Audience
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
 
 Social selling: mine post engagement for warm leads and feed them into the pipeline.
 

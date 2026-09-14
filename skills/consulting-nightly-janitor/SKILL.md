@@ -1,9 +1,18 @@
 ---
 name: consulting-nightly-janitor
-description: Phase 2 of the nightly pipeline — the workspace reconciler. Runs after the ingestion sweep, reads the digest's "Needs you" queue, and does the higher-judgment MUTATIONS capture deliberately skips: create prospect dashboards (lead-intake), reconcile Attio↔folder drift, move deals across funnel stages (evidence-gated), refresh stale dashboards, regenerate indexes, archive dead files. Use on "run the janitor", "reconcile the workspace", "clear the digest queue", or as the nightly post-capture ritual. Mutating + evidence-gated — never the capture step.
+description: "Phase 2 of the nightly pipeline — the workspace reconciler. Runs after the ingestion sweep, reads the digest's \"Needs you\" queue, and does the higher-judgment MUTATIONS capture deliberately skips: create prospect dashboards (lead-intake), reconcile Attio↔folder drift, move deals across funnel stages (evidence-gated), refresh stale dashboards, regenerate indexes, archive dead files. Use on \"run the janitor\", \"reconcile the workspace\", \"clear the digest queue\", or as the nightly post-capture ritual. Mutating + evidence-gated — never the capture step."
 ---
 
 # Consulting Nightly Janitor (workspace reconciler)
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
 
 Capture (`consulting-nightly-ingestion`) gets raw in and writes the digest. **This is phase 2:** read
 that digest + scan the workspace and do the structural maintenance capture deliberately doesn't —
@@ -18,7 +27,7 @@ archives files), so it runs under stricter rails.
    a **primary source** — a captured transcript/email line, the contract, or a live Attio field. Can't
    quote it → **don't do it**; stage it in the report.
 2. **Ambiguous → recommend, don't act.** When the signal is unclear (is this deal really at "proposal"?),
-   write the recommendation to the report for Sid to confirm — never guess a stage or a fact.
+   write the recommendation to the report for the owner to confirm — never guess a stage or a fact.
 3. **Archive, never delete.** Stale/dead *local* files move to `_archive/` (dated); never `rm`. **Never**
    delete or bulk-edit an external record (Attio/Gmail/Slack) — add/update only, only IDs you created.
 4. **Idempotent.** Don't re-create a dashboard that exists, don't re-move a deal already at its stage,
@@ -45,7 +54,7 @@ archives files), so it runs under stricter rails.
    Attio in lockstep) — **with the quote logged**. Ambiguous → recommend in the report, don't move.
 
 4. **Refresh stale dashboards.** A dashboard older than its folder's **newest captured artifact** has
-   un-incorporated material → refresh its status / stakes / next-action (or its `## Reality (Sid's POV)`
+   un-incorporated material → refresh its status / stakes / next-action (or its `## Reality`
    via `consulting-account-reality`) from the new transcript/email. Don't invent — cite.
 
 5. **Navigability + dedup.** Regenerate indexes
@@ -60,7 +69,7 @@ archives files), so it runs under stricter rails.
 7. **Report + score + commit.** Write `business/ops/janitor-reports/<date>.md` with sections **Done ·
    Drift fixed · Staged for confirmation · Deferred**, run `python evals/janitor/score_run.py` and put the
    composite + flags at the top, commit each change why-first, then stop. "Staged for confirmation" is the
-   handoff to Sid.
+   handoff to the owner.
 
 ## Notes
 - **Reads the digest; doesn't re-pull.** No fresh digest → run capture first (or note it).

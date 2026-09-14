@@ -116,7 +116,6 @@ npx hyperframes publish
 
 **Catalog preview image** — The catalog card uses a PNG at `docs/images/catalog/{kind}/{name}.png` (where `{kind}` is `blocks` or `components`). Generate it from a snapshot, then:
 
-- **HeyGen internal contributors:** run `scripts/upload-docs-images.sh` (requires AWS profile `engineering-767398024897`)
 - **External contributors:** attach the preview MP4 to your PR description. A maintainer will generate and upload the catalog image before merging.
 
 ### Step 6: Ship

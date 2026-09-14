@@ -21,8 +21,12 @@
  *        redo step 2/3 with corrected strips. Never skip this.
  */
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, copyFileSync } from "node:fs";
+import { existsSync, mkdirSync, copyFileSync, readFileSync, mkdtempSync, rmSync } from "node:fs";
 
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+const fontScratch = mkdtempSync(join(tmpdir(), "hf-locate-"));
+process.on("exit", () => rmSync(fontScratch, { recursive: true, force: true }));
 const N1 = 9,
   PAD1 = 0.4; // stage 1: strips per axis, padding in STRIP units
 const N2 = 6,
@@ -53,19 +57,21 @@ function probe(img) {
   return { w, h };
 }
 function font() {
-  const dst = "/tmp/locate-font.ttf";
+  const dst = join(fontScratch, "font.ttf");
   if (!existsSync(dst)) {
     for (const c of [
+      process.env.HYPERFRAMES_BRAND_FONT,
       "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
       "/System/Library/Fonts/Supplemental/Arial.ttf",
       "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
     ]) {
-      if (existsSync(c)) {
+      if (c && existsSync(c)) {
         copyFileSync(c, dst);
         break;
       }
     }
   }
+  if (!existsSync(dst)) throw new Error("Set HYPERFRAMES_BRAND_FONT to an approved local TTF font");
   return dst;
 }
 function gridFilters(w, h, n, axis, fz) {
@@ -196,7 +202,7 @@ if (cmd === "overlay") {
     process.exit(1);
   }
   const target = pos[1];
-  const b64 = execFileSync("base64", ["-i", img]).toString().replace(/\n/g, "");
+  const b64 = readFileSync(img).toString("base64");
   const mime = img.match(/\.png$/i) ? "image/png" : "image/jpeg";
   const body = {
     contents: [

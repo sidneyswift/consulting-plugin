@@ -1,9 +1,18 @@
 ---
 name: consulting-article-illustrator
-description: Generate hand-drawn "whiteboard / excalidraw"-style explainer images for articles and posts — the doodle-marker diagrams that sit inside a pillar to explain a concept (a flow, a comparison, a loop, a stack, a hub-and-spoke, a numbered framework). Made with gpt-image-2 in the brand palette: light-grey background, black marker line work + hand-lettering, a single blue accent. Plans a figure set — a hero image at the top (above the first line; doubles as the social/OG preview) plus ~1 diagram per section — and embeds them inline. Use when asked to "make an article image / diagram / explainer / infographic / hero / thumbnail", a "hand-drawn / sketch / whiteboard" visual, or to illustrate a blog post / LinkedIn article / pillar. NOT for clean HTML social graphics (use consulting-graphics) or anything animated (use consulting-hyperframes-video).
+description: "Generate hand-drawn \"whiteboard / excalidraw\"-style explainer images for articles and posts — the doodle-marker diagrams that sit inside a pillar to explain a concept (a flow, a comparison, a loop, a stack, a hub-and-spoke, a numbered framework). Made with gpt-image-2 in the brand palette: light-grey background, black marker line work + hand-lettering, a single blue accent. Plans a figure set — a hero image at the top (above the first line; doubles as the social/OG preview) plus ~1 diagram per section — and embeds them inline. Use when asked to \"make an article image / diagram / explainer / infographic / hero / thumbnail\", a \"hand-drawn / sketch / whiteboard\" visual, or to illustrate a blog post / LinkedIn article / pillar. NOT for clean HTML social graphics (use consulting-graphics) or anything animated (use consulting-hyperframes-video)."
 ---
 
 # Consulting Article Illustrator
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
 
 Hand-drawn **whiteboard explainer diagrams** for articles — the friendly doodle-marker visuals that make
 a concept legible inside a pillar post. Made with **gpt-image-2**, so this is a **prompt + style system**.

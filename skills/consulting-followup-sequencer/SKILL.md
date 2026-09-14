@@ -1,9 +1,18 @@
 ---
 name: consulting-followup-sequencer
-description: Generate the timed follow-up cadence for a deal, personalized to the client's stated stakes. Use after a call or proposal, on "draft follow-ups", "they went quiet", "what do I send next".
+description: "Generate the timed follow-up cadence for a deal, personalized to the client's stated stakes. Use after a call or proposal, on \"draft follow-ups\", \"they went quiet\", \"what do I send next\"."
 ---
 
 # Consulting Follow-Up Sequencer
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
 
 > Voice + gate: write in `consulting-copy-writer` voice, then run every draft through `consulting-outbound-email` (read context, route, reader-POV check) before staging.
 

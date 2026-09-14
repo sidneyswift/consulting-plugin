@@ -1,9 +1,14 @@
 ---
 name: consulting-deal-stage-mover
-description: Advance a deal cleanly when its state changes. Use on "move X to proposal", "we won/lost the deal", "X signed", or any pipeline stage change. Keeps folders, the board, and the CRM in sync.
+description: "Advance a deal cleanly when its state changes. Use on \"move X to proposal\", \"we won/lost the deal\", \"X signed\", or any pipeline stage change. Keeps folders, the board, and the CRM in sync."
 ---
 
 # Consulting Deal Stage Mover
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 ## Steps
 1. Locate the deal folder under `pipeline/{current-stage}/{deal}/`.

@@ -14,6 +14,11 @@ metadata: { "tags": "design, taste, brand, visual, motion, look-and-feel, anti-s
 
 # Consulting Tasteful Design — the look-and-feel north star
 
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+
 The **shared visual-taste authority** for the practice. Other skills make the artifact; this skill
 decides whether it looks like us and whether it looks *good*. `consulting-graphics` (stills),
 `consulting-hyperframes-video` (motion), `consulting-proposal-designer`, and the dashboard all
@@ -24,9 +29,9 @@ say-it-out-loud, no hype**), translated from sentences to pixels. The stance is 
 
 ## Canon — read these, never invent brand facts
 
-1. **The project's root `/DESIGN.md`** — the **brand source of truth**: the exact
+1. **The project's selected workspace `DESIGN.md`** — the **brand source of truth**: the exact
    palette (`--ink` / `--navy` / `--accent` / `--signal` / `--tint` …), the type roles, and the
-   standard footer signature (Recoup mark · Sidney Swift · recoupable.com), plus the "bold, not
+   standard footer signature (Recoup mark · {{AUTHOR_NAME}} · {{BRAND_WEBSITE}}), plus the "bold, not
    boring" principles. **Pull exact colors, fonts, the logo, and the footer from here — don't restate
    or guess them.** For stills it also owns the template set (`framework-blocks`, `statement`, `stat`,
    `editorial`). For anything it doesn't cover (e.g. audience) — or if the project has no `DESIGN.md` at all (e.g. this plugin installed in another repo) — ask the user for brand values, or scaffold one; never invent.
@@ -36,7 +41,7 @@ say-it-out-loud, no hype**), translated from sentences to pixels. The stance is 
 **Brand character at a glance** (exact values live in `DESIGN.md`): deep **ink/navy color
 fields** with **one electric "signal" blue** as the energy accent; **Space Grotesk** for display,
 **Plus Jakarta Sans** for body, **Instrument Serif italic** for the occasional editorial moment;
-every piece closes with the **Recoup mark + "Sidney Swift" · recoupable.com** footer.
+every piece closes with the **Recoup mark + "{{AUTHOR_NAME}}" · {{BRAND_WEBSITE}}** footer.
 
 ## Principles — bold, not boring
 
@@ -73,7 +78,7 @@ this section.
 - **Type in motion.** Space Grotesk display animates in with intent — **ease, stagger, one timeline;
   never bounce-everything or spin for its own sake.** (Mechanics: `consulting-hyperframes-video/
   engine/hyperframes-animation`.)
-- **Close on the signature.** End on the footer lockup (Recoup mark + Sidney Swift · recoupable.com)
+- **Close on the signature.** End on the footer lockup (Recoup mark + {{AUTHOR_NAME}} · {{BRAND_WEBSITE}})
   as the endcard, adapted to the field's light/dark.
 - **Deterministic + validated.** Respect the render rules (`npx hyperframes lint && validate`).
 

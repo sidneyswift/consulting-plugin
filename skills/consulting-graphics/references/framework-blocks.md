@@ -12,7 +12,7 @@ Bold, scannable, confident. Uses the shared brand DNA in the project's `DESIGN.m
 - **Blocks:** white cards on the light field, each with a **colored number chip** that cycles through
   `--accent → --signal → --navy` for rhythm (color-coded, but all in the blue family — never rainbow).
 - **One signal pop:** the `Fix:`/payoff line uses `--signal` for the eye-hit.
-- **Footer:** the standard mark + `Sidney Swift` · `recoupable.com` (see DESIGN.md).
+- **Footer:** the standard mark + `{{AUTHOR_NAME}}` · `{{BRAND_WEBSITE}}` (see DESIGN.md).
 
 ## Layout rules
 - Header band ~30–38% of height. Body cards fill the rest with even gaps (22–28px).
@@ -28,7 +28,7 @@ swap the vertical numbered blocks for a horizontal **letter row**: each big `Spa
 its own column with a label + one-line description, in a single white card on the light field. Add an
 **"Examples"** band below with 2–3 **worked examples** (real ones, with a proof number where you have
 it) in cards whose left edge cycles `--accent → --signal → --navy`. Same dark header band, same footer.
-This is the highest-leverage "save this" lead-magnet format — a mini version of what Sid sells.
+This is the highest-leverage "save this" lead-magnet format — a mini version of what the author sells.
 (Keep it on-brand: navy/blue tokens, not the warm-orange palette of the swipe source.)
 
 ## HTML shell (complete, renderable — 1080×1350)
@@ -84,9 +84,9 @@ This is the highest-leverage "save this" lead-magnet format — a mini version o
   <div class="footer">
     <div class="who">
       <svg viewBox="0 0 223 223" width="26" height="26" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M118.106 41C112.845 41 108.581 45.2558 108.581 50.5056V88.3242C108.581 93.9241 106.846 99.3868 103.613 103.964C98.5169 111.179 90.2239 115.471 81.3785 115.471H57.525C52.2645 115.471 48 119.727 48 124.977V172.304C48 177.554 52.2645 181.81 57.525 181.81H104.894C110.155 181.81 114.419 177.554 114.419 172.304V139.968C114.419 133.432 116.445 127.056 120.218 121.714L120.885 120.77C126.833 112.348 136.512 107.339 146.836 107.339H165.475C170.736 107.339 175 103.083 175 97.833V50.5056C175 45.2558 170.736 41 165.475 41H118.106Z" fill="#0b1020"/></svg>
-      <span class="nm">Sidney Swift</span>
+      <span class="nm">{{AUTHOR_NAME}}</span>
     </div>
-    <span class="url">recoupable.com</span>
+    <span class="url">{{BRAND_WEBSITE}}</span>
   </div>
 </body></html>
 ```
@@ -96,5 +96,5 @@ This is the highest-leverage "save this" lead-magnet format — a mini version o
 - [ ] 3 (max 4) blocks, one idea each; number chips color-cycle accent→signal→navy
 - [ ] Exactly one `--signal` pop per block (the Fix line) — not rainbow
 - [ ] Plain-language problem line + a concrete, specific fix (no fluff verbs)
-- [ ] Footer = mark + Sidney Swift · recoupable.com (from DESIGN.md)
+- [ ] Footer = mark + {{AUTHOR_NAME}} · {{BRAND_WEBSITE}} (from DESIGN.md)
 - [ ] Renders clean at 1080×1350 and legible small

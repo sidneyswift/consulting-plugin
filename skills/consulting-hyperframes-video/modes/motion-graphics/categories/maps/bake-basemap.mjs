@@ -17,7 +17,8 @@
 //   CENTER="-60,-25" ZSTART=2.4 ZEND=3.4 FPS=30 DUR=5 node bake-basemap.mjs
 // Then encode frames-<NAME>/f%04d.png → <NAME>.mp4 (all-intra: -g 1) and feed <NAME>-coords.json
 // to the HF composition.
-import puppeteer from "puppeteer-core";
+import runtime from "../../../../engine/runtime/dependencies.cjs";
+const puppeteer = runtime.loadPackage("puppeteer-core");
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { mkdirSync, writeFileSync, readdirSync, existsSync } from "node:fs";

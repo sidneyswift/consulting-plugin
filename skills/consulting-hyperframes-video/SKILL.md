@@ -16,6 +16,13 @@ metadata: { "tags": "video, animation, motion-graphics, hyperframes, router, hou
 
 # Consulting HyperFrames Video — start here
 
+**Portable setup:** read `engine/runtime/SETUP.md` for the pinned runtime. Resolve bundled resources from this
+installed skill and write outputs into the selected project. Brand fonts and identity come from that
+workspace's `DESIGN.md` or supplied brief; preset fonts and logos are examples, not required defaults.
+Keep original asset notices. Use approved workspace fonts for deliverables; optional legacy demo
+assets do not grant commercial usage rights. Client stories and figures in templates are illustrative,
+never evidence of a real result. Missing provider access remains a reported gap.
+
 HyperFrames **renders video from HTML**: a composition is an HTML file whose DOM declares
 timing with `data-*` attributes, whose animation runtime is seekable, and whose media
 playback is owned by the framework. This skill is our **single, customized entry point** —
@@ -71,7 +78,7 @@ This is where "customize to our system and taste" lives. **Before designing any 
    palette, type, spacing, motion restraint, and the anti-AI-slop checklist. Read it and apply it.
 2. **Pull brand tokens from the canon — never invent them.** `consulting-tasteful-design` carries the
    brand source of truth (`DESIGN.md`): palette, type, logo, and
-   the footer signature (Recoup · Sidney Swift · recoupable.com). For anything it doesn't cover (e.g.
+   the footer signature defined by the selected workspace. For anything it doesn't cover (e.g.
    audience), ask — don't invent.
    - *Two `DESIGN.md` scopes — don't confuse them:* the **practice** brand is always
      `DESIGN.md`. Some modes (e.g. `website-to-video`, `general-video`)

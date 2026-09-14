@@ -1,9 +1,18 @@
 ---
 name: consulting-copy-editor
-description: Editorial copy-edit pass on a finished draft, run through a fresh-context subagent reviewer. Use on "copy-edit this", "edit this article", "do an editor pass", "give it a hard edit", "review my draft", "check this for slop", or as the last gate before publishing any long-form article, pillar, post, or email. Dispatches a fresh-eyes subagent that returns structured editor's notes (AI slop, non-conversational phrasing, confusing rhetoric, simpler-rewrite and narrative/storyline opportunities, and anything an editorial-outlet editor would flag); the main agent then triages and implements the accepted edits, then re-checks against the house standard.
+description: "Editorial copy-edit pass on a finished draft, run through a fresh-context subagent reviewer. Use on \"copy-edit this\", \"edit this article\", \"do an editor pass\", \"give it a hard edit\", \"review my draft\", \"check this for slop\", or as the last gate before publishing any long-form article, pillar, post, or email. Dispatches a fresh-eyes subagent that returns structured editor's notes (AI slop, non-conversational phrasing, confusing rhetoric, simpler-rewrite and narrative/storyline opportunities, and anything an editorial-outlet editor would flag); the main agent then triages and implements the accepted edits, then re-checks against the house standard."
 ---
 
 # Consulting Copy-Editor
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
 
 A second set of eyes on a finished draft. The review runs in a **fresh-context subagent** so it reads like a first-time editor, not the author. The **main agent implements** the edits, with judgment. This skill *uses* `consulting-copy-writer` (the house voice + anti-slop standard) and `evals/content/score_run.py` (the check) — it does not redefine them.
 
@@ -24,7 +33,10 @@ reporting, and committing after the full bundle is assembled.
    - `{VOICEPRINCIPLES_PATH}` — `consulting-copy-writer/references/voice-principles.md`
    - `{LONGFORM_LINE}` — for a 1,000+ word piece only, a third `-` bullet pointing at `consulting-copy-writer/references/long-form-essay.md`; otherwise delete the line.
 
-   `consulting-copy-writer` is a sibling skill in the same `skills/` dir. Find it with a glob for `**/consulting-copy-writer/references/anti-slop.md` and reuse that directory for the others. Point at the **canonical copy you maintain** (in this repo: `plugin/skills/consulting-copy-writer/references/`), not a stale installed cache — the anti-slop list changes often, and the reviewer must edit against the current one. These reference files define "slop" and "voice" as the *house* standard, not a generic notion.
+   Resolve the installed `consulting-copy-writer` skill through the host's skill registry, or the
+   sibling directory in this same installed plugin. Pass its actual absolute reference paths to the
+   reviewer. When explicitly editing this plugin source, that source is the selected installation.
+   Never scan the home directory or prefer another private checkout to fill a missing dependency.
 
 3. **Dispatch ONE fresh-context subagent, read-only.** It reviews and returns notes; it does NOT touch any file. Paste the **Reviewer brief** below verbatim, with the `{PLACEHOLDERS}` filled from step 2.
    - Claude Code: Agent/Task tool, `subagent_type: generalPurpose`, `readonly: true`.

@@ -1,34 +1,26 @@
 ---
 name: consulting-integration-onboarding
-description: Stand up a new external integration (a data source / channel like Granola, Attio, LinkedIn, Gmail, Slack) the same way every time. Use on "add an integration", "connect <tool>", "set up the <tool> integration", or when wiring a new live source into the OS.
+description: "Connect a new external data source or channel to the selected business workspace, define ownership and scope, and verify one authorized read through the workflow."
 ---
 
 # Consulting Integration Onboarding
 
-Scaffold a new `integrations/<tool>/` so it matches the established pattern (Gmail/Slack are the
-references) and actually feeds the flywheel — instead of a one-off. Mirror, don't reinvent.
+Use the selected workspace and its `AGENTS.md`. Read `integrations/AGENTS.md` if present, then
+follow the installed `consulting-integration-scaffolder` for account setup, connector selection,
+and the bundled HTTP adapter template. Do not search the author's private workspace for helpers.
 
-## Steps
-1. **Pick the ownership type** (decides what belongs in the repo): **mirror** (can't organize in the
-   source → the repo copy *is* the artifact, e.g. Granola) · **query** (live system of record → keep
-   only thin snapshots, e.g. Attio) · **log** (you log distilled signal, raw stays in the tool, e.g.
-   Gmail/Slack/LinkedIn) · **mine** (read-only content source, e.g. Research). See `integrations/AGENTS.md`.
-2. **Scaffold `integrations/<tool>/`:**
-   - `AGENTS.md` — what it is, the ownership type, what's in- vs out-of-repo, signal-vs-noise, and the
-     non-negotiables (never auto-send, never auto-delete/sweep, cite primary sources).
-   - `_work/_lib.py` — `load_env()` reading repo-root `.env.local` + an API client (stdlib `urllib` +
-     `certifi` SSL context + HTTP 429 retry; mirror `integrations/slack/_work/_lib.py`).
-   - `_work/check_auth.py` — verify the credential(s); print who you're authed as.
-   - pull/ingest scripts that write **deal-scoped** snapshots next to the relevant `clients/`/`pipeline/`
-     entity; raw lands in `_work/staging/` (**gitignored**).
-   - `_work/LAST_SYNCED` — the delta watermark.
-3. **Secrets:** add the API key(s) to repo-root `.env.local` (gitignored) and **document the key names**
-   in `integrations/AGENTS.md` (env-key list + ownership table + folders table).
-4. **Wire into the cadence so it can't go stale:** add the source to **`consulting-integrations-sync`**
-   (Friday) and **`consulting-nightly-ingestion`** (bounded `--days` delta off `LAST_SYNCED` — never an
-   unbounded backfill for rate-limited sources).
-5. **Verify end-to-end:** run `check_auth.py`, do one real pull, confirm a snapshot lands in the right
-   entity folder, then commit (why-first message).
-
-Non-negotiables: **never auto-send** (drafts only), **never auto-delete/sweep**, deal-scoped loading,
-cite primary sources, and never copy a live system of record wholesale into the repo.
+1. Choose the ownership model: mirror a reviewed primary source, query a live system of record,
+   log a channel's distilled signal, or mine a configured read-only content source.
+2. Define which clients, folders, channels, and records belong to this workspace. Exclude unrelated
+   employers and personal material; mixed or ambiguous records remain held outside the curated tree.
+3. Prefer a connected provider tool. If an adapter is necessary, scaffold it with the sibling skill,
+   verify provider authentication/pagination, and keep credentials and raw caches out of tracked files.
+4. Document the account identity, scope, scripts, data destinations, and checkpoint behavior in
+   `integrations/<tool>/AGENTS.md`. Do not put secret values in the document.
+5. Run one authorized scoped read, confirm the expected result, and inspect the destination artifact.
+   Only claim end-to-end success after both provider response and stored artifact are verified.
+6. Connect it to the existing workflow configuration if requested. Creating the integration does not
+   create a new scheduler or authorize importing all history. Unattended writes remain drafts, source
+   boundaries remain enforced, and checkpoints advance only after successful processing.
+7. Commit according to the workspace convention and report what is connected, what was tested, and
+   any remaining access or data gaps. Never send, delete, or sweep external records as an auth test.

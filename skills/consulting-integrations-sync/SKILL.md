@@ -1,34 +1,52 @@
 ---
 name: consulting-integrations-sync
-description: The anti-staleness engine for external integrations. Use on the Friday cadence, on "sync the integrations", "is the CRM in sync", "refresh granola/attio/linkedin/gmail/slack", or whenever the repo might have drifted from Attio/Granola/LinkedIn/Gmail/Slack. Reconciles live sources against the repo and reports what changed and what's stale.
+description: "The anti-staleness engine for external integrations. Use on the Friday cadence, on \"sync the integrations\", \"is the CRM in sync\", \"refresh granola/attio/linkedin/gmail/slack\", or whenever the repo might have drifted from Attio/Granola/LinkedIn/Gmail/Slack. Reconciles live sources against the repo and reports what changed and what's stale."
 ---
 
 # Consulting Integrations Sync
 
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
+
 Keep `integrations/` (Granola, Attio, LinkedIn, Gmail) and the curated repo from going stale.
-Run end-to-end, then report. API keys are in repo-root `.env.local`.
+Run end-to-end, then report. Use the connected account or explicitly selected workspace environment; never search parent directories for keys.
+
+## Source boundary
+
+Apply the selected workspace's intake policy to every channel before persisting content. A contact,
+domain, or channel match is a routing hint, not permission to capture unrelated employment or personal
+material embedded in the same thread. Hold mixed or ambiguous records; do not leak their titles or
+excerpts into skip reports. Private source capture never grants permission to publish a shared snapshot.
 
 ## Steps
 1. **Attio (query live — system of record).** Per `integrations/attio/crm-sync.md`, query deals via REST
    (`POST /v2/objects/deals/records/query`). For each deal, compare its **stage** to its
    filesystem location. On mismatch: move the folder (`pipeline/**` ↔ `clients/**`), fix the deal
    `AGENTS.md` status line, and regenerate `pipeline/_board.md`. Attio wins on stage; repo wins on artifacts.
-2. **Granola (capture VERBATIM transcripts — the primary source, not the summary).** List new notes:
-   `python integrations/granola/_work/list_new_notes.py` (id/title/created_at/attendees for notes newer
-   than `_work/LAST_SYNCED`). Classify each by job + attendee domain: **in scope** = Recoup consulting (a
-   won client or an open prospect/lead); **skip** SwiftResponse/Flex, personal, and internal standups
-   (note skips in the report, don't fetch them). For each in-scope note capture the transcript —
-   `python integrations/granola/_work/pull_transcript.py --note <id> --stage --out <dest>` — where `<dest>`
-   is `clients/<client>/meetings/transcripts/<YYYY-MM-DD>-<slug>.md` (won) or
-   `pipeline/<stage>/<deal>/meetings/transcripts/<YYYY-MM-DD>-<slug>.md` (open). The file holds the AI
-   summary (labelled *not evidence*) **and the verbatim transcript** — cite the transcript downstream,
-   never the summary. New prospect with no folder → `consulting-lead-intake` first. Stamp
-   `integrations/granola/_work/LAST_SYNCED` with today's ISO datetime.
+2. **Granola (review before capture).** Use an available connector, or the selected workspace's
+   `list_new_notes.py`, with an overlapping window (default: three days before the last successful
+   checkpoint). Review the title and content against the workspace's client/deal scope and exclusions.
+   Attendees alone never establish scope. Skip unrelated employment, personal material, and excluded
+   internal meetings. Hold ambiguous or mixed records; do not save their bodies or identifying details
+   in skip logs. For a reviewed in-scope note, a compatible local adapter is:
+   `python3 integrations/granola/_work/pull_transcript.py --note <id> --reviewed-scope --out <dest>`.
+   Destinations are `clients/<client>/meetings/transcripts/<date>-<slug>.md` or
+   `pipeline/<stage>/<deal>/meetings/transcripts/<date>-<slug>.md`. Otherwise use a connector to fetch
+   that one reviewed note and preserve the same destination and evidence labels. No bulk fallback.
+   Label summaries as non-evidence and keep transcript attribution tied to the actual recording owner.
+   Deduplicate by source ID; checkpoint completed work only. Report skipped counts without private
+   titles, names, or excerpts. New in-scope prospects route through `consulting-lead-intake`.
 3. **LinkedIn (pull signal).** Refresh follower/engagement snapshots if stale; if new engagement exists,
    chain into `consulting-linkedin-audience`. Update `integrations/linkedin/_work/LAST_SYNCED`.
 4. **Gmail (capture FULL threads for real relationships — Attio-gated).** Scope = people who matter:
    query Attio live for **Customers + Warm Leads + Target Accounts + open-pipeline contacts**, collect their
-   email domains/addresses (the 1,041 `relationship = product-user` are quarantined — exclude). For each
+   email domains/addresses (exclude any segments the workspace marks out of scope). For each
    client/deal, archive the **full thread history** (every message, untruncated):
    `python integrations/gmail/_work/export_thread_bodies.py --query "from:<domain> OR to:<domain>"
    --title "<Name>" --out <clients|pipeline>/<entity>/emails/email-archive-<YYYY-MM-DD>.md`. Then layer the

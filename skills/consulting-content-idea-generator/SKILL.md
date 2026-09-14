@@ -1,9 +1,14 @@
 ---
 name: consulting-content-idea-generator
-description: Produce test variants of an idea to find what resonates before investing. Use on "ideas for X", "test this angle", "give me hooks for this".
+description: "Produce test variants of an idea to find what resonates before investing. Use on \"ideas for X\", \"test this angle\", \"give me hooks for this\"."
 ---
 
 # Consulting Content Idea Generator
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 ## Steps
 1. Take one core idea.

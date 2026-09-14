@@ -3,10 +3,33 @@
 > Rule of the practice: **anything we do more than once becomes a skill.**
 
 Each skill is a folder with a `SKILL.md` (frontmatter `name` + `description`, then steps).
-Authored here → packaged into a plugin → installed → triggers non-deterministically by description.
-See `_packaging/README.md` for the lifecycle and `SKILL-ROADMAP.md` for the full catalog + priorities.
+Authored here → installed as a plugin → selected by the task and each skill's description.
+See `_packaging/README.md` for setup, dependencies, and the editing lifecycle.
 
-## All skills (50+)
+## Workspace and examples
+
+The plugin contains procedures and illustrative assets. Business records, account credentials,
+pricing, client limits, sender identity, and brand choices belong to the workspace using it.
+Choose the workspace explicitly, or use the current project when that is unambiguous. Follow its
+`AGENTS.md` and keep the existing `clients/`, `pipeline/`, `integrations/`, `signals/`, `content/`,
+`library/`, and `business/` structure. Never search for another private checkout to fill gaps.
+
+Resolve a skill's scripts, references, and assets from that installed skill's directory. Resolve
+business inputs and generated outputs from the selected workspace. An installed plugin may be
+read-only; write drafts, renders, dependency environments, and temporary work into the project or
+a dedicated temporary directory instead.
+
+Examples labeled **fictional** or **synthetic** teach format and reasoning. Their companies,
+people, numbers, and commercial terms are invented and must not become claims in real work.
+Real reports require primary evidence; real pricing, spending limits, and promises come from
+the relevant account and executed agreement.
+
+Brand fonts, colors, and signatures come from the workspace's `DESIGN.md` or the user's selected
+brand brief. Existing theme assets are optional examples, with their original notices preserved.
+Add your own approved fonts to your workspace's brand assets and reference them from that brief;
+no change to the plugin's folder structure is required.
+
+## Capability groups
 
 **Spine / orchestration**
 - `consulting-call-processor` — auto-manage loop: ingest any new material end to end
@@ -52,6 +75,12 @@ See `_packaging/README.md` for the lifecycle and `SKILL-ROADMAP.md` for the full
 - `consulting-tasteful-design` — house look-and-feel north star (palette, type, spacing, anti-AI-slop) that every visual skill defers to
 - `consulting-hyperframes-video` — make any video / animation / motion graphic; HeyGen's HyperFrames toolkit folded into one house skill (11 workflow `modes/` + 6 `engine/` packs), renders video from HTML via `npx hyperframes`
 
-## Make them auto-trigger
-They're authored as files now. Run `consulting-skill-packager` (or the `create-cowork-plugin`
-skill) to bundle `skills/` into a plugin, push to GitHub, and install — then they fire by description.
+## Updating and sharing
+
+This repository is already an installable `consulting-os` plugin. Editing these files updates
+this checkout. Installed copies update through their plugin manager; vendored copies in another
+repository need a separate reviewed update. Neither a skill edit nor a version bump publishes it.
+
+The `consulting-*` names remain stable so existing workspace routines keep resolving them.
+Moving capabilities into another plugin is a separate packaging step, including that repository's
+manifest, naming, dependency, and publication checks.

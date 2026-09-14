@@ -5,6 +5,13 @@ description: "Use when the user has a music track (an audio file, or a video to 
 
 # music-to-video — one music-grounded, beat-synced video workflow
 
+**Portable setup:** read `../../engine/runtime/SETUP.md` for the pinned runtime. Resolve bundled resources from this
+installed skill and write outputs into the selected project. Brand fonts and identity come from that
+workspace's `DESIGN.md` or supplied brief; preset fonts and logos are examples, not required defaults.
+Keep original asset notices. Use approved workspace fonts for deliverables; optional legacy demo
+assets do not grant commercial usage rights. Client stories and figures in templates are illustrative,
+never evidence of a real result. Missing provider access remains a reported gap.
+
 Use this skill to turn a **music track** into a beat-synced HyperFrames video. You analyze the track once, lay out the frames, fill in a per-frame plan, and build each frame as a composition. The input is a music track plus optional user images or videos — there is **no narration and no website capture**. Typography and templates are the floor (a complete video needs zero assets); any media the user supplies is cut in on the same beat grid.
 
 You are the **orchestrator**. Work in `videos/<project>/`. Run the steps in order and pass each **Gate** before moving on. Two steps need the user: **Step 3** (plan approval) and **Step 6** (render approval). Do every step yourself except **Step 4**, where you dispatch **one sub-agent per frame**. Keep design and motion rules out of this file — they live in `references/` and the `frame-worker` sub-agent.
@@ -51,11 +58,13 @@ Goal: Produce the one canonical timing analysis the whole video is built on.
 Prerequisites: Python 3 with `librosa`, `numpy`, and `soundfile` available. If import fails, install them into the active Python environment before running the analyzer:
 
 ```bash
-python3 -m pip install librosa numpy soundfile
+python3 -m venv "$PROJECT_DIR/.venv"
+"$PROJECT_DIR/.venv/bin/python" -m pip install librosa numpy soundfile
+"$PROJECT_DIR/.venv/bin/python" -m pip freeze > "$PROJECT_DIR/python-requirements.lock"
 ```
 
 ```bash
-python3 <SKILL_DIR>/scripts/analyze-beatgrid.py "$PROJECT_DIR/assets/bgm.mp3" \
+"$PROJECT_DIR/.venv/bin/python" <SKILL_DIR>/scripts/analyze-beatgrid.py "$PROJECT_DIR/assets/bgm.mp3" \
   -o "$PROJECT_DIR/audiomap.json" --print
 ```
 
@@ -79,7 +88,7 @@ Goal: Turn the skeleton into an approved, complete `STORYBOARD.md`.
 
 Read [`references/planning.md`](references/planning.md), [`storyboard-format.md`](references/storyboard-format.md), [`template-catalog.md`](references/template-catalog.md), [`motion-primitive-catalog.md`](references/motion-primitive-catalog.md), and [`montage.md`](references/montage.md) (only if the user supplied assets). Editing the same file in place, do two things:
 
-1. **Pick the brand.** Choose one preset from `../hyperframes-creative/frame-presets/` using the table in `../hyperframes-creative/references/design-spec.md` (match the track's mood; **only its fonts and colors matter** — templates own composition). Copy it into `frame.md` **unmodified** and fill the frontmatter `style` (font + a ≤4–6 swatch palette) from it.
+1. **Pick the brand.** Choose one preset from `../../engine/hyperframes-creative/frame-presets` using the table in `../../engine/hyperframes-creative/references/design-spec.md` (match the track's mood; **only its fonts and colors matter** — templates own composition). Copy it into `frame.md` **unmodified** and fill the frontmatter `style` (font + a ≤4–6 swatch palette) from it.
 2. **Fill every frame.** Decide its groups and give each a treatment: a matched template from the catalog (with bound params and real audiomap anchors), a free-compose from the primitive catalog, or an asset treatment that **obeys `pacing`**. Write the copy. You own WHAT (template / primitives + content + anchors); the frame-worker owns HOW — **never write millisecond tweens into the storyboard**.
 
 ```bash
@@ -97,7 +106,7 @@ Fix every `✗` (hard errors: duration mismatch, frames not tiling the track, a 
 
 Goal: Build every frame as a self-contained composition file.
 
-Create `compositions/frames/`. Read [`sub-agents/frame-worker.md`](sub-agents/frame-worker.md) and `../hyperframes-core/references/subagent-dispatch.md`. Dispatch **one frame-worker per frame**, in parallel where possible (otherwise in waves). Each worker gets exactly one frame and this context:
+Create `compositions/frames/`. Read [`sub-agents/frame-worker.md`](sub-agents/frame-worker.md) and `../../engine/hyperframes-core/references/subagent-dispatch.md`. Dispatch **one frame-worker per frame**, in parallel where possible (otherwise in waves). Each worker gets exactly one frame and this context:
 
 ```text
 PROJECT_DIR: <abs path>
@@ -107,7 +116,7 @@ audiomap: PROJECT_DIR/audiomap.json
 frame.md: PROJECT_DIR/frame.md
 Materials: for each group, <SKILL_DIR>/references/templates/<id>/index.html (templates) and
            <SKILL_DIR>/references/motion-primitives/<id>/ (free); staged assets/ (asset groups)
-Contracts: ../hyperframes-core/references/sub-compositions.md + determinism-rules.md
+Contracts: ../../engine/hyperframes-core/references/sub-compositions.md + determinism-rules.md
 Canvas: <w>×<h>   Pacing: <beat_cut|phrase_flow>
 Write to: PROJECT_DIR/compositions/frames/<frame_id>.html
 ```
@@ -180,8 +189,8 @@ Inspect at `t=0`, each frame start, the strongest DROP / SURGE, every `hard_stop
 | [`references/motion-primitive-catalog.md`](references/motion-primitive-catalog.md)                             | Step 3/4: L0 recipes for free-compose                   |
 | [`references/montage.md`](references/montage.md)                                                               | Step 3/4: asset treatments (beat-cut / ken-burns)       |
 | [`sub-agents/frame-worker.md`](sub-agents/frame-worker.md)                                                     | Step 4: dispatch + build one frame                      |
-| `../hyperframes-core/references/subagent-dispatch.md`                                                          | Step 4: dispatch sub-agents safely                      |
-| `../hyperframes-creative/references/design-spec.md`                                                            | Step 3: pick the preset (the brand)                     |
+| `../../engine/hyperframes-core/references/subagent-dispatch.md`                                                          | Step 4: dispatch sub-agents safely                      |
+| `../../engine/hyperframes-creative/references/design-spec.md`                                                            | Step 3: pick the preset (the brand)                     |
 
 ## Directory layout
 

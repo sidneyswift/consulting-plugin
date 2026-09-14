@@ -18,7 +18,7 @@ in the project's `DESIGN.md`.
 - **Supporting text:** `Plus Jakarta Sans` 500, `--mute`, noticeably quieter than the headline.
 - **One restraint-friendly accent:** a single short `--accent` (not `--signal`) rule or a small kicker
   label. Keep it whisper-quiet — energy is not this template's job.
-- **Footer:** the standard mark + `Sidney Swift` · `recoupable.com` (see DESIGN.md), light variant.
+- **Footer:** the standard mark + `{{AUTHOR_NAME}}` · `{{BRAND_WEBSITE}}` (see DESIGN.md), light variant.
 
 ## Layout rules
 - Content anchored upper-third to center, generous left margin (80px). Left-aligned.
@@ -49,9 +49,9 @@ in the project's `DESIGN.md`.
   <div class="footer">
     <div class="who">
       <svg viewBox="0 0 223 223" width="24" height="24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M118.106 41C112.845 41 108.581 45.2558 108.581 50.5056V88.3242C108.581 93.9241 106.846 99.3868 103.613 103.964C98.5169 111.179 90.2239 115.471 81.3785 115.471H57.525C52.2645 115.471 48 119.727 48 124.977V172.304C48 177.554 52.2645 181.81 57.525 181.81H104.894C110.155 181.81 114.419 177.554 114.419 172.304V139.968C114.419 133.432 116.445 127.056 120.218 121.714L120.885 120.77C126.833 112.348 136.512 107.339 146.836 107.339H165.475C170.736 107.339 175 103.083 175 97.833V50.5056C175 45.2558 170.736 41 165.475 41H118.106Z" fill="#0b1020"/></svg>
-      <span class="nm">Sidney Swift</span>
+      <span class="nm">{{AUTHOR_NAME}}</span>
     </div>
-    <span class="url">recoupable.com</span>
+    <span class="url">{{BRAND_WEBSITE}}</span>
   </div>
 </body></html>
 ```
@@ -60,5 +60,5 @@ in the project's `DESIGN.md`.
 - [ ] Crisp light field — **no** pale multi-stop gradient (anti-slop)
 - [ ] Instrument Serif italic headline leads; it's the focal element
 - [ ] Supporting text clearly quieter; at most one quiet `--accent` mark
-- [ ] Footer = mark + Sidney Swift · recoupable.com
+- [ ] Footer = mark + {{AUTHOR_NAME}} · {{BRAND_WEBSITE}}
 - [ ] Used sparingly and mixed with bolder templates across a series (not the default)

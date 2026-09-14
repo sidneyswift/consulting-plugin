@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /*
  * transcribe.cjs — word-level transcription via hyperframes' native Whisper
- * (replaces the Python ElevenLabs Scribe path; no Python, no API key).
+ * (native fallback) or WhisperX. WhisperX requires Python/uvx and model downloads;
+ * inspect the provider selection below before running. Existing transcripts avoid a new call.
  *
  *   node transcribe.cjs <project-dir> [model] [language]
  * Reads:  <project>/source.mp4 (audio track)
@@ -12,17 +13,8 @@ const fs = require("fs");
 const os = require("os");
 const cp = require("child_process");
 
-function hfRoot() {
-  const roots = [
-    process.env.HYPERFRAMES_ROOT,
-    path.resolve(__dirname, "..", "..", ".."),
-    path.join(os.homedir(), "Downloads", "hyperframes"),
-  ].filter(Boolean);
-  for (const r of roots)
-    if (fs.existsSync(path.join(r, "packages", "cli", "dist", "cli.js"))) return r;
-  console.error("[transcribe] hyperframes CLI not found — set HYPERFRAMES_ROOT");
-  process.exit(3);
-}
+const { cliPath } = require("../../../engine/runtime/dependencies.cjs");
+
 function ensureSource(project) {
   const src = path.join(project, "source.mp4");
   if (fs.existsSync(src)) return src;
@@ -243,7 +235,7 @@ function main() {
 
   if (!words) {
     // run hyperframes Whisper → writes a flat word array to <dir>/transcript.json
-    const cli = path.join(hfRoot(), "packages", "cli", "dist", "cli.js");
+    const cli = cliPath();
     const args = ["transcribe", audio, "-d", project, "--json", "--model", model];
     if (language) args.push("--language", language);
     let info = {};

@@ -1,9 +1,14 @@
 ---
 name: consulting-graphics
-description: Generate on-brand social media graphics for any platform and format — feed posts, carousels, stories/reels covers, banners and headers, profile pictures, YouTube thumbnails, Pinterest pins, Open Graph link cards, and ad creative. Renders HTML to PNG via Playwright at correct platform dimensions with safe zones. Use when asked to create a social post, carousel, slide deck for social, story/reel, cover/banner, profile picture, thumbnail, pin, OG image, or to resize/adapt one design across multiple platforms and aspect ratios (1:1, 4:5, 9:16, 16:9, 1.91:1, 2:3, banners, pfps). Visual styles live as templates in references/; output-craft playbooks (thumbnail, carousel, …) live in references/recipes/; dimensions and safe zones in references/dimensions.md. Static images only — for video, motion graphics, or anything animated, use consulting-hyperframes-video.
+description: "Generate on-brand social media graphics for any platform and format — feed posts, carousels, stories/reels covers, banners and headers, profile pictures, YouTube thumbnails, Pinterest pins, Open Graph link cards, and ad creative. Renders HTML to PNG via Playwright at correct platform dimensions with safe zones. Use when asked to create a social post, carousel, slide deck for social, story/reel, cover/banner, profile picture, thumbnail, pin, OG image, or to resize/adapt one design across multiple platforms and aspect ratios (1:1, 4:5, 9:16, 16:9, 1.91:1, 2:3, banners, pfps). Visual styles live as templates in references/; output-craft playbooks (thumbnail, carousel, …) live in references/recipes/; dimensions and safe zones in references/dimensions.md. Static images only — for video, motion graphics, or anything animated, use consulting-hyperframes-video."
 ---
 
 # Consulting Graphics
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 Generate on-brand social media graphics from content, at the right dimensions for any platform and placement. HTML → Playwright screenshot → PNG. **Static images only — for video, motion graphics, or anything animated, use `consulting-hyperframes-video`.**
 
@@ -26,7 +31,7 @@ You can render the *same* template at *many* formats — that's how you create o
 **Step 0: Load the brand + the kit**
 
 1. Read the project's top-level **`DESIGN.md`** — the brand source of truth: the CSS palette, fonts, the
-   standard footer signature (Recoup mark · Sidney Swift · recoupable.com), and the "bold, not boring"
+   standard footer signature (Recoup mark · {{AUTHOR_NAME}} · {{BRAND_WEBSITE}}), and the "bold, not boring"
    principles every template builds on. **Always read this before composing.** Never hardcode a value
    that disagrees with it; for anything it doesn't cover (e.g. audience), ask — don't invent.
 2. Read `~/.config/consulting-graphics/.env` for `DEFAULT_TEMPLATE` + primary platform/format. If it lacks

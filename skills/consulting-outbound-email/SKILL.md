@@ -1,9 +1,14 @@
 ---
 name: consulting-outbound-email
-description: The process every personalized outbound email runs through before it is staged — gather full context on the person, decide who it is really for and what the objective is (set by temperature), simulate the reader, and pass the pre-send gate. Use when drafting or reviewing any 1:1 nudge, follow-up, broadcast, or stakeholder note. Voice and craft live in consulting-copy-writer; the context gather lives in consulting-lead-context.
+description: "The process every personalized outbound email runs through before it is staged — gather full context on the person, decide who it is really for and what the objective is (set by temperature), simulate the reader, and pass the pre-send gate. Use when drafting or reviewing any 1:1 nudge, follow-up, broadcast, or stakeholder note. Voice and craft live in consulting-copy-writer; the context gather lives in consulting-lead-context."
 ---
 
 # Consulting Outbound Email
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 The shared gate for outbound email. `consulting-email-atomizer`, `consulting-followup-sequencer`,
 `consulting-stakeholder-update`, and the newsletter compile (`consulting-friday-review`) all run their
@@ -58,4 +63,4 @@ the CRM or a deal folder.
 - [ ] Right person, right ask (sponsor vs. POC); one low-effort default, work taken off their plate.
 - [ ] Ran the reader-POV subagent loop.
 
-Source: Sid's drafting notes (2026-06-19). Applies on top of every format in `library/email-templates/`.
+Apply the selected workspace voice preferences to the template.

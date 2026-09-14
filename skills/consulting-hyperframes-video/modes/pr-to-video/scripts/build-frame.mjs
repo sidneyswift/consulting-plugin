@@ -47,7 +47,7 @@ const die = (m) => {
 const presetName = flag("preset", null);
 const hyperframesDir = resolve(flag("hyperframes", "."));
 const presetDir = resolve(
-  flag("preset-dir", join(__dirname, "../../hyperframes-creative/frame-presets")),
+  flag("preset-dir", join(__dirname, "../../../engine/hyperframes-creative/frame-presets")),
 );
 const tokensPath = resolve(flag("tokens", join(hyperframesDir, "capture/extracted/tokens.json")));
 

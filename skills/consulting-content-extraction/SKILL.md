@@ -1,9 +1,14 @@
 ---
 name: consulting-content-extraction
-description: Extract reusable content, insights, and knowledge-base entries from a call transcript or meeting note. Use whenever a new transcript lands in content/01-raw/ or a client's meetings/ folder, after any client/sales call, or when the user says "extract content", "mine this call", "turn this into posts/insights". Powers the content flywheel ("never answer the same question twice").
+description: "Extract reusable content, insights, and knowledge-base entries from a call transcript or meeting note. Use whenever a new transcript lands in content/01-raw/ or a client's meetings/ folder, after any client/sales call, or when the user says \"extract content\", \"mine this call\", \"turn this into posts/insights\". Powers the content flywheel (\"never answer the same question twice\")."
 ---
 
 # Consulting Content Extraction
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 Turn a raw transcript into compounding assets.
 

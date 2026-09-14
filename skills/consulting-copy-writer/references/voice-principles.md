@@ -57,11 +57,14 @@ Plain uncertainty when genuinely uncertain: "I think," "probably," "my guess is.
 
 Numbers, names, dates, tools, prices, percentages, time periods. These are not decoration — they're what makes claims believable.
 
-> "For the last several weeks, AI has responded to 95 percent of my work emails."
+**Synthetic examples only:** these invented figures illustrate specificity, not anyone's results.
 
-> "One of our PowerPoint automations includes 24 skills and 18 scripts and costs $62 in tokens to make a single deck."
+> "Cedar Lantern Studio checked 18 draft briefs during its fictional pilot."
 
-> "In a recent week in May, Fin participated in 65 percent of 202 support conversations and closed 81 of them without a human."
+> "In this fictional test, generating a deck used $4 in tokens. Editing and review time are separate."
+
+> "The fictional support team resolved 12 of 20 test cases without escalation. That is test coverage,
+> not a claim about production performance."
 
 In a social post, one specific number can carry the entire hook. In a case study, layer them. In a cold email, one specific result replaces three paragraphs of description.
 

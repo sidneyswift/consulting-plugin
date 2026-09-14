@@ -5,6 +5,11 @@ description: "Apply when writing any text for or as the user: social posts, emai
 
 # Consulting Copywriting
 
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+
 Write with context, taste, and a reason to speak. Apply with judgment. Spirit over letter.
 
 ## Rule priority
@@ -79,7 +84,7 @@ Anti-slop is the foundation; humanizing is the seasoning. They stack — they do
 
 The order is fixed: write it → strip the slop ([references/anti-slop.md](references/anti-slop.md)) → season for humanity. Never season to cover up slop. The test for any flourish: did I choose this, and does it carry something only I would say — or is it a reflexive pattern? Intentional and content-bearing, keep it. Reflexive and empty, cut it.
 
-When writing anything meant to sound human (social posts, newsletters, essays, warm emails), read [references/human-texture.md](references/human-texture.md). It contains the humanizing moves with worked verbatim examples (talk to the reader, undercut your authority, break rhythm, render the inner monologue, break the fourth wall, quote real dialogue, earned comparison), a full teardown of Shaan Puri's short-essay system (the named-format play, the Story → Principle → Coined-term → Reader-challenge skeleton, a hook menu, signature devices), and how to set all of it to Sid's register.
+When writing anything meant to sound human (social posts, newsletters, essays, warm emails), read [references/human-texture.md](references/human-texture.md). It contains the humanizing moves with worked verbatim examples (talk to the reader, undercut your authority, break rhythm, render the inner monologue, break the fourth wall, quote real dialogue, earned comparison), a full teardown of Shaan Puri's short-essay system (the named-format play, the Story → Principle → Coined-term → Reader-challenge skeleton, a hook menu, signature devices), and how to set all of it to the owner's register.
 
 ## Ogilvy craft rules (the clarity floor)
 
@@ -107,7 +112,7 @@ When writing anything meant to sell, convert, or build an audience (landing page
 
 ## Long-form essay architecture
 
-When writing a consulting pillar article, social article, newsletter explainer, or LinkedIn article, default to [references/social-article-style.md](references/social-article-style.md). It contains Sid's article format: thesis first, purpose sentence, thought experiment, comparison by capability and dependency, fair critique, temporal honesty, and a pragmatic verdict. Use this for the nightly content engine unless the prompt explicitly asks for a deep long-form essay.
+When writing a consulting pillar article, social article, newsletter explainer, or LinkedIn article, default to [references/social-article-style.md](references/social-article-style.md). It contains the owner's article format: thesis first, purpose sentence, thought experiment, comparison by capability and dependency, fair critique, temporal honesty, and a pragmatic verdict. Use this for the nightly content engine unless the prompt explicitly asks for a deep long-form essay.
 
 When the prompt explicitly asks for a deep long-form essay, or the piece genuinely needs essay-depth treatment, also read [references/long-form-essay.md](references/long-form-essay.md). It contains the full essay blueprint: 7-section structure with word count targets (plus a "scaling by length" guide for shorter pieces), extended example technique, counterargument depth, the evocative register, footnote usage, and section connection patterns. Voice principles (loaded above) provide the sentence-level and paragraph-level craft; this reference provides the essay-level structure.
 

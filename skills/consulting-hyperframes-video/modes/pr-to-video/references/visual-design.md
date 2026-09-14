@@ -89,7 +89,7 @@ The bottom ~17% of the canvas is reserved for the caption pill. Plan every frame
 | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | composition — zones, density, templates, invented-visual prominence, caption geometry | `composition.md` (local)                                                                     |
 | motion — the shot model, phases, idle budget, beat structure, stillness               | `motion-language.md` (local)                                                                 |
-| effect ids + blueprint ids (vocabulary + recipes)                                     | `../hyperframes-animation/blueprints-index.md` + `../hyperframes-animation/rules-index.md`   |
+| effect ids + blueprint ids (vocabulary + recipes)                                     | `../../../engine/hyperframes-animation/blueprints-index.md` + `../../../engine/hyperframes-animation/rules-index.md`   |
 | palette + type tokens                                                                 | the project's `frame.md`; basics → `hyperframes-creative` `house-style.md` / `typography.md` |
 | transitions                                                                           | story-design owns `transition_in`; you don't touch it                                        |
 

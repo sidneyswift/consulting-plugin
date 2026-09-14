@@ -1,9 +1,14 @@
 ---
 name: consulting-linkedin-funnel-architect
-description: Architect or audit a LinkedIn profile-as-funnel — turn the profile into a landing page, build the offer ladder (free top → qualifying application bottom), and wire posts into it. Use on "audit my LinkedIn funnel/profile", "turn my profile into a funnel", "fix my LinkedIn profile", "build my offer ladder", "set up a waitlist/application", "where are the gaps in my funnel". Audit mode scores the current setup and lists fixes; build mode gives templates for each piece.
+description: "Architect or audit a LinkedIn profile-as-funnel — turn the profile into a landing page, build the offer ladder (free top → qualifying application bottom), and wire posts into it. Use on \"audit my LinkedIn funnel/profile\", \"turn my profile into a funnel\", \"fix my LinkedIn profile\", \"build my offer ladder\", \"set up a waitlist/application\", \"where are the gaps in my funnel\". Audit mode scores the current setup and lists fixes; build mode gives templates for each piece."
 ---
 
 # Consulting LinkedIn Funnel Architect
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 Treat the LinkedIn profile as a **landing page**, not a résumé. Every section routes a visitor toward
 one of two offers: a free top-of-funnel (newsletter / community waitlist) and a high-ticket bottom
@@ -11,9 +16,9 @@ one of two offers: a free top-of-funnel (newsletter / community waitlist) and a 
 funnel, screenshots + teardown): `swipe/funnels/magali-dereu/README.md`.
 
 ## The one rule: steal structure, not persona
-Adopt the funnel *architecture*; keep Sid's voice (`consulting-copy-writer`) and substance
-(`positioning/` — AI/agents enablement for music & media). Benchmark against Sid's own funnel docs:
-`integrations/linkedin/linkedin-funnel-strategy.md` and `docs/plans/2026-06-19-product-funnel-design.md`.
+Adopt the funnel *architecture*; keep the owner's voice (`consulting-copy-writer`) and substance
+(`positioning/` — AI/agents enablement for music & media). Benchmark against the owner's own funnel docs:
+`integrations/linkedin/linkedin-funnel-strategy.md` and the selected workspace workflow specification (if available).
 
 ## Two modes
 - **Audit** — score the current profile/funnel against the checklist below; output a ranked gap list
@@ -35,14 +40,12 @@ Score each as present / weak / missing, with the fix:
 6. **Activity** = consistent posting visible (handled by the posting skills).
 
 ## The offer ladder
-- **Free top (capture email):** a newsletter opt-in and/or a **community waitlist** with closed-doors
-  scarcity ("Doors are closed right now — be first to know"). Low friction, name + email only.
+- **Free top (capture email):** a newsletter opt-in and/or a **community waitlist** with availability stated truthfully (use a waitlist only when enrollment is actually closed). Low friction, name + email only.
 - **Paid bottom (qualify hard):** a **qualifying application** (Google Form/Typeform), not a "book a
   call" link. Gate by fit + budget so only real prospects reach a call. Fields that work: role,
   revenue band, "done-for-me vs. learn-it", prior-partner experience, and an explicit
-  "ready to invest a premium" yes/no. (See the source operator's verbatim form:
-  `swipe/funnels/magali-dereu/buttons/work-with-me/waitlist.rtf`.)
-- **Map it to Sid's offers** in `positioning/offers.md` + `library/productized-offers/` — don't invent
+  "ready to invest a premium" yes/no. (Use this original field list as a starting schema; adapt it to the actual offer. No external form file is required.)
+- **Map it to the owner's offers** in `positioning/offers.md` + `library/productized-offers/` — don't invent
   offers; wire existing ones into the ladder.
 
 ## Wire posts into the funnel
@@ -54,8 +57,8 @@ only for warm/high-intent. Keep the ask casual and optional.
 - **Audit:** a short ranked gap report (`present/weak/missing` per checklist item + the fix), saved
   where the user wants it (e.g. alongside `integrations/linkedin/linkedin-funnel-strategy.md`).
 - **Build:** the drafted banner line, headline, two Featured cards, About rewrite, and application
-  form — each in Sid's voice, ready to paste. Run copy through `consulting-copy-writer` first.
+  form — each in the owner's voice, ready to paste. Run copy through `consulting-copy-writer` first.
 
 ## Guardrails
 Confirm any client/proof claims before they go on the profile (evidence discipline — no invented logo
-walls or testimonials). Never publish profile changes automatically; produce the copy for Sid to apply.
+walls or testimonials). Never publish profile changes automatically; produce the copy for the owner to apply.

@@ -16,22 +16,18 @@ import { existsSync, mkdirSync, openSync, closeSync } from "node:fs";
 import { join } from "node:path";
 import { downloadTo, searchSounds } from "./heygen.mjs";
 
+const python = process.env.HYPERFRAMES_PYTHON || "python3";
 const r3 = (x) => Number(x.toFixed(3));
 const lyriaKey = () => process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || "";
 
 const BGM_PY_DEPS = ["transformers", "torch", "soundfile", "numpy"];
 const BGM_PY_PROBE =
   "import transformers, soundfile, torch, numpy; from transformers import MusicgenForConditionalGeneration";
-const LYRIA_PY_DEPS = ["google-genai", "python-dotenv"];
 const LYRIA_PY_PROBE = "import google.genai";
 
 function pyOk(probe) {
-  return spawnSync("python3", ["-c", probe], { stdio: "ignore" }).status === 0;
+  return spawnSync(python, ["-c", probe], { stdio: "ignore" }).status === 0;
 }
-function pipInstall(deps) {
-  return spawnSync("pip", ["install", "-q", ...deps], { stdio: "ignore" }).status === 0;
-}
-
 // ── retrieval (HeyGen music library) ──────────────────────────────────────────
 export async function retrieveBgm({ query, headers, hyperframesDir, hasVoice }) {
   const q = query || "calm cinematic underscore";
@@ -111,17 +107,13 @@ export function generateBgmDetached({
 
   const lyriaConfigured = !!lyriaKey() && !!lyriaRecipe && existsSync(lyriaRecipe);
 
-  // Make a backend runnable: prefer Lyria when configured (install google-genai
-  // on demand), else ensure local MusicGen deps. Installs are synchronous here —
-  // generation itself is detached, so the engine still returns promptly.
-  if (lyriaConfigured && !pyOk(LYRIA_PY_PROBE)) pipInstall(LYRIA_PY_DEPS);
+  // Use the explicitly prepared Python environment; rendering never installs packages globally.
   const useLyria = lyriaConfigured && pyOk(LYRIA_PY_PROBE);
-  if (!useLyria && !pyOk(BGM_PY_PROBE)) pipInstall(BGM_PY_DEPS);
 
   const fd = openSync(log, "w");
   if (useLyria) {
     const proc = spawn(
-      "python3",
+      python,
       [lyriaRecipe, "--output", abs, "--duration", String(targetS), "--prompt", prompt],
       { detached: true, stdio: ["ignore", fd, fd] },
     );
@@ -141,7 +133,7 @@ export function generateBgmDetached({
     const seedS = Math.min(Math.max(seedSeconds, 10), 30);
     const loops = targetS > seedS ? Math.ceil(targetS / seedS) : 1;
     const script = musicgenScript({ prompt, abs, targetS, seedS });
-    const proc = spawn("python3", ["-c", script], { detached: true, stdio: ["ignore", fd, fd] });
+    const proc = spawn(python, ["-c", script], { detached: true, stdio: ["ignore", fd, fd] });
     proc.unref();
     closeSync(fd);
     return {
@@ -160,8 +152,8 @@ export function generateBgmDetached({
   return {
     disabled: true,
     reason: lyriaConfigured
-      ? `Lyria configured but google-genai uninstallable, and local MusicGen unavailable (pip install ${BGM_PY_DEPS.join(" ")})`
-      : `no Lyria key/recipe and local MusicGen deps unavailable (pip install ${BGM_PY_DEPS.join(" ")})`,
+      ? `Lyria configured but google-genai is not installed in the selected Python environment, and local MusicGen unavailable (prepare a project virtual environment with ${BGM_PY_DEPS.join(" ")}, then set HYPERFRAMES_PYTHON)`
+      : `no Lyria key/recipe and local MusicGen deps unavailable (prepare a project virtual environment with ${BGM_PY_DEPS.join(" ")}, then set HYPERFRAMES_PYTHON)`,
   };
 }
 

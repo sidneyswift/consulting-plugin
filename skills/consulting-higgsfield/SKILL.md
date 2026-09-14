@@ -1,9 +1,18 @@
 ---
 name: consulting-higgsfield
-description: Generate AI media for content by driving the Higgsfield CLI — photoreal or cinematic IMAGES, AI VIDEO / b-roll, branded PRODUCT shots, a face-consistent AI CHARACTER/avatar ("Soul"), and AI VOICEOVERS. Use on "generate an image/photo/video with Higgsfield", "make a photorealistic / cinematic / AI-generated visual", "AI b-roll", "product photoshoot", "make an AI avatar / a recurring character", "AI voiceover", or whenever content needs *generated pixels* that can't be drawn in HTML/CSS. NOT for typographic/designed stills (quote cards, frameworks, stat cards, carousels, thumbnails, OG images) → use consulting-graphics; NOT for HTML-rendered/deterministic video (explainers, captions, motion-type, slideshows) → use consulting-hyperframes-video. Bills credits (paid) — always preview cost first.
+description: "Generate AI media for content by driving the Higgsfield CLI — photoreal or cinematic IMAGES, AI VIDEO / b-roll, branded PRODUCT shots, a face-consistent AI CHARACTER/avatar (\"Soul\"), and AI VOICEOVERS. Use on \"generate an image/photo/video with Higgsfield\", \"make a photorealistic / cinematic / AI-generated visual\", \"AI b-roll\", \"product photoshoot\", \"make an AI avatar / a recurring character\", \"AI voiceover\", or whenever content needs *generated pixels* that can't be drawn in HTML/CSS. NOT for typographic/designed stills (quote cards, frameworks, stat cards, carousels, thumbnails, OG images) → use consulting-graphics; NOT for HTML-rendered/deterministic video (explainers, captions, motion-type, slideshows) → use consulting-hyperframes-video. Bills credits (paid) — always preview cost first."
 ---
 
 # Consulting Higgsfield
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
 
 Generative AI media for the content flywheel. Where `consulting-graphics` *designs* a still (HTML → PNG,
 pixel-perfect text) and `consulting-hyperframes-video` *renders* video from HTML, Higgsfield **generates
@@ -59,7 +68,7 @@ the command cheat-sheet → `integrations/higgsfield/AGENTS.md`.
 
 ## Soul characters (a consistent brand persona)
 
-To reuse the *same* AI person across many posts (a recurring face, a mascot, Sid-as-avatar): train a
+To reuse the *same* AI person across many posts (a recurring face, a mascot, the owner-as-avatar): train a
 **Soul** once with `higgsfield soul-id …`, then reference it in later generations for a consistent look.
 Training is an expensive, gated lane — confirm the spend **and** the reference images with the user before
 running it. See `integrations/higgsfield/AGENTS.md` and `higgsfield soul-id create --help`.

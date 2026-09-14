@@ -17,38 +17,8 @@ const path = require("path");
 const fs = require("fs");
 const os = require("os");
 
-const HF_ROOTS = [
-  process.env.HYPERFRAMES_ROOT,
-  path.resolve(__dirname, "../../.."),
-  path.join(os.homedir(), "Downloads", "hyperframes"),
-].filter(Boolean);
-let puppeteer = null;
-for (const root of HF_ROOTS) {
-  const cands = [path.join(root, "node_modules", "puppeteer")];
-  const bunDir = path.join(root, "node_modules", ".bun");
-  try {
-    if (fs.existsSync(bunDir)) {
-      for (const d of fs.readdirSync(bunDir))
-        if (d.startsWith("puppeteer@"))
-          cands.push(path.join(bunDir, d, "node_modules", "puppeteer"));
-    }
-  } catch {
-    /* ignore */
-  }
-  for (const p of cands) {
-    try {
-      if (fs.existsSync(p)) {
-        puppeteer = require(p);
-        break;
-      }
-    } catch {}
-  }
-  if (puppeteer) break;
-}
-if (!puppeteer) {
-  console.error("[overflow] puppeteer not found");
-  process.exit(3);
-}
+const { loadPackage } = require("../../../engine/runtime/dependencies.cjs");
+const puppeteer = loadPackage("puppeteer");
 
 async function main() {
   const projectDir = process.argv[2];
@@ -74,7 +44,7 @@ async function main() {
       : "/usr/bin/google-chrome";
   const browser = await puppeteer.launch({
     headless: "new",
-    executablePath: fs.existsSync(exe) ? exe : undefined,
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || process.env.CHROMIUM_PATH || (fs.existsSync(exe) ? exe : undefined),
     args: [
       "--disable-web-security",
       "--allow-file-access-from-files",

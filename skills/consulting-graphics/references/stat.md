@@ -1,5 +1,7 @@
 # Template: Stat
 
+**Demo content:** the HTML below is a fictional layout example. Replace all figures, incident details, signatures, and logos with approved workspace inputs.
+
 One giant number is the whole design. For data drops, proof, milestones, and before/after. The number
 dwarfs everything; a small label sets it up and a short line lands the "so what." Uses the shared DNA
 in the project's `DESIGN.md`.
@@ -14,7 +16,7 @@ in the project's `DESIGN.md`.
   for the single energy pop. It is by far the largest thing on the canvas.
 - **Label:** small uppercase `Plus Jakarta Sans` 700 above the number (`--accent` / muted) — what it measures.
 - **Context line:** one sentence under the number — the meaning, with the contrast/source if there is one.
-- **Footer:** standard mark + `Sidney Swift` · `recoupable.com`, adapted to the field.
+- **Footer:** standard mark + `{{AUTHOR_NAME}}` · `{{BRAND_WEBSITE}}`, adapted to the field.
 
 ## Layout rules
 - Number centered or anchored left, vertically a touch above center. One number per card.
@@ -43,16 +45,16 @@ in the project's `DESIGN.md`.
   .footer .url{font-size:16px;color:#9bb2ec;}
 </style></head><body>
   <div class="wrap">
-    <div class="label">The real number</div>
-    <div class="num">88</div>
-    <div class="context">Minutes a task was actually out. The agent reported <b>28</b> — confident, formatted, wrong.</div>
+    <div class="label">Fictional intake demo</div>
+    <div class="num">18</div>
+    <div class="context">Synthetic briefs reviewed in a fictional Cedar Lantern Studio pilot. These are example figures.</div>
   </div>
   <div class="footer">
     <div class="who">
       <svg viewBox="0 0 223 223" width="26" height="26" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M118.106 41C112.845 41 108.581 45.2558 108.581 50.5056V88.3242C108.581 93.9241 106.846 99.3868 103.613 103.964C98.5169 111.179 90.2239 115.471 81.3785 115.471H57.525C52.2645 115.471 48 119.727 48 124.977V172.304C48 177.554 52.2645 181.81 57.525 181.81H104.894C110.155 181.81 114.419 177.554 114.419 172.304V139.968C114.419 133.432 116.445 127.056 120.218 121.714L120.885 120.77C126.833 112.348 136.512 107.339 146.836 107.339H165.475C170.736 107.339 175 103.083 175 97.833V50.5056C175 45.2558 170.736 41 165.475 41H118.106Z" fill="#ffffff"/></svg>
-      <span class="nm">Sidney Swift</span>
+      <span class="nm">{{AUTHOR_NAME}}</span>
     </div>
-    <span class="url">recoupable.com</span>
+    <span class="url">{{BRAND_WEBSITE}}</span>
   </div>
 </body></html>
 ```
@@ -62,4 +64,4 @@ in the project's `DESIGN.md`.
 - [ ] Number is by far the biggest element; reads instantly at thumbnail scale
 - [ ] Label sets it up, one context line lands the meaning
 - [ ] One signal moment (the number or its glow), not a rainbow
-- [ ] Footer = mark + Sidney Swift · recoupable.com
+- [ ] Footer = mark + {{AUTHOR_NAME}} · {{BRAND_WEBSITE}}

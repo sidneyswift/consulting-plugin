@@ -1,9 +1,14 @@
 ---
 name: consulting-sow-generator
-description: Generate a Statement of Work under the existing MSA. Use on "draft the SOW", "scope this engagement", after a deal is won, or when adding a new workstream/expansion.
+description: "Generate a Statement of Work under the existing MSA. Use on \"draft the SOW\", \"scope this engagement\", after a deal is won, or when adding a new workstream/expansion."
 ---
 
 # Consulting SOW Generator
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 ## Steps
 1. Pull scope from the proposal/discovery and confirm the MSA is in place (`library/contracts/msa-sow-notes.md`).

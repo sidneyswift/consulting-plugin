@@ -1,20 +1,24 @@
 ---
 name: consulting-skill-packager
-description: Publish or refresh the consulting-os plugin so it installs from its GitHub URL. Use on "package the skills", "publish the plugin", "ship the skills", or after authoring/editing a skill so the change goes live.
+description: Validate and package changes in the explicitly selected plugin repository, then publish only when authorized. Use for packaging, releasing, or refreshing skills.
 ---
 
 # Consulting Skill Packager
 
-This repo is already a plugin **and** its own marketplace (`.cursor-plugin/` and `.claude-plugin/`
-manifests). "Packaging" just means validating and pushing — there is no `.plugin` artifact to build.
+First locate the actual plugin source repository. A business workspace containing a vendored copy
+or a submodule is not automatically the publication destination. Read its packaging instructions,
+manifest files, Git status, and remote; preserve unrelated work.
 
-## Steps
-1. Validate each `skills/{name}/SKILL.md` has valid frontmatter (`name` + `description`) and clear steps.
-2. Confirm the manifests still list the plugin and point `skills` at `skills/`
-   (`.cursor-plugin/` for Cursor, `.claude-plugin/` for Claude Code).
-3. Bump `version` in the `plugin.json` + `marketplace.json` files if you're publishing a change.
-4. Commit and push to GitHub — the repo URL is the install source.
-5. Tell the user how to install/refresh: add the repo URL as a plugin source (Cursor) or marketplace
-   (Claude Code) and install `consulting-os`; existing installs pick up changes on refresh.
+1. Validate skill names, descriptions, supporting resources, and changed helpers. Run that plugin's
+   checks. In this Consulting OS source, use `python3 scripts/validate_plugin.py` and focused tests.
+2. Inspect the destination's installed plugin and marketplace formats. Update all applicable manifests
+   consistently; do not copy a personal source URL into a differently owned package.
+3. Keep a source edit, an installed-plugin update, and a vendored copy update distinct. None is automatic.
+4. Review the final files for private examples, credentials, local paths, and asset terms. Sanitizing
+   current files does not sanitize prior Git history. Use a reviewed snapshot for a new sharing boundary.
+5. Commit the intended changes according to the workspace convention. Publish only to the explicitly
+   authorized repository and branch; an ordinary skill edit alone is not a request to publish.
+6. Report the exact committed/published state and which installed or vendored copies still need updating.
 
-Full lifecycle: `_packaging/README.md`.
+For a move into Recoup Skills, follow that repository's current naming, resolver, manifest, and
+portability checks. Do not assume its internal skill label means the GitHub repository is private.

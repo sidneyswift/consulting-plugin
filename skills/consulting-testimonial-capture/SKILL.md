@@ -1,9 +1,14 @@
 ---
 name: consulting-testimonial-capture
-description: Capture a testimonial and logo rights. Use at a milestone, 30–60 days into an engagement, after a value review, or "ask for a testimonial".
+description: "Capture a testimonial and logo rights. Use at a milestone, 30–60 days into an engagement, after a value review, or \"ask for a testimonial\"."
 ---
 
 # Consulting Testimonial Capture
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 ## Steps
 1. Identify the specific result worth highlighting.

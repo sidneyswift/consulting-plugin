@@ -191,7 +191,7 @@ Principle: the reader can't watch you "come back" to anything — the phrase per
 
 ## More slop patterns (bad → good)
 
-Caught in real drafts. Each is default-off: cut it unless it's doing specific work.
+Illustrative editing patterns. Each is default-off: cut it unless it's doing specific work.
 
 ### Writerly surprise setups
 Labeling something as surprising or unexpected instead of just stating it. The fact creates the surprise; announcing it is throat-clearing.
@@ -240,8 +240,15 @@ When a header or line asks a question, answer it plainly and first. Circling it 
 ### The client-work trust lens (highest stakes)
 Before publishing anything that touches a client engagement (money, IP, ownership, who did what), read it from the client's chair. Brevity that glosses a sensitive claim reads as dismissive or self-serving and quietly costs trust. Add the sentence or parenthetical that shows respect and shared understanding, even at the cost of a few words.
 
-- Bad: "One client's contract says they own all work product, which means every skill I build in their repository is theirs, not mine. That's a clean answer. Most companies don't have one."
-- Good: "In one of my engagements, the contract is explicit: the client owns all work product, so every skill I build in their repo is theirs. I think that's the right setup (clear ownership keeps the capability with the company, not with me or any one person). Most companies leave it ambiguous, and the ambiguity is where it gets messy."
+**Fictional contract example:** assume Cedar Lantern Studio's invented agreement assigns deliverables
+containing its data to the client and reserves reusable generic tools to the consultant.
+
+- Bad: "You own everything we build."
+- Good: "Under this example agreement, you own deliverables containing your data. Reusable generic
+  tools remain with the consultant."
+
+For real work, read and cite the actual executed clause. This example is not legal language to copy
+or a promise about any real engagement.
 
 ### Stacked list-sentences
 Two enumerations in consecutive sentences read mechanically; the cadence is a tell that the model is padding. Keep the one list that earns its place, and turn the other into a concrete claim.
@@ -308,7 +315,7 @@ Announcing that you're about to be honest, or grading how honest someone else wa
 
 - Bad: "So here it is straight: we're a consulting practice." → "We're a consulting practice."
 - Bad: "Appreciated the straight talk Monday." → "Thanks for being upfront with me Monday."
-- Bad: "If anyone read that as competition, that was a fair read of what I wrote." (grades the reader's interpretation) → take the blame plainly: "Some of the confusion comes from my own posts."
+- Bad: "If you found my instructions confusing, that was a fair interpretation." (grades the reader's interpretation) → own the mistake plainly: "I left a step out of the instructions."
 
 Same family: "let me be honest," "real talk," "to be completely transparent," "I'll be blunt," "no BS," "candidly." Cut the label, keep the sentence. When apologizing, own the failure instead of validating their reaction ("I should have explained that sooner" beats "your concern is understandable").
 

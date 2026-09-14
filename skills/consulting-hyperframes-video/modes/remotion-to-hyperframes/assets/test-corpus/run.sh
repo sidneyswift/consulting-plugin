@@ -14,8 +14,7 @@
 #   - ffmpeg, ffprobe, python3 on PATH
 #   - node 22 (for the HF CLI)
 #   - npm (for Remotion installs)
-#   - HF CLI built at packages/cli/dist/cli.js (run `bun run --filter @hyperframes/cli build`
-#     in the repo root if missing)
+#   - a prepared HyperFrames runtime (engine/runtime/SETUP.md)
 #
 # Output:
 #   <fixture>/diff/summary.json   per-fixture SSIM summary
@@ -26,12 +25,15 @@ set -euo pipefail
 
 THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_DIR="$(cd "$THIS_DIR/../.." && pwd)"
-REPO_ROOT="$(cd "$SKILL_DIR/../.." && pwd)"
+CORPUS_SOURCE="$THIS_DIR"
+THIS_DIR="$(mktemp -d "${TMPDIR:-/tmp}/hf-corpus.XXXXXX")"
+cp -R "$CORPUS_SOURCE/." "$THIS_DIR/"
+echo "Corpus outputs: $THIS_DIR"
 
 LINT="$SKILL_DIR/scripts/lint_source.py"
 DIFF="$SKILL_DIR/scripts/render_diff.sh"
 STRIP="$SKILL_DIR/scripts/frame_strip.sh"
-HF_CLI="$REPO_ROOT/packages/cli/dist/cli.js"
+HF_CLI=""
 REPORT="$THIS_DIR/run-report.json"
 
 # Per-fixture results land here as one JSON file each, then the aggregator
@@ -44,11 +46,7 @@ trap 'rm -rf "$RESULTS_DIR"' EXIT
 # toolchain checks until run_render_tier() actually runs, so
 # `./run.sh tier-4-escape-hatch` works on a clean checkout.
 require_render_tier_tools() {
-  if [[ ! -f "$HF_CLI" ]]; then
-    echo "error: HF CLI not built at $HF_CLI" >&2
-    echo "       Run 'bun run --filter @hyperframes/cli build' in $REPO_ROOT" >&2
-    return 2
-  fi
+  HF_CLI="$(node "$SKILL_DIR/../../engine/runtime/dependencies.cjs")" || return 2
   if ! command -v ffmpeg >/dev/null 2>&1; then
     echo "error: ffmpeg not on PATH" >&2
     return 2
@@ -172,11 +170,12 @@ run_lint_tier() {
   fixture_name=$(basename "$fixture_dir")
 
   echo "  ▶ $fixture_name (lint-only)"
-  if "$fixture_dir/validate.sh" >/dev/null 2>&1; then
+  if HYPERFRAMES_TEST_SCRIPTS_DIR="$SKILL_DIR/scripts" bash "$fixture_dir/validate.sh" >"$fixture_dir/validation.log" 2>&1; then
     echo "    ✓ pass (8/8 cases)"
     write_result "$fixture_name" "pass" mode "lint"
   else
-    echo "    ✗ fail (some cases mismatched expected.json)"
+    echo "    ✗ fail (see $fixture_dir/validation.log)"
+    cat "$fixture_dir/validation.log"
     write_result "$fixture_name" "fail" mode "lint"
   fi
 }

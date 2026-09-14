@@ -12,10 +12,12 @@ Until then, a standalone slideshow opened via the bare player bundle must work a
 
 Do not treat these as the blessed authoring model. When the engine-hosted path ships, compositions authored the normal way will just work.
 
-**Living reference implementations:**
+**Bundled starting point:** use the wrapper below and the slideshow schema in this mode. Original
+upstream example directories are optional and are not shipped here.
 
-- `registry/examples/airbnb-deck/index.html` + `demo.html` — full pattern set (Three.js, fragments, SFX, branch slide)
-- `registry/examples/startup-pitch/index.html` — minimal version (no 3D), good starting point
+Copy the prepared runtime's `@hyperframes/player/dist/hyperframes-player.global.js` and
+`@hyperframes/player/dist/slideshow/hyperframes-slideshow.global.js` into the generated project's
+`assets/` directory, preserving package notices. The wrapper uses these project-local files.
 
 ---
 
@@ -34,12 +36,12 @@ For public or user-facing generated projects, make this wrapper the root `index.
     <title>My Deck — Slideshow Demo</title>
 
     <!--
-      Load both bundles from packages/player/dist.
+      Load both bundles copied from the prepared runtime into this project.
       The global builds register <hyperframes-player> and <hyperframes-slideshow>
       as custom elements — no import map needed.
     -->
-    <script src="../../../packages/player/dist/hyperframes-player.global.js"></script>
-    <script src="../../../packages/player/dist/slideshow/hyperframes-slideshow.global.js"></script>
+    <script src="./assets/hyperframes-player.global.js"></script>
+    <script src="./assets/hyperframes-slideshow.global.js"></script>
 
     <style>
       *,

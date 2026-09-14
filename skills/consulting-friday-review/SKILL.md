@@ -1,9 +1,18 @@
 ---
 name: consulting-friday-review
-description: The weekly content + system review ritual. Use on "run the Friday review", weekly cadence, or "what should I write this week". Good candidate to wire as a scheduled task.
+description: "The weekly content + system review ritual. Use on \"run the Friday review\", weekly cadence, or \"what should I write this week\". Good candidate to wire as a scheduled task."
 ---
 
 # Consulting Friday Review
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
 
 ## Steps
 1. Scan `signals/` for unused signals — the dated `<YYYY-MM-DD>-*.md` files (`status: new`; skip the meta files `AGENTS.md`/`_template.md`/`_index.md`/`_archive/`; target 15–20 candidates).

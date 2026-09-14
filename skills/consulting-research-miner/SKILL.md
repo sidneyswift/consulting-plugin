@@ -1,13 +1,22 @@
 ---
 name: consulting-research-miner
-description: Mine the external AI & Agents research wiki for content. Use on "harvest research", "content ideas from research", "mine the research wiki", on the Friday cadence, or whenever the research wiki (../research) has new material. Turns its cited analysis into atomic signals (signals/) that show the practice's agent/skill expertise — read-only; never copies wiki pages in.
+description: "Mine the external AI & Agents research wiki for content. Use on \"harvest research\", \"content ideas from research\", \"mine the research wiki\", on the Friday cadence, or whenever the configured research wiki has new material. Turns its cited analysis into atomic signals (signals/) that show the practice's agent/skill expertise — read-only; never copies wiki pages in."
 ---
 
 # Consulting Research Miner
 
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
+Local `_work` adapters and `evals` are optional workspace tools, not bundled dependencies. Check
+presence and current help first; otherwise use an available connector for the same scoped operation.
+If neither exists, report that step incomplete. For missing scorers, perform the stated checks and
+label the result manual/unscored; never invent a numeric score or successful provider action.
+
 Harvest the research wiki (a read-only, **content-only** source) into the content backlog. The
 **mining protocol, path config, and boundary rules live in `integrations/research/AGENTS.md`** —
-read that first; this skill is only the harvest loop layered on top of it.
+read that first if present; if no research source is configured, report it unavailable without searching neighboring repositories. This skill is only the harvest loop layered on top of it.
 
 ## When to run
 Friday cadence (via `consulting-friday-review`), on demand ("harvest research"), or whenever the

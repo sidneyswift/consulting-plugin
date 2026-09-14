@@ -1,9 +1,14 @@
 ---
 name: consulting-proposal-drafting
-description: Draft a situational-assessment proposal from a discovery transcript or discovery analysis. Use when a qualified deal needs a proposal, or the user says "draft a proposal", "write the SOW", "put together options". Applies the 3-option, 5-10x pricing framework. Send within 48h.
+description: "Draft a situational-assessment proposal from a discovery transcript or discovery analysis. Use when a qualified deal needs a proposal, or the user says \"draft a proposal\", \"write the SOW\", \"put together options\". Applies the 3-option, 5-10x pricing framework. Send within 48h."
 ---
 
 # Consulting Proposal Drafting
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 ## When to run
 After discovery analysis on a qualified deal.

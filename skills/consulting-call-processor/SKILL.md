@@ -1,9 +1,14 @@
 ---
 name: consulting-call-processor
-description: The auto-manage orchestrator. Use whenever new client/deal material lands — a transcript, meeting note, email, or result — or when the user says "process this call", "ingest this", "handle this transcript". Runs the full keep-the-system-current loop end to end.
+description: "The auto-manage orchestrator. Use whenever new client/deal material lands — a transcript, meeting note, email, or result — or when the user says \"process this call\", \"ingest this\", \"handle this transcript\". Runs the full keep-the-system-current loop end to end."
 ---
 
 # Consulting Call Processor
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 The CLAUDE.md auto-manage loop as one skill. Don't stop after a single step — run the whole loop, then report what changed.
 

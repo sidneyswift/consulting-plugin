@@ -1,9 +1,14 @@
 ---
 name: consulting-market-scanner
-description: Capture niche intelligence and buying signals. Use on "research this market/niche", "what are the buying signals here", or when evaluating a new vertical.
+description: "Capture niche intelligence and buying signals. Use on \"research this market/niche\", \"what are the buying signals here\", or when evaluating a new vertical."
 ---
 
 # Consulting Market Scanner
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 ## Steps
 1. Capture niche notes, the "hungry crowd" buying signals, and underserved gaps.

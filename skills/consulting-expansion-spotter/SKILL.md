@@ -1,9 +1,14 @@
 ---
 name: consulting-expansion-spotter
-description: Identify land-and-expand opportunities within a client. Use during/after delivery, at QBR time, or "where can we grow this account".
+description: "Identify land-and-expand opportunities within a client. Use during/after delivery, at QBR time, or \"where can we grow this account\"."
 ---
 
 # Consulting Expansion Spotter
+
+**Workspace:** use the selected project and its `AGENTS.md`; keep existing entity folders and
+Reality headings. Business paths below are relative to that project. Bundled resources are relative
+to this installed skill; sibling capabilities resolve by their installed names. Never search another
+private checkout for missing inputs. Use workspace identity, audience, pricing, and `DESIGN.md` fonts.
 
 ## Steps
 1. Scan the client's notes, delivery, and value review for adjacent problems and new stakeholders.
