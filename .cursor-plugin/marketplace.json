@@ -1,7 +1,7 @@
 {
   "metadata": {
     "description": "Consulting OS — skills for running an AI consulting practice: lead intake, discovery, proposals, the content flywheel, client success, and ops.",
-    "version": "1.8.1"
+    "version": "1.8.2"
   },
   "name": "consulting-plugin",
   "owner": {
