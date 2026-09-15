@@ -1,12 +1,16 @@
 {
-  "name": "consulting-os",
-  "version": "1.8.0",
-  "description": "Skills for running an AI consulting practice operating system.",
   "author": {
     "name": "Sidney Swift"
   },
+  "description": "Skills for running an AI consulting practice operating system.",
   "homepage": "https://github.com/sidneyswift/consulting-plugin",
-  "repository": "https://github.com/sidneyswift/consulting-plugin",
+  "interface": {
+    "category": "Productivity",
+    "developerName": "Sidney Swift",
+    "displayName": "Consulting OS",
+    "longDescription": "Skills for lead intake, discovery analysis, pricing, proposals, the content flywheel, client onboarding, QBRs, invoicing, and ops.",
+    "shortDescription": "Run an AI consulting practice"
+  },
   "keywords": [
     "consulting",
     "sales",
@@ -15,12 +19,8 @@
     "client-success",
     "operations"
   ],
+  "name": "consulting-os",
+  "repository": "https://github.com/sidneyswift/consulting-plugin",
   "skills": "./skills/",
-  "interface": {
-    "displayName": "Consulting OS",
-    "shortDescription": "Run an AI consulting practice",
-    "longDescription": "Skills for lead intake, discovery analysis, pricing, proposals, the content flywheel, client onboarding, QBRs, invoicing, and ops.",
-    "developerName": "Sidney Swift",
-    "category": "Productivity"
-  }
+  "version": "1.8.1"
 }
