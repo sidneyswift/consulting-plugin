@@ -1,14 +1,10 @@
 {
-  "name": "consulting-os",
-  "displayName": "Consulting OS",
-  "skills": "skills",
-  "description": "Skills for running an AI consulting practice operating system.",
-  "version": "1.8.0",
   "author": {
     "name": "Sidney Swift"
   },
+  "description": "Skills for running an AI consulting practice operating system.",
+  "displayName": "Consulting OS",
   "homepage": "https://github.com/sidneyswift/consulting-plugin",
-  "repository": "https://github.com/sidneyswift/consulting-plugin",
   "keywords": [
     "consulting",
     "sales",
@@ -16,5 +12,9 @@
     "content",
     "client-success",
     "operations"
-  ]
+  ],
+  "name": "consulting-os",
+  "repository": "https://github.com/sidneyswift/consulting-plugin",
+  "skills": "skills",
+  "version": "1.8.1"
 }

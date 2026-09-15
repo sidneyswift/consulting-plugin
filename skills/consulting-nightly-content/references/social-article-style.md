@@ -246,4 +246,4 @@ This format often includes claims about tools, protocols, products, and market d
 
 ## Source samples
 
-Preserved source samples live in [social-article-samples.md](social-article-samples.md). Extract the moves, not the exact phrasing.
+Preserved source samples live in social-article-samples.md (`social-article-samples.md`). Extract the moves, not the exact phrasing.
