@@ -5,6 +5,12 @@ description: "Structure a high-performing LinkedIn post — pick the archetype a
 
 # Consulting LinkedIn Post Architect
 
+## Required public-content gate
+
+Read `references/public-content-quality.md` before drafting, reviewing, illustrating or publishing.
+It governs competitor/source restrictions, plain-language explanations, cover comprehension and
+revision evidence. Apply it to every public format; older style examples do not override this gate.
+
 ## Visual handoff
 
 When this workflow creates or requests a rendered artifact, use `consulting-tasteful-design` and
